@@ -1,0 +1,158 @@
+\documentclass[a4paper,12pt]{article}
+\pdfpagewidth
+\paperwidth
+\pdfpageheight
+\paperheight
+\usepackage[italian]{babel} 
+\usepackage{epsfig}
+\usepackage{fancyhdr} 
+\usepackage{amsmath,amssymb}
+\usepackage{amscd} 
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc} 
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{graphicx,color,listings}
+\usepackage{hologo}
+\frenchspacing 
+\usepackage{geometry}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\captionsetup{labelformat=empty, textfont=sl}
+\geometry{a4paper,tmargin=3cm,bmargin=3cm, lmargin=3cm,rmargin=2cm} \usepackage{multirow}
+\usepackage{picture}
+\textwidth16cm\textheight24cm\topmargin0mm\headheight0mm\headsep6mm\oddsidemargin0mm
+\evensidemargin0mm
+\usepackage{verbatim}
+
+\begin{document}
+\part{Sensori e trasduttori}
+\section{I sensori}
+I sensori, in un sistema di acquisizione dati, sono le interfacce fisiche tra i dispositivi di elaborazione dei segnali elettrici acquisiti in input e le corrispondenti grandezze fisiche da monitorare in funzione del tempo. 
+
+Un sensore è un dispositivo con la funzione di fornire in uscita un segnale elettrico, sotto forma di tensione o di corrente, del valore teoricamente proporzionale a quello della grandezza fisica in input che si desidera acquisire. 
+
+Per ottenere un segnale elettrico in uscita di un valore linearmente dipendente da una qualsiasi grandezza fisica (temperatura, pressione, forza, flusso luminoso, ecc..) in input, si utilizza il sensore, il cui funzionamento si basa sulla variabilità di una grandezza fisica elettrica, per esempio resistenza, capacità o induttanza, in funzione della grandezza fisica da misurare.
+
+Si definisce caratteristica di trasferimento la curva che rappresenta l'andamento del segnale elettrico generato dal sensore in output in funzione della grandezza fisica che si considera.
+La caratteristica di trasferimento è il legame che è presente tra la variabile da misurare (ingresso) e il segnale elettrico di uscita del trasduttore. 
+Nella pratica accade molto raramente che tale caratteristica di trasferimento corrisponda, anche approssimativamente, alla legge di proporzionalità diretta: 
+\begin{equation}
+V = k G
+\end{equation}
+Oppure:
+\begin{equation}
+I = k G
+\end{equation}
+dove V è la tensione, mentre I è la corrente fornita dal sensore, k è una costante di taratura e G è la grandezza fisica da acquisire in input.
+
+In modo generale la caratteristica di trasferimento si allontana, in modo più o meno pronunciato, dal modello ideale a causa di alcuni errori come l'errore di offset e l'errore di linearità. I trasduttori la cui caratteristica è una retta sono detti lineari. Il funzionamento ottimale di un trasduttore è definito da una caratteristica lineare. La linearità è il parametro che evidenzia la deviazione tra la retta (caratteristica teorica) e la curva reale. La non linearità è il valore massimo della deviazione rispetto alla curva teorica in valore assoluto riferito al valore massimo del segnale di uscita. Un sensore è buono quando la sua non linearità è inferiore allo 0.1%.
+
+L'errore di offset è presente perché il segnale elettrico fornito in uscita è diverso da zero anche quando la grandezza fisica ha valore nullo. Questo avviene quando la retta non passa per l'origine la variabile d'uscita è diversa da zero in corrispondenza del valore nullo della variabile di ingresso. Supponendo che la caratteristica sia lineare:
+\begin{equation}
+V = Voff + k G
+\end{equation}
+dove Voff è la tensione di offset, k è una costante di taratura e G è la grandezza fisica da acquisire in input. Si definisce offset il valore non nullo della variabile di uscita corrispondente al valore nullo della variabile d' ingresso.
+L'errore di linearità è il massimo scarto, in valore assoluto, nel range nominale di funzionamento del sensore tra la caratteristica reale e la caratteristica ideale, dove per caratteristica ideale si intende la caratteristica lineare V, passante per gli estremi della caratteristica reale, nei punti (0, Voff) e (Fmax, Vmax), dove Fmax e Vmax sono rispettivamente il valore massimo della grandezza fisica G ed il valore massimo della tensione V nel range nominale. Il range di funzionamento è l'intervallo dei valori che può assumere la grandezza fisica che deve essere trasdotta. Appena la grandezza fisica esce dal range il trasduttore non funziona più, e ritorna a lavorare appena rientra nell'intervallo. Il range di ingresso (o campo di ingresso) definisce i limiti entro cui può variare il segnale in ingresso; mentre il range di uscita (o campo di uscita) definisce i limiti entro cui può variare il segnale in uscita. 
+
+\section{Tipi di sensori}
+I sensori si distinguono in base al principio di funzionamento:
+\begin{enumerate}
+\item sensori attivi, se forniscono direttamente un segnale elettrico, in tensione o in corrente, in funzione della grandezza fisica;
+\item sensori passivi, se si utilizza la variabilità di una grandezza elettrica, per es. la resistenza, la capacità o l'induttanza, in funzione della grandezza fisica, per ottenere una tensione o una corrente, inserendo il sensore in un circuito di misura.  
+\end{enumerate}
+
+
+I sensori si distinguono in base al principio fisico utilizzato:
+\begin{enumerate}
+\item Resistivi: si basano sulla variabilità della resistenza elettrica in funzione degli sforzi meccanici, della temperatura, del campo magnetico, dell'intensità di illuminamento;
+\item Piezoelettrici: si basano sul campo elettrico generato nei cristalli piezoelettrici da sforzi meccanici di trazione, compressione o taglio;
+\item Termoelettrici: si basano sulle forze elettromotrici termoelettriche generate per effetto Seebeck da giunzioni metalliche mantenute a temperature diverse dette termocoppie;
+\item Fotovoltaici: si basano sulle forze elettromotrici generate per effetto fotovoltaico da una giunzione semiconduttrice PN, colpita da radiazioni infrarosse, visibili, ultraviolette, X,        $ \gamma $ o da particelle cariche;
+\item Fotoelettrici: si basano sulla fotocorrente che si ottiene, per effetto fotoelettrico, nelle celle fotoelettriche a vuoto, nei fotodiodi e nei fototransistor;
+\item Ad effetto Hall: si basano sulle forze elettromotrici generate in particolari materiali, generalmente semiconduttori, percorsi da corrente e sottoposti a campi magnetici;
+\item Capacitivi: si basano sulla variabilità della capacità elettrica di un condensatore in funzione dell'umidità o della costante dielettrica dell'isolante posto tra le armature;
+\item Induttivi: si basano sulla variabilità dell'induttanza di un avvolgimento dotato di un nucleo ferromagnetico estraibile;
+\item Elettromagnetici: si basano sulla legge dell'induzione elettromagnetica.
+\item A riluttanza variabile: si basano sulla variabilità della riluttanza di un circuito magnetico dotato di parti mobili;
+\item Potenziometrici: si basano sulla variabilità della tensione fornita da un partitore potenziometrico regolabile in funzione dello spostamento del cursore;
+\item Piezoacustici e ultrasonici: si basano sulle forze elettromotrici piezoelettriche generate da particolari materiali ceramici sottoposti ad onde meccaniche;
+\item Elettrochimici: si basano sui potenziali elettrochimici generati da celle elettrolitiche speciali, costituite da coppie di elettrodi sensibili a determinati ioni o radicali chimici, oppure sulla variabilità della conducibilità di particolari materiali in presenza di gas o vapori;
+\item Biologici: si basano sulle forze elettromotrici generate da celle elettrolitiche speciali in presenza di enzimi o di altre biomolecole.
+\end{enumerate}
+
+\section{Classificazione dei sensori}
+La classificazione dei sensori viene fatta in base alle caratteristiche fisiche:
+\begin{enumerate}
+\item resistivi: sfruttano la variazione della resistenza (fotoresistori, termoresistori, sensori di posizione);
+\item capacitivi: sfruttano la variazione della capacità di un condensatore (sensori di umidità);
+\item elettroacustici: convertono segnali sonori in grandezze elettriche (microfoni);
+\item elettrodinamici: si basano sul principio della forza elettromotrice per misurare velocità (dinamo tachimetrica);
+\item elettromagnetici: utilizzano il principio dell'induttanza elettrica per rilevare angoli di rotazione;
+\item magnetostritivi: si fondano sul principio della permeabilità;
+\item piezoelettrici: sfruttano l'originarsi di una polarizzazione elettrica su facce opposte di cristalli sottoposti a sollecitazioni (stress) fisiche;
+\item semiconduttore: sfruttano le caratteristiche della giunzione dei semiconduttori (fotodiodi, fototransistor).
+\end{enumerate}
+
+\section{I trasduttori}
+Il trasduttore è un dispositivo in grado di trasformare le variazioni di una grandezza fisica,
+normalmente non elettrica, in un'altra grandezza, normalmente di natura elettrica (tensione, frequenza o corrente). E' composto da due parti: sensore e convertitore, un circuito elettronico che trasforma le variazioni di un parametro del sensore in una variazione di una grandezza elettrica.
+
+
+\section{Tipi di trasduttori}
+I trasduttori sono di due tipi:
+\begin{enumerate}
+\item Analogico: quando il suo segnale di uscita è una grandezza elettrica che varia in modo continuo mantenendo una doppia corrispondenza con il valore della grandezza misurata;
+\item Digitale: quando il suo segnale di uscita è composto da uno o più segnali digitali che possono assumere ciascuno solo due livelli di tensione identificati come 0 e 1;
+\end{enumerate}
+Inoltre i trasduttori possono essere:
+\begin{enumerate}
+\item Attivi: Quando forniscono in uscita un segnale direttamente utilizzabile da circuiti di elaborazione senza nessun consumo di energia elettrica, è il caso delle celle fotovoltaiche e delle termocoppie;
+\item Passivi: Sono quei trasduttori ai quali bisogna fornire energia elettrica perché la grandezza fisica d'uscita possa essere trasformata in una grandezza elettrica.
+\end{enumerate}
+
+
+
+\part{Parametri caratteristici}
+\section{La sensibilità}
+La sensibilità è il rapporto tra la variazione della grandezza di uscita e la variazione della grandezza d'ingresso che la provoca. 
+\begin{equation}
+S = \Delta U / \Delta I
+\end{equation}
+Più il coefficiente angolare della retta è elevato più il trasduttore è sensibile e minore sarà il range di funzionamento. Lo strumento risulterà essere molto sensibile quando a parità di grandezza di ingresso la grandezza di uscita è molto elevata.
+Tempo di risposta è il tempo che il trasduttore impiega per raggiungere in uscita il valore di regime corrispondente al valore d'ingresso. 
+
+\section{La risoluzione}
+La risoluzione è il rapporto percentuale tra la minima variazione della grandezza di uscita in grado di essere rilevata e il valore massimo del fondo scala.
+La risoluzione R esprime la variazione minima di uscita rispetto al fondo-scala:
+\begin{equation}
+R = \Delta Xout_{min} / \Delta Xout_{fondoscala}
+\end{equation}
+
+\section{La riproducibilità}
+La riproducibilità è la capacità di un sensore di fornire sempre gli stessi valori di uscita in corrispondenza dell'ingresso. Vale a dire la costanza nel tempo delle caratteristiche del trasduttore (la sua resistenza all'invecchiamento).
+
+\section{L'accuratezza}
+Nel funzionamento reale il sensore descrive una caratteristica che si discosta dalla funzione ideale. Per tenere in conto la mancata accuratezza del dispositivo occorre misurare le deviazioni esistenti fra i valori reali e i valori ideali. Le caratteristiche di affidabilità in un sensore sono relazionate alla sua vita utile ed a possibili cause di mal funzionamento nel sistema in cui è inserito. Infatti  è la capacità del sensore di espletare la funzione per cui è stato costruito in condizioni prestabilite e per un tempo fissato; questo parametro è espresso in termini statistici come la probabilità che il dispositivo funzioni per un tempo o per un numero di cicli specificato. Solo di rado esso è specificato dai costruttori.
+
+\section{Il drift}
+Modifica temporale impredicibile delle caratteristiche del sensore. In pratica, la curva di risposta si modifica col tempo per cui, nella stima del misurando si introduce un errore che cambia (in genere cresce col tempo). Il drift definisce il tempo di vita della calibrazione del sensore, cioè dopo quanto tempo usare la stessa curva di risposta da luogo ad errori sul misurando non tollerabili.
+Il problema della variazione della curva di risposta del sensore nel tempo si risolve calibrandolo ogni tanto – I sensori (tutti) hanno un drift, cioè la loro risposta varia nel tempo:
+\begin{itemize}
+\item Un ottimo, seppur raro, controllo di qualità consiste nel tenere ogni sensore sotto continua osservazione per un lungo periodo (4-6 mesi), durante il quale il sensore viene continuamente ricalibrato per verificarne la stabilità. Solamente così è possibile verificare l’effettiva stabilità nel tempo del comportamento di ogni singolo sensore;
+\item I costruttori di sensori ad alta precisione, come Sea-Bird, seguono questa pratica, e scartano i sensori che non dimostrano una buona stabilità durante il periodo di valutazione – In funzione della tecnologia alla base del sensore e della sua costruzione la variazione può essere casuale o lineare e modellabile;
+\item Variazioni casuali della risposta del sensore richiedono frequenti calibrazioni per avere misure affidabili;
+\item Variazioni lineari e modellabili consentono calibrazioni meno frequenti – Tra calibrazioni successive si utilizzano termini interpolati;
+\end{itemize}
+
+\part{Aspetti legati all'acquisizione e al trattamento dei segnali, sia analogici che digitali, provenienti da sensori}
+
+\begin{figure}[p]
+\frame{\includegraphics[width=0.8\textwidth]{Lineare.png}}
+\end{figure}
+
+
+
+
+\end{document}
