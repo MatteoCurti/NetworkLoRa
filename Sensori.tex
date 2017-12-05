@@ -140,7 +140,7 @@ Nel funzionamento reale il sensore descrive una caratteristica che si discosta d
 Modifica temporale impredicibile delle caratteristiche del sensore. In pratica, la curva di risposta si modifica col tempo per cui, nella stima del misurando si introduce un errore che cambia (in genere cresce col tempo). Il drift definisce il tempo di vita della calibrazione del sensore, cioè dopo quanto tempo usare la stessa curva di risposta da luogo ad errori sul misurando non tollerabili.
 Il problema della variazione della curva di risposta del sensore nel tempo si risolve calibrandolo ogni tanto – I sensori (tutti) hanno un drift, cioè la loro risposta varia nel tempo:
 \begin{itemize}
-\item Un ottimo, seppur raro, controllo di qualità consiste nel tenere ogni sensore sotto continua osservazione per un lungo periodo (4-6 mesi), durante il quale il sensore viene continuamente ricalibrato per verificarne la stabilità. Solamente così è possibile verificare l’effettiva stabilità nel tempo del comportamento di ogni singolo sensore;
+\item Un ottimo, seppur raro, controllo di qualità consiste nel tenere ogni sensore sotto continua osservazione per un lungo periodo (4-6 mesi), durante il quale il sensore viene continuamente ricalibrato per verificarne la stabilità. Solamente così è possibile verificare l'effettiva stabilità nel tempo del comportamento di ogni singolo sensore;
 \item I costruttori di sensori ad alta precisione, come Sea-Bird, seguono questa pratica, e scartano i sensori che non dimostrano una buona stabilità durante il periodo di valutazione – In funzione della tecnologia alla base del sensore e della sua costruzione la variazione può essere casuale o lineare e modellabile;
 \item Variazioni casuali della risposta del sensore richiedono frequenti calibrazioni per avere misure affidabili;
 \item Variazioni lineari e modellabili consentono calibrazioni meno frequenti – Tra calibrazioni successive si utilizzano termini interpolati;
@@ -148,9 +148,76 @@ Il problema della variazione della curva di risposta del sensore nel tempo si ri
 
 \part{Aspetti legati all'acquisizione e al trattamento dei segnali, sia analogici che digitali, provenienti da sensori}
 
-\begin{figure}[p]
-\frame{\includegraphics[width=0.8\textwidth]{Lineare.png}}
-\end{figure}
+\section{Il segnale}
+Si definisce segnale la variazione di una qualsiasi grandezza fisica in funzione del tempo. 
+In generale possiamo affermare che un segnale, sotto opportune ipotesi, può essere descritto matematicamente da una funzione continua. Le onde di volume viaggiano all'interno della terra e seguono le leggi dell'ottica geometrica. Vi sono due tipi principali di onde di volume:
+\begin{enumerate}
+\item Onde P: (prime) onde di compressione e rarefazione in cui l'oscillazione delle particelle di matteria avviene parallelamente alla direzione di propagazione dell'onda; 
+\item Onde S: (seconde o di taglio) in cui l'oscillazione delle particelle avviene perpendicolarmente alla direzione di propagazione dell'onda.
+\end{enumerate}
+I Segnali Possono essere di 3 tipi:
+\begin{enumerate}
+\item Continui o Analogici: quando il loro valore può essere misurato in ogni istante. L'aggettivo 'analogico' è usato in relazione al fatto che la loro forma in uscita da un sistema è analoga a quella in ingresso.
+\item Discreti: quando il loro valore può essere misurato solo in determinati istanti di tempo.
+\item Digitali: quando si tratta di segnali discreti la cui ampiezza è associata ad un numero che ne rappresenta il valore in quell'istante. In genere per esprimere il numero viene usata, per semplicità, la base numerica binaria {0,1}.
+\end{enumerate}
+La teoria dei segnali si suddivide in due grandi branche a seconda del tipo di segnale in esame: 
+\begin{enumerate}
+\item Segnali deterministici: quando è possibile prevedere con certezza il suo valore ad un istante assegnato una volta conosciuti pochi parametri. Per esempio: una sinusoide di cui sia conosciuta l'ampiezza, la frequenza, e la fase ad un istante dato è un segnale deterministico.
+Purtroppo i segnali deterministici non esistono nella realtà, in quanto ogni segnale fisico reale possiede una certa indeterminazione per cui il suo valore non può essere mai previsto con infinita esattezza: risultano però una buona approssimazione in molti casi pratici.
+\item Segnali aleatori: quando è solo possibile prevedere solamente la probabilità che il segnale assuma un certo valore ad un dato istante. Un segnale aleatorio viene definito completamente da due funzioni: la densità di probabilità e la funzione di correlazione. La prima restituisce la probabilità che il segnale assuma un valore dato, la seconda fornisce una relazione tra i valori del segnale a istanti di tempo diversi.
+\end{enumerate}
+I casi più importanti dei segnali aleatori sono quelli in cui la distribuzione del segnale è gaussiana e quello in cui il valore del segnale ad un dato istante non è correlato a quello degli istanti precedenti e successivi. Esso prende il nome di rumore bianco.
+
+\section{Lettura del segnale}
+Per leggere un segnale bisogna utilizzare un trasduttore. Le caratteristiche importanti che un trasduttore deve possedere sono:
+\begin{itemize}
+\item l'ampiezza del segnale in uscita;
+\item la sensibilità, ovvero il minimo valore misurabile;
+\item la velocità di risposta, ovvero il tempo impiegato dal sensore per fornire una risposta costante dopo una brusca variazione della grandezza da misurare.
+\end{itemize}
+Da quest'ultima caratteristica dipende dalla banda passante, ovvero la massima frequenza di variazione del segnale a cui il sensore è in grado di funzionare. 
+Un trasduttore è uno strumento di misura, pertanto la tensione fornita sarà affetta da una piccola componente casuale, che porterà la misurazione a fluttuare intorno al valore medio. Si schematizza questo fenomeno considerando il segnale prodotto dal trasduttore come la somma di una parte proporzionale al segnale vero e proprio che si intende misurare, e da un segnale aleatorio, il rumore bianco. Le cause delle fluttuazioni (o sorgenti di rumore) sono molteplici ad esempio:
+\begin{itemize}
+\item la temperatura (rumore termico);
+\item la quantizzazione della carica dell'elettrone;
+\item i campi elettrici presenti nelle vicinanze dell'apparecchio (la linea a 50 Hz);
+\item le vibrazioni meccaniche;
+\item \dots
+\end{itemize}
+Ulteriore rumore verrà introdotto quando il segnale prodotto dal trasduttore verrà trasportato lungo una linea elettrica, o amplificato, o comunque manipolato. Per permettere ad un calcolatore di elaborare un segnale, bisogna dapprima convertirlo in un segnale di tipo elettrico. In questo modo è possibile inviare il segnale ad una scheda di acquisizione che trasforma il segnale in una tabella di numeri binari interi, gli unici in grado di essere elaborati dal calcolatore, che poi l'utente leggerà come numeri decimali, dopo una appropriata conversione. Si rendono quindi necessarie due distinte operazioni sul segnale: 
+\begin{itemize}
+\item la discretizzazione: consiste nel misurare l'ampiezza del segnale ad intervalli di tempo fissati;
+\item la quantizzazione: consiste nella trasformazione dei valori misurati in numeri interi binari.
+\end{itemize} 
+
+IMMAGINE DA CERCARE
+Schema a blocchi di un convertitore A/D (analogico digitale)
+Campionatore -> Quantizzatore -> Codificatore
+Il processo di conversione A/D, che trasforma il segnale originario in una sequenza di bit {0,1}, è noto come tecnica PCM (Pulse Code Modulation o Modulazione impulsiva codificata). Gli A/D convertono i valori di tensione in ingresso nel numero corrispondente espresso in binario.
+\section{Campionamento o discretizzazione}
+La discretizzazione consiste nel misurare l'ampiezza del segnale ad intervalli di tempo fissati. Sia /Delta T l'intervallo di tempo tra due misure successive: la discretizzazione genera un vettore x di dimensione n. È evidente che l'intervallo di tempo /Delta T deve essere sufficientemente piccolo da riuscire ad individuare anche piccole variazioni de segnale. L'inverso dell'intervallo /Delta T si chiama frequenza di campionamento ed indica quante volte al secondo viene misurata l'ampiezza del segnale. 
+\section{Quantizzazione}
+La quantizzazione consiste nella trasformazione delle ampiezze misurate in numeri interi binari ad N bit. Supponiamo che la scheda di acquisizione accetti in ingresso una tensione positiva al massimo di $ V_{0} $ volt. Il numero di intervalli che si possono ottenere con N bit è dato da 2N, il doppio. Allora il modo più efficiente di convertire il segnale è di dividere l'intervallo $ V_{0} $ in 2N sezioni, ciascuna di spessore $ V_{0}/2N $. Dopo di che bisogna assegnare ad ognuna di queste sezioni un numero binario ad N bit. Quando il segnale cade in una di queste sezioni, gli viene assegnato il numero binario corrispondente. Così facendo si commette in ogni misura al massimo un errore pari a metà dello spessore della sezione, $ V_{0}/2N+1 $. La minima variazione rilevabile del segnale in ingresso risulterà essere $ V_{0}/2N $. Ora si suppone che il trasduttore produca in uscita un segnale compreso tra un massimo $ V_{max} $ ed un minimo $ V_{min} $. Visto che la precisione con cui viene quantizzato il segnale dipende solamente dalle caratteristiche della scheda di acquisizione, per ottenere la massima risoluzione è necessario che $V_{max}$ e $V_{min}$ rientrino all'interno dell'intervallo permesso dalla scheda di acquisizione e che vi si adattino al meglio. 
+
+
+A questo scopo è necessario amplificare o attenuare il segnale fornito dal trasduttore, ed eventualmente fornire una tensione aggiuntiva per evitare valori negativi. Queste operazioni costituiscono l'esempio più semplice del cosiddetto \textbf{condizionamento del segnale}, che può prevedere anche un filtraggio, la sottrazione di una componente continua, etc. Molte di queste operazioni vengono effettuate automaticamente dalla scheda di acquisizione stessa. Supponiamo di voler campionare una sinusoide di frequenza $f_{0}$. Intuitivamente, per riuscire ad ottenere un campionamento che rappresenti realisticamente il segnale dobbiamo essere in grado di misurare almeno due volte l'ampiezza del segnale all'interno di un periodo, in modo tale da riuscire ad evidenziare come il segnale oscilli e cambi di segno. Quindi la frequenza di campionamento minima per riuscire a ricostruire il segnale è pari al doppio della frequenza $f_{0}$. In altre parole, se il segnale viene campionato ad una frequenza $f_{s}$, allora sarà possibile campionare correttamente solo i segnali di frequenza minore di $f_{N}=f_{s}/2$. La frequenza $f_{N}$ così definita viene definita \textbf{frequenza di Nyquist}. Un segnale con una certa frequenza, se campionato con una frequenza leggermente superiore, appare con una frequenza molto più bassa di quella reale. Il fenomeno per cui le frequenze maggiori della frequenza di Nyquist vengono riconosciute come frequenze inferiori è detto \textbf{aliasing}.
+Per evitare l'aliasing si utilizza un filtro passo basso, che elimina tutte le frequenze superiori a un certo valore (la metà della frequenza di campionamento). Il valore è detto frequenza di cut-off.
+Sono necessari almeno due campioni per periodo del segnale:
+\begin{enumerate}
+\item La frequenza di campionamento deve essere almeno il doppio della max frequenza presente nel segnale;
+\item La frequenza di Nyquist.
+\end{enumerate}
+
+\part{Funzioni}
+La quantizzazione è un processo non-lineare, ed a differenza del processo di campionamento, non è reversibile, indi per cui non è possibile ricostruire i valori reali assunti originariamente dalla grandezza fisica. La quantizzazione è dunque una fonte di distorsione.
+Una volta che il segnale è stato campionato, deve essere quantizzata anche l'ampiezza dei valori campionati. Un quantizzatore si occupa di associare ad un range di valori d'ingresso un unico valore di uscita. Questo deve avvenire in quanto, in un segnale analogico, il range di valori tra due estremi è infinito mentre nel mondo digitale solo un certo numero di valori potrà essere rappresentato. La quantizzazione può essere di tipo scalare (SQ) oppure vettoriale (VQ). Nella SQ, ciascun campione viene quantizzato singolarmente, mentre nella VQ vengono quantizzati congiuntamente blocchi di campioni. A sua volta i modi secondo cui il quantizzatore può operare sono diversi, i più comuni sono la quantizzazione uniforme e la quantizzazione a minimo errore quadratico medio.
+\section{Uniforme}
+Nel caso di quantizzazione uniforme, il gradino $\gamma$ di quantizzazione è uniforme cioè sempre della stessa ampiezza. Questo gradino (detto anche passo di quantizzazione) viene determinato a partire dalla massima dinamica del segnale di ingresso e dal numero di bit che abbiamo a disposizione. Definiamo come $R=[x_{max},x_{min}]$ il range dinamico del segnale di ingresso e come $n$ il numero di bit così da ottenere $\gamma=R/2n$. Ovviamente agendo in questo modo la quantizzazione introduce un errore, detto errore di quantizzazione. In correlazione all'errore di quantizzazione possiamo tenere in considerazione il rapporto tra segnale e rumore di quantizzazione detto SQNR. Esso rappresenta un indice di qualità relativo alla quantizzazione e l'errore di quantizzazione che, inevitabilmente si ottiene quantizzando il segnale campionato. E' possibile dimostrare che questo rapporto aumenta di 6 dB per ogni bit aggiuntivo a disposizione della quantizzazione. Questo è intuitivo perché aumentando il numero di bit a disposizione per la quantizzazione, il passo $\gamma$ diventa più piccolo ed il segnale analogico può venire quantizzato in maniera più precisa. Per la descrivere un segnale continuo abbiamo bisogno una sequenza più lunga di valori discreti, e quindi sarà maggiore è il numero di bit usati e maggiore sarà l'accuratezza della descrizione. Di conseguenza più gradini ci sono minore sarà l'errore di quantizzazione.
+
+\textbf{Quantizzazione uniforme}
+Il risultato della quantizzazione è una funzione continua spezzata di intervalli $\gamma$ uguali. La tecnica standard dei costruttori dei convertitori A/D e D/A. L'SQNR è il rapporto tra l'ampiezza max segnale e l'ampiezza media errore di quantizzazione. L'ampiezza media errore di quantizzazione è costante e indipendente dall’ampiezza. Inoltre non c'è correlazione tra il segnale e la digitalizzazione. Con il PCM lineare l'SQNR diventa minore con l’ampiezza dei segnali deboli degradati. Uniforme: intervalli equi-spaziati.
+Le regioni di quantizzazione possono essere "spaziate", di meno per ampiezze deboli, oppure, di più per ampiezze elevate (portando con se un maggiore errore di quantizzazione). La quantizzazione non uniforme slega SQNR e gamma dinamica.
 
 
 
