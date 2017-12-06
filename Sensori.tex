@@ -1,34 +1,54 @@
-\documentclass[a4paper,12pt]{article}
-\pdfpagewidth
-\paperwidth
-\pdfpageheight
-\paperheight
-\usepackage[italian]{babel} 
-\usepackage{epsfig}
-\usepackage{fancyhdr} 
-\usepackage{amsmath,amssymb}
-\usepackage{amscd} 
-\usepackage[T1]{fontenc} 
-\usepackage[utf8]{inputenc} 
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{graphicx,color,listings}
-\usepackage{hologo}
-\frenchspacing 
-\usepackage{geometry}
-\usepackage{rotating}
-\usepackage{caption}
-\usepackage{latexsym}
-\usepackage{amsfonts}
-\captionsetup{labelformat=empty, textfont=sl}
-\geometry{a4paper,tmargin=3cm,bmargin=3cm, lmargin=3cm,rmargin=2cm} \usepackage{multirow}
-\usepackage{picture}
-\textwidth16cm\textheight24cm\topmargin0mm\headheight0mm\headsep6mm\oddsidemargin0mm
-\evensidemargin0mm
-\usepackage{verbatim}
-
+\documentclass[a4paper]{report} % o article, book, ...
+% packages...
+\usepackage[utf8]{inputenc}
+\usepackage[english,italian]{babel}
+\usepackage[hyphens]{url}
+% Per generare il file PDF aderente alle specifiche PDF/A-1b. Verificarne poi la validità.
+%\usepackage[a-1b]{pdfx}
+\usepackage{hyperref}
+\usepackage{graphicx}
+% Per inserire testo a caso in attesa di realizzare i capitoli
+\usepackage{lipsum}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\part{Sensori e trasduttori}
-\section{I sensori}
+% Frontespizio
+\begin{titlepage}
+\begin{center}
+\includegraphics[width=\textwidth]{Logo.jpg}\\
+{\large{\bf Corso di Laurea Triennale in Informatica}}
+\end{center}
+\vspace{12mm}
+\begin{center}
+{\huge{\bf Sperimentazione sul campo}}\\
+\vspace{4mm}
+{\huge{\bf di rete LPWAN basata}}\\
+\vspace{4mm}
+{\huge{\bf sul protocollo LoRaWAN}}\\
+\end{center}
+\vspace{12mm}
+\begin{flushright}
+{\large{\bf Tesi di Laurea di:}}\\
+{\large{\bf Matteo Curti}}\\
+{\large{\bf Matr. 802690}}\\
+\end{flushright}
+\vspace{4mm}
+\begin{flushleft}
+{\large{\bf Relatore:}}\\
+{\large{\bf Andrea Trentini}}\\
+\vspace{4mm}
+%{\large{\bf Correlatore:}}\\
+%{\large{\bf CORREL}}\\
+\end{flushleft}
+\vspace{12mm}
+\begin{center}
+{\large{\bf Anno Accademico 2017/2018}}
+\end{center}
+\end{titlepage}
+\tableofcontents
+% o sections (dipende dal documentclass)
+\chapter{Cap1}
+\section{Sensori e trasduttori}
+\subsection{I sensori}
 I sensori, in un sistema di acquisizione dati, sono le interfacce fisiche tra i dispositivi di elaborazione dei segnali elettrici acquisiti in input e le corrispondenti grandezze fisiche da monitorare in funzione del tempo. 
 
 Un sensore è un dispositivo con la funzione di fornire in uscita un segnale elettrico, sotto forma di tensione o di corrente, del valore teoricamente proporzionale a quello della grandezza fisica in input che si desidera acquisire. 
@@ -56,7 +76,7 @@ V = Voff + k G
 dove Voff è la tensione di offset, k è una costante di taratura e G è la grandezza fisica da acquisire in input. Si definisce offset il valore non nullo della variabile di uscita corrispondente al valore nullo della variabile d' ingresso.
 L'errore di linearità è il massimo scarto, in valore assoluto, nel range nominale di funzionamento del sensore tra la caratteristica reale e la caratteristica ideale, dove per caratteristica ideale si intende la caratteristica lineare V, passante per gli estremi della caratteristica reale, nei punti (0, Voff) e (Fmax, Vmax), dove Fmax e Vmax sono rispettivamente il valore massimo della grandezza fisica G ed il valore massimo della tensione V nel range nominale. Il range di funzionamento è l'intervallo dei valori che può assumere la grandezza fisica che deve essere trasdotta. Appena la grandezza fisica esce dal range il trasduttore non funziona più, e ritorna a lavorare appena rientra nell'intervallo. Il range di ingresso (o campo di ingresso) definisce i limiti entro cui può variare il segnale in ingresso; mentre il range di uscita (o campo di uscita) definisce i limiti entro cui può variare il segnale in uscita. 
 
-\section{Tipi di sensori}
+\subsection{Tipi di sensori}
 I sensori si distinguono in base al principio di funzionamento:
 \begin{enumerate}
 \item sensori attivi, se forniscono direttamente un segnale elettrico, in tensione o in corrente, in funzione della grandezza fisica;
@@ -82,7 +102,7 @@ I sensori si distinguono in base al principio fisico utilizzato:
 \item Biologici: si basano sulle forze elettromotrici generate da celle elettrolitiche speciali in presenza di enzimi o di altre biomolecole.
 \end{enumerate}
 
-\section{Classificazione dei sensori}
+\subsection{Classificazione dei sensori}
 La classificazione dei sensori viene fatta in base alle caratteristiche fisiche:
 \begin{enumerate}
 \item resistivi: sfruttano la variazione della resistenza (fotoresistori, termoresistori, sensori di posizione);
@@ -95,12 +115,12 @@ La classificazione dei sensori viene fatta in base alle caratteristiche fisiche:
 \item semiconduttore: sfruttano le caratteristiche della giunzione dei semiconduttori (fotodiodi, fototransistor).
 \end{enumerate}
 
-\section{I trasduttori}
+\subsection{I trasduttori}
 Il trasduttore è un dispositivo in grado di trasformare le variazioni di una grandezza fisica,
 normalmente non elettrica, in un'altra grandezza, normalmente di natura elettrica (tensione, frequenza o corrente). E' composto da due parti: sensore e convertitore, un circuito elettronico che trasforma le variazioni di un parametro del sensore in una variazione di una grandezza elettrica.
 
 
-\section{Tipi di trasduttori}
+\subsection{Tipi di trasduttori}
 I trasduttori sono di due tipi:
 \begin{enumerate}
 \item Analogico: quando il suo segnale di uscita è una grandezza elettrica che varia in modo continuo mantenendo una doppia corrispondenza con il valore della grandezza misurata;
@@ -114,8 +134,8 @@ Inoltre i trasduttori possono essere:
 
 
 
-\part{Parametri caratteristici}
-\section{La sensibilità}
+\section{Parametri caratteristici}
+\subsection{La sensibilità}
 La sensibilità è il rapporto tra la variazione della grandezza di uscita e la variazione della grandezza d'ingresso che la provoca. 
 \begin{equation}
 S = \Delta U / \Delta I
@@ -123,20 +143,20 @@ S = \Delta U / \Delta I
 Più il coefficiente angolare della retta è elevato più il trasduttore è sensibile e minore sarà il range di funzionamento. Lo strumento risulterà essere molto sensibile quando a parità di grandezza di ingresso la grandezza di uscita è molto elevata.
 Tempo di risposta è il tempo che il trasduttore impiega per raggiungere in uscita il valore di regime corrispondente al valore d'ingresso. 
 
-\section{La risoluzione}
+\subsection{La risoluzione}
 La risoluzione è il rapporto percentuale tra la minima variazione della grandezza di uscita in grado di essere rilevata e il valore massimo del fondo scala.
 La risoluzione R esprime la variazione minima di uscita rispetto al fondo-scala:
 \begin{equation}
 R = \Delta Xout_{min} / \Delta Xout_{fondoscala}
 \end{equation}
 
-\section{La riproducibilità}
+\subsection{La riproducibilità}
 La riproducibilità è la capacità di un sensore di fornire sempre gli stessi valori di uscita in corrispondenza dell'ingresso. Vale a dire la costanza nel tempo delle caratteristiche del trasduttore (la sua resistenza all'invecchiamento).
 
-\section{L'accuratezza}
+\subsection{L'accuratezza}
 Nel funzionamento reale il sensore descrive una caratteristica che si discosta dalla funzione ideale. Per tenere in conto la mancata accuratezza del dispositivo occorre misurare le deviazioni esistenti fra i valori reali e i valori ideali. Le caratteristiche di affidabilità in un sensore sono relazionate alla sua vita utile ed a possibili cause di mal funzionamento nel sistema in cui è inserito. Infatti  è la capacità del sensore di espletare la funzione per cui è stato costruito in condizioni prestabilite e per un tempo fissato; questo parametro è espresso in termini statistici come la probabilità che il dispositivo funzioni per un tempo o per un numero di cicli specificato. Solo di rado esso è specificato dai costruttori.
 
-\section{Il drift}
+\subsection{Il drift}
 Modifica temporale impredicibile delle caratteristiche del sensore. In pratica, la curva di risposta si modifica col tempo per cui, nella stima del misurando si introduce un errore che cambia (in genere cresce col tempo). Il drift definisce il tempo di vita della calibrazione del sensore, cioè dopo quanto tempo usare la stessa curva di risposta da luogo ad errori sul misurando non tollerabili.
 Il problema della variazione della curva di risposta del sensore nel tempo si risolve calibrandolo ogni tanto – I sensori (tutti) hanno un drift, cioè la loro risposta varia nel tempo:
 \begin{itemize}
@@ -146,9 +166,8 @@ Il problema della variazione della curva di risposta del sensore nel tempo si ri
 \item Variazioni lineari e modellabili consentono calibrazioni meno frequenti – Tra calibrazioni successive si utilizzano termini interpolati;
 \end{itemize}
 
-\part{Aspetti legati all'acquisizione e al trattamento dei segnali, sia analogici che digitali, provenienti da sensori}
-
-\section{Il segnale}
+\section{Acquisizione e al trattamento dei segnali}
+\subsection{Il segnale}
 Si definisce segnale la variazione di una qualsiasi grandezza fisica in funzione del tempo. 
 In generale possiamo affermare che un segnale, sotto opportune ipotesi, può essere descritto matematicamente da una funzione continua. Le onde di volume viaggiano all'interno della terra e seguono le leggi dell'ottica geometrica. Vi sono due tipi principali di onde di volume:
 \begin{enumerate}
@@ -169,7 +188,7 @@ Purtroppo i segnali deterministici non esistono nella realtà, in quanto ogni se
 \end{enumerate}
 I casi più importanti dei segnali aleatori sono quelli in cui la distribuzione del segnale è gaussiana e quello in cui il valore del segnale ad un dato istante non è correlato a quello degli istanti precedenti e successivi. Esso prende il nome di rumore bianco.
 
-\section{Lettura del segnale}
+\subsection{Lettura del segnale}
 Per leggere un segnale bisogna utilizzare un trasduttore. Le caratteristiche importanti che un trasduttore deve possedere sono:
 \begin{itemize}
 \item l'ampiezza del segnale in uscita;
@@ -195,10 +214,10 @@ IMMAGINE DA CERCARE
 Schema a blocchi di un convertitore A/D (analogico digitale)
 Campionatore -> Quantizzatore -> Codificatore
 Il processo di conversione A/D, che trasforma il segnale originario in una sequenza di bit {0,1}, è noto come tecnica PCM (Pulse Code Modulation o Modulazione impulsiva codificata). Gli A/D convertono i valori di tensione in ingresso nel numero corrispondente espresso in binario.
-\section{Campionamento o discretizzazione}
+\subsection{Campionamento o discretizzazione}
 La discretizzazione consiste nel misurare l'ampiezza del segnale ad intervalli di tempo fissati. Sia /Delta T l'intervallo di tempo tra due misure successive: la discretizzazione genera un vettore x di dimensione n. È evidente che l'intervallo di tempo /Delta T deve essere sufficientemente piccolo da riuscire ad individuare anche piccole variazioni de segnale. L'inverso dell'intervallo /Delta T si chiama frequenza di campionamento ed indica quante volte al secondo viene misurata l'ampiezza del segnale. 
-\section{Quantizzazione}
-La quantizzazione consiste nella trasformazione delle ampiezze misurate in numeri interi binari ad N bit. Supponiamo che la scheda di acquisizione accetti in ingresso una tensione positiva al massimo di $ V_{0} $ volt. Il numero di intervalli che si possono ottenere con N bit è dato da 2N, il doppio. Allora il modo più efficiente di convertire il segnale è di dividere l'intervallo $ V_{0} $ in 2N sezioni, ciascuna di spessore $ V_{0}/2N $. Dopo di che bisogna assegnare ad ognuna di queste sezioni un numero binario ad N bit. Quando il segnale cade in una di queste sezioni, gli viene assegnato il numero binario corrispondente. Così facendo si commette in ogni misura al massimo un errore pari a metà dello spessore della sezione, $ V_{0}/2N+1 $. La minima variazione rilevabile del segnale in ingresso risulterà essere $ V_{0}/2N $. Ora si suppone che il trasduttore produca in uscita un segnale compreso tra un massimo $ V_{max} $ ed un minimo $ V_{min} $. Visto che la precisione con cui viene quantizzato il segnale dipende solamente dalle caratteristiche della scheda di acquisizione, per ottenere la massima risoluzione è necessario che $V_{max}$ e $V_{min}$ rientrino all'interno dell'intervallo permesso dalla scheda di acquisizione e che vi si adattino al meglio. 
+\subsection{Quantizzazione}
+La quantizzazione consiste nella trasformazione delle ampiezze misurate in numeri interi binari ad N bit. Supponiamo che la scheda di acquisizione accetti in ingresso una tensione positiva al massimo di $ V_{0} $ volt. Il numero di intervalli che si possono ottenere con N bit è dato da $2N$, il doppio. Allora il modo più efficiente di convertire il segnale è di dividere l'intervallo $ V_{0} $ in $2N$ sezioni, ciascuna di spessore $ V_{0}/2N $. Dopo di che bisogna assegnare ad ognuna di queste sezioni un numero binario ad N bit. Quando il segnale cade in una di queste sezioni, gli viene assegnato il numero binario corrispondente. Così facendo si commette in ogni misura al massimo un errore pari a metà dello spessore della sezione, $ V_{0}/2N+1 $. La minima variazione rilevabile del segnale in ingresso risulterà essere $ V_{0}/2N $. Ora si suppone che il trasduttore produca in uscita un segnale compreso tra un massimo $ V_{max} $ ed un minimo $ V_{min} $. Visto che la precisione con cui viene quantizzato il segnale dipende solamente dalle caratteristiche della scheda di acquisizione, per ottenere la massima risoluzione è necessario che $V_{max}$ e $V_{min}$ rientrino all'interno dell'intervallo permesso dalla scheda di acquisizione e che vi si adattino al meglio. 
 
 
 A questo scopo è necessario amplificare o attenuare il segnale fornito dal trasduttore, ed eventualmente fornire una tensione aggiuntiva per evitare valori negativi. Queste operazioni costituiscono l'esempio più semplice del cosiddetto \textbf{condizionamento del segnale}, che può prevedere anche un filtraggio, la sottrazione di una componente continua, etc. Molte di queste operazioni vengono effettuate automaticamente dalla scheda di acquisizione stessa. Supponiamo di voler campionare una sinusoide di frequenza $f_{0}$. Intuitivamente, per riuscire ad ottenere un campionamento che rappresenti realisticamente il segnale dobbiamo essere in grado di misurare almeno due volte l'ampiezza del segnale all'interno di un periodo, in modo tale da riuscire ad evidenziare come il segnale oscilli e cambi di segno. Quindi la frequenza di campionamento minima per riuscire a ricostruire il segnale è pari al doppio della frequenza $f_{0}$. In altre parole, se il segnale viene campionato ad una frequenza $f_{s}$, allora sarà possibile campionare correttamente solo i segnali di frequenza minore di $f_{N}=f_{s}/2$. La frequenza $f_{N}$ così definita viene definita \textbf{frequenza di Nyquist}. Un segnale con una certa frequenza, se campionato con una frequenza leggermente superiore, appare con una frequenza molto più bassa di quella reale. Il fenomeno per cui le frequenze maggiori della frequenza di Nyquist vengono riconosciute come frequenze inferiori è detto \textbf{aliasing}.
@@ -208,16 +227,34 @@ Sono necessari almeno due campioni per periodo del segnale:
 \item La frequenza di campionamento deve essere almeno il doppio della max frequenza presente nel segnale;
 \item La frequenza di Nyquist.
 \end{enumerate}
-
-\part{Funzioni}
 La quantizzazione è un processo non-lineare, ed a differenza del processo di campionamento, non è reversibile, indi per cui non è possibile ricostruire i valori reali assunti originariamente dalla grandezza fisica. La quantizzazione è dunque una fonte di distorsione.
 Una volta che il segnale è stato campionato, deve essere quantizzata anche l'ampiezza dei valori campionati. Un quantizzatore si occupa di associare ad un range di valori d'ingresso un unico valore di uscita. Questo deve avvenire in quanto, in un segnale analogico, il range di valori tra due estremi è infinito mentre nel mondo digitale solo un certo numero di valori potrà essere rappresentato. La quantizzazione può essere di tipo scalare (SQ) oppure vettoriale (VQ). Nella SQ, ciascun campione viene quantizzato singolarmente, mentre nella VQ vengono quantizzati congiuntamente blocchi di campioni. A sua volta i modi secondo cui il quantizzatore può operare sono diversi, i più comuni sono la quantizzazione uniforme e la quantizzazione a minimo errore quadratico medio.
-\section{Uniforme}
-Nel caso di quantizzazione uniforme, il gradino $\gamma$ di quantizzazione è uniforme cioè sempre della stessa ampiezza. Questo gradino (detto anche passo di quantizzazione) viene determinato a partire dalla massima dinamica del segnale di ingresso e dal numero di bit che abbiamo a disposizione. Definiamo come $R=[x_{max},x_{min}]$ il range dinamico del segnale di ingresso e come $n$ il numero di bit così da ottenere $\gamma=R/2n$. Ovviamente agendo in questo modo la quantizzazione introduce un errore, detto errore di quantizzazione. In correlazione all'errore di quantizzazione possiamo tenere in considerazione il rapporto tra segnale e rumore di quantizzazione detto SQNR. Esso rappresenta un indice di qualità relativo alla quantizzazione e l'errore di quantizzazione che, inevitabilmente si ottiene quantizzando il segnale campionato. E' possibile dimostrare che questo rapporto aumenta di 6 dB per ogni bit aggiuntivo a disposizione della quantizzazione. Questo è intuitivo perché aumentando il numero di bit a disposizione per la quantizzazione, il passo $\gamma$ diventa più piccolo ed il segnale analogico può venire quantizzato in maniera più precisa. Per la descrivere un segnale continuo abbiamo bisogno una sequenza più lunga di valori discreti, e quindi sarà maggiore è il numero di bit usati e maggiore sarà l'accuratezza della descrizione. Di conseguenza più gradini ci sono minore sarà l'errore di quantizzazione.
+\subsubsection{Uniforme}
+Nel caso di quantizzazione uniforme, il gradino $\gamma$ di quantizzazione è uniforme cioè sempre della stessa ampiezza. Questo gradino (detto anche passo di quantizzazione) viene determinato a partire dalla massima dinamica del segnale di ingresso e dal numero di bit che abbiamo a disposizione. Definiamo come $R=[x_{max},x_{min}]$ il range dinamico del segnale di ingresso e come $n$ il numero di bit così da ottenere $\gamma=R/2n$. Ovviamente agendo in questo modo la quantizzazione introduce un errore, detto errore di quantizzazione. In correlazione all'errore di quantizzazione possiamo tenere in considerazione il rapporto tra segnale e rumore di quantizzazione detto SQNR. Esso rappresenta un indice di qualità relativo alla quantizzazione e l'errore di quantizzazione che, inevitabilmente si ottiene quantizzando il segnale campionato. E' possibile dimostrare che questo rapporto aumenta di 6 dB per ogni bit aggiuntivo a disposizione della quantizzazione. Questo è intuitivo perché aumentando il numero di bit a disposizione per la quantizzazione, il passo $\gamma$ diventa più piccolo ed il segnale analogico può venire quantizzato in maniera più precisa. Per la descrivere un segnale continuo abbiamo bisogno una sequenza più lunga di valori discreti, e quindi sarà maggiore è il numero di bit usati e maggiore sarà l'accuratezza della descrizione. Di conseguenza più gradini ci sono minore sarà l'errore di quantizzazione. 
 
-\textbf{Quantizzazione uniforme}
-Il risultato della quantizzazione è una funzione continua spezzata di intervalli $\gamma$ uguali. La tecnica standard dei costruttori dei convertitori A/D e D/A. L'SQNR è il rapporto tra l'ampiezza max segnale e l'ampiezza media errore di quantizzazione. L'ampiezza media errore di quantizzazione è costante e indipendente dall’ampiezza. Inoltre non c'è correlazione tra il segnale e la digitalizzazione. Con il PCM lineare l'SQNR diventa minore con l’ampiezza dei segnali deboli degradati. Uniforme: intervalli equi-spaziati.
+\subsubsection{Non uniforme}
 Le regioni di quantizzazione possono essere "spaziate", di meno per ampiezze deboli, oppure, di più per ampiezze elevate (portando con se un maggiore errore di quantizzazione). La quantizzazione non uniforme slega SQNR e gamma dinamica.
+
+\chapter{Cap2}
+TCP/IP over Avian Carriers\cite{waitzman1990standard}
+\chapter{Cap3}
+\chapter{Cap4}
+\bibliographystyle{plain}
+\bibliography{Biblio}
+%\addcontentsline{toc}{chapter}{Bibliografia}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
