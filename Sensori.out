@@ -29,10 +29,24 @@
 \BOOKMARK [2][-]{subsection.2.2.5}{FastNet}{section.2.2}% 29
 \BOOKMARK [2][-]{subsection.2.2.6}{Architettura di rete}{section.2.2}% 30
 \BOOKMARK [2][-]{subsection.2.2.7}{Specifiche LoRaWAN}{section.2.2}% 31
-\BOOKMARK [2][-]{subsection.2.2.8}{Protocollo LoRa / Lv 1}{section.2.2}% 32
-\BOOKMARK [2][-]{subsection.2.2.9}{Protocollo LPWAN / Lv 2}{section.2.2}% 33
-\BOOKMARK [2][-]{subsection.2.2.10}{Protocollo IP / Lv 3}{section.2.2}% 34
-\BOOKMARK [2][-]{subsection.2.2.11}{Applicazioni LoRa / Lv 7}{section.2.2}% 35
-\BOOKMARK [2][-]{subsection.2.2.12}{Aspetti legislativi}{section.2.2}% 36
-\BOOKMARK [0][-]{chapter.3}{Cap3}{}% 37
-\BOOKMARK [0][-]{chapter.4}{Cap4}{}% 38
+\BOOKMARK [2][-]{subsection.2.2.8}{Copertura di LPWAN nello spettro}{section.2.2}% 32
+\BOOKMARK [2][-]{subsection.2.2.9}{Protocollo LoRa / Lv 1}{section.2.2}% 33
+\BOOKMARK [2][-]{subsection.2.2.10}{Protocollo LPWAN / Lv 2}{section.2.2}% 34
+\BOOKMARK [2][-]{subsection.2.2.11}{Protocollo IP / Lv 3}{section.2.2}% 35
+\BOOKMARK [2][-]{subsection.2.2.12}{Applicazioni LoRa / Lv 7}{section.2.2}% 36
+\BOOKMARK [2][-]{subsection.2.2.13}{Misura delle prestazioni LPWAN}{section.2.2}% 37
+\BOOKMARK [2][-]{subsection.2.2.14}{Compressione dei dati}{section.2.2}% 38
+\BOOKMARK [2][-]{subsection.2.2.15}{Migliorare il downlink di LPWAN}{section.2.2}% 39
+\BOOKMARK [2][-]{subsection.2.2.16}{Aspetti legislativi}{section.2.2}% 40
+\BOOKMARK [0][-]{chapter.3}{Cap3}{}% 41
+\BOOKMARK [1][-]{section.3.1}{sistema di monitoraggio della qualit\340 dell'aria}{chapter.3}% 42
+\BOOKMARK [2][-]{subsection.3.1.1}{Panoramica del sistema}{section.3.1}% 43
+\BOOKMARK [2][-]{subsection.3.1.2}{Introduzione al problema}{section.3.1}% 44
+\BOOKMARK [2][-]{subsection.3.1.3}{Introduzione al sistema}{section.3.1}% 45
+\BOOKMARK [2][-]{subsection.3.1.4}{Array di sensori}{section.3.1}% 46
+\BOOKMARK [2][-]{subsection.3.1.5}{Microcontrollore}{section.3.1}% 47
+\BOOKMARK [2][-]{subsection.3.1.6}{Comunicazione wireless LoRa}{section.3.1}% 48
+\BOOKMARK [2][-]{subsection.3.1.7}{Progettazione della GUI}{section.3.1}% 49
+\BOOKMARK [2][-]{subsection.3.1.8}{Risultati sperimentali}{section.3.1}% 50
+\BOOKMARK [2][-]{subsection.3.1.9}{Conclusione}{section.3.1}% 51
+\BOOKMARK [2][-]{subsection.3.1.10}{Altro...}{section.3.1}% 52
