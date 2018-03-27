@@ -48,6 +48,7 @@
 \usepackage{lipsum}
 \usepackage{refcheck}
 \usepackage[colorinlistoftodos]{todonotes}
+\usepackage{url}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -86,240 +87,344 @@
 \end{center}
 \end{titlepage}
 \tableofcontents
-
-\listoftodos
-
 % o sections (dipende dal documentclass)
 \chapter{Cap1}
 \section{Sensori e trasduttori}
 \subsection{I sensori}
-I sensori, in un sistema di acquisizione dati, sono le interfacce fisiche tra i dispositivi di elaborazione dei segnali elettrici acquisiti in input e le corrispondenti grandezze fisiche da monitorare in funzione del tempo. 
+\begin{quote}
+	I sensori, in un sistema di acquisizione dati, sono le interfacce fisiche tra i dispositivi di elaborazione dei segnali elettrici acquisiti in input e le corrispondenti grandezze fisiche da monitorare in funzione del tempo. 
+	
+	Un sensore è un dispositivo con la funzione di fornire in uscita un segnale elettrico, sotto forma di tensione o di corrente, del valore teoricamente proporzionale a quello della grandezza fisica in input che si desidera acquisire. 
+	
+	Per ottenere un segnale elettrico in uscita di un valore linearmente dipendente da una qualsiasi grandezza fisica (temperatura, pressione, forza, flusso luminoso, ecc...) in input, si utilizza il sensore, il cui funzionamento si basa sulla variabilità di una grandezza fisica elettrica, per esempio resistenza, capacità o induttanza, in funzione della grandezza fisica da misurare.
+	
+	Si definisce caratteristica di trasferimento la curva che rappresenta l'andamento del segnale elettrico generato dal sensore in output in funzione della grandezza fisica in input.
+	La caratteristica di trasferimento è il legame che è presente tra la variabile da misurare (ingresso) e il segnale elettrico di uscita dal sensore. 
+	Nella pratica accade molto raramente che tale caratteristica di trasferimento corrisponda, anche approssimativamente, alla legge di proporzionalità diretta: 
+	\begin{equation}
+	V = k \times G
+	\end{equation}
+	Oppure:
+	\begin{equation}
+	I = k \times G
+	\end{equation}
+	dove $V$ è la tensione, mentre I è la corrente fornita dal sensore, $k$ è una costante di taratura e $G$ è la grandezza fisica da acquisire in input. \cite{art:rif.1}
+\end{quote}
 
-Un sensore è un dispositivo con la funzione di fornire in uscita un segnale elettrico, sotto forma di tensione o di corrente, del valore teoricamente proporzionale a quello della grandezza fisica in input che si desidera acquisire. 
-
-Per ottenere un segnale elettrico in uscita di un valore linearmente dipendente da una qualsiasi grandezza fisica (temperatura, pressione, forza, flusso luminoso, ecc...) in input, si utilizza il sensore, il cui funzionamento si basa sulla variabilità di una grandezza fisica elettrica, per esempio resistenza, capacità o induttanza, in funzione della grandezza fisica da misurare.
-
-Si definisce caratteristica di trasferimento la curva che rappresenta l'andamento del segnale elettrico generato dal sensore in output in funzione della grandezza fisica in input.
-La caratteristica di trasferimento è il legame che è presente tra la variabile da misurare (ingresso) e il segnale elettrico di uscita dal sensore. 
-Nella pratica accade molto raramente che tale caratteristica di trasferimento corrisponda, anche approssimativamente, alla legge di proporzionalità diretta: 
-\begin{equation}
-V = k \times G
-\end{equation}
-Oppure:
-\begin{equation}
-I = k \times G
-\end{equation}
-dove $V$ è la tensione, mentre I è la corrente fornita dal sensore, $k$ è una costante di taratura e $G$ è la grandezza fisica da acquisire in input.
 
 \begin{figure}
 \centering
 \includegraphics[scale=.8]{Immagini/CarTrasferimento.png}
 
-Fig. 1 Caratteristica di trasferimento ideale vs. reale.
+Fig. 1 Caratteristica di trasferimento ideale vs. reale. \cite{art:rif.19}
 \end{figure}
 
-Generalmente, la caratteristica di trasferimento si allontana, in modo più o meno pronunciato, dal modello ideale a causa di alcuni errori, come l'errore di offset e l'errore di linearità. \todo{(atrent) ad esempio questa frase è copiata integralmente, va quotata, metto esempio di seguito}
-
-\begin{quote}
-	Generalmente, la caratteristica di trasferimento si allontana, in modo più o
-meno pronunciato, dal modello ideale a causa di alcuni errori, come l’errore di
-offset e l’errore di linearità.\cite{...citazione...}
+\begin{quote} 
+	Generalmente, la caratteristica di trasferimento si allontana, in modo più o meno pronunciato, dal modello ideale a causa di alcuni errori, come l'errore di offset e l'errore di linearità. \cite{art:rif.1} 
 \end{quote}
 
+%\todo{(atrent) ad esempio questa frase è copiata integralmente, va quotata, metto esempio di seguito}
+%	Generalmente, la caratteristica di trasferimento si allontana, in modo più o
+%	meno pronunciato, dal modello ideale a causa di alcuni errori, come l’errore di
+%	offset e l’errore di linearità.\cite{...citazione...}
 
-I sensori sono detti lineari la cui caratteristica è una retta. Il funzionamento ottimale di un sensore è definito da una caratteristica lineare. La linearità è il parametro che evidenzia la deviazione tra la retta (caratteristica teorica) e la curva reale. 
-La non linearità è il valore massimo della deviazione rispetto alla curva teorica in valore assoluto riferito al valore massimo del segnale di uscita. Un sensore è buono quando la sua non linearità è inferiore allo 0.1\%.
-L'errore di offset è presente perché il segnale elettrico fornito in uscita è diverso da zero anche quando la grandezza fisica ha valore nullo. Questo avviene quando la retta non passa per l'origine la variabile d'uscita è diversa da zero in corrispondenza del valore nullo della variabile di ingresso. Supponendo che la caratteristica sia lineare:
-\begin{equation}
-V = V_{off} + k \times G
-\end{equation}
-dove $V_{off}$ è la tensione di offset, k è una costante di taratura e G è la grandezza fisica da acquisire in input. Si definisce offset il valore non nullo della variabile di uscita corrispondente al valore nullo della variabile d' ingresso.
-L'errore di linearità è il massimo scarto, in valore assoluto, nel range nominale di funzionamento del sensore tra la caratteristica reale e la caratteristica ideale, dove per caratteristica ideale si intende la caratteristica lineare V, passante per gli estremi della caratteristica reale, nei punti (0, $V_{off}$) e ($F_{max}$, $V_{max}$), dove $F_{max}$ e $V_{max}$ sono rispettivamente il valore massimo della grandezza fisica G ed il valore massimo della tensione V nel range nominale. 
-Il range di funzionamento è l'intervallo dei valori che può assumere la grandezza fisica che deve essere trasdotta. Appena la grandezza fisica esce dal range il sensore non funziona più, e ritorna a lavorare appena rientra nell'intervallo. Il range di ingresso (o campo di ingresso) definisce i limiti entro cui può variare il segnale in ingresso; mentre il range di uscita (o campo di uscita) definisce i limiti entro cui può variare il segnale in uscita \cite{art:rif.1, art:rif.12}.   
+\begin{quote}
+	I sensori sono detti lineari la cui caratteristica è una retta. Il funzionamento ottimale di un sensore è definito da una caratteristica lineare. La linearità è il parametro che evidenzia la deviazione tra la retta (caratteristica teorica) e la curva reale. 
+	La non linearità è il valore massimo della deviazione rispetto alla curva teorica in valore assoluto riferito al valore massimo del segnale di uscita. Un sensore è buono quando la sua non linearità è inferiore allo 0.1\%. \cite{art:rif.11}
+\end{quote}
+
+\begin{quote} 
+	L'errore di offset è presente perché il segnale elettrico fornito in uscita è diverso da zero anche quando la grandezza fisica ha valore nullo. Questo avviene quando la retta non passa per l'origine la variabile d'uscita è diversa da zero in corrispondenza del valore nullo della variabile di ingresso. Supponendo che la caratteristica sia lineare:
+	\begin{equation}
+	V = V_{off} + k \times G
+	\end{equation}
+	dove $V_{off}$ è la tensione di offset, $k$ è una costante di taratura e G è la grandezza fisica da acquisire in input. Si definisce offset il valore non nullo della variabile di uscita corrispondente al valore nullo della variabile d' ingresso.
+	L'errore di linearità è il massimo scarto, in valore assoluto, nel range nominale di funzionamento del sensore tra la caratteristica reale e la caratteristica ideale, dove per caratteristica ideale si intende la caratteristica lineare V, passante per gli estremi della caratteristica reale, nei punti (0, $V_{off}$) e ($F_{max}$, $V_{max}$), dove $F_{max}$ e $V_{max}$ sono rispettivamente il valore massimo della grandezza fisica G ed il valore massimo della tensione V nel range nominale.
+\end{quote}
+
+\begin{quote}
+	Il range di funzionamento è l'intervallo dei valori che può assumere la grandezza fisica che deve essere trasdotta. Appena la grandezza fisica esce dal range il sensore non funziona più, e ritorna a lavorare appena rientra nell'intervallo. Il range di ingresso (o campo di ingresso) definisce i limiti entro cui può variare il segnale in ingresso; mentre il range di uscita (o campo di uscita) definisce i limiti entro cui può variare il segnale in uscita. \cite{art:rif.11}
+\end{quote}   
 
 \subsection{Tipi di sensori}
-I sensori si distinguono in base al principio di funzionamento:
-\begin{enumerate}
-\item sensori attivi: se forniscono direttamente un segnale elettrico, in tensione o in corrente, in funzione della grandezza fisica;
-\item sensori passivi: se si utilizza la variabilità di una grandezza elettrica, per es. la resistenza, la capacità o l'induttanza, in funzione della grandezza fisica, per ottenere una tensione o una corrente, inserendo il sensore in un circuito di misura \cite{art:rif.1}.   
-\end{enumerate}
+\begin{quote}
+	I sensori si distinguono in base al principio di funzionamento:
+	\begin{enumerate}
+	\item sensori attivi: se forniscono direttamente un segnale elettrico, in tensione o in corrente, in funzione della grandezza fisica;
+	\item sensori passivi: se si utilizza la variabilità di una grandezza elettrica, per es. la resistenza, la capacità o l'induttanza, in funzione della grandezza fisica, per ottenere una tensione o una corrente, inserendo il sensore in un circuito di misura. \cite{art:rif.1}   
+	\end{enumerate}
+\end{quote}
 
-I sensori si distinguono in base al principio fisico utilizzato:
-\begin{enumerate}
-\item Resistivi: si basano sulla variabilità della resistenza elettrica in funzione degli sforzi meccanici, della temperatura, del campo magnetico, dell'intensità di illuminamento;
-\item Piezoelettrici: si basano sul campo elettrico generato nei cristalli piezoelettrici da sforzi meccanici di trazione, compressione o taglio;
-\item Termoelettrici: si basano sulle forze elettromotrici termoelettriche generate per effetto Seebeck da giunzioni metalliche mantenute a temperature diverse dette termocoppie;
-\item Fotovoltaici: si basano sulle forze elettromotrici generate per effetto fotovoltaico da una giunzione semiconduttrice PN, colpita da radiazioni infrarosse, visibili, ultraviolette, X, $\gamma$ o da particelle cariche;
-\item Fotoelettrici: si basano sulla fotocorrente che si ottiene, per effetto fotoelettrico, nelle celle fotoelettriche a vuoto, nei fotodiodi e nei fototransistor;
-\item Ad effetto Hall: si basano sulle forze elettromotrici generate in particolari materiali, generalmente semiconduttori, percorsi da corrente e sottoposti a campi magnetici;
-\item Capacitivi: si basano sulla variabilità della capacità elettrica di un condensatore in funzione dell'umidità o della costante dielettrica dell'isolante posto tra le armature;
-\item Induttivi: si basano sulla variabilità dell'induttanza di un avvolgimento dotato di un nucleo ferromagnetico estraibile;
-\item Elettromagnetici: si basano sulla legge dell'induzione elettromagnetica.
-\item A riluttanza variabile: si basano sulla variabilità della riluttanza di un circuito magnetico dotato di parti mobili;
-\item Potenziometrici: si basano sulla variabilità della tensione fornita da un partitore potenziometrico regolabile in funzione dello spostamento del cursore;
-\item Piezoacustici e ultrasonici: si basano sulle forze elettromotrici piezoelettriche generate da particolari materiali ceramici sottoposti ad onde meccaniche;
-\item Elettrochimici: si basano sui potenziali elettrochimici generati da celle elettrolitiche speciali, costituite da coppie di elettrodi sensibili a determinati ioni o radicali chimici, oppure sulla variabilità della conducibilità di particolari materiali in presenza di gas o vapori;
-\item Biologici: si basano sulle forze elettromotrici generate da celle elettrolitiche speciali in presenza di enzimi o di altre biomolecole \cite{art:rif.1}.
-\end{enumerate}
+\begin{quote}
+	I sensori si distinguono in base al principio fisico utilizzato:
+	\begin{enumerate}
+		\item Resistivi: si basano sulla variabilità della resistenza elettrica in funzione degli sforzi meccanici, della temperatura, del campo magnetico, dell'intensità di illuminamento;
+		\item Piezoelettrici: si basano sul campo elettrico generato nei cristalli piezoelettrici da sforzi meccanici di trazione, compressione o taglio;
+		\item Termoelettrici: si basano sulle forze elettromotrici termoelettriche generate per effetto Seebeck da giunzioni metalliche mantenute a temperature diverse dette termocoppie;
+		\item Fotovoltaici: si basano sulle forze elettromotrici generate per effetto fotovoltaico da una giunzione semiconduttrice PN, colpita da radiazioni infrarosse, visibili, ultraviolette, X, $\gamma$ o da particelle cariche;
+		\item Fotoelettrici: si basano sulla fotocorrente che si ottiene, per effetto fotoelettrico, nelle celle fotoelettriche a vuoto, nei fotodiodi e nei fototransistor;
+		\item Ad effetto Hall: si basano sulle forze elettromotrici generate in particolari materiali, generalmente semiconduttori, percorsi da corrente e sottoposti a campi magnetici;
+		\item Capacitivi: si basano sulla variabilità della capacità elettrica di un condensatore in funzione dell'umidità o della costante dielettrica dell'isolante posto tra le armature;
+		\item Induttivi: si basano sulla variabilità dell'induttanza di un avvolgimento dotato di un nucleo ferromagnetico estraibile;
+		\item Elettromagnetici: si basano sulla legge dell'induzione elettromagnetica.
+		\item A riluttanza variabile: si basano sulla variabilità della riluttanza di un circuito magnetico dotato di parti mobili;
+		\item Potenziometrici: si basano sulla variabilità della tensione fornita da un partitore potenziometrico regolabile in funzione dello spostamento del cursore;
+		\item Piezoacustici e ultrasonici: si basano sulle forze elettromotrici piezoelettriche generate da particolari materiali ceramici sottoposti ad onde meccaniche;
+		\item Elettrochimici: si basano sui potenziali elettrochimici generati da celle elettrolitiche speciali, costituite da coppie di elettrodi sensibili a determinati ioni o radicali chimici, oppure sulla variabilità della conducibilità di particolari materiali in presenza di gas o vapori;
+		\item Biologici: si basano sulle forze elettromotrici generate da celle elettrolitiche speciali in presenza di enzimi o di altre biomolecole. \cite{art:rif.1}
+	\end{enumerate}
+\end{quote}
 
 \subsection{Classificazione dei sensori}
-La classificazione dei sensori viene fatta in base alle caratteristiche fisiche:
-\begin{enumerate}
-\item resistivi: sfruttano la variazione della resistenza (fotoresistori, termoresistori, sensori di posizione);
-\item capacitivi: sfruttano la variazione della capacità di un condensatore (sensori di umidità);
-\item elettroacustici: convertono segnali sonori in grandezze elettriche (microfoni);
-\item elettrodinamici: si basano sul principio della forza elettromotrice per misurare velocità (dinamo tachimetrica);
-\item elettromagnetici: utilizzano il principio dell'induttanza elettrica per rilevare angoli di rotazione;
-\item magnetostrittivi: si fondano sul principio della permeabilità;
-\item piezoelettrici: sfruttano l'originarsi di una polarizzazione elettrica su facce opposte di cristalli sottoposti a sollecitazioni (stress) fisiche;
-\item semiconduttore: sfruttano le caratteristiche della giunzione dei semiconduttori (fotodiodi, fototransistor) \cite{art:rif.11}. 
-\end{enumerate}
+\begin{quote}
+	La classificazione dei sensori viene fatta in base alle caratteristiche fisiche:
+	\begin{enumerate}
+	\item resistivi: sfruttano la variazione della resistenza (fotoresistori, termoresistori, sensori di posizione);
+	\item capacitivi: sfruttano la variazione della capacità di un condensatore (sensori di umidità);
+	\item elettroacustici: convertono segnali sonori in grandezze elettriche (microfoni);
+	\item elettrodinamici: si basano sul principio della forza elettromotrice per misurare velocità (dinamo tachimetrica);
+	\item elettromagnetici: utilizzano il principio dell'induttanza elettrica per rilevare angoli di rotazione;
+	\item magnetostrittivi: si fondano sul principio della permeabilità;
+	\item piezoelettrici: sfruttano l'originarsi di una polarizzazione elettrica su facce opposte di cristalli sottoposti a sollecitazioni \\ (stress) fisiche;
+	\item semiconduttore: sfruttano le caratteristiche della giunzione dei semiconduttori (fotodiodi, fototransistor). \cite{art:rif.11} 
+	\end{enumerate}
+\end{quote}
 
 \subsection{I trasduttori}
-Il trasduttore è un dispositivo in grado di trasformare le variazioni di una grandezza fisica,
-normalmente non elettrica, in un'altra grandezza, di natura elettrica (tensione, frequenza o corrente). È composto da due parti: sensore e convertitore, un circuito elettronico che trasforma le variazioni di un parametro del sensore in una variazione di una grandezza elettrica \cite{art:rif.10}. 
+"Il trasduttore è un dispositivo in grado di trasformare le variazioni di una grandezza fisica,
+normalmente non elettrica, in un'altra grandezza, di natura elettrica (tensione, frequenza o corrente). È composto da due parti: sensore e convertitore, un circuito elettronico che trasforma le variazioni di un parametro del sensore in una variazione di una grandezza elettrica" \cite{art:rif.10, art:rif.11}. 
 
 \subsection{Tipi di trasduttori}
-I trasduttori sono di due tipi:
-\begin{enumerate}
-\item Analogico: quando il suo segnale di uscita è una grandezza elettrica che varia in modo continuo mantenendo una doppia corrispondenza con il valore della grandezza misurata;
-\item Digitale: quando il suo segnale di uscita è composto da uno o più segnali digitali che possono assumere ciascuno solo due livelli di tensione identificati come 0 e 1.
-\end{enumerate}
-Inoltre i trasduttori possono essere classificati in base alla necessità di energia esterna per il loro funzionamento in:
-\begin{enumerate}
-\item Attivi: Quando forniscono in uscita un segnale direttamente utilizzabile da circuiti di elaborazione senza nessun consumo di energia elettrica;
-\item Passivi: Sono quei trasduttori ai quali bisogna fornire energia elettrica perché la grandezza fisica d'uscita possa essere trasformata in una grandezza elettrica \cite{art:rif.11}. 
-\end{enumerate}
+\begin{quote}
+	I trasduttori sono di due tipi:
+	\begin{enumerate}
+		\item Analogico: quando il suo segnale di uscita è una grandezza elettrica che varia in modo continuo mantenendo una doppia corrispondenza con il valore della grandezza misurata;
+		\item Digitale: quando il suo segnale di uscita è composto da uno o più segnali digitali che possono assumere ciascuno solo due livelli di tensione identificati come 0 e 1.
+	\end{enumerate}
+	Inoltre i trasduttori possono essere classificati in base alla necessità di energia esterna per il loro funzionamento in:
+	\begin{enumerate}
+		\item Attivi: Quando forniscono in uscita un segnale direttamente utilizzabile da circuiti di elaborazione senza nessun consumo di energia elettrica;
+		\item Passivi: Sono quei trasduttori ai quali bisogna fornire energia elettrica perché la grandezza fisica d'uscita possa essere trasformata in una grandezza elettrica \cite{art:rif.11}. 
+	\end{enumerate}
+\end{quote}
+
 
 \begin{figure}
 \centering
 \includegraphics[scale=.7]{Immagini/trasduttore.png}
 
-Fig. 2 Schema di un trasduttore.
+Fig. 2 Schema di un trasduttore. \cite{art:rif.33}
 \end{figure}
 
 \section{Parametri caratteristici}
 \subsection{La sensibilità}
-La sensibilità è il rapporto tra la variazione della grandezza di uscita $\Delta U$ e la variazione della grandezza d'ingresso $\Delta I$ che la provoca. 
-\begin{equation}
-S = \frac{\Delta U}{\Delta I}
-\end{equation}
-Più il coefficiente angolare della retta è elevato e più il trasduttore è sensibile, e minore sarà il range di funzionamento. Lo strumento risulterà essere molto sensibile quando a parità di grandezza di ingresso la grandezza di uscita è molto elevata.
-Il tempo di risposta è il tempo che il trasduttore impiega per raggiungere in uscita il valore di regime corrispondente al valore d'ingresso \cite{art:rif.11}. 
-
+\begin{quote}
+	La sensibilità è il rapporto tra la variazione della grandezza di uscita $\Delta U$ e la variazione della grandezza d'ingresso $\Delta I$ che la provoca. 
+	\begin{equation}
+	S = \frac{\Delta U}{\Delta I}
+	\end{equation}
+	Più il coefficiente angolare della retta è elevato e più il trasduttore è sensibile, e minore sarà il range di funzionamento. Lo strumento risulterà essere molto sensibile quando a parità di grandezza di ingresso la grandezza di uscita è molto elevata.
+	Il tempo di risposta è il tempo che il trasduttore impiega per raggiungere in uscita il valore di regime corrispondente al valore d'ingresso \cite{art:rif.11}.
+\end{quote}
+ 
 \subsection{La risoluzione}
-La risoluzione è il rapporto percentuale tra la minima variazione della grandezza di uscita in grado di essere rilevata e il valore massimo del fondo scala.
-La risoluzione R esprime la variazione minima di uscita rispetto al fondo scala \cite{art:rif.11}:
-\begin{equation}
-R = \frac{\Delta Xout_{min}}{\Delta Xout_{fondo scala}} 
-\end{equation} 
-
-
+\begin{quote}
+	La risoluzione è il rapporto percentuale tra la minima variazione della grandezza di uscita in grado di essere rilevata e il valore massimo del fondo scala.
+	La risoluzione R esprime la variazione minima di uscita rispetto al fondo scala \cite{art:rif.11}:
+	\begin{equation}
+	R = \frac{\Delta Xout_{min}}{\Delta Xout_{fondo scala}} 
+	\end{equation}
+\end{quote}
+ 
 \subsection{La riproducibilità}
-La riproducibilità è la capacità di un sensore di fornire sempre gli stessi valori di uscita in corrispondenza dell'ingresso. Vale a dire la costanza nel tempo delle caratteristiche del trasduttore (la sua resistenza all'invecchiamento) \cite{art:rif.11}. 
-
+\begin{quote}
+	La riproducibilità è la capacità di un sensore di fornire sempre gli stessi valori di uscita in corrispondenza dell'ingresso. \cite{art:rif.11}
+\end{quote}
+\begin{quote}
+	Vale a dire la costanza nel tempo delle caratteristiche del trasduttore (la sua resistenza all'invecchiamento).\cite{art:rif.17}
+\end{quote}
+ 
 \subsection{L'accuratezza}
-Nel funzionamento reale il sensore descrive una caratteristica che si discosta dalla funzione ideale come in Fig. 1. Per tenere presente la mancata accuratezza del dispositivo, occorre misurare le deviazioni esistenti fra i valori reali e i valori ideali. Le caratteristiche di affidabilità in un trasduttore sono relazionate alla sua vita utile ed a possibili cause di mal funzionamento nel sistema in cui è inserito. Infatti, l'accuratezza è la capacità del sensore del trasduttore di espletare la funzione per cui è stato costruito in condizioni prestabilite e per un tempo prefissato. Questo parametro è espresso in termini statistici come la probabilità che il dispositivo funzioni per un tempo o per un numero di cicli specificato. Solo di rado esso è specificato dai costruttori \cite{art:rif.12, art:rif.13}. 
-
+\begin{quote}
+	Nel funzionamento reale il sensore descrive una caratteristica che si discosta dalla funzione ideale
+	come in Fig. 1. Per tenere presente la mancata accuratezza del dispositivo, occorre misurare le deviazioni esistenti fra i valori reali e i valori ideali. 
+	Le caratteristiche di affidabilità in un trasduttore sono relazionate alla sua vita utile ed a possibili cause di mal funzionamento nel sistema in cui è inserito.
+	Infatti, l'accuratezza è la capacità del sensore del trasduttore di espletare la funzione per cui è stato costruito in condizioni prestabilite e per un tempo prefissato. Questo parametro è espresso in termini statistici come la probabilità che il dispositivo funzioni per un tempo o per un numero di cicli specificato. Solo di rado esso è specificato dai costruttori. \cite{art:rif.13}
+\end{quote}
 \subsection{Il drift}
-Il drift è la modifica temporale impredicibile delle caratteristiche del sensore e serve a indicare la stabilità sensitiva del sensore del trasduttore a lungo termine. La curva di risposta del sensore si modifica col tempo, perché viene introdotto un errore nella misurazione del valore della grandezza in ingresso. Questo errore cresce col tempo. Il drift definisce il tempo di vita della calibrazione del sensore, ovvero quanto tempo usare la stessa curva di risposta. Usare sempre la stessa curva di risposta da luogo ad errori sulle misurazioni non tollerabili \cite{art:rif.14}. 
-Il problema della variazione della curva di risposta del sensore nel tempo si risolve calibrandolo dopo una certa quantità di tempo. A seconda dell'importanza della sensibilità del sensore vengono elencate alcune risposte al drift:
-\begin{itemize}
-\item Un controllo di qualità che consiste nel tenere ogni sensore sotto continua osservazione per un lungo periodo (4-6 mesi), durante il quale il sensore viene continuamente ricalibrato per verificarne la stabilità. Solamente così è possibile verificare l'effettiva stabilità nel tempo del comportamento di ogni singolo sensore;
-\item I costruttori di sensori ad alta precisione, come Sea-Bird, scartano i sensori che non dimostrano una buona stabilità durante il periodo di valutazione. In funzione della tecnologia alla base del sensore e della sua costruzione la variazione può essere casuale o lineare e modellabile;
-\item In caso di variazioni casuali della risposta del sensore sono richiesti frequenti calibrazioni per avere misure affidabili;
-\item In caso di variazioni lineari e modellabili sono richieste calibrazioni meno frequenti. Nelle calibrazioni successive si utilizzano termini interpolati \cite{art:rif.15}.  
-\end{itemize}
+\begin{quote}
+	Il drift è la modifica temporale impredicibile delle caratteristiche del sensore \cite{art:rif.14} 
+\end{quote}
+e serve a indicare la stabilità sensitiva del sensore del trasduttore a lungo termine. 
+\begin{quote}
+	La curva di risposta del sensore si modifica col tempo, perché viene introdotto un errore nella misurazione del valore della grandezza in ingresso. Questo errore cresce col tempo. Il drift definisce il tempo di vita della calibrazione del sensore, ovvero quanto tempo usare la stessa curva di risposta. Usare sempre la stessa curva di risposta da luogo ad errori sulle misurazioni non tollerabili. \cite{art:rif.14}
+\end{quote}
+
+\begin{quote}
+	Il problema della variazione della curva di risposta del sensore nel tempo si risolve calibrandolo dopo una certa quantità di tempo. A seconda dell'importanza della sensibilità del sensore vengono elencate alcune risposte al drift:
+	\begin{itemize}
+		\item Un controllo di qualità che consiste nel tenere ogni sensore sotto continua osservazione per un lungo periodo (4-6 mesi), durante il quale il sensore viene continuamente ricalibrato per verificarne la stabilità. Solamente così è possibile verificare l'effettiva stabilità nel tempo del comportamento di ogni singolo sensore;
+		\item I costruttori di sensori ad alta precisione, come Sea-Bird, scartano i sensori che non dimostrano una buona stabilità durante il periodo di valutazione. In funzione della tecnologia alla base del sensore e della sua costruzione la variazione può essere casuale o lineare e modellabile;
+		\item In caso di variazioni casuali della risposta del sensore sono richiesti frequenti calibrazioni per avere misure affidabili;
+		\item In caso di variazioni lineari e modellabili sono richieste calibrazioni meno frequenti. Nelle calibrazioni successive si utilizzano termini interpolati \cite{art:rif.15}.  
+	\end{itemize}
+\end{quote}
 
 \section{Acquisizione e al trattamento dei segnali}
 \subsection{Il segnale}
-Si definisce segnale la variazione di una qualsiasi grandezza fisica in funzione del tempo. 
-In generale possiamo affermare che un segnale, sotto opportune ipotesi, può essere descritto matematicamente da una funzione continua. Le onde di volume viaggiano all'interno della terra e seguono le leggi dell'ottica geometrica. Vi sono due tipi principali di onde di volume:
-\begin{enumerate}
-\item Onde P: (prime) onde di compressione e rarefazione in cui l'oscillazione delle particelle di matteria avviene parallelamente alla direzione di propagazione dell'onda; 
-\item Onde S: (seconde o di taglio) in cui l'oscillazione delle particelle avviene perpendicolarmente alla direzione di propagazione dell'onda.
-\end{enumerate}
+\begin{quote}
+	Si definisce segnale la variazione di una qualsiasi grandezza fisica in funzione del tempo. 
+	
+	In generale possiamo affermare che un segnale, sotto opportune ipotesi, può essere descritto matematicamente da una funzione continua. 
+	
+	Le onde di volume viaggiano all'interno della terra e seguono le leggi dell'ottica geometrica. Vi sono due tipi principali di onde di volume:
+	\begin{enumerate}
+		\item Onde P: (prime) onde di compressione e rarefazione in cui l'oscillazione delle particelle di matteria avviene parallelamente alla direzione di propagazione dell'onda; 
+		\item Onde S: (seconde o di taglio) in cui l'oscillazione delle particelle avviene perpendicolarmente alla direzione di propagazione dell'onda \cite{art:rif.2}.
+	\end{enumerate}
+\end{quote}
+
 I segnali possono essere di tre tipi:
-\begin{enumerate}
-\item Continui o Analogici: quando il loro valore può essere misurato in ogni istante. L'aggettivo "analogico" è usato in relazione al fatto che la loro forma in uscita da un sistema è analoga a quella in ingresso.
-\item Discreti: quando il loro valore può essere misurato solo in determinati istanti di tempo.
-\item Digitali: quando si tratta di segnali discreti la cui ampiezza è associata ad un numero che ne rappresenta il valore in quell'istante. In genere per esprimere il numero viene usata, per semplicità, la base numerica binaria \{0,1\}.
-\end{enumerate}
+\begin{quote}
+	\begin{enumerate}
+		\item Continui o Analogici: quando il loro valore può essere misurato in ogni istante. L'aggettivo "analogico" è usato in relazione al fatto che la loro forma in uscita da un sistema è analoga a quella in ingresso.
+		\item Discreti: quando il loro valore può essere misurato solo in determinati istanti di tempo.
+		\item Digitali: quando si tratta di segnali discreti la cui ampiezza è associata ad un numero che ne rappresenta il valore in quell'istante. In genere per esprimere il numero viene usata, per semplicità, la base numerica binaria \{0,1\} \cite{art:rif.2}.
+	\end{enumerate}
+\end{quote}
+
 La teoria dei segnali si suddivide in due grandi branche a seconda del tipo di segnale in esame: 
-\begin{enumerate}
-\item Segnali deterministici: quando è possibile prevedere con certezza il suo valore ad un certo istante, che viene determinato una volta conosciuti pochi parametri. Per esempio, una sinusoide di cui sia conosciuta l'ampiezza, la frequenza, e la fase ad un istante dato è un segnale deterministico. 
-\item Segnali aleatori: quando è solo possibile prevedere solamente la probabilità che il segnale assuma un certo valore ad un dato istante. Un segnale aleatorio viene definito completamente da due funzioni, la densità di probabilità e la funzione di correlazione. La prima restituisce la probabilità che il segnale assuma un valore dato, la seconda fornisce una relazione tra i valori del segnale a istanti di tempo diversi.
-\end{enumerate}
-Purtroppo i segnali deterministici non esistono nella realtà, in quanto ogni segnale fisico reale possiede una certa indeterminazione per cui il suo valore non può essere mai previsto con infinita esattezza: risultano però una buona approssimazione in molti casi pratici.
-I casi più importanti dei segnali aleatori sono quelli in cui la distribuzione del segnale è gaussiana e quello in cui il valore del segnale ad un dato istante non è correlato a quello degli istanti precedenti e successivi. Esso prende il nome di rumore bianco \cite{art:rif.2}. 
-
+\begin{quote}
+	\begin{enumerate}
+		\item Segnali deterministici: quando è possibile prevedere con certezza il suo valore ad un certo istante, che viene determinato una volta conosciuti pochi parametri. Per esempio, una sinusoide di cui sia conosciuta l'ampiezza, la frequenza, e la fase ad un istante dato è un segnale deterministico. 
+		\item Segnali aleatori: quando è solo possibile prevedere solamente la probabilità che il segnale assuma un certo valore ad un dato istante. Un segnale aleatorio viene definito completamente da due funzioni, la densità di probabilità e la funzione di correlazione. La prima restituisce la probabilità che il segnale assuma un valore dato, la seconda fornisce una relazione tra i valori del segnale a istanti di tempo diversi.
+	\end{enumerate}
+	Purtroppo i segnali deterministici non esistono nella realtà, in quanto ogni segnale fisico reale possiede una certa indeterminazione per cui il suo valore non può essere mai previsto con infinita esattezza: risultano però una buona approssimazione in molti casi pratici.
+	I casi più importanti dei segnali aleatori sono quelli in cui la distribuzione del segnale è gaussiana e quello in cui il valore del segnale ad un dato istante non è correlato a quello degli istanti precedenti e successivi. Esso prende il nome di rumore bianco \cite{art:rif.2}.
+\end{quote}
+ 
 \subsection{Lettura del segnale}
-Per leggere un segnale bisogna utilizzare un trasduttore. Le caratteristiche importanti che un trasduttore deve possedere sono:
-\begin{itemize}
-\item l'ampiezza del segnale in uscita;
-\item la sensibilità, ovvero il minimo valore misurabile;
-\item la velocità di risposta, ovvero il tempo impiegato dal sensore per fornire una risposta costante dopo una brusca variazione della grandezza da misurare.
-\end{itemize}
-Quest'ultima caratteristica dipende dalla banda passante, ovvero la massima frequenza di variazione del segnale a cui il sensore è in grado di funzionare. 
-Un trasduttore è uno strumento di misura, pertanto la tensione fornita sarà affetta da una piccola componente casuale, che porterà la misurazione a fluttuare intorno al valore medio. Si schematizza questo fenomeno considerando il segnale prodotto dal trasduttore come la somma di una parte proporzionale al segnale vero e proprio che si intende misurare, e da un segnale aleatorio, il rumore bianco \cite{art:rif.2}. Le cause delle fluttuazioni (o sorgenti di rumore) sono molteplici ad esempio:
-\begin{itemize}
-\item la temperatura (rumore termico);
-\item la quantizzazione della carica dell'elettrone;
-\item i campi elettrici presenti nelle vicinanze dell'apparecchio (la linea a 50 Hz);
-\item le vibrazioni meccaniche;
-\item \dots
-\end{itemize}
-Un ulteriore rumore viene introdotto quando il segnale prodotto dal trasduttore viene trasportato lungo una linea elettrica, o amplificato, o manipolato in qualche modo. Per permettere ad un calcolatore di elaborare un segnale, bisogna prima convertirlo in un segnale di tipo elettrico. In questo modo è possibile inviare il segnale ad una scheda di acquisizione che trasforma il segnale in una tabella di numeri binari interi, che sono gli unici dati in grado di essere elaborati dal calcolatore, che poi l'utente leggerà come numeri decimali, dopo una appropriata conversione. Si rendono quindi necessarie due distinte operazioni sul segnale: 
-\begin{itemize}
-\item la discretizzazione: consiste nel misurare l'ampiezza del segnale ad intervalli di tempo fissati;
-\item la quantizzazione: consiste nella trasformazione dei valori misurati in numeri interi binari \cite{art:rif.2}. 
-\end{itemize} 
+Per leggere un segnale bisogna utilizzare un trasduttore. 
+\begin{quote}
+	Le caratteristiche importanti che un trasduttore deve possedere sono:
+	\begin{itemize}
+		\item l'ampiezza del segnale in uscita;
+		\item la sensibilità, ovvero il minimo valore misurabile;
+		\item la velocità di risposta, ovvero il tempo impiegato dal sensore per fornire una risposta costante dopo una brusca variazione della grandezza da misurare.
+	\end{itemize}
+	Quest'ultima caratteristica dipende dalla banda passante, ovvero la massima frequenza di variazione del segnale a cui il sensore è in grado di funzionare. 
+	Un trasduttore è uno strumento di misura, pertanto la tensione fornita sarà affetta da una piccola componente casuale, che porterà la misurazione a fluttuare intorno al valore medio. Si schematizza questo fenomeno considerando il segnale prodotto dal trasduttore come la somma di una parte proporzionale al segnale vero e proprio che si intende misurare, e da un segnale aleatorio, il rumore bianco \cite{art:rif.2}. 
+\end{quote}
 
+\begin{quote}
+	Le cause delle fluttuazioni (o sorgenti di rumore) sono molteplici ad esempio:
+	\begin{itemize}
+	\item la temperatura (rumore termico);
+	\item la quantizzazione della carica dell'elettrone;
+	\item i campi elettrici presenti nelle vicinanze dell'apparecchio (la linea a 50 Hz);
+	\item le vibrazioni meccaniche;
+	\item \dots 
+	\end{itemize}
+	Un ulteriore rumore viene introdotto quando il segnale prodotto dal trasduttore viene trasportato lungo una linea elettrica, o amplificato, o manipolato in qualche modo. \cite{art:rif.2}
+\end{quote}
+
+\begin{quote}
+	Per permettere ad un calcolatore di elaborare un segnale, bisogna prima convertirlo in un segnale di tipo elettrico. In questo modo è possibile inviare il segnale ad una scheda di acquisizione che trasforma il segnale in una tabella di numeri binari interi, che sono gli unici dati in grado di essere elaborati dal calcolatore, che poi l'utente leggerà come numeri decimali, dopo una appropriata conversione. Si rendono quindi necessarie due distinte operazioni sul segnale: 
+	\begin{itemize}
+		\item la discretizzazione: consiste nel misurare l'ampiezza del segnale ad intervalli di tempo fissati;
+		\item la quantizzazione: consiste nella trasformazione dei valori misurati in numeri interi binari \cite{art:rif.2}. 
+	\end{itemize}
+\end{quote}
+ 
 \begin{figure}
 	\centering
 	\includegraphics[scale=.4]{Immagini/schemaAD.png}
 	
 	Fig. 3 Schema a blocchi di un convertitore A/D.
+	Materiale didaticco del corso "Fondamenti di segnali e sistemi" \cite{art:rif.7}.
 \end{figure}
 
-Il processo di conversione A/D (da analogico a digitale), che trasforma il segnale originario in una sequenza di bit {0,1}, è noto come tecnica PCM (Pulse Code Modulation o modulazione impulsiva codificata). Gli A/D convertono i valori di tensione in ingresso nel numero corrispondente espresso in binario \cite{art:rif.7}. 
+\begin{quote}
+	Il processo di conversione A/D (da analogico a digitale), che trasforma il segnale originario in una sequenza di bit {0,1}, è noto come tecnica PCM (Pulse Code Modulation o modulazione impulsiva codificata). Gli A/D convertono i valori di tensione in ingresso nel numero corrispondente espresso in binario. \cite{art:rif.7}
+\end{quote}
+ 
 \subsection{Campionamento o discretizzazione}
-La discretizzazione consiste nel misurare l'ampiezza del segnale ad intervalli di tempo fissati. Sia /Delta T l'intervallo di tempo tra due misure successive. La discretizzazione genera un vettore $x$ di dimensione $n$. È evidente che l'intervallo di tempo /Delta T deve essere sufficientemente piccolo da riuscire ad individuare anche piccole variazioni del segnale. L'inverso dell'intervallo /Delta T si chiama frequenza di campionamento ed indica quante volte al secondo viene misurata l'ampiezza del segnale \cite{art:rif.2}.  
+\begin{quote}
+	La discretizzazione consiste nel misurare l'ampiezza del segnale ad intervalli di tempo fissati. Sia /Delta T l'intervallo di tempo tra due misure successive. La discretizzazione genera un vettore $x$ di dimensione $n$. È evidente che l'intervallo di tempo /Delta T deve essere sufficientemente piccolo da riuscire ad individuare anche piccole variazioni del segnale. L'inverso dell'intervallo /Delta T si chiama frequenza di campionamento ed indica quante volte al secondo viene misurata l'ampiezza del segnale. \cite{art:rif.2}
+\end{quote}
+  
 \subsection{Quantizzazione}
-La quantizzazione consiste nella trasformazione delle ampiezze misurate in numeri interi binari ad $N$ bit. Supponiamo che la scheda di acquisizione accetti in ingresso una tensione positiva al massimo di $ V_{0} $ volt. Il numero di intervalli che si possono ottenere con $N$ bit è dato da $2N$, il doppio. Allora il modo più efficiente di convertire il segnale è di dividere l'intervallo $ V_{0} $ in $2N$ sezioni, ciascuna di spessore $ V_{0}/2N $. Dopo di che bisogna assegnare ad ognuna di queste sezioni un numero binario ad $N$ bit. Quando il segnale cade in una di queste sezioni, gli viene assegnato il numero binario corrispondente. Così facendo si commette in ogni misura al massimo un errore pari a metà dello spessore della sezione, $ V_{0}/2N+1 $. La minima variazione rilevabile del segnale in ingresso risulterà essere $ V_{0}/2N $. Ora si suppone che il trasduttore produca in uscita un segnale compreso tra un massimo $ V_{max} $ ed un minimo $ V_{min} $. Visto che la precisione con cui viene quantizzato il segnale dipende solamente dalle caratteristiche della scheda di acquisizione, per ottenere la massima risoluzione è necessario che $V_{max}$ e $V_{min}$ rientrino all'interno dell'intervallo permesso dalla scheda di acquisizione e che vi si adattino al meglio. 
+\begin{quote}
+	La quantizzazione consiste nella trasformazione delle ampiezze misurate in numeri interi binari ad $N$ bit. Supponiamo che la scheda di acquisizione accetti in ingresso una tensione positiva al massimo di $ V_{0} $ volt. Il numero di intervalli che si possono ottenere con $N$ bit è dato da $2N$, il doppio. Allora il modo più efficiente di convertire il segnale è di dividere l'intervallo $ V_{0} $ in $2N$ sezioni, ciascuna di spessore $ V_{0}/2N $. Dopo di che bisogna assegnare ad ognuna di queste sezioni un numero binario ad $N$ bit. Quando il segnale cade in una di queste sezioni, gli viene assegnato il numero binario corrispondente. Così facendo si commette in ogni misura al massimo un errore pari a metà dello spessore della sezione, $ V_{0}/2N+1 $. La minima variazione rilevabile del segnale in ingresso risulterà essere $ V_{0}/2N $. Ora si suppone che il trasduttore produca in uscita un segnale compreso tra un massimo $ V_{max} $ ed un minimo $ V_{min} $. Visto che la precisione con cui viene quantizzato il segnale dipende solamente dalle caratteristiche della scheda di acquisizione, per ottenere la massima risoluzione è necessario che $V_{max}$ e $V_{min}$ rientrino all'interno dell'intervallo permesso dalla scheda di acquisizione e che vi si adattino al meglio. 
+	A questo scopo è necessario amplificare o attenuare il segnale fornito dal trasduttore, ed eventualmente fornire una tensione aggiuntiva per evitare valori negativi. Queste operazioni costituiscono l'esempio più semplice del cosiddetto condizionamento del segnale, che può prevedere anche un filtraggio, la sottrazione di una componente continua, ecc... Molte di queste operazioni vengono effettuate automaticamente dalla scheda di acquisizione stessa. Supponiamo di voler campionare una sinusoide di frequenza $f_{0}$. Intuitivamente, per riuscire ad ottenere un campionamento che rappresenti realisticamente il segnale dobbiamo essere in grado di misurare almeno due volte l'ampiezza del segnale all'interno di un periodo, in modo tale da riuscire ad evidenziare come il segnale oscilli e cambi di segno. Quindi la frequenza di campionamento minima per riuscire a ricostruire il segnale è pari al doppio della frequenza $f_{0}$. In altre parole, se il segnale viene campionato ad una frequenza $f_{s}$, allora sarà possibile campionare correttamente solo i segnali di frequenza minore di $f_{N}=f_{s}/2$. La frequenza $f_{N}$ così definita viene definita frequenza di Nyquist. Un segnale con una certa frequenza, se campionato con una frequenza leggermente superiore, appare con una frequenza molto più bassa di quella reale. Il fenomeno per cui le frequenze maggiori della frequenza di Nyquist vengono riconosciute come frequenze inferiori è detto aliasing. \cite{art:rif.2}
+\end{quote}
 
-A questo scopo è necessario amplificare o attenuare il segnale fornito dal trasduttore, ed eventualmente fornire una tensione aggiuntiva per evitare valori negativi. Queste operazioni costituiscono l'esempio più semplice del cosiddetto condizionamento del segnale, che può prevedere anche un filtraggio, la sottrazione di una componente continua, ecc... Molte di queste operazioni vengono effettuate automaticamente dalla scheda di acquisizione stessa. Supponiamo di voler campionare una sinusoide di frequenza $f_{0}$. Intuitivamente, per riuscire ad ottenere un campionamento che rappresenti realisticamente il segnale dobbiamo essere in grado di misurare almeno due volte l'ampiezza del segnale all'interno di un periodo, in modo tale da riuscire ad evidenziare come il segnale oscilli e cambi di segno. Quindi la frequenza di campionamento minima per riuscire a ricostruire il segnale è pari al doppio della frequenza $f_{0}$. In altre parole, se il segnale viene campionato ad una frequenza $f_{s}$, allora sarà possibile campionare correttamente solo i segnali di frequenza minore di $f_{N}=f_{s}/2$. La frequenza $f_{N}$ così definita viene definita frequenza di Nyquist. Un segnale con una certa frequenza, se campionato con una frequenza leggermente superiore, appare con una frequenza molto più bassa di quella reale. Il fenomeno per cui le frequenze maggiori della frequenza di Nyquist vengono riconosciute come frequenze inferiori è detto aliasing.
-Per evitare l'aliasing si utilizza un filtro passo basso, che elimina tutte le frequenze superiori a un certo valore (la metà della frequenza di campionamento). Il valore è detto frequenza di cut-off. {art:rif.2}
-Sono necessari almeno due campioni per periodo del segnale:
-\begin{enumerate}
-\item la frequenza di campionamento deve essere almeno il doppio della massima frequenza presente nel segnale;
-\item la frequenza di Nyquist.
-\end{enumerate}
-La quantizzazione è un processo non-lineare, ed a differenza del processo di campionamento, non è reversibile, indi per cui non è possibile ricostruire i valori reali assunti originariamente dalla grandezza fisica. La quantizzazione è dunque una fonte di distorsione.
-Una volta che il segnale è stato campionato, deve essere quantizzata anche l'ampiezza dei valori campionati. Un quantizzatore si occupa di associare ad un range di valori d'ingresso un unico valore di uscita. Questo deve avvenire in quanto, in un segnale analogico, il range di valori tra due estremi è infinito mentre nel mondo digitale solo un certo numero di valori potrà essere rappresentato. La quantizzazione può essere di tipo scalare (SQ) oppure vettoriale (VQ). Nella SQ, ciascun campione viene quantizzato singolarmente, mentre nella VQ vengono quantizzati congiuntamente blocchi di campioni. A sua volta i modi secondo cui il quantizzatore può operare sono diversi, i più comuni sono la quantizzazione uniforme e la quantizzazione a minimo errore quadratico medio \cite{art:rif.4}. 
+\begin{quote}
+	Per evitare l'aliasing si utilizza un filtro passo basso, che elimina tutte le frequenze superiori a un certo valore (la metà della frequenza di campionamento). Il valore è detto frequenza di cut-off. 
+	Sono necessari almeno due campioni per periodo del segnale:
+	\begin{enumerate}
+		\item la frequenza di campionamento deve essere almeno il doppio della massima frequenza presente nel segnale;
+		\item la frequenza di Nyquist. \cite{art:rif.18}
+	\end{enumerate}
+\end{quote}
+
+\begin{quote}
+	Una volta che il segnale è stato campionato, deve essere quantizzata anche l'ampiezza dei valori campionati. Un quantizzatore si occupa di associare ad un range di valori d'ingresso un unico valore di uscita. Questo deve avvenire in quanto, in un segnale analogico, il range di valori tra due estremi è infinito mentre nel mondo digitale solo un certo numero di valori potrà essere rappresentato. La quantizzazione può essere di tipo scalare (SQ) oppure vettoriale (VQ). Nella SQ, ciascun campione viene quantizzato singolarmente, mentre nella VQ vengono quantizzati congiuntamente blocchi di campioni. A sua volta i modi secondo cui il quantizzatore può operare sono diversi, i più comuni sono la quantizzazione uniforme e la quantizzazione a minimo errore quadratico medio. \cite{art:rif.4}
+\end{quote}
+ 
 \subsubsection{Uniforme}
-Nel caso di quantizzazione uniforme, il gradino $\gamma$ di quantizzazione è uniforme cioè sempre della stessa ampiezza. Questo gradino (detto anche passo di quantizzazione) viene determinato a partire dalla massima dinamica del segnale di ingresso e dal numero di bit che abbiamo a disposizione. Definiamo come $R=[x_{max},x_{min}]$ il range dinamico del segnale di ingresso e come $n$ il numero di bit così da ottenere $\gamma=R/2n$. Ovviamente agendo in questo modo la quantizzazione introduce un errore, detto errore di quantizzazione. In correlazione all'errore di quantizzazione possiamo tenere in considerazione il rapporto tra segnale e rumore di quantizzazione detto SQNR. Esso rappresenta un indice di qualità relativo alla quantizzazione e l'errore di quantizzazione che, inevitabilmente si ottiene quantizzando il segnale campionato. È possibile dimostrare che questo rapporto aumenta di 6 dB per ogni bit aggiuntivo a disposizione della quantizzazione. Questo è intuitivo perché aumentando il numero di bit a disposizione per la quantizzazione, il passo $\gamma$ diventa più piccolo ed il segnale analogico può venire quantizzato in maniera più precisa. Per la descrivere un segnale continuo abbiamo bisogno una sequenza più lunga di valori discreti, quindi sarà maggiore il numero di bit usati e maggiore sarà l'accuratezza della descrizione. Di conseguenza più gradini ci sono minore sarà l'errore di quantizzazione \cite{art:rif.4}.  
+\begin{quote}
+	Nel caso di quantizzazione uniforme, il gradino $\gamma$ di quantizzazione è uniforme cioè sempre della stessa ampiezza. Questo gradino (detto anche passo di quantizzazione) viene determinato a partire dalla massima dinamica del segnale di ingresso e dal numero di bit che abbiamo a disposizione. Definiamo come $R=[x_{max},x_{min}]$ il range dinamico del segnale di ingresso e come $n$ il numero di bit così da ottenere $\gamma=R/2n$. Ovviamente agendo in questo modo la quantizzazione introduce un errore, detto errore di quantizzazione. In correlazione all'errore di quantizzazione possiamo tenere in considerazione il rapporto tra segnale e rumore di quantizzazione detto SQNR. Esso rappresenta un indice di qualità relativo alla quantizzazione e l'errore di quantizzazione che, inevitabilmente si ottiene quantizzando il segnale campionato. È possibile dimostrare che questo rapporto aumenta di 6 dB per ogni bit aggiuntivo a disposizione della quantizzazione. Questo è intuitivo perché aumentando il numero di bit a disposizione per la quantizzazione, il passo $\gamma$ diventa più piccolo ed il segnale analogico può venire quantizzato in maniera più precisa. Per la descrivere un segnale continuo abbiamo bisogno una sequenza più lunga di valori discreti, quindi sarà maggiore il numero di bit usati e maggiore sarà l'accuratezza della descrizione. Di conseguenza più gradini ci sono minore sarà l'errore di quantizzazione. \cite{art:rif.4}  
+\end{quote}
 
 \subsubsection{Non uniforme}
-La quantizzazione non uniforme (o non lineare) slega SQNR e $\gamma$ dinamica. Con non uniforme si indicano intervalli spaziati differentemente ovvero i gradini $\gamma$ non hanno la stessa dimensione. Questa tecnica è utilizzata quando la statistica del segnale in ingresso non è uniforme. Questo vuol dire che si presentano intervalli più piccoli, e quindi più accurati, dove la concentrazione di valori dei campioni è più alta rispetto a intervalli più grandi e quindi meno accurati, dove la concentrazione di valori di campioni è più bassa. Così facendo si presta più attenzione nella quantizzazione di valori che si presentano con maggiore probabilità diminuendo così l'errore di quantizzazione. Lo scopo della quantizzazione non uniforme è quello di migliorare l'errore relativo ai bassi livelli del segnale attraverso la quantizzazione non uniforme analogica oppure la quantizzazione non uniforme digitale. 
-Nella quantizzazione non uniforme analogica, il segnale PAM (pulse-amplitude modulation) prima di essere convertito in digitale attraversa un compressore analogico, sostanzialmente un amplificatore logaritmico, che ha lo scopo di amplificare i livelli più bassi del segnale PAM e di comprimere quelli alti. L'apparato ricevente PCM deve contenere un organo denominato espansore, complementare al compressore in grado di ripristinare i livelli originali.
-Nella quantizzazione non uniforme digitale, invece, il segnale PAM è convertito immediatamente in digitale a 12 bit. Successivamente un compressore numerico trasforma i dati in forma seriale a 8 bit. Anche la compressione numerica segue una legge logaritmica simile a quella analogica. L'apparato ricevente PCM deve contenere un organo denominato espansore, complementare al compressore, in grado di ripristinare i livelli originali. Un compressore digitale trasforma una parola a 12 bit (4096 combinazioni) in una a 8 bit (256 combinazioni). La curva del compressore analogico è approssimata con una spezzata costituita, secondo le norme CEPT (Conferenza Europea delle amministrazioni delle Poste e delle Telecomunicazioni), di 8 segmenti ricavati dividendo in 8 parti uguali l'asse delle ordinate. L'asse delle ascisse è così diviso in segmenti chiamati "segmenti di tratta". Dato in ingresso il codice a 12 bit: \\
-$N_{in}$ = [S, N10, N9, N8, N7, N6, N5, N4, N3, N2, N1, N0] \\
-Il compressore numerico fa corrispondere il codice a 8 bit: \\
-$N_{out}$ = [S, A, B, C, D, E, F, G] \\
-Dove $S$ è il bit di segno (0 positivo e 1 negativo), [A, B, C] è il segmento di tratta e [D, E, F, G] è il codice binario corrispondente all'interpolazione lineare dentro la tratta.
-La quantizzazione non uniforme è un processo irreversibile, che modifica il segnale originario, approssimandone il valore con uno vicino, ma non identico. Per questo il processo di quantizzazione introduce rumore. Il rumore di quantizzazione in uscita dal filtro di ricezione in un sistema di comunicazione è bianco e gaussiano \cite{art:rif.6}. La non linearità espande gli intervalli più vicini all'origine e comprime quelli verso il valore massimo. Per migliorare le prestazioni in presenza di segnali che possono cambiare significativamente la dinamica bisogna aumentare il numero di bit del campione. Utilizzare quantizzatori non uniformi. Segnali con piccola dinamica vendono piccoli intervalli di quantizzazione, segnali con grande dinamica vedono intervalli di quatizzazione grandi \cite{art:rif.7, art:rif.8, art:rif.9}. 
+" La quantizzazione non uniforme (o non lineare) slega SQNR e $\gamma$ dinamica. Con non uniforme si indicano intervalli spaziati differentemente ovvero i gradini $\gamma$ non hanno la stessa dimensione." \cite{art:rif.18}
+
+\begin{quote}
+	Questa tecnica è utilizzata quando la statistica del segnale in ingresso non è uniforme. \cite{art:rif.7}
+\end{quote}
+
+\begin{quote}
+	Questo vuol dire che si presentano intervalli più piccoli, e quindi più accurati, dove la concentrazione di valori dei campioni è più alta rispetto a intervalli più grandi e quindi meno accurati, dove la concentrazione di valori di campioni è più bassa. Così facendo si presta più attenzione nella quantizzazione di valori che si presentano con maggiore probabilità diminuendo così l'errore di quantizzazione. \cite{art:rif.6}
+\end{quote}
+
+\begin{quote}
+	Lo scopo della quantizzazione non uniforme è quello di migliorare l'errore relativo ai bassi livelli del segnale attraverso la quantizzazione non uniforme analogica oppure la quantizzazione non uniforme digitale. 
+	Nella quantizzazione non uniforme analogica, il segnale PAM (pulse-amplitude modulation) prima di essere convertito in digitale attraversa un compressore analogico, sostanzialmente un amplificatore logaritmico, che ha lo scopo di amplificare i livelli più bassi del segnale PAM e di comprimere quelli alti. L'apparato ricevente PCM deve contenere un organo denominato espansore, complementare al compressore in grado di ripristinare i livelli originali.
+	Nella quantizzazione non uniforme digitale, invece, il segnale PAM è convertito immediatamente in digitale a 12 bit. Successivamente un compressore numerico trasforma i dati in forma seriale a 8 bit. Anche la compressione numerica segue una legge logaritmica simile a quella analogica. L'apparato ricevente PCM deve contenere un organo denominato espansore, complementare al compressore, in grado di ripristinare i livelli originali. Un compressore digitale trasforma una parola a 12 bit (4096 combinazioni) in una a 8 bit (256 combinazioni). La curva del compressore analogico è approssimata con una spezzata costituita, secondo le norme CEPT (Conferenza Europea delle amministrazioni delle Poste e delle Telecomunicazioni), di 8 segmenti ricavati dividendo in 8 parti uguali l'asse delle ordinate. L'asse delle ascisse è così diviso in segmenti chiamati "segmenti di tratta". Dato in ingresso il codice a 12 bit: \\
+	$N_{in}$ = [S, N10, N9, N8, N7, N6, N5, N4, N3, N2, N1, N0] \\
+	Il compressore numerico fa corrispondere il codice a 8 bit: \\
+	$N_{out}$ = [S, A, B, C, D, E, F, G] \\
+	Dove $S$ è il bit di segno (0 positivo e 1 negativo), [A, B, C] è il segmento di tratta e [D, E, F, G] è il codice binario corrispondente all'interpolazione lineare dentro la tratta. \cite{art:rif.8}
+\end{quote}
+
+\begin{quote}
+	La quantizzazione non uniforme è un processo irreversibile, che modifica il segnale originario, approssimandone il valore con uno vicino, ma non identico. Per questo il processo di quantizzazione introduce rumore. Il rumore di quantizzazione in uscita dal filtro di ricezione in un sistema di comunicazione è bianco e gaussiano. \cite{art:rif.6} 
+\end{quote}
+
+\begin{quote}
+	La non linearità espande gli intervalli più vicini all'origine e comprime quelli verso il valore massimo. 
+	Per migliorare le prestazioni in presenza di segnali che possono cambiare significativamente la dinamica bisogna aumentare il numero di bit del campione. Utilizzare quantizzatori non uniformi. Segnali con piccola dinamica vendono piccoli intervalli di quantizzazione, segnali con grande dinamica vedono intervalli di quatizzazione grandi. \cite{art:rif.7} 
+\end{quote}
+
 \subsubsection{Logaritmica}
-Assegna i valori a regioni uniformi su scala logaritmica.
-\begin{itemize}
-\item Vantaggi: produce risparmi di memoria ed ha una migliore qualità audio a parità di SR (Sample Rate).
-\item Svantaggio: più complesso applicare le tecniche di elaborazione del segnale (la somma di due segnali corrisponde al prodotto, proprietà dei logaritmi) \cite{art:rif.16}.
-\end{itemize}
-Gli esempi più importanti di quantizzazione logaritmica sono rappresentati dai quantizzatori A-law e $\mu$-law, utilizzati rispettivamente in Europa e negli USA per la telefonia fissa (PCM, 8000 Hz di campionamento, 8 bit per campione) \cite{art:rif.5}. 
+\begin{quote}
+	Assegna i valori a regioni uniformi su scala logaritmica.
+	\begin{itemize}
+	\item Vantaggi: produce risparmi di memoria ed ha una migliore qualità audio a parità di SR (Sample Rate).
+	\item Svantaggio: più complesso applicare le tecniche di elaborazione del segnale (la somma di due segnali corrisponde al prodotto, proprietà dei logaritmi). \cite{art:rif.16}
+	\end{itemize}
+\end{quote}
+
+\begin{quote}
+	Gli esempi più importanti di quantizzazione logaritmica sono rappresentati dai quantizzatori A-law e $\mu$-law, utilizzati rispettivamente in Europa e negli USA per la telefonia fissa (PCM, 8000 Hz di campionamento, 8 bit per campione). \cite{art:rif.5}
+\end{quote}
 
 \subsection{Codificatore o encoder}
-Un codificatore o encoder è un circuito digitale combinatorio dotato di $2^{n}$ segnali di ingresso e di $n$ segnali di uscita. L'attivazione di una delle linee di ingresso produce in uscita il codice corrispondente. Si utilizza in combinazione con i trasduttori digitali che forniscono in ingresso del codificatore un segnale binario. Tra ingresso e uscita del codificatore non esiste però un legame logico, come caso del decoder, perché all'interno di esso esistono delle allocazioni perenni di memoria (memorizzate dal costruttore) tali che il loro numero sia pari alle linee in ingresso (ogni linea attiva individua una locazione di memoria). Se gli ingressi attivati sono più di uno, l'uscita potrebbe assumere una configurazione binaria indesiderata. Per evitare che questo accada, i codificatori in commercio sono possiedono una priorità: se si attiva più di una linea in ingresso, l'uscita assumerà la configurazione associata all'ingresso con priorità maggiore tra quelli attivati \cite{art:rif.3}. 
-
+\begin{quote}
+	Un codificatore o encoder è un circuito digitale combinatorio dotato di $2^{n}$ segnali di ingresso e di $n$ segnali di uscita. L'attivazione di una delle linee di ingresso produce in uscita il codice corrispondente. Si utilizza in combinazione con i trasduttori digitali che forniscono in ingresso del codificatore un segnale binario. Tra ingresso e uscita del codificatore non esiste però un legame logico, come caso del decoder, perché all'interno di esso esistono delle allocazioni perenni di memoria (memorizzate dal costruttore) tali che il loro numero sia pari alle linee in ingresso (ogni linea attiva individua una locazione di memoria). Se gli ingressi attivati sono più di uno, l'uscita potrebbe assumere una configurazione binaria indesiderata. Per evitare che questo accada, i codificatori in commercio sono possiedono una priorità: se si attiva più di una linea in ingresso, l'uscita assumerà la configurazione associata all'ingresso con priorità maggiore tra quelli attivati. \cite{art:rif.3}
+\end{quote}
+ 
 \chapter{Cap2}
 \section{Internet of Things}
 L'Internet of Things (IoT) tocca tutti gli aspetti della vita quotidiana, coprendo una gamma di applicazioni inimmaginabile, dai dispositivi indossabili connessi, progettati per comunicare su distanze di pochi centimetri, a un'ampia varietà di applicazioni di gestione delle risorse e di monitoraggio a sensori, che potranno comunicare con uno o più gateway su distanze anche di diversi km \cite{art:rif.20, art:rif.21}. 
@@ -617,7 +722,7 @@ Le misurazioni sono state raccolte dagli autori dell'articolo \cite{art:rif.44}.
 L'articolo \cite{art:rif.49} descrive nel dettaglio i livelli e i sottolivelli della pila di protocolli della tecnologia LoRa.
 \begin{enumerate}
 \item Implementazione della banda base LoRa PHY: 
-per modellare gli effetti della perdita del percorso e dell'interferenza intra-LoRa, è stato sviluppato un modello di errore per LoRa PHY. È misurano il bit error rate (BER) per diverse configurazioni LoRa PHY su un canale AWGN (Articolo 16). Un diagramma a blocchi delle simulazioni BER è mostrato in figura. Il brevetto EP 2763321 A1 e le opere di Knight and Seeber  e Robyns et al. erano risorse inestimabili per costruire l'implementazione della banda base LoRA. I bit di informazione generati nella sorgente di informazioni sono mappati ai bit di codice dall'encoder di correzione dell'errore. Questo codificatore implementa le code rate 5/4, 7/4 e 8/4 disponibili in LoRa.1, mentre il 5/4 CR è un semplice codice di controllo di parità, i CR 7/4 e 8/4 sono (7, 4) e (8, 4) codici di Hamming che correggono gli errori lineari. Questi codici possono correggere un errore di un bit e rilevare fino a due errori di bit. Successivamente, l'interleaver diagonale mischia i bit di codice in modo tale che alla sua uscita, i gruppi di bit PPM siano costituiti da bit della stessa posizione di bit di parole di codice consecutive PPM. Ad esempio, la prima parola di uscita raggruppa i bit in posizione 0 da parole in codice consecutivo PPM. PPM rappresenta la lunghezza di bit delle parole di uscita dell'interleaver. In LoRa il PPM di theinterleaver è uguale a LoRa SF. Di conseguenza, il numero di bit mappati per il simbolo LoRa è uguale a SF. A causa dell'interlacciamento, un simbolo perso nel ricevitore viene convertito in errori PPM a 1 bit su parole di codice consecutive PPM (piuttosto che un errore di bit PPM in una parola di codice senza interleaver). Dopo l'interleaver, le parole di output vengono sbiancate per aumentare l'entropia della fonte di informazioni. Si noti che nelle simulazioni BER i bit di informazione sono tratti da una distribuzione uniforme, pertanto l'entropia della fonte di informazioni è già al massimo. Prima di passare il flusso di bit sbiancato al modulatore, è prima mappato in grigio inverso. Questo produce una sequenza di numeri interi, che vengono inviati al modulatore LoRa. Al modulatore LoRa, una sequenza di campioni $N$ complessi di time-shifted in banda base risulterà generata tramite un accumulatore di fase come indicato dal sistema (2.12), dove $N$, il numero di campioni per simbolo di banda base, è uguale a $2^{SF} (f_s / BW)$. Il numero intero di input determina il time-shift del up-chirp:
+"per modellare gli effetti della perdita del percorso e dell'interferenza intra-LoRa, è stato sviluppato un modello di errore per LoRa PHY. È stato misurato il bit error rate (BER) per diverse configurazioni LoRa PHY su un canale AWGN (Additive White Gaussian Noise, rumore gaussiano bianco additivo). Un diagramma a blocchi delle simulazioni BER è mostrato in figura 7. I bit di informazione generati nella sorgente di informazioni sono mappati ai bit di codice dall'encoder di correzione dell'errore. Questo codificatore implementa le code rate 5/4, 7/4 e 8/4 disponibili in LoRa.1, mentre il 5/4 CR è un semplice codice di controllo di parità, i CR 7/4 e 8/4 sono (7, 4) e (8, 4) codici di Hamming che correggono gli errori lineari. Questi codici possono correggere un errore di un bit e rilevare fino a due errori di bit. Successivamente, l'interleaver diagonale mischia i bit di codice in modo tale che alla sua uscita, i gruppi di bit PPM siano costituiti da bit della stessa posizione di bit di parole di codice consecutive PPM. Ad esempio, la prima parola di uscita raggruppa i bit in posizione 0 da parole in codice consecutivo PPM. PPM rappresenta la lunghezza di bit delle parole di uscita dell'interleaver. In LoRa il PPM di theinterleaver è uguale a LoRa SF. Di conseguenza, il numero di bit mappati per il simbolo LoRa è uguale a SF. A causa dell'interlacciamento, un simbolo perso nel ricevitore viene convertito in errori PPM a 1 bit su parole di codice consecutive PPM (piuttosto che un errore di bit PPM in una parola di codice senza interleaver). Dopo l'interleaver, le parole di output vengono sbiancate per aumentare l'entropia della fonte di informazioni. Si noti che nelle simulazioni BER i bit di informazione sono tratti da una distribuzione uniforme, pertanto l'entropia della fonte di informazioni è già al massimo. Prima di passare il flusso di bit sbiancato al modulatore, è prima mappato in grigio inverso. Questo produce una sequenza di numeri interi, che vengono inviati al modulatore LoRa. Al modulatore LoRa, una sequenza di campioni $N$ complessi di time-shifted in banda base risulterà generata tramite un accumulatore di fase come indicato dal sistema (2.12), dove $N$, il numero di campioni per simbolo di banda base, è uguale a $2^{SF} (f_s / BW)$. Il numero intero di input determina il time-shift del up-chirp:
 \begin{equation}
 m(i) = \bigg \{
 \begin{array}{rl}
@@ -643,9 +748,9 @@ Al ricevitore, il demodulatore LoRa utilizza una demodulazione basata sulla corr
 Fig. 9 Schema a blocchi dell'implementazione della baseband LoRa PHY: mittente, canale AWGN e ricevitore.
 \end{figure}
 \item LoRa PHY BER Simulazioni:  
-Al fine di determinare il BER dello strato fisico LoRa, sono state eseguite simulazioni per i parametri LoRa PHY elencati in Tabella. 
+Al fine di determinare il BER dello strato fisico LoRa, sono state eseguite simulazioni per i parametri LoRa PHY elencati in Tabella 3. 
 \begin{center}
-Parametri LoRa PHY per simulazioni BER
+
 \begin{tabular}{|c|c|c|c}
 BW (kHz)&SF&CR&SNR(dB)\\ \hline
 125&7&1,3&[-20,0]\\ \hline
@@ -656,15 +761,18 @@ BW (kHz)&SF&CR&SNR(dB)\\ \hline
 125&11&3&[-25,-13]\\ \hline
 125&12&1,3&[-26,-17]\\ \hline
 \end{tabular}
+Tabella 3, parametri LoRa PHY per simulazioni BER. \\
+Le misurazioni sono state effettuate dagli autori dell'articolo \cite{art:rif.49}. \\
 \end{center}
-Non è stato eseguito il sovracampionamento, pertanto continua a valere $N = 2^{SF}$. Le simulazioni sono state eseguite per valori SNR in passi di 1 dB negli intervalli come pubblicati nella tabella.
+Non è stato eseguito il sovracampionamento, pertanto continua a valere $N = 2^{SF}$. Le simulazioni sono state eseguite per valori SNR in passi di 1 dB negli intervalli come pubblicati nella tabella 3.
 Successivamente, una curva esponenziale come definita dall'equazione (2.15) è stata adattata a un sottoinsieme dei valori logaritmici dei valori BER misurati.
 \begin{equation}
 log_{10}(BER (SNR_{dB})) = \alpha exp (\beta SNR_{dB})
 \end{equation}
-Il sottoinsieme dei valori BER utilizzati per l'adattamento della curva è stato determinato come segue. Innanzitutto, i valori BER misurati pari a zero sono stati scartati. In secondo luogo, i valori BER sono stati aggiunti al sottoinsieme fino a quando il BER ha raggiunto un valore in cui la velocità di consegna del pacchetto (PDR) corrispondente è scesa sotto uno su un milione per un pacchetto di 13B. La lunghezza del pacchetto di 13B deriva dalla lunghezza minima del payload LoRa PHY per una trasmissione LoRaWAN: 1B intestazione MAC, intestazione frame 8B e 4B MIC. Inoltre, per ogni curva si è scelto un punto di taglio SNR in modo che il PDR per un pacchetto 13B (= 108b) fosse uguale a uno su un milione nel punto limite.  
+Il sottoinsieme dei valori BER utilizzati per l'adattamento della curva è stato determinato come segue. Innanzitutto, i valori BER misurati pari a zero sono stati scartati. In secondo luogo, i valori BER sono stati aggiunti al sottoinsieme fino a quando il BER ha raggiunto un valore in cui la velocità di consegna del pacchetto (PDR) corrispondente è scesa sotto uno su un milione per un pacchetto di 13B. La lunghezza del pacchetto di 13B deriva dalla lunghezza minima del payload LoRa PHY per una trasmissione LoRaWAN: 1B intestazione MAC, intestazione frame 8B e 4B MIC (Message Integrity Code). Inoltre, per ogni curva si è scelto un punto di taglio SNR in modo che il PDR per un pacchetto 13B (= 108b) fosse uguale a uno su un milione nel punto limite.  
 \end{enumerate}
-Si noti che i PDR presentati tengono conto di tutti i pacchetti generati, anche i pacchetti che sono in coda per la trasmissione vengono conteggiati verso PDR. Pertanto, il PDR riflette il throughput di rete complessivo (per lo stesso numero di dispositivi e periodo di dati) \cite{art:rif.49}.
+Si noti che i PDR presentati tengono conto di tutti i pacchetti generati, anche i pacchetti che sono in coda per la trasmissione vengono conteggiati verso PDR. Pertanto, il PDR riflette il throughput di rete complessivo (per lo stesso numero di dispositivi e periodo di dati)" \cite{art:rif.49}.
+La tecnologia LoRa in letteratura viene associata al modello della tecnologia ALOHA. Questa associazione è utile per utilizzare modelli funzionati e collaudati per misurare le prestazioni di tecnologie simili e metterle a confronto. Questo approccio però non tiene contro della diversità dei due protocolli. ALOHA quando percepisce una collisione scarta i pacchetti letti e notifica secondo gli standard del protocollo l'avvenuta collisione. LoRa PHY quando percepisce una collisione finisce la lettura del pacchetto e procede con la controllo degli errori. Questa scelta è dovuta alla particolare modulazione di LoRa che è meno sensibile agli errori in ricezione. Pertanto i pacchetti considerati scartati dai classici modelli ALOHA in realtà vengono letti correttamente, per questo LoRa PHY error model da una stima più accurata delle prestazioni LoRa.    
 
 \subsubsection{Assegnazione dei fattori di diffusione}
 Il primo problema che è stato studiato è come assegnare LoRa SF per i dispositivi terminali. Le SF hanno un forte impatto sui PDR. La sottostima della SF (ad esempio, l'assegnazione di una SF, cioè troppo bassa) può causare errori di ricezione a causa del basso SNR. Sovrastimare la SF (ad esempio, assegnare una SF, cioè troppo alta) può portare a un uso inefficiente del tempo di propagazione aerea. Sono state prese in considerazione tre strategie di assegnazione di SF.
@@ -673,7 +781,7 @@ Il primo problema che è stato studiato è come assegnare LoRa SF per i disposit
 \item Fixed: assegna lo stesso SF ai dispositivi terminali.
 \item PER: per ogni dispositivo finale, trova e assegna il valore SF più basso per il quale il tasso di errore del pacchetto scende al di sotto di una determinata soglia.
 \end{enumerate}
-I pacchetti vengono inviati come messaggi non confermati. La strategia PER possiede il miglior PDR. I PDR per le diverse soglie di PER sono molto simili e non esiste una soglia che produca il PDR più alto in tutte le dimensioni di rete considerate. Si noti che per reti di piccole dimensioni (vale a dire, meno di 100 dispositivi finali) il PDR al 75\% della strategia fissa SF12 potrebbe essere sufficiente. Poiché ciò elimina la necessità di velocità di trasmissione dati attiva (ADR) in reti così piccole, il traffico a valle di ADR può essere evitato. Ovviamente l'invio a una velocità dati inutilmente elevata fa sì che un dispositivo finale sprechi energia. Con l'aumentare del numero di dispositivi (vale a dire più di 1000 dispositivi finali), la strategia casuale supera le strategie fisse in termini di PDR. Ciò è spiegato dal fatto che per le reti di maggiori dimensioni le perdite sono dovute principalmente alle collisioni e che la strategia casuale riduce il numero di collisioni (rispetto a una strategia fissa) sfruttando l'ortogonalità dei diversi SF \cite{art:rif.49}.
+I pacchetti vengono inviati come messaggi non confermati. La strategia PER possiede il miglior PDR. I PDR per le diverse soglie di PER sono molto simili e non esiste una soglia che produca il PDR più alto in tutte le dimensioni di rete considerate. Si noti che per reti di piccole dimensioni (vale a dire, meno di 100 dispositivi finali) il PDR al 75\% della strategia fissa SF12 potrebbe essere sufficiente. Poiché ciò elimina la necessità di velocità di trasmissione dati attiva (ADR) in reti così piccole, il traffico downstream di ADR può essere evitato. Ovviamente l'invio a una velocità dati inutilmente elevata fa sì che un dispositivo finale sprechi energia. Con l'aumentare del numero di dispositivi (vale a dire più di 1000 dispositivi finali), la strategia casuale supera le strategie fisse in termini di PDR. Ciò è spiegato dal fatto che per le reti di maggiori dimensioni le perdite sono dovute principalmente alle collisioni e che la strategia casuale riduce il numero di collisioni (rispetto a una strategia fissa) sfruttando l'ortogonalità dei diversi SF \cite{art:rif.49}.
 
 \subsection{Protocollo LPWAN / Lv 2}
 LoRaWAN (Low-power Wide area network) è una specifica del protocollo costruita sulla tecnologia LoRa sviluppata dalla LoRa Alliance. Utilizza lo spettro radio senza licenza nelle bande Industrial, Scientific e Medical (ISM) per consentire la comunicazione a bassa potenza ed ampia area tra i sensori remoti e i gateway collegati alla rete. LoRaWAN è il protocollo MAC per la rete di nodi LoRa ad alta capacità. È uno standard LPWAN aperto gestito dalla LoRa Alliance. Sfrutta le funzionalità LoRa appena descritte ed ottimizza la durata della batteria e la qualità del servizio per i nodi LoRa. Questo approccio basato su standard per la creazione di una LPWAN consente di configurare rapidamente reti IoT pubbliche o private ovunque utilizzando hardware e software che sia bidirezionale, sicuro, interoperabile e mobile, fornisca una localizzazione accurata e funzioni come previsto \cite{art:rif.24}. 
@@ -684,14 +792,14 @@ In pratica è altamente efficiente dal punto di vista energetico ed economico: l
 
 I nodi finali di una rete LoRa devono adattarsi a diverse esigenze per soddisfare i requisiti molto diversi di quasi ogni tipo di applicazione IoT, il protocollo LoRaWAN supporta tre classi di terminali, suddivisi secondo le seguenti classi:
 \subsubsection{Classe A – finali bidirezionali}
-I nodi finali Classe A LoRaWAN permettono la comunicazione bidirezionale \cite{art:rif.27} in cui la trasmissione del collegamento verso monte di ciascun dispositivo finale è seguita da due, brevi finestre di ricezione downlink \cite{art:rif.31}. Ogni trasmissione dal nodo alla rete è seguita da due brevi finestre di ricezione in ingresso al nodo \cite{art:rif.27}. Lo slot di trasmissione pianificato dal dispositivo finale si basa sulle proprie esigenze di comunicazione con una piccola variazione basata su un tempo casuale (tipo di protocollo ALOHA). Questa operazione di classe A è il più basso sistema di dispositivo di alimentazione finale per applicazioni che richiedono solo comunicazioni di downlink dal server poco dopo che il dispositivo finale ha inviato una trasmissione di uplink. Le comunicazioni in downlink dal server vengono accodate automaticamente fino al successivo uplink pianificato \cite{art:rif.31}. Qualsiasi altra comunicazione dal server al nodo avverrà al successivo scambio programmato \cite{art:rif.27}. Poiché i dispositivi terminali di classe A sono irraggiungibili per la maggior parte del tempo, le possibilità di invio al dispositivo sono scarse. Secondo lo standard, i dispositivi terminali di classe A sono obbligati ad aprire una o due finestre di ricezione dopo ciascuna trasmissione a monte per consentire al Network Server di inviare un messaggio potenziale al dispositivo finale \cite{art:rif.49}. 
+I nodi finali Classe A LoRaWAN permettono la comunicazione bidirezionale \cite{art:rif.27} in cui la trasmissione del collegamento verso upstream di ciascun dispositivo finale è seguita da due, brevi finestre di ricezione downlink \cite{art:rif.31}. Ogni trasmissione dal nodo alla rete è seguita da due brevi finestre di ricezione in ingresso al nodo \cite{art:rif.27}. Lo slot di trasmissione pianificato dal dispositivo finale si basa sulle proprie esigenze di comunicazione con una piccola variazione basata su un tempo casuale (tipo di protocollo ALOHA). Questa operazione di classe A è il più basso sistema di dispositivo di alimentazione finale per applicazioni che richiedono solo comunicazioni di downlink dal server poco dopo che il dispositivo finale ha inviato una trasmissione di uplink. Le comunicazioni in downlink dal server vengono accodate automaticamente fino al successivo uplink pianificato \cite{art:rif.31}. Qualsiasi altra comunicazione dal server al nodo avverrà al successivo scambio programmato \cite{art:rif.27}. Poiché i dispositivi terminali di classe A sono irraggiungibili per la maggior parte del tempo, le possibilità di invio al dispositivo sono scarse. Secondo lo standard, i dispositivi terminali di classe A sono obbligati ad aprire una o due finestre di ricezione dopo ciascuna trasmissione a upstream per consentire al Network Server di inviare un messaggio potenziale al dispositivo finale \cite{art:rif.49}. 
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/ClasseA.png}
 
 Fig. 10 Dispositivi di classe A, gateway e NS (server di rete).
 \end{figure}
-Quando un dispositivo terminale riceve una trasmissione downlink nella prima finestra, viene liberato dall'apertura della seconda finestra. Altrimenti, deve aprire la seconda finestra. Si noti che un dispositivo terminale ascolta sullo stesso canale e SF l'ultima trasmissione upstream nella prima finestra di ricezione (a meno che RX1DROffset non differisca da zero), mentre ascolta su un canale separato e SF12 nella seconda finestra. Inoltre, una classe A deve finire in attesa di trasmissioni upstream fino a dopo le finestre di ricezione. Infine, sia i messaggi upstream che downstream possono essere inviati come messaggi confermati e non confermati. I messaggi confermati vengono inviati utilizzando uno schema di ritrasmissione semplice a discrezione del dispositivo finale, senza violare le restrizioni del ciclo di lavoro. Le (ri)trasmissioni a valle devono attendere una finestra di ricezione aperta e il loro timing è quindi controllato dal tempo di traffico a monte di un dispositivo finale. Tuttavia, l'NS può impostare un bit di frame in sospeso in un messaggio downstream per segnalare a un dispositivo finale che potrebbe voler aprire una finestra di ricezione prima del normale \cite{art:rif.49}.
+Quando un dispositivo terminale riceve una trasmissione downlink nella prima finestra, viene liberato dall'apertura della seconda finestra. Altrimenti, deve aprire la seconda finestra. Si noti che un dispositivo terminale ascolta sullo stesso canale e SF l'ultima trasmissione upstream nella prima finestra di ricezione (a meno che RX1DROffset non differisca da zero), mentre ascolta su un canale separato e SF12 nella seconda finestra. Inoltre, una classe A deve finire in attesa di trasmissioni upstream fino a dopo le finestre di ricezione. Infine, sia i messaggi upstream che downstream possono essere inviati come messaggi confermati e non confermati. I messaggi confermati vengono inviati utilizzando uno schema di ritrasmissione semplice a discrezione del dispositivo finale, senza violare le restrizioni del ciclo di lavoro. Le (ri)trasmissioni a downstream devono attendere una finestra di ricezione aperta e il loro timing è quindi controllato dal tempo di traffico a upstream di un dispositivo finale. Tuttavia, l'NS può impostare un bit di frame in sospeso in un messaggio downstream per segnalare a un dispositivo finale che potrebbe voler aprire una finestra di ricezione prima del normale \cite{art:rif.49}.
 
 \subsubsection{Classe B – finali bidirezionali con finestre di ricezione programmate}
 I dispositivi di Classe B LoRa forniscono le funzionalità dei classe A con l’aggiunta della possibilità di programmare intervalli di ricezione di informazioni in orari prestabiliti \cite{art:rif.27}. 
@@ -726,13 +834,13 @@ Il driver del livello PHY è la classe LoRaWANMac. La sua funzionalità include 
 Fig. 12 LoRaWANMac FSM è costituito da tre stati per gateway e sette stati per dispositivi finali di classe A.
 \end{figure}
 
-Mentre un oggetto MAC del dispositivo finale passa attraverso tutti gli stati, gli oggetti MAC del gateway sono limitati a tre stati. Lo stato UNAVAIL è un caso esclusivo dei gateway, in cui il MAC è bloccato dall'invio di un pacchetto. Questo stato viene attivato quando uno degli altri MAC sul gateway si trova nello stato TX, impedendo in tal modo le trasmissioni simultanee su diversi oggetti MAC sullo stesso gateway. La catena nella parte superiore della figura è correlata alle finestre di ricezione obbligatorie per i dispositivi di fine classe A nelle reti LoRaWAN. Dopo lo stato TX, un dispositivo terminale passa sempre allo stato WRW1. Il dispositivo finale spende 1 s (a partire dalla fine della trasmissione) in questo stato "wait for RW1", dopo di che apre RW1. Il dispositivo finale controlla se un preambolo PHY è stato ricevuto 12.25 simboli LoRa dopo l'inizio della finestra di ricezione. Se è stato rilevato un preambolo, il dispositivo continua a ricevere la trasmissione a valle.
-Se non è stato rilevato un preambolo, chiude la finestra di ricezione e passa allo stato WRW2. Se il dispositivo finale riceve correttamente una trasmissione downstream in RW1, passa allo stato IDLE. Altrimenti, chiude la finestra di ricezione e passa allo stato WRW2. Nello stato WRW2, il dispositivo terminale è in attesa di aprire la seconda finestra di ricezione (nello stato RW2) dopo 2 s dopo la fine della trasmissione. Lo stesso controllo del preambolo PHY da RW1 viene eseguito dopo l'apertura di RW2. Se viene ricevuta una trasmissione a valle in RW2, il dispositivo terminale passerà allo stato IDLE. In caso contrario, potrebbe passare allo stato ACK\_TO (acknowledgement timeout) in cui trascorre un intervallo di tempo casuale prima di passare allo stato IDLE. Lo stato ACK\_TO viene visitato solo quando il dispositivo finale prevede un riconoscimento in una delle sue finestre di ricezione (ad esempio, dopo la trasmissione di un messaggio upstream confermato). Nel caso in cui non sia previsto un riscontro, il dispositivo passa direttamente allo stato IDLE da RW2. Le ritrasmissioni nel caso di dispositivi finali sono gestite interamente dalla classe LoRaWANMac. Finché il numero di trasmissioni rimanenti non è scaduto o non è stato ricevuto un frame downstream con il bit Ack impostato, un pacchetto di dati confermato rimarrà nella coda di trasmissione. Il numero di trasmissioni per i messaggi confermati può essere impostato tramite "DEFAULT\_NUMBER\_US\_TRANSMISSIONS" (in lorawan.h) ed è impostato su quattro per impostazione predefinita. Le (ri) trasmissioni successive vengono limitate in base alle limitazioni RDC della sottobanda attiva. A tal fine c'è un oggetto Singleton per nodo LoRaWAN, LoRaWANMacRDC, che tiene traccia del duty cycle di un nodo per le diverse sottobande. La classe LoRaWANMAC supporta anche l'invio di messaggi upstream non confermati più di una volta, come da linee guida nello standard LoRaWAN sul campo Numero di ripetizioni (NbRep). Questi messaggi rispediscono le limitazioni del ciclo di lavoro come qualsiasi altra normale trasmissione. Infine, la classe LoRaWANMac aggiunge 1B LoRaWANMacHeader (che codifica il tipo di messaggio) e un 4B dummy MIC al payload MAC prima di passare il pacchetto al PHY \cite{art:rif.49}.
+Mentre un oggetto MAC del dispositivo finale passa attraverso tutti gli stati, gli oggetti MAC del gateway sono limitati a tre stati. Lo stato UNAVAIL è un caso esclusivo dei gateway, in cui il MAC è bloccato dall'invio di un pacchetto. Questo stato viene attivato quando uno degli altri MAC sul gateway si trova nello stato TX, impedendo in tal modo le trasmissioni simultanee su diversi oggetti MAC sullo stesso gateway. La catena nella parte superiore della figura è correlata alle finestre di ricezione obbligatorie per i dispositivi di fine classe A nelle reti LoRaWAN. Dopo lo stato TX, un dispositivo terminale passa sempre allo stato WRW1. Il dispositivo finale spende 1 s (a partire dalla fine della trasmissione) in questo stato "wait for RW1", dopo di che apre RW1. Il dispositivo finale controlla se un preambolo PHY è stato ricevuto 12.25 simboli LoRa dopo l'inizio della finestra di ricezione. Se è stato rilevato un preambolo, il dispositivo continua a ricevere la trasmissione a downstream.
+Se non è stato rilevato un preambolo, chiude la finestra di ricezione e passa allo stato WRW2. Se il dispositivo finale riceve correttamente una trasmissione downstream in RW1, passa allo stato IDLE. Altrimenti, chiude la finestra di ricezione e passa allo stato WRW2. Nello stato WRW2, il dispositivo terminale è in attesa di aprire la seconda finestra di ricezione (nello stato RW2) dopo 2 s dopo la fine della trasmissione. Lo stesso controllo del preambolo PHY da RW1 viene eseguito dopo l'apertura di RW2. Se viene ricevuta una trasmissione a downstream in RW2, il dispositivo terminale passerà allo stato IDLE. In caso contrario, potrebbe passare allo stato ACK\_TO (acknowledgement timeout) in cui trascorre un intervallo di tempo casuale prima di passare allo stato IDLE. Lo stato ACK\_TO viene visitato solo quando il dispositivo finale prevede un riconoscimento in una delle sue finestre di ricezione (ad esempio, dopo la trasmissione di un messaggio upstream confermato). Nel caso in cui non sia previsto un riscontro, il dispositivo passa direttamente allo stato IDLE da RW2. Le ritrasmissioni nel caso di dispositivi finali sono gestite interamente dalla classe LoRaWANMac. Finché il numero di trasmissioni rimanenti non è scaduto o non è stato ricevuto un frame downstream con il bit Ack impostato, un pacchetto di dati confermato rimarrà nella coda di trasmissione. Il numero di trasmissioni per i messaggi confermati può essere impostato tramite "DEFAULT\_NUMBER\_US\_TRANSMISSIONS" (in lorawan.h) ed è impostato su quattro per impostazione predefinita. Le (ri) trasmissioni successive vengono limitate in base alle limitazioni RDC della sottobanda attiva. A tal fine c'è un oggetto Singleton per nodo LoRaWAN, LoRaWANMacRDC, che tiene traccia del duty cycle di un nodo per le diverse sottobande. La classe LoRaWANMAC supporta anche l'invio di messaggi upstream non confermati più di una volta, come da linee guida nello standard LoRaWAN sul campo Numero di ripetizioni (NbRep). Questi messaggi rispediscono le limitazioni del ciclo di lavoro come qualsiasi altra normale trasmissione. Infine, la classe LoRaWANMac aggiunge 1B LoRaWANMacHeader (che codifica il tipo di messaggio) e un 4B dummy MIC al payload MAC prima di passare il pacchetto al PHY \cite{art:rif.49}.
 
 \subsubsection{Dati non confermati e confermati in upstream}
 La rete LoRaWAN a singolo Gateway considera nel PDR l'impatto dell'invio di dati in upstream come messaggi MAC confermati. Ci si aspetterebbe che lo schema di ritrasmissione LoRaWAN aumenti il PDR, in quanto i messaggi non riconosciuti vengono ritrasmessi dal dispositivo finale. Nel caso di messaggi confermati, un dispositivo terminale tenta quattro trasmissioni prima di rilasciare il messaggio. In ogni momento, i dispositivi terminali rispettano le restrizioni del ciclo di lavoro. Il PDR diminuisce quando i dati vengono inviati con maggiore frequenza e con l'aumento del numero di dispositivi finali. In caso di messaggi MAC non confermati, la causa principale dei pacchetti non consegnati è dovuta a collisioni in cui il gateway è impegnato a ricevere una trasmissione e quindi qualsiasi altra trasmissione con la stessa velocità dati viene eliminata durante la ricezione in corso. Per il periodo di dati di 600 s, la quota di pacchetti non consegnati e scartati dovuta a collisioni è vicina al 90\%. Un altro 9\% dei pacchetti non consegnati viene scartato a causa di interferenze durante la ricezione. Il resto dei pacchetti non consegnati viene eliminato a causa di un valore SINR che scende al di sotto del punto di interruzione SNR. Mentre inviando messaggi non confermati quattro volte aumenta il PDR per gli scenari a basso traffico, il PDR è inferiore negli scenari in cui l'interferenza diventa il fattore limitante. Si noti che la percentuale di velocità di trasmissione più lenta nei pacchetti non consegnati è superiore a quella delle velocità di trasmissione più veloci. Ciò è in parte dovuto alla maggiore quota di dispositivi finali con velocità di trasmissione dati più basse nelle reti e parzialmente a causa dei tempi di trasmissione più elevati a velocità di trasmissione inferiori. Un po' controintuitivamente, il PDR dei messaggi confermati non è sempre superiore a quello dei messaggi non confermati. Il PDR dei messaggi CON è solo superiore a quello di UNC (unconfirmed) nei casi in cui il carico del traffico è molto basso. Nelle simulazioni questo è solo il caso per 100, 500 e 1000 dispositivi terminali per un periodo di dati di 60 000 s e per 100 dispositivi terminali per un periodo di dati di 6000 s. In tutti gli altri casi il PDR dei messaggi confermati è inferiore. Ricorda che un messaggio confermato viene considerato consegnato solo se il dispositivo finale riceve un riconoscimento per quel messaggio. Il numero di finestre di ricezione perse (per l'invio di una conferma) aumenta con l'aumentare del carico di traffico. Le finestre di ricezione vengono perse perché il gateway non è in grado di trasmettere all'inizio di una finestra di ricezione a causa delle restrizioni del ciclo di lavoro che si applicano nella sottobanda di una finestra di ricezione. Mentre CON (confirmed) e 4UNC (4 unconfirmed) hanno carichi di traffico simili per reti saturate, il PDR dei messaggi CON è inferiore a quello di 4UNC. Questa differenza è spiegata dalle mancate conferme downstream per i messaggi CON. Infine, quando un gateway invia una conferma in RW1 o RW2, tutte le ricezioni in corso sul gateway vengono interrotte; che diminuisce ulteriormente il PDR. 
 Le reti multigateway LoRaWAN grazie all'utilizzo di un maggior numero di gateway ottiene un miglioramento sul PDR. Si noti che per l'applicazione della strategia di allocazione SF PER 0,01, il PER al gateway più vicino viene calcolato per ogni dispositivo finale. Si prevede che l'aumento della densità del gateway abbia più di un effetto. In primo luogo, dovrebbe consentire velocità di trasmissione dati più elevate per i dispositivi finali a causa di un aumento del budget di collegamento (poiché i gateway medi appariranno più vicini). In secondo luogo, poiché le trasmissioni downstream in RW1 vengono inviate con la stessa velocità dati delle trasmissioni upstream, i riconoscimenti RW1 dovrebbero anche beneficiare delle maggiori velocità dati dei dispositivi finali. Infine, poiché le restrizioni del ciclo di lavoro si applicano per gateway, la rete LoRaWAN dovrebbe essere in grado di riconoscere più messaggi man mano che la densità del gateway aumenta. Si noti come per i messaggi non confermati, il PDR aumenta notevolmente all'aumentare del numero di gateway. Per i messaggi confermati, l'aumento del PDR è notevole ma non è così acuto come per i messaggi non confermati. Il numero di conferme inviate aumenta con l'aumentare del numero di gateway. La relazione apparentemente contraddittoria tra il numero di RW persi e il numero di gateway è spiegata come segue. Nelle reti LoRaWAN saturate (ad esempio, scenari con PDR bassi per messaggi non confermati), il numero di messaggi inviati ricevuti con successo aumenta con la densità del gateway. In caso di messaggi confermati, il numero più alto di messaggi upstream ricevuti indica che NS è in grado di identificare un numero maggiore di finestre di ricezione dei dispositivi finali (poiché gli RW vengono sempre aperti dopo una trasmissione di un dispositivo finale). Quando i gateway non sono in grado di inviare queste finestre di ricezione (a causa delle restrizioni del ciclo di lavoro), il numero di RW persi aumenta. In scenari meno saturi, il numero di RW persi diminuisce all'aumentare della densità del gateway non porta a identificare più finestre di ricezione. Invece, il numero di RW persi diminuisce e vengono inviati più riconoscimenti, a vantaggio del PDR.
-I risultati mostrano che i messaggi confermati hanno un impatto grave sui rapporti di consegna dei pacchetti dei messaggi a monte. Mentre aumentare il numero di gateway aiuta ad alleviare questo problema in qualche modo, i risultati del periodo di dati di 600 s mostrano che il PDR rimane basso anche in una rete di quattro gateway. L'impatto dei messaggi di dati in downstream sui messaggi in upstream è risultato trascurabile a causa della scarsità del carico di traffico di dati in downstream (sporadiche notifiche). Inoltre, è stata trovata una piccola differenza tra l'invio di dati downstream come messaggi non confermati rispetto ai messaggi confermati in termini di downstream PDR. L'approccio di modellizzazione di tutte le interferenze come rumore ha i suoi svantaggi. Nello specifico, la letteratura ha dimostrato che mentre l'interferenza tra diversi SF può essere modellata accuratamente come rumore, l'interferenza co-SF può essere modellata in modo più accurato tramite un approccio stocastico. Quando i messaggi di dati downstream non vengono recapitati a causa delle limitazioni RDC (anziché della bassa qualità del collegamento), una velocità di trasmissione dati RW2 più rapida potrebbe aumentare la capacità del LoRaWAN \cite{art:rif.49}. 
+I risultati mostrano che i messaggi confermati hanno un impatto grave sui rapporti di consegna dei pacchetti dei messaggi a upstream. Mentre aumentare il numero di gateway aiuta ad alleviare questo problema in qualche modo, i risultati del periodo di dati di 600 s mostrano che il PDR rimane basso anche in una rete di quattro gateway. L'impatto dei messaggi di dati in downstream sui messaggi in upstream è risultato trascurabile a causa della scarsità del carico di traffico di dati in downstream (sporadiche notifiche). Inoltre, è stata trovata una piccola differenza tra l'invio di dati downstream come messaggi non confermati rispetto ai messaggi confermati in termini di downstream PDR. L'approccio di modellizzazione di tutte le interferenze come rumore ha i suoi svantaggi. Nello specifico, la letteratura ha dimostrato che mentre l'interferenza tra diversi SF può essere modellata accuratamente come rumore, l'interferenza co-SF può essere modellata in modo più accurato tramite un approccio stocastico. Quando i messaggi di dati downstream non vengono recapitati a causa delle limitazioni RDC (anziché della bassa qualità del collegamento), una velocità di trasmissione dati RW2 più rapida potrebbe aumentare la capacità del LoRaWAN \cite{art:rif.49}. 
 
 \subsection{Protocollo IP / Lv 3} 
 Rispetto agli altri standard, una rete LoRa è IP-based compatibile con IPv6, una caratteristica essenziale per ogni sviluppo di nuovi progetti IoT. Una rete LoRa comprende dei gateway per la connessione al server centrale di rete. Gli end-point comunicano con una topologia di rete a stella mediante un collegamento wireless single-hop ai gateway con la possibilità di collegarsi a più gateway, per garantire la ridondanza del collegamento. Per coprire una grande area è sufficiente un'infrastruttura leggera \cite{art:rif.20}. 
@@ -760,7 +868,7 @@ Il software Long Range Signaling and Control (LRSC) di IBM e al servizio sul clo
 L'applicazione LoRaWANEndDeviceApplication viene descritta per rappresentare i dispositivi finali di classe A LoRaWAN. L'applicazione espone gli attributi per parametri come la velocità dati del dispositivo finale e la lunghezza del pacchetto e il tipo di messaggio delle trasmissioni upstream. Supporta anche variabili casuali configurabili per la selezione del canale upstream e per i tempi di generazione del pacchetto. L'applicazione è responsabile della generazione del payload MAC, in quanto tale aggiunge l'intestazione del frame LoRaWAN al payload dell'applicazione. Questa intestazione del frame codifica l'indirizzo del dispositivo finale, il contatore dei pacchetti e la porta del frame dell'applicazione. I metadati relativi alla trasmissione dei pacchetti, come il canale desiderato, la velocità dei dati e la velocità del codice, vengono trasmessi al PHY tramite un tag del pacchetto LoRaWANPhyParamsTag \cite{art:rif.49}.
 
 \subsubsection{Applicazione LoRaWAN Gateway}
-LoRaWANGatewayApplication è una semplice applicazione, ovvero installata sui nodi gateway. Oltre a passare pacchetti e accettare pacchetti dal NS, supporta anche l'interrogazione dello stato RDC di un gateway dal NS. I pacchetti che devono essere inviati a valle sono etichettati con il tag del pacchetto LoRaWANPhyParamsTag dal NS. LoRaWANNetDevice sul gateway selezionerà la coppia MAC / PHY corrispondente agli attributi PHY che sono elencati nel tag del pacchetto (cioè, SF e canale) \cite{art:rif.49}.
+LoRaWANGatewayApplication è una semplice applicazione, ovvero installata sui nodi gateway. Oltre a passare pacchetti e accettare pacchetti dal NS, supporta anche l'interrogazione dello stato RDC di un gateway dal NS. I pacchetti che devono essere inviati a downstream sono etichettati con il tag del pacchetto LoRaWANPhyParamsTag dal NS. LoRaWANNetDevice sul gateway selezionerà la coppia MAC / PHY corrispondente agli attributi PHY che sono elencati nel tag del pacchetto (cioè, SF e canale) \cite{art:rif.49}.
 
 \subsubsection{LoRaWAN Network Server}
 Questo oggetto singleton accetta i pacchetti upstream dai gateway e invia il traffico downstream ai dispositivi finali tramite gateway. Espone i seguenti attributi per configurare la generazione del traffico downstream:
@@ -769,7 +877,7 @@ Questo oggetto singleton accetta i pacchetti upstream dai gateway e invia il tra
 \item messaggi confermati o non confermati;
 \item variabile casuale per la generazione di pacchetti.
 \end{enumerate}
-La classe tiene traccia delle informazioni come l'indirizzo del dispositivo, i contatori dei pacchetti, l'ultima velocità dati, l'ultimo gateway $(i)$ noto e l'ultimo tempo visto per ogni dispositivo finale. Basato sui contatori di pacchetti, è in grado di rilevare pacchetti di dati duplicati da più gateway. L'NS genera dati e riconoscimenti a valle. A tal fine, contiene una coda di pacchetti di dispositivi per end per la memorizzazione del traffico downstream. Per ogni dispositivo finale, memorizza i timer RW1 e RW2 utilizzati per la pianificazione del traffico downstream. Quando un timer scade, l'NS passa attraverso l'elenco degli ultimi gateway noti e cerca un gateway che possa inviare immediatamente il pacchetto downstream in coda. Questi timer sono programmati ogni volta che una trasmissione upstream viene elaborata dal NS. Infine, l'NS si occupa delle ritrasmissioni per i pacchetti di dati a valle confermati \cite{art:rif.49}.
+La classe tiene traccia delle informazioni come l'indirizzo del dispositivo, i contatori dei pacchetti, l'ultima velocità dati, l'ultimo gateway $(i)$ noto e l'ultimo tempo visto per ogni dispositivo finale. Basato sui contatori di pacchetti, è in grado di rilevare pacchetti di dati duplicati da più gateway. L'NS genera dati e riconoscimenti a downstream. A tal fine, contiene una coda di pacchetti di dispositivi per end per la memorizzazione del traffico downstream. Per ogni dispositivo finale, memorizza i timer RW1 e RW2 utilizzati per la pianificazione del traffico downstream. Quando un timer scade, l'NS passa attraverso l'elenco degli ultimi gateway noti e cerca un gateway che possa inviare immediatamente il pacchetto downstream in coda. Questi timer sono programmati ogni volta che una trasmissione upstream viene elaborata dal NS. Infine, l'NS si occupa delle ritrasmissioni per i pacchetti di dati a downstream confermati \cite{art:rif.49}.
 
 \subsubsection{Adaptive Data Rate}
 La capacità di controllare i parametri di trasmissione, inclusi lo schema di modulazione e la potenza di uscita, consente di ridurre i costi di implementazione, migliorare l'affidabilità della rete, in termini di prestazioni degli errori in condizioni subottimali e potrebbe contribuire alla riduzione della complessità della manutenzione rispetto al ridimensionamento il network. L'algoritmo ADR (Adaptive Data Rate), ampiamente accettato utilizzato nelle attuali infrastrutture di rete basate su LoRaWAN, è un meccanismo per ottimizzare la velocità di trasmissione dati, tempo di trasmissione e consumo energetico nella rete. 
@@ -943,7 +1051,7 @@ Usando (2.5) con (2.3) si ottiene $L_{P, max}$ = 168 dB per l'uplink. Tuttavia, 
 \end{enumerate}
 
 \subsubsection{Utilizzo teorico in broadcast}
-La potenza di trasmissione in campo pratico è limitata alla stazione base causa problemi di downlink di LPWAN nelle bande esenti da licenza. L'aumento della potenza di trasmissione non è possibile se il downlink viene utilizzato anche nella banda SRD (Short Range Devices) esente da licenza. Tuttavia, questa limitazione non è valida per i trasmettitori, in cui vengono comunemente utilizzate potenze di trasmissione tipiche di diversi kW. Inoltre, le frequenze utilizzate per le trasmissioni TV digitali in Europa (che originariamente vanno da 470 a 862 MHz) si trovano nelle immediate vicinanze della banda SRD, che vanno da 863 a 870 MHz. Inoltre, è già stato detto che le posizioni tipiche delle stazioni base LPWAN sono le torri di trasmissione. Di conseguenza, potrebbe essere molto interessante utilizzare i trasmettitori e le frequenze di trasmissione per il downlink, mentre il collegamento verso monte rimane nella banda SRD esente da licenza. Supponiamo ora un trasmettitore broadcast con una potenza di trasmissione effettiva (incluso il guadagno dell'antenna) di $P_{Tx, EIRP}$ = 20kW (cioè 73dBm). Tutti gli altri parametri di downlink sono mantenuti invariati. Possiamo anche assumere condizioni di propagazione pressoché identiche sul canale di uplink e downlink: in primo luogo, poiché le antenne di broadcast e di ricezione sono poste sulla stessa torre di trasmissione alta, è possibile prevedere percorsi di propagazione quasi identici. In secondo luogo, la banda di frequenza SRD a 868 MHz è vicina alle frequenze di trasmissione UHF, il che si tradurrebbe in condizioni di propagazione pressoché simili. La risultante perdita di percorso massima per il trasmettitore di trasmissione viene quindi data da:
+La potenza di trasmissione in campo pratico è limitata alla stazione base causa problemi di downlink di LPWAN nelle bande esenti da licenza. L'aumento della potenza di trasmissione non è possibile se il downlink viene utilizzato anche nella banda SRD (Short Range Devices) esente da licenza. Tuttavia, questa limitazione non è valida per i trasmettitori, in cui vengono comunemente utilizzate potenze di trasmissione tipiche di diversi kW. Inoltre, le frequenze utilizzate per le trasmissioni TV digitali in Europa (che originariamente vanno da 470 a 862 MHz) si trovano nelle immediate vicinanze della banda SRD, che vanno da 863 a 870 MHz. Inoltre, è già stato detto che le posizioni tipiche delle stazioni base LPWAN sono le torri di trasmissione. Di conseguenza, potrebbe essere molto interessante utilizzare i trasmettitori e le frequenze di trasmissione per il downlink, mentre il collegamento verso upstream rimane nella banda SRD esente da licenza. Supponiamo ora un trasmettitore broadcast con una potenza di trasmissione effettiva (incluso il guadagno dell'antenna) di $P_{Tx, EIRP}$ = 20kW (cioè 73dBm). Tutti gli altri parametri di downlink sono mantenuti invariati. Possiamo anche assumere condizioni di propagazione pressoché identiche sul canale di uplink e downlink: in primo luogo, poiché le antenne di broadcast e di ricezione sono poste sulla stessa torre di trasmissione alta, è possibile prevedere percorsi di propagazione quasi identici. In secondo luogo, la banda di frequenza SRD a 868 MHz è vicina alle frequenze di trasmissione UHF, il che si tradurrebbe in condizioni di propagazione pressoché simili. La risultante perdita di percorso massima per il trasmettitore di trasmissione viene quindi data da:
 \begin{equation}
 L_{P,max}[dB] = P_{Tx}[dBm]-P_{Rx}[dBm]+G_{Rx}[dBi]  
 \end{equation}
@@ -956,7 +1064,9 @@ Nonostante la richiesta energetica contenuta, c'è ancora un possibile ostacolo.
 \chapter{Cap3}
 \section{sistema di monitoraggio della qualità dell'aria}
 \subsection{Panoramica del sistema}
-In questo capitolo verrà presentato un\todo{(atrent) ancora non va bene, va detto "un sistema realizzato da, dove, quando e qui presentato per confronto/analisi/quantaltro, ma poi devi motivare l'inserimento del materiale'"} sistema di monitoraggio della qualità dell'aria in tempo reale a bassa potenza basato sulla tecnologia di comunicazione wireless LoRa. Il sistema proposto può essere disposto in un numero elevato nell'area di monitoraggio per formare una rete di sensori. Il sistema integra un microcontrollore a chip singolo, diversi sensori di inquinamento atmosferico ($ NO_{2} $, $ SO_{2} $, $ O_{3} $, CO, PM1, PM10, $ PM_{2.5} $), LongRange-Modem(LoRa-Modem), una parte di batteria solare fotovoltaica e un'interfaccia utente grafica(GUI, Graphical User Interface). Il modulo di comunicazione LoRa invia i dati all'unità centrale di monitoraggio e quindi i dati verrebbero salvati nel Cloud. I test di autonomia in un'area esterna mostrano che LoRa è in grado di raggiungere circa 2 km. La potenza TX (di trasmissione) è solo di circa 110 mA, che è inferiore rispetto ad altre tecnologie wireless utilizzate. Basato sulla tecnologia LoRa, GUI e Solar PV, il sistema dispone di numerose funzioni progressive come basso costo, lunga distanza, alta copertura, lunga durata della batteria del dispositivo, facile da usare \cite{art:rif.40}. 
+%In questo capitolo verrà presentato un sistema di monitoraggio della qualità dell'aria in tempo reale a bassa potenza basato sulla tecnologia di comunicazione wireless LoRa. Il sistema proposto può essere disposto in un numero elevato nell'area di monitoraggio per formare una rete di sensori. Il sistema integra un microcontrollore a chip singolo, diversi sensori di inquinamento atmosferico ($ NO_{2} $, $ SO_{2} $, $ O_{3} $, CO, PM1, PM10, $ PM_{2.5} $), LongRange-Modem(LoRa-Modem), una parte di batteria solare fotovoltaica e un'interfaccia utente grafica(GUI, Graphical User Interface). Il modulo di comunicazione LoRa invia i dati all'unità centrale di monitoraggio e quindi i dati verrebbero salvati nel Cloud. I test di autonomia in un'area esterna mostrano che LoRa è in grado di raggiungere circa 2 km. La potenza TX (di trasmissione) è solo di circa 110 mA, che è inferiore rispetto ad altre tecnologie wireless utilizzate. Basato sulla tecnologia LoRa, GUI e Solar PV, il sistema dispone di numerose funzioni progressive come basso costo, lunga distanza, alta copertura, lunga durata della batteria del dispositivo, facile da usare \cite{art:rif.40}. 
+
+In questo capitolo verrà presentato un\todo{(atrent) ancora non va bene, va detto "un sistema realizzato da, dove, quando e qui presentato per confronto/analisi/quantaltro, ma poi devi motivare l'inserimento del materiale'"} sistema di monitoraggio della qualità dell'aria in tempo reale a bassa potenza basato sulla tecnologia di comunicazione wireless LoRa. Il sistema proposto può essere disposto in un numero elevato nell'area di monitoraggio per formare una rete di sensori. Il sistema integra un microcontrollore a chip singolo, diversi sensori di inquinamento atmosferico ($ NO_{2} $, $ SO_{2} $, $ O_{3} $, CO, PM1, PM10, $ PM_{2.5} $), LongRange-Modem(LoRa-Modem), una parte di batteria solare fotovoltaica e un'interfaccia utente grafica(GUI, Graphical User Interface). Il modulo di comunicazione LoRa invia i dati all'unità centrale di monitoraggio e quindi i dati verrebbero salvati nel Cloud. I test di autonomia in un'area esterna mostrano che LoRa è in grado di raggiungere circa 2 km. La potenza TX (di trasmissione) è solo di circa 110 mA, che è inferiore rispetto ad altre tecnologie wireless utilizzate. Basato sulla tecnologia LoRa, GUI e Solar PV, il sistema dispone di numerose funzioni progressive come basso costo, lunga distanza, alta copertura, lunga durata della batteria del dispositivo, facile da usare \cite{art:rif.40}.
 
 \subsection{Introduzione al problema}
 Negli ultimi anni, l'inquinamento atmosferico è uno dei problemi ambientali che sono stati più discussi. Secondo l'Organizzazione mondiale della sanità (OMS), l'inquinamento atmosferico, soprattutto quello da particolato (o PM), è strettamente correlato ai livelli di incidenza delle malattie e di mortalità. I maggiori rischi per la salute derivano dalle polveri sottili, ovvero le particelle di diametro fino a 10 o 25 micron (denominate rispettivamente PM10 e PM25). Le particelle di queste dimensioni vengono emesse dagli autoveicoli e da altre attività domestiche e industriali, ma possono provenire anche da fonti naturali, come il terreno o la sabbia. Le persone che vivono nei Paesi sviluppati o in via di sviluppo sono spesso esposte ad elevati livelli di inquinamento da polveri sottili; un report del 2012 dell'Agenzia europea dell'ambiente ha rilevato che oltre l'80\% delle persone che vivono nelle città dell'Unione europea è esposto a livelli di PM superiori a quelli previsti dalle linee guida dell'OMS sulla qualità dell'aria (2005). Le autorità cittadine ricevono pressioni per migliorare la qualità dell'aria. Nell'ambito dei trasporti sono state implementate varie iniziative finalizzate a ridurre gli effetti delle emissioni dei veicoli nei centri delle città. Dai dati precisi sulla qualità dell'aria sarà possibile ricavare preziose informazioni che consentiranno alle autorità locali di valutare i risultati di ciascuna iniziativa. La maggior parte dei paesi sviluppati ha sviluppato stazioni di monitoraggio della qualità dell'aria e del clima nelle aree popolari o al di fuori della città per prevenire gli effetti della qualità dell'aria. La maggior parte delle stazioni di monitoraggio della qualità dell'aria utilizza metodi primitivi per monitorare la qualità dell'aria, come la raccolta di campioni di aria e l'analisi dei campioni nei laboratori. Questi metodi sono affidabili ma inefficienti e costosi, oltre al non poter ottenere la concentrazione in tempo reale del gas e del particolato. Negli ultimi anni, abbiamo intrapreso l'uso di sensori intelligenti per la misurazione della qualità dell'aria. I sistemi di monitoraggio dell'ambiente sono costituiti principalmente da tre parti, come i nodi di monitoraggio, i nodi di coordinamento con dispositivi intelligenti (PC / smart phone) e alcuni tipi di attuatori. Il test di autonomia in un'area esterna mostra che la radio ZigBee è in grado di raggiungere circa 270 m. La maggior parte dei suddetti sistemi di monitoraggio dell'inquinamento atmosferico e della qualità si basa su sensori che segnalano i livelli di inquinanti a un server tramite modem cablato, router o punti di accesso wireless a corto raggio. Non è ottimizzato per i servizi M2M (machine to machine) a bassa velocità dati e wide area, come i sensori remoti. In questo documento, proponiamo un sistema di monitoraggio dell'inquinamento atmosferico e di analisi dei dati basato sull'IoT per il monitoraggio dell'aria ambientale. Utilizziamo la tecnologia LPWAN e LoRa per questo scopo. Questo sistema non solo utilizza una rete di sensori wireless per raccogliere dati sulla qualità dell'aria, ma ha anche una fornitura di energia autosufficiente utilizzando la parte solare fotovoltaica. Dispone di numerose funzioni progressive come facile da usare, a basso costo, lunga distanza, alta copertura, auto-approvvigionamento efficiente, lunga durata della batteria del dispositivo e capacità elevata, tempi di risposta rapidi con accuratezza scientificamente accettabile \cite{art:rif.40}.
