@@ -1083,25 +1083,59 @@ Dai risultati calcolati dall'esperimento \cite{art:rif.46}:
 Al momento ci sono ancora pochi dispositivi attivi costruiti sulla base delle tecnologie LPWAN. In un prossimo futuro LoRa e Sigfox promettono un grande sviluppo con più di migliaia di dispositivi attivi. Il problema della coesistenza della tecnologia LPWAN diventerà reale e necessita di un'evoluzione della tecnologia.
 
 \subsection{Protocollo LoRa / Lv 1}
-LoRa è l'acronimo di Long Range, lungo raggio, che sta a riassumere il vantaggio principale di questa tecnologia wireless, senza cablature riesce a connettere lunghe distante. LoRa è una modulazione radio a spettro esteso brevettata (EP2763321 dal 2013 e US7791415 del 2008) sviluppata da Cycleo (Grenoble, Francia) e acquisita da Semtech NASDAQ: SMTC nel 2012 \cite{art:rif.30}. 
-LoRa è basata sulla tecnica CSS (Chirp Spread Spectrum), che la rende in grado di variare la lunghezza del cosiddetto fattore di spreading (compreso tra 6 e 12 bit) e l'ampiezza di banda in funzione della bit rate (ovvero il numero di bit trasmessi al secondo) richiesta nel range compreso tra 20bit/s a 41kbit/s \cite{art:rif.23}. 
-Questa modulazione aumenta la tolleranza alla deviazione di frequenza, riducendo i costi. Inoltre rende LoRa una buona resistenza contro lo sbiadimento del multipath e l'effetto Doppler, e migliora la sensibilità del ricevitore aumentando la copertura \cite{art:rif.44}. 
-Grazie alla straordinaria modulazione del chirp, il collegamento wireless può raggiungere una sensibilità fino a -137 dBm e fino a 157 dB di budget di collegamento. Il trade-off è la velocità dati raggiungibile, che è nell'intervallo di kilobit al secondo. Questo paramentro permette di capire che è una tecnologia adatta per servire l'Internet of Things (IoT) e le applicazioni M2M, mentre non è assolutamente adatta, per esempio, allo streaming video. LoRa può essere utilizzato su un'ampia gamma di frequenze da 137 MHz a 1020 MHz. Questo include numerose bande ISM prive di licenza come 169 MHz, 433 MHz, 868 MHz e 915 MHz. Questo è un fattore chiave per implementazioni e interoperabilità a livello mondiale \cite{art:rif.30}. 
-La rivista di settore \cite{art:rif.23} descrive Lora come "Tecnologia realmente innovativa che fissa un nuovo punto di riferimento in termini di distanza di trasmissione e di consumi di potenza, la tecnologia LoRa adotta uno schema di modulazione digitale completamente asincrono. La modulazione garantisce una continuità di fase tra i simboli chirp nella parte del preambolo del pacchetto. Questa funzione consente di utilizzare la sincronizzazione temporale più semplice e quindi componenti meno costosi. Una radio LoRa ha quattro parametri di configurazione: frequenza portante, fattore di diffusione (SF, spread factor), larghezza di banda e velocità di codifica. La selezione di questi parametri determina il consumo di energia, il raggio di trasmissione e la resilienza al rumore. A differenza di SigFox, la tecnologia LoRa può essere utilizzata in reti sia private sia pubbliche. Le elevate prestazioni che la tecnologia LoRA è in grado di offrire sono testimoniate dalla sua capacità di ricevere segnali fino a -22dB al di sotto della soglia del rumore di fondo, abbinata alla reiezioni dei canali adiacenti di almeno 69dB con un offset di 25kHz, un valore migliore di 30dB rispetto a quello che si ottiene utilizzando la modulazione FSK a 868MHz sui medesimi transceiver. Un tempo le radio in banda ISM destinate ad applicazioni industriali e operanti a frequenze inferiori a 1GHz erano caratterizzate da un range in campo aperto limitato a 2 km" \cite{art:rif.23}. 
+LoRa è l'acronimo di Long Range, lungo raggio, che sta a riassumere il vantaggio principale di questa tecnologia wireless, senza cablature riesce a connettere lunghe distante. LoRa rappresenta il protocollo di livello 1 della pila ISO/OSI. Secondo \cite{art:rif.30}:
+\begin{quote}
+	''LoRa è una modulazione radio a spettro esteso brevettata (EP2763321 dal 2013 e US7791415 del 2008) sviluppata da Cycleo (Grenoble, Francia) e acquisita da Semtech NASDAQ: SMTC nel 2012.''
+\end{quote}
+In \cite{art:rif.23} è spiegato da cosa è realizzato il livello fisico:
+\begin{quote}
+	''LoRa è basata sulla tecnica CSS (Chirp Spread Spectrum), che la rende in grado di variare la lunghezza del cosiddetto fattore di spreading (compreso tra 6 e 12 bit) e l'ampiezza di banda in funzione della bit rate (ovvero il numero di bit trasmessi al secondo) richiesta nel range compreso tra 20bit/s a 41kbit/s.''
+\end{quote}
+Stando a \cite{art:rif.44} sono elencati i seguenti vantaggi:
+\begin{quote}
+	''Questa modulazione aumenta la tolleranza alla deviazione di frequenza, riducendo i costi. Inoltre rende LoRa una buona resistenza contro lo sbiadimento del multipath e l'effetto Doppler, e migliora la sensibilità del ricevitore aumentando la copertura.''
+\end{quote}
+Nell'articolo \cite{art:rif.30} spiega che:
+\begin{quote}
+	''Grazie alla straordinaria modulazione del chirp, il collegamento wireless può raggiungere una sensibilità fino a -137 dBm e fino a 157 dB di budget di collegamento. Il trade-off è la velocità dati raggiungibile, che è nell'intervallo di kilobit al secondo.''
+\end{quote}
+Questo paramentro permette di capire che è una tecnologia adatta per servire l'Internet of Things (IoT) e le applicazioni M2M, mentre non è assolutamente adatta, per esempio, allo streaming video. 
+\begin{quote}
+	''LoRa può essere utilizzato su un'ampia gamma di frequenze da 137 MHz a 1020 MHz. Questo include numerose bande ISM prive di licenza come 169 MHz, 433 MHz, 868 MHz e 915 MHz.''
+\end{quote}
+Questo è un fattore chiave per le implementazioni e interoperabilità a livello mondiale. Secondo \cite{art:rif.23}: 
+\begin{quote}
+	''La tecnologia LoRa adotta uno schema di modulazione digitale completamente asincrono. La modulazione garantisce una continuità di fase tra i simboli chirp nella parte del preambolo del pacchetto. Questa funzione consente di utilizzare la sincronizzazione temporale più semplice e quindi componenti meno costosi. Una radio LoRa ha quattro parametri di configurazione: frequenza portante, fattore di diffusione (SF, spread factor), larghezza di banda e velocità di codifica. La selezione di questi parametri determina il consumo di energia, il raggio di trasmissione e la resilienza al rumore.''
+\end{quote}
+Sempre secondo lo stesso articolo:	
+\begin{quote}	
+	''Le elevate prestazioni che la tecnologia LoRa è in grado di offrire sono testimoniate dalla sua capacità di ricevere segnali fino a -22dB al di sotto della soglia del rumore di fondo, abbinata alla reiezioni dei canali adiacenti di almeno 69dB con un offset di 25kHz, un valore migliore di 30dB rispetto a quello che si ottiene utilizzando la modulazione FSK a 868MHz sui medesimi transceiver.'' 
+\end{quote}
 % LoRa è lo strato fisico della pila ISO/OSI. 
-Nonostante condividano la stessa banda, LoRa si distingue da SigFox, per la capacità di gestire segnali più deboli al costo di leggero consumo di energia, che resta comunque basso da rientrare nelle LPWAN, in in confronto a 2G, 3G, ecc... a parità di distanza raggiunta.
+In realazione a \cite{art:rif.48}, una configurazione di modulazione (data-rate, DR) è data da due parametri:
+\begin{quote}
+	''una larghezza di banda (BW, bandwidth) e un fattore di diffusione (SF, spread factor) specificati dalla specifica dei parametri regionali LoRaWAN. Le larghezze di banda vanno da 125 kHz a 500 kHz a seconda della regione. La durata del simbolo chirp è data da:
+	\begin{equation}
+	T_s = \frac{2^{SF}}{BW}
+	\end{equation}
+	dove SF appartiene all'intervallo [7, 12].''
+\end{quote}
+Sempre secondo lo stesso articolo:
+\begin{quote}
+	''Il TOA (time-on-air) dipende quindi in modo esponenziale dalla SF. D'altra parte la sensibilità del ricevitore è proporzionale alla SF. Inoltre, la tecnica dello spettro esteso è combinata con la correzione degli errori in avanti (FEC, forward error correction) con velocità di codifica in {4/5; 4/6; 4/7; 4/8}.''
+\end{quote}
+L'articolo continua descrivendo il pacchetto LoRa:
+\begin{quote}
+	''Un pacchetto LoRa costituito da un preambolo, un'intestazione, un payload e un campo CRC. Il preambolo permette al ricevitore, solitamente un Gateway LoRa, di sincronizzarsi con il messaggio in arrivo. Nell'intestazione ci sono tutte le informazioni per notificare delle informazioni al trasmettitore.''
+\end{quote}
 
-L'articolo \cite{art:rif.48} descrive come una configurazione di modulazione (data-rate, DR) è data da due parametri: una larghezza di banda (BW, bandwidth) e un fattore di diffusione (SF, spread factor) specificati dalla specifica dei parametri regionali LoRaWAN. Le larghezze di banda vanno da 125 kHz a 500 kHz a seconda della regione. La durata del simbolo chirp è data da:
-\begin{equation}
- T_s = \frac{2^{SF}}{BW}
-\end{equation}
-dove SF appartiene all'intervallo [7, 12]. Il TOA (time-on-air) dipende quindi in modo esponenziale dalla SF. D'altra parte la sensibilità del ricevitore è proporzionale alla SF. Inoltre, la tecnica dello spettro esteso è combinata con la correzione degli errori in avanti (FEC, forward error correction) con velocità di codifica in {4/5; 4/6; 4/7; 4/8}. Un pacchetto LoRa costituito da un preambolo, un'intestazione, un payload e un campo CRC \cite{art:rif.48}. 
-Il preambolo permette al ricevitore, solitamente un Gateway LoRa, di sincronizzarsi con il messaggio in arrivo. Nell'intestazione ci sono tutte le informazioni per notificare delle informazioni al trasmettitore. 
-LoRa implementa la modulazione wireless utilizzata per creare il collegamento di comunicazione a lungo raggio. 
-Il suo schema di modulazione a largo spettro consente un'operatività a lungo raggio e un'elevata capacità di rete, con bassa potenza a radiofrequenza. Grazie alla richiesta energetica contenuta, l'end-point di una rete LoRa con alimentazione a batteria può funzionare per molti anni, una durata sufficiente in molte applicazioni, che ha un sensibile effetto sui costi operativi di una rete con numerosi end-point \cite{art:rif.23}. 
-Per favorire l'inizio degli sviluppi basati sulla tecnologia LoRa, esiste un portafoglio di moduli radio conformi alle specifiche LoRaWan per consentire di semplificare e accelerare l'integrazione di questa tecnologia nei dispositivi IoT. I moduli Microchip, come l'RN2483, sono dispositivi plug-and-play che integrano un completo sottosistema radio con un microcontrollore, le Eeprom di identità, il front-end a radiofrequenza e i relativi circuiti, oltre a un cristallo. Questi moduli sono fra i primi che hanno passato il collaudo LoRa Alliance Certification \cite{art:rif.20}. 
-La soluzione LoRa può essere etichettata come CDMA. Sta usando diversi fattori di diffusione (velocità dati chirp) e velocità di codifica per segnali multiplex su una singola frequenza. Ciò non solo aumenta la capacità della rete, ma consente anche l'adattamento dinamico delle velocità dei dati del dispositivo. I dispositivi con un migliore collegamento a un gateway (a causa della vicinanza, di un ambiente a bassa rumorosità, di una visuale non ostruita) possono utilizzare velocità di trasmissione dati superiori (fino a 11 kbps) e risparmiare batteria. I dispositivi con una scarsa qualità dei collegamenti possono aumentare il budget dei collegamenti utilizzando velocità di trasmissione inferiori, estendendo il raggio di collegamento effettivo a oltre 30 km in linea di vista \cite{art:rif.30}. 
-LoRa è tecnologia particolarmente adatta per sistemi di controllo e di misurazione su territori vasti vantando la minima spesa rispetto alle tecnologie concorrenti, al costo di una trasmissione più lenta delle informazioni. Questo non deve essere visto come uno svantaggio, perchè permette al livello fisico di ottenere delle ottimizzazioni sull'accesso multiplo al canale in caso di rilevamento di collisioni, a differenza delle altre tecnologie concorrenti.
+% \cite{art:rif.23} LoRa implementa la modulazione wireless utilizzata per creare il collegamento di comunicazione a lungo raggio. Il suo schema di modulazione a largo spettro consente un'operatività a lungo raggio e un'elevata capacità di rete, con bassa potenza a radiofrequenza. Grazie alla richiesta energetica contenuta, l'end-point di una rete LoRa con alimentazione a batteria può funzionare per molti anni, una durata sufficiente in molte applicazioni, che ha un sensibile effetto sui costi operativi di una rete con numerosi end-point. 
+
+% Da spostare in "Che cosa è LoRa?"
+Secondo \cite{art:rif.20} per favorire l'inizio degli sviluppi basati sulla tecnologia LoRa:
+\begin{quote}
+	''Esiste un portafoglio di moduli radio conformi alle specifiche LoRaWan per consentire di semplificare e accelerare l'integrazione di questa tecnologia nei dispositivi IoT. I moduli Microchip, come l'RN2483, sono dispositivi plug-and-play che integrano un completo sottosistema radio con un microcontrollore, le Eeprom di identità, il front-end a radiofrequenza e i relativi circuiti, oltre a un cristallo. Questi moduli sono fra i primi che hanno passato il collaudo LoRa Alliance Certification.''
+\end{quote}
 
 \subsubsection{Tempo di trasmissione on-the-air}
 Nell'articolo \cite{art:rif.44} LoRa è stata messa alla prova a differenti combinazioni di fattori metereologici per analizzare i limiti di questa tecnologia in un ambiente urbano per capire, in questo modo si può capire fino a dove ci si può spingere nella creazione di Smart City. Secondo "LoRa Modem Designer’s Guide" della Semtech e come menzionato precedentemente, il pacchetto LoRa è costituito da un preambolo e da payload (che a sua volta può contentere un intestazione). Il tempo di trasmissione in onda è la somma del preambolo e della durata del carico utile. Il tempo di trasmissione in diretta ToA è indicato:
@@ -1441,6 +1475,9 @@ Questa equazione ora fornisce una relazione diretta tra la potenza del segnale r
 P_{Rx,ideal}[dBm] = N_{0,th}[dBm/Hz] - 1.59dB + 10log_{10}(R[bit/s])
 \end{equation} 
  Il livello di ricezione richiesto per LPWAN è $P_{Rx}$ = -142dBm. Ciò si traduce in un max. bit-rate teorico del carico utile di R = 2285 bit / s. Tuttavia, la maggior parte dei sistemi funziona a tassi significativamente più bassi, in quanto i valori teorici non possono essere raggiunti a causa dei problemi summenzionati. Un ulteriore effetto che deve essere preso in considerazione è l'interferenza. Innanzitutto, le LPWAN che operano in bande esenti da licenza sono interessate da interferenze da altri sistemi che operano anche in queste bande esenti da licenza. In secondo luogo, vi è un'interferenza da parte di altri nodi del sensore all'interno del sistema stesso, che è principalmente rilevante per il collegamento ascendente. Questo è semplicemente causato dal cosiddetto problema del nodo nascosto. Solo le basi hanno antenne molto esposte, ed i nodi del sensore non sono in grado di sentirsi reciprocamente. Pertanto, un ascolto prima di parlare dei nodi del sensore non impedisce le collisioni alla stazione base. Di conseguenza, le LPWAN nelle bande esenti da licenza comunemente usano meccanismi basati su Multiple Access (CDMA) di Collision Detect. Inoltre, vi sono meccanismi che utilizzano meccanismi di codifica speciali per un ulteriore miglioramento in caso di molte collisioni sul collegamento ascendente. Quindi, la stazione base è in grado di ricevere più segnali di nodo sensore simultaneamente \cite{art:rif.40}.
+ 
+ \cite{art:rif.30}
+ La soluzione LoRa può essere etichettata come CDMA. Sta usando diversi fattori di diffusione (velocità dati chirp) e velocità di codifica per segnali multiplex su una singola frequenza. Ciò non solo aumenta la capacità della rete, ma consente anche l'adattamento dinamico delle velocità dei dati del dispositivo. I dispositivi con un migliore collegamento a un gateway (a causa della vicinanza, di un ambiente a bassa rumorosità, di una visuale non ostruita) possono utilizzare velocità di trasmissione dati superiori (fino a 11 kbps) e risparmiare batteria. I dispositivi con una scarsa qualità dei collegamenti possono aumentare il budget dei collegamenti utilizzando velocità di trasmissione inferiori, estendendo il raggio di collegamento effettivo a oltre 30 km in linea di vista.
 
 \begin{center}
 \begin{tabular}{r|c|c|}
