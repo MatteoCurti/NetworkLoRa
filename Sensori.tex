@@ -93,7 +93,7 @@
 \subsection{I sensori}
 I sensori rappresentano i nodi finali della rete che verrà presa in analisi in questa tesi. Inoltre la scelta del sensore sarà molto importante nel capitolo 3 dove verrà presentato un sistema reale per letture ambientali. 
 
-In {art:rif.1} viene descritto che cos'è un \textit{sensore}:
+In \cite{art:rif.1} viene descritto che cos'è un \textit{sensore}:
 \begin{quote}
 	''I sensori, in un sistema di acquisizione dati, sono le interfacce fisiche tra i dispositivi di elaborazione dei segnali elettrici acquisiti in input e le corrispondenti grandezze fisiche da monitorare in funzione del tempo.''
 \end{quote} 
@@ -847,66 +847,106 @@ Questo studio sperimentale di quattro prove ha rivelato la relazione tra la mobi
 %Un'architettura basata su protocollo DTLS (datagram transport transport security) viene proposta come fornitore di sicurezza end-to-end per IoT.%
 \subsection{Specifiche LoRaWAN}
 \subsubsection{LoRaWAN 1.1 Specifiche}
-LoRaWAN 1.1 è l'ultima versione di LoRaWAN ed offre le seguenti funzionalità:
-\begin{itemize}
-\item supporto per il roaming di handover: consente il trasferimento del dispositivo finale da una rete LoRaWAN a un'altra; 
-\item roaming passivo: consente il trasferimento del dispositivo finale da una rete LoRaWAN con versioni precedenti. Il tutto è trasparente per il dispositivo finale;
-\item i dispositivi finali bidirezionali con slot di ricezione programmati (Classe B) fanno parte dei miglioramenti delle specifiche e sono ora ufficialmente supportati;
-\item miglioramenti di sicurezza.
-\end{itemize}
-Al fine di supportare implementazioni eterogenee e non a aggiornamenti coordinati a livello globale, sia i dispositivi finali che le reti LoRaWAN 1.1 supporteranno la compatibilità con le versioni precedenti per interoperare con i loro pari LoRaWAN 1.0.x \cite{art:rif.29}.
+Secondo \cite{art:rif.29} LoRaWAN 1.1 è l'ultima versione di LoRaWAN ed offre le seguenti funzionalità:
+\begin{quote}
+	\begin{itemize}
+		\item ''supporto per il roaming di handover: consente il trasferimento del dispositivo finale da una rete LoRaWAN a un'altra; 
+		\item roaming passivo: consente il trasferimento del dispositivo finale da una rete LoRaWAN con versioni precedenti. Il tutto è trasparente per il dispositivo finale;
+		\item i dispositivi finali bidirezionali con slot di ricezione programmati (Classe B) fanno parte dei miglioramenti delle specifiche e sono ora ufficialmente supportati;
+		\item miglioramenti di sicurezza.
+	\end{itemize}
+	Al fine di supportare implementazioni eterogenee e non a aggiornamenti coordinati a livello globale, sia i dispositivi finali che le reti LoRaWAN 1.1 supporteranno la compatibilità con le versioni precedenti per interoperare con i loro pari LoRaWAN 1.0.x.''
+\end{quote}
 
 \subsubsection{LoRaWAN Backend Interfaces 1.0 Specifica}
-LoRaWAN Backend Interfaces 1.0 abilita le seguenti funzionalità:
-\begin{itemize}
-\item Unisce il server di rete (NS), il server (JS) e il server delle applicazioni (AS).
-\item Abilita il roaming sia per LoRaWAN 1.0.x (solo per il roaming passivo) e per le reti LoRaWAN 1.1 (sia in roaming passivo che in handover).
-\item Identifica l'entità che memorizza le credenziali del dispositivo finale (comprese le chiavi di root) come JS. Può essere separato dalle reti e amministrato da un'entità indipendente dalle reti che il dispositivo finale potrebbe utilizzare. Ciò consente alle reti di scaricare la procedura di autenticazione su un sistema dedicato. Alla fine potrebbe essere collegato a questa terza parte \cite{art:rif.29}.
-\end{itemize}
-
+Riferendosi a \cite{art:rif.29} LoRaWAN Backend Interfaces 1.0 abilita le seguenti funzionalità:
+\begin{quote}
+	\begin{itemize}
+	\item ''Unisce il server di rete (NS), il server (JS) e il server delle applicazioni (AS).
+	\item Abilita il roaming sia per LoRaWAN 1.0.x (solo per il roaming passivo) e per le reti LoRaWAN 1.1 (sia in roaming passivo che in handover).
+	\item Identifica l'entità che memorizza le credenziali del dispositivo finale (comprese le chiavi di root) come JS. Può essere separato dalle reti e amministrato da un'entità indipendente dalle reti che il dispositivo finale potrebbe utilizzare. Ciò consente alle reti di scaricare la procedura di autenticazione su un sistema dedicato. Alla fine potrebbe essere collegato a questa terza parte.''
+	\end{itemize}
+\end{quote}
 \subsubsection{LoRaWAN 1.1 Parametri regionali rev. A}
-I parametri regionali LoRaWAN 1.1 rev. Parametri radio specifici per regione per dispositivi finali LoRaWAN 1.1 \cite{art:rif.29}.
-LoRa opera nelle bande ISM inferiori (UE: 868 MHz e 433 MHz, USA: 915 MHz e 433 MHz). 
-
+Facendo riferimento a \cite{art:rif.29} i parametri regionali LoRaWAN 1.1 rev.:
+\begin{quote}
+	''I parametri radio sono specifici per ogni regione. LoRa opera nelle bande ISM inferiori (UE: 868 MHz e 433 MHz, USA: 915 MHz e 433 MHz).''
+\end{quote}
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/DivisioneBande.png}
 
-Fig. 4 I canali definiti 0 - 400 per 100 Hz nel range 868.180 - 868.220 MHz. % A
+Fig. 4 I canali definiti 0 - 400 per 100 Hz nel range 868.180 - 868.220 MHz.\\ % A
+Immagine presa dall'articolo \cite{art:rif.46}.
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/DivB.png}
 
-Fig. 5 Divisione delle tecnologie LoRa e Sigfox nell'intervallo 863,95 - 868,75 MHz. % B
+Fig. 5 Divisione delle tecnologie LoRa e Sigfox nell'intervallo 863,95 - 868,75 MHz.\\ % B
+Immagine presa dall'articolo \cite{art:rif.46}.
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/DivisioneBande2.png}
 
-Fig. 6 Divisione delle tecnologie nella gamma più piccola 868.05-868.65 MHz. % C
+Fig. 6 Divisione delle tecnologie nella gamma più piccola 868.05-868.65 MHz.\\ % C
+Immagine presa dall'articolo \cite{art:rif.46}.
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/DivB2.png}
 
-Fig. 7 Divisione delle tecnologie nell'intervallo 868,1 - 868,25 MHz. % D
+Fig. 7 Divisione delle tecnologie nell'intervallo 868,1 - 868,25 MHz.\\ % D
+Immagine presa dall'articolo \cite{art:rif.46}.
 \end{figure}
 
 \subsection{Copertura di LPWAN nello spettro}
-Tutte le tecnologie LPWAN condividono e lavorano sulla stessa banda non licenziata. Non è scontato che queste tecnologie possano coesistere tutte contemporaneamente, senza sovrapporsi. Bisogna misurare con uno studio pratico le probabilità di collisione e la scabilità effettiva delle tecnologie. Nel caso in cui la coesistenza fosse positiva (quello che ci si aspetta) bisogna inoltre verificare che al crescere del numero di nodi finali per tecnologia i parametri di coesistenza nello spettro di frequenza restano costanti.
-L'articolo \cite{art:rif.46} inizia descrivendo la distribuzione spettrale e i canali delle tecnologie LPWAN e SigFox. Esse sono mostrate in Fig. 4. I canali per downlink non vengono visualizzati in figura perché si trovano più in alto dei 869 MHz nello spettro e non si sovrappongono l'uno all'altro. La Figura 5 mostra solo i canali LoRa predefiniti più importanti per l'invio di messaggi JoinReq per connettersi alla rete. Tuttavia, LoRa può funzionare sui canali con quasi tutte le frequenze da 863 a 870 MHz. Sigfox copre davvero una piccola parte dello spettro. I canali di Sigfox assomigliano ad una sottile fascia in figura perché risulta piccola la loro larghezza di banda essendo di soli 100 Hz. 
-La figura 6 mostra lo stesso spettro di frequenza ma con le tecnologie più in dettaglio. Questa parte dello spettro intorno a 868 MHz, vede coesistere tutte le tecnologie. LoRa ha 3 canali principali con larghezza di banda di 125 kHz che vengono utilizzati da ogni dispositivo LoRa. Sigfox ha localizzato tutti i canali attorno a 868,2 MHz. Lo spettro in un intervallo 868.10 - 868.25 MHz è illustrato in Fig. 7. Questa parte dello spettro contiene i canali principali, che hanno una grande importanza nel problema di potenziali collisioni e di coesistenza delle tecnologie. In questa fascia dello spettro che si sovrappongono le tecnologie LPWAN. Questa parte dello spettro, in particolare intorno a 868,2 MHz, potrebbe essere problematica, perché qui potrebbero verificarsi collisioni accidentali, che potrebbero interferire e interrompere la comunicazione (problema riscontrato anche nella verifica della mobilità in \cite{art:rif.47}). La probabilità di collisioni è molto più alta in questa fascia che in tutte le altre. La crescità prefista  di dispositivi che utilizzano queste tecnologie aumenta la possibilità di collisioni \cite{art:rif.46}.
-Esistono molte altre tecnologie nel mondo, oltre a LPWAN, che vengono utilizzate per vari scopi e operano in molte bande di frequenza. Poiché l'intera banda di frequenza è un mezzo limitato e condiviso per tutti, è necessario tenere a mente anche queste tecnologie per una possibile coesistenza con LPWAN. Possibili complicazioni possono aumentare soprattutto nelle tecnologie che sono in conflitto di frequenza con le gamme di LPWAN. Per questo motivo vengono scelte le principali sei tecnologie che operano nelle frequenze simili come Personal Mobile Radio (PMR), trasmissione vocale wireless, reti mobili ecc... Le reti mobili LTE e GSM sono molto popolari e la divisione corretta di 800 o 900 MHz delle bande di frequenza secondo i documenti di definizione sono ben note. Coprono una grande quantità di frequenze nella banda di 800 MHz ad eccezione degli intervalli di sicurezza delle reti mobili. 
-La prima tecnologia in conflitto nello spettro è utilizzata per i dispositivi di allarme, che utilizzano una comunicazione radio per un'indicazione di allarme che può verificarsi in un luogo lontano. La tecnologia ha specificato un piccolo ciclo di lavoro e un utilizzo molto ridotto dello spettro, che contribuisce a migliorare l'affidabilità. 
-La seconda tecnologia per la trasmissione vocale wireless è definita per un apparecchio acustico, microfoni wireless, altoparlanti, cuffie e dispositivi per l'ascolto. La tecnologia RFID (Radio Frequency Identification) utilizza ricetrasmittenti radio e tag generalmente passivi. La tecnologia RFID è uno strumento per l'identificazione e il monitoraggio degli oggetti e per evitare furti, ecc... Queste due tecnologie non hanno definito il duty cycle (ciclo di lavoro o ciclo di lavoro utile, rappresenta la frazione di tempo che un'entità passa in uno stato attivo in proporzione al tempo totale considerato), poiché i dispositivi funzionano nella modalità Listen Before Talk (LBT). Anche queste tecnologie influenzeranno in qualche modo la coesistenza finale nella banda 863-870 MHz utilizzata dalle LPWAN. La barriera più grande potrebbero essere le reti mobili in base alla loro larghezza e al loro carattere, ma non si sovrappongono a LPWAN. È molto probabile che gli sviluppatori di LPWAN abbiano scelto proprio questa banda, a causa dell'assenza delle reti mobili. Altre tecnologie citate si sovrappongono già a LPWAN, ma non in modo pericoloso come le reti mobili perchè hanno un diverso carattere. Infatti, la tecnologia per dispositivi di allarme non crea un grosso rischio per la coesistenza utilizzando una parte sottile dello spettro e un piccolo ciclo di lavoro, sebbene i dispositivi di allarme utilizzino un intervallo di comunicazione globale. In caso contrario, la tecnologia di trasmissione vocale RFID e wireless hanno un raggio di comunicazione molto limitato. È possibile affermare che queste tecnologie si possono trovare solo in piccole aree durante i concerti o attorno a cancelli di sicurezza e si verificano occasionalmente. Ciò minimizza rapidamente le possibilità di potenziali problemi con le tecnologie operative parallele \cite{art:rif.46}.
+Tutte le tecnologie LPWAN condividono e lavorano sulla stessa banda non licenziata. Non è scontato che queste tecnologie possano coesistere tutte contemporaneamente, senza sovrapporsi. Bisogna misurare con uno studio pratico le probabilità di collisione e la scabilità effettiva delle tecnologie. Nel caso in cui la coesistenza fosse possibile (quello che ci si aspetta) bisogna inoltre verificare che al crescere del numero di nodi finali per tecnologia i parametri di coesistenza nello spettro di frequenza restano costanti.
+L'articolo \cite{art:rif.46} inizia descrivendo la distribuzione spettrale e i canali delle tecnologie LPWAN e SigFox. Esse sono riportate in Fig. 4. I canali per downlink non vengono visualizzati in figura perché si trovano più in alto dei 869 MHz nello spettro e non si sovrappongono l'uno all'altro. La Figura 5 mostra solo i canali LoRa predefiniti più importanti per l'invio di messaggi JoinReq per connettersi alla rete.  
+\begin{quote}
+	''LoRa può funzionare sui canali con quasi tutte le frequenze da 863 a 870 MHz. Sigfox copre davvero una piccola parte dello spettro. I canali di Sigfox sono rappresentati nelle figure da una sottile fascia blu. La larghezza di banda di SigFox è sottile perché è di soli 100 Hz.''
+\end{quote}
+La figura 6 mostra lo stesso spettro di frequenza ma con le tecnologie più in dettaglio:
+\begin{quote}
+	''Questa parte dello spettro intorno a 868 MHz (868.05-868.65 MHz), vede coesistere tutte le tecnologie. LoRa ha 3 canali principali con larghezza di banda di 125 kHz che vengono utilizzati da ogni dispositivo LoRa. Sigfox ha localizzato tutti i canali attorno a 868,2 MHz.''
+\end{quote}
+Lo spettro in un intervallo 868.10 - 868.25 MHz è illustrato in Fig. 7. Questa parte dello spettro contiene i canali principali, che hanno una grande importanza nel problema di potenziali collisioni e di coesistenza delle tecnologie. 
+\begin{quote}
+	''In questa fascia dello spettro in cui si sovrappongono le tecnologie LPWAN. In questa parte dello spettro, in particolare intorno a 868,2 MHz, ci potrebbe essere qualche problema, perché qui potrebbero verificarsi collisioni accidentali, che potrebbero interferire e interrompere la comunicazione.
+\end{quote}
+Quest'ultimo problema è stato riscontrato anche nell'esperimento \cite{art:rif.47} durante la verifica della mobilità. Continuando in \cite{art:rif.46}:
+\begin{quote}
+	''La probabilità di collisioni è molto più alta in questa fascia dello spettro (868.10 – 868.25) che in tutte le altre. La crescità prevista di dispositivi che utilizzano queste tecnologie aumenta la possibilità di collisioni.''
+\end{quote}
+Esistono molte altre tecnologie nel mondo, oltre a LPWAN, che vengono utilizzate per vari scopi e operano in molte bande di frequenza. Poiché l'intera banda di frequenza è un mezzo limitato e condiviso per tutti, è necessario tenere a mente anche queste tecnologie per una possibile coesistenza con LPWAN. 
+\begin{quote}
+	''Possibili complicazioni possono aumentare, soprattutto nelle tecnologie che sono in conflitto di frequenza con le gamme di LPWAN. Per questo motivo vengono scelte le principali sei tecnologie che operano nelle frequenze simili come Personal Mobile Radio (PMR), trasmissione vocale wireless, reti mobili ecc... Le reti mobili LTE e GSM sono molto popolari e la divisione corretta di 800 o 900 MHz delle bande di frequenza secondo i documenti di definizione sono ben note. Coprono una grande quantità di frequenze nella banda di 800 MHz ad eccezione degli intervalli di sicurezza delle reti mobili.
+	La prima tecnologia in conflitto nello spettro è utilizzata per i dispositivi di allarme, che utilizzano una comunicazione radio per un'indicazione di allarme che può verificarsi in un luogo lontano. La tecnologia ha specificato un piccolo ciclo di lavoro (duty cycle, ciclo di lavoro o ciclo di lavoro utile, rappresenta la frazione di tempo che un'entità passa in uno stato attivo in proporzione al tempo totale considerato) e un utilizzo molto ridotto dello spettro, che contribuisce a migliorare l'affidabilità. La seconda tecnologia per la trasmissione vocale wireless è definita per un apparecchio acustico, microfoni wireless, altoparlanti, cuffie e dispositivi per l'ascolto. La tecnologia RFID (Radio Frequency Identification) utilizza ricetrasmittenti radio e tag generalmente passivi. La tecnologia RFID è uno strumento per l'identificazione e il monitoraggio degli oggetti e per evitare furti, ecc... Queste due tecnologie non hanno definito il ciclo di lavoro, poiché i dispositivi funzionano nella modalità Listen Before Talk (LBT). Anche queste tecnologie influenzeranno in qualche modo la coesistenza finale nella banda 863-870 MHz utilizzata dalle LPWAN. La barriera più grande potrebbe essere le reti mobili in base alla loro larghezza e al loro carattere, ma non si sovrappongono a LPWAN.''
+\end{quote}
+È molto probabile che gli sviluppatori di LPWAN abbiano scelto proprio questa banda, a causa dell'assenza delle reti mobili. Altre tecnologie citate si sovrappongono già a LPWAN, ma non in modo pericoloso come le reti mobili perchè hanno un diverso carattere. Infatti l'articolo \cite{art:rif.46} spiega che:
+\begin{quote}
+	La tecnologia per dispositivi di allarme non crea un grosso rischio per la coesistenza utilizzando una parte sottile dello spettro e un piccolo ciclo di lavoro, sebbene i dispositivi di allarme utilizzino un intervallo di comunicazione globale. In caso contrario, la tecnologia di trasmissione vocale RFID e wireless hanno un raggio di comunicazione molto limitato. È possibile affermare che queste tecnologie si possono trovare solo in piccole aree durante i concerti o attorno a cancelli di sicurezza e si verificano occasionalmente.
+\end{quote}
+Ciò minimizza rapidamente le possibilità di potenziali problemi con le tecnologie operative parallele.
 
 \subsubsection{Probabilità di occorrenza sul canale}
-Tutti i calcoli e le considerazioni sulla distribuzione del tempo e sulla probabilità delle tecnologie Lora, Sigfox e IQRF (altra tecnologia LPWAN che condivide la stessa banda) sono fatti assumendo che tutte le tecnologie stiano lavorando su canali di frequenza di sovrapposizione. È solo una singola combinazione possibile di canali per queste tecnologie, Fig. 5. Include il canale LoRa che inizia a 868.1 MHz, il canale IQRF n. 50 a partire da 868.15 MHz e tutti i canali Sigfox grazie alla sua larghezza di banda \cite{art:rif.46}. 
-Questi canali sono mostrati in dettaglio in Fig. 7. È possibile considerare la tempistica delle singole tecnologie e le loro risultanti statistiche e probabilità, che suggeriscono una possibile coesistenza reciproca sullo stesso canale. Le varianti individuali con il tempo di caricamento maggiore sul canale, quindi in termini di tempo è la peggiore opzione possibile, vengono selezionate per il calcolo della probabilità risultante. La tecnologia Sigfox offre solo una variante \cite{art:rif.46}.
+In questa sottosezione viene esposto l'esperimento \cite{art:rif.46} per valutare la \textit{probabilità di occorrenza sul canale}. Il problema è stato definito con le seguenti ipotesi:
+\begin{quote}
+	''Tutti i calcoli e le considerazioni sulla distribuzione del tempo e sulla probabilità delle tecnologie Lora, Sigfox e IQRF (altra tecnologia LPWAN che condivide la stessa banda), sono stati fatti assumendo che tutte le tecnologie stiano lavorando su canali di frequenza di sovrapposizione.''
+\end{quote}
+La figura 5 mostra solo una singola combinazione possibile di canali per queste tecnologie. 
+\begin{quote}
+	''Include il canale LoRa che inizia a 868.1 MHz, il canale IQRF n.50 a partire da 868.15 MHz e tutti i canali Sigfox grazie alla sua larghezza di banda.''
+\end{quote}
+Questi canali sono mostrati in dettaglio in Fig. 7. I risultati della prova affermano che:
+\begin{quote}
+	''Considerando la tempistica misurata delle singole tecnologie e le loro statistiche, è possibile la coesistenza reciproca delle tecnologie sullo stesso canale. Per arrivare a questa conclusione sono state scelte le tempistiche che rappresentano il caso peggiore per ogni tecnologia.''
+\end{quote}
+
 \begin{center}
 \begin{tabular}{r|c|c|c|}
 &LoRa DR0&Sigfox&IQRF low DR\\ \hline
@@ -917,6 +957,7 @@ $E_1$ [s]&378.28&840.00&119.47\\ \hline
 $E_2$[\%]&0.4378&0.9722&0.1383\\ \hline
 $P_E$ [-]&0.004378&0.009722&0.001383\\ \hline
 \end{tabular}
+\\ 
 Tabella 1. \\
 $E_1$ = evento sul canale durante un 24 ore. \\
 $E_2$ = evento sul canale durante un 24 ore. \\
@@ -924,7 +965,15 @@ $P_E$ = Probabilità dell'evento sul canale. \\
 I dati raccolti appartengono agli autori dell'articolo \cite{art:rif.46}. \\
 
 \end{center}
-La tabella 1 mostra il confronto e dati di queste tre tecnologie. Un periodo di trasmissione viene calcolato dalla velocità dati e dalla dimensione del messaggio. Lo strumento Lora Modem Calculator è stato utilizzato per i dispositivi LoRa. Viene inoltre menzionato il tempo di occorrenza per ciascuna delle varianti durante 24 ore per un confronto migliore. Un prerequisito per tutte le tecnologie è stato una trasmissione di 140 messaggi al giorno, ovvero il valore massimo definito per la tecnologia SigFox. Una parte di quel tempo è anche un periodo di messaggi di ritrasmissione che si verificano nei dispositivi SigFox e tempi di trasmissione per il downlink, che sono definiti in modo diverso per ciascuna tecnologia. Secondo il carico di tempo parametrico precedentemente menzionato, la variazione Sigfox è con un bit rate di 100 bit/s e massimo carico utile di 12 B nel caso peggiore. Questo è principalmente dovuto al fatto che SigFox invia ogni messaggio tre volte. Sono trasmessi su frequenze diverse, ma la loro posizione interferisce ancora con la zona problematica menzionata. LoRa DR0 e IQRF low DataRate risparmiano più tempo. Le ragioni di una così grande differenza sono date dalla struttura della tecnologia, che utilizza le tecniche UNB, larghezza di banda ridotta, bassa velocità in bit e un piccolo volume di dati. SigFox ha quindi scelto altre priorità nella sua politica, come la lunga autonomia e una maggiore durata della batteria a scapito della velocità o della sicurezza contro gli errori di trasmissione \cite{art:rif.46}.
+La tabella 1 mostra il confronto e dati di queste tre tecnologie. L'autore dell'articolo \cite{art:rif.46} ha descritto nel seguente modo i dati in tabella:
+\begin{quote}
+	''Un periodo di trasmissione viene calcolato dalla velocità dati e dalla dimensione del messaggio. Lo strumento "Lora Modem Calculator" è stato utilizzato per i dispositivi LoRa. Viene inoltre menzionato il tempo di occorrenza per ciascuna delle varianti durante 24 ore per un confronto migliore. Un prerequisito per tutte le tecnologie è stato una trasmissione di 140 messaggi al giorno, ovvero il valore massimo definito per la tecnologia SigFox. Una parte di quel tempo è anche un periodo di messaggi di ritrasmissione che si verificano nei dispositivi SigFox e tempi di trasmissione per il downlink, che sono definiti in modo diverso per ciascuna tecnologia. Secondo il carico di tempo parametrico la variazione Sigfox possiede una bit rate di 100 bit/s e massimo carico utile di 12 B nel caso peggiore. ''
+\end{quote}
+Questo risultato di SigFox è principalmente dovuto dal fatto che invia ogni messaggio tre volte. 
+\begin{quote}
+	''I messaggi di SigFox sono trasmessi su frequenze diverse, ma la loro posizione interferisce ancora con la zona problematica menzionata. LoRa DR0 e IQRF low DataRate risparmiano più tempo.''
+\end{quote}
+I risultati di SigFox sono peggiori in termini di tempo. Le ragioni sono date dalla struttura della tecnologia, in quanto utilizza le tecniche UNB, larghezza di banda ridotta, bassa velocità in bit e un piccolo volume di dati. SigFox ha quindi scelto altre priorità nella sua politica, come la lunga autonomia e una maggiore durata della batteria a scapito della velocità o della sicurezza contro gli errori di trasmissione.
 
 \subsubsection{Probabilità di collisione sul canale}
 La probabilità che si verifichi una collisione in un canale multiplo è una questione cruciale per la coesistenza delle diverse tecnologie viste nell'articolo \cite{art:rif.46}. Il tutto è considerato e calcolato con le varianti nel caso peggiore possibile, così da valutare il potenziale possibile di coesistenza per le tecnologie citate. La quantità approssimativa di equipaggiamento di ciascuna tecnologia è stata stimata in modo che la probabilità di collisione sia adeguata per il corretto funzionamento di tutti i processi, e per farlo bisognava verificare la quantità di tempo che ciascuna tecnologia trascorre sul canale. Questi valori sono stati misurati e riportati dagli autori nella tabella 1. La probabilità di collisione durante un giorno (24 ore) è basata sul rapporto tra il tempo in cui la tecnologia utilizza il canale e il tempo totale. La probabilità che avvenga l'evento è il principale valore che può essere confrontato con gli altri o utilizzato per calcolare la probabilità di collisioni. Le specifiche dell'autorizzazione generale numero VO-R / 10 / 05.2014-3  definisce che il duty cycle massimo ammissibile è determinato dalla percentuale di tempo in cui il dispositivo può essere attivo sul canale. Tutte le tecnologie citate soddisfano questa condizione, sebbene SigFox con rapporto 0,009722 si adatti al limite 0,01 solo con un piccolo margine. La probabilità calcolata di collisione descrive una situazione in cui due o più dispositivi diversi sul canale si scontrano allo stesso tempo. Dai risultati in tabella 1 viene evidenziato che la probabilità che due o più dispositivi diversi sul canale si scontrano allo stesso tempo è molto bassa e quindi molto inferiore alla probabilità dell'evento delle singole tecnologie. La probabilità aumenterà significativamente con il numero crescente di dispositivi e il limite sarà inevitabilmente vicino 1, evento di probabilità certa \cite{art:rif.46}.
