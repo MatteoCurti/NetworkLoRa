@@ -927,7 +927,7 @@ Esistono molte altre tecnologie nel mondo, oltre a LPWAN, che vengono utilizzate
 	''Possibili complicazioni possono aumentare, soprattutto nelle tecnologie che sono in conflitto di frequenza con le gamme di LPWAN. Per questo motivo vengono scelte le principali sei tecnologie che operano nelle frequenze simili come Personal Mobile Radio (PMR), trasmissione vocale wireless, reti mobili ecc... Le reti mobili LTE e GSM sono molto popolari e la divisione corretta di 800 o 900 MHz delle bande di frequenza secondo i documenti di definizione sono ben note. Coprono una grande quantità di frequenze nella banda di 800 MHz ad eccezione degli intervalli di sicurezza delle reti mobili.
 	La prima tecnologia in conflitto nello spettro è utilizzata per i dispositivi di allarme, che utilizzano una comunicazione radio per un'indicazione di allarme che può verificarsi in un luogo lontano. La tecnologia ha specificato un piccolo ciclo di lavoro (duty cycle, ciclo di lavoro o ciclo di lavoro utile, rappresenta la frazione di tempo che un'entità passa in uno stato attivo in proporzione al tempo totale considerato) e un utilizzo molto ridotto dello spettro, che contribuisce a migliorare l'affidabilità. La seconda tecnologia per la trasmissione vocale wireless è definita per un apparecchio acustico, microfoni wireless, altoparlanti, cuffie e dispositivi per l'ascolto. La tecnologia RFID (Radio Frequency Identification) utilizza ricetrasmittenti radio e tag generalmente passivi. La tecnologia RFID è uno strumento per l'identificazione e il monitoraggio degli oggetti e per evitare furti, ecc... Queste due tecnologie non hanno definito il ciclo di lavoro, poiché i dispositivi funzionano nella modalità Listen Before Talk (LBT). Anche queste tecnologie influenzeranno in qualche modo la coesistenza finale nella banda 863-870 MHz utilizzata dalle LPWAN. La barriera più grande potrebbe essere le reti mobili in base alla loro larghezza e al loro carattere, ma non si sovrappongono a LPWAN.''
 \end{quote}
-È molto probabile che gli sviluppatori di LPWAN abbiano scelto proprio questa banda, a causa dell'assenza delle reti mobili. Altre tecnologie citate si sovrappongono già a LPWAN, ma non in modo pericoloso come le reti mobili perchè hanno un diverso carattere. Infatti l'articolo \cite{art:rif.46} spiega che:
+È molto probabile che gli sviluppatori di LPWAN abbiano scelto proprio questa banda, a causa dell'assenza delle reti mobili. Altre tecnologie citate si sovrappongono già a LPWAN, ma non in modo pericoloso come le reti mobili perché hanno un diverso carattere. Infatti l'articolo \cite{art:rif.46} spiega che:
 \begin{quote}
 	La tecnologia per dispositivi di allarme non crea un grosso rischio per la coesistenza utilizzando una parte sottile dello spettro e un piccolo ciclo di lavoro, sebbene i dispositivi di allarme utilizzino un intervallo di comunicazione globale. In caso contrario, la tecnologia di trasmissione vocale RFID e wireless hanno un raggio di comunicazione molto limitato. È possibile affermare che queste tecnologie si possono trovare solo in piccole aree durante i concerti o attorno a cancelli di sicurezza e si verificano occasionalmente.
 \end{quote}
@@ -976,31 +976,50 @@ Questo risultato di SigFox è principalmente dovuto dal fatto che invia ogni mes
 I risultati di SigFox sono peggiori in termini di tempo. Le ragioni sono date dalla struttura della tecnologia, in quanto utilizza le tecniche UNB, larghezza di banda ridotta, bassa velocità in bit e un piccolo volume di dati. SigFox ha quindi scelto altre priorità nella sua politica, come la lunga autonomia e una maggiore durata della batteria a scapito della velocità o della sicurezza contro gli errori di trasmissione.
 
 \subsubsection{Probabilità di collisione sul canale}
-La probabilità che si verifichi una collisione in un canale multiplo è una questione cruciale per la coesistenza delle diverse tecnologie viste nell'articolo \cite{art:rif.46}. Il tutto è considerato e calcolato con le varianti nel caso peggiore possibile, così da valutare il potenziale possibile di coesistenza per le tecnologie citate. La quantità approssimativa di equipaggiamento di ciascuna tecnologia è stata stimata in modo che la probabilità di collisione sia adeguata per il corretto funzionamento di tutti i processi, e per farlo bisognava verificare la quantità di tempo che ciascuna tecnologia trascorre sul canale. Questi valori sono stati misurati e riportati dagli autori nella tabella 1. La probabilità di collisione durante un giorno (24 ore) è basata sul rapporto tra il tempo in cui la tecnologia utilizza il canale e il tempo totale. La probabilità che avvenga l'evento è il principale valore che può essere confrontato con gli altri o utilizzato per calcolare la probabilità di collisioni. Le specifiche dell'autorizzazione generale numero VO-R / 10 / 05.2014-3  definisce che il duty cycle massimo ammissibile è determinato dalla percentuale di tempo in cui il dispositivo può essere attivo sul canale. Tutte le tecnologie citate soddisfano questa condizione, sebbene SigFox con rapporto 0,009722 si adatti al limite 0,01 solo con un piccolo margine. La probabilità calcolata di collisione descrive una situazione in cui due o più dispositivi diversi sul canale si scontrano allo stesso tempo. Dai risultati in tabella 1 viene evidenziato che la probabilità che due o più dispositivi diversi sul canale si scontrano allo stesso tempo è molto bassa e quindi molto inferiore alla probabilità dell'evento delle singole tecnologie. La probabilità aumenterà significativamente con il numero crescente di dispositivi e il limite sarà inevitabilmente vicino 1, evento di probabilità certa \cite{art:rif.46}.
+La probabilità che si verifichi una collisione in un canale multiplo è una questione cruciale per la coesistenza delle diverse tecnologie. Le ipotesi del articolo \cite{art:rif.46} sono:
+\begin{quote}
+	''Il tutto è considerato e calcolato con le varianti nel caso peggiore possibile, così da valutare il potenziale possibile di coesistenza per le tecnologie citate. La quantità approssimativa di equipaggiamento di ciascuna tecnologia è stata stimata in modo che la probabilità di collisione sia adeguata per il corretto funzionamento di tutti i processi, e per farlo bisognava verificare la quantità di tempo che ciascuna tecnologia trascorre sul canale.''
+\end{quote}
+ Questi valori sono stati misurati e riportati dagli autori nella tabella 1. 
+ \begin{quote}
+ 	''La probabilità di collisione durante un giorno (24 ore) è basata sul rapporto tra il tempo in cui la tecnologia utilizza il canale e il tempo totale.''
+ \end{quote}
+ La probabilità che avvenga l'evento è il principale valore che può essere confrontato con gli altri o utilizzato per calcolare la probabilità di collisioni. 
+ \begin{quote}
+ 	''Le specifiche dell'autorizzazione generale numero VO-R / 10 / 05.2014-3  definisce che il duty cycle massimo ammissibile è determinato dalla percentuale di tempo in cui il dispositivo può essere attivo sul canale. Tutte le tecnologie citate soddisfano questa condizione, sebbene SigFox con rapporto 0,009722 si adatti al limite 0,01 solo con un piccolo margine.''
+ \end{quote}
+ La probabilità calcolata di collisione descrive una situazione in cui due o più dispositivi diversi sul canale si scontrano allo stesso tempo. Dai risultati in tabella 1 dagli autori di \cite{art:rif.46} viene evidenziato che: 
+ \begin{quote}
+ 	''La probabilità che due o più dispositivi diversi sul canale si scontrano allo stesso tempo è molto bassa e quindi molto inferiore alla probabilità dell'evento delle singole tecnologie. La probabilità aumenterà significativamente con il numero crescente di dispositivi e il limite sarà inevitabilmente vicino 1, evento di probabilità certa.''
+ \end{quote}
 % Calcolo della probabilità di collisione: %
-I problemi di coesistenza di tecnologie per un numero maggiore di dispositivi sono molto importanti per determinare i limiti della tecnologia. Il limite della quantità di dispositivi non deve essere superato per evitare il deterioramento della qualità o della disponibilità di servizi in esecuzione su queste tecnologie. I problemi relativi al calcolo della probabilità di collisione per un numero maggiore di dispositivi di ciascuna di queste tecnologie sono notevolmente complicati. Gli stati problematici di collisione sono definiti per due o più dispositivi attivi simultaneamente. % Troppo difficile? Si può omettere? %
-La complessità del calcolo aumenta per via delle variabili da considerare, perché il numero degli stati probabilistici aumenta con il numero di $n$ dispositivi in base a:
-\begin{equation}
-S = 3n + 1
-\end{equation}
-dove $S$ è il numero di stati probabilistici e $n$ è il numero di dispositivi di ciascuna tecnologia. Il calcolo della probabilità di collisione in caso di un numero maggiore di dispositivi che utilizzano ciascuna tecnologia è definito come:
-\begin{equation}
-P(N \leq n) = 1 - n(P_L + P_S + P_I) - P'_0
-\end{equation}
-dove ogni parametro descrive stati specifici di probabilità come descritto di seguito. Tutte le variabili sono state calcolate dai valori già noti di probabilità degli eventi in tabella 1. Qui viene usato il complemento per esprimere l'evento opposto, che è etichettato come $c$ in apice. Un prerequisito è che il numero di dispositivi $n$ sia lo stesso per tutte le tecnologie.
-\begin{equation}
-P_L = P(L)P(L^c)^{n-1}P(S^c)^nP(I^c)^n
-\end{equation}
-\begin{equation}
-P_S = P(L^c)^nP(S)P(S^c)^{n-1}P(I^c)^n
-\end{equation}
-\begin{equation}
-P_I = P(L^c)^nP(S^c)^nP(I^c)^{n-1}
-\end{equation}
-\begin{equation}
-P'_0 = (P(L^c)P(S^c)P(I^c))^n
-\end{equation}
-dove $N$ è il numero di dispositivi di ciascuna tecnologia durante la collisione. La risultante dipendenza della probabilità di collisione su un canale è presente dopo la sostituzione nell'equazione (2.2) altrimenti troppo lunga e difficile da comprendere, quindi è divisa in sottosezioni, che illustrano chiaramente il loro utilizzo. % I risultati del calcolo della probabilità di collisione per il numero crescente di dispositivi. Funzione di distribuzione del numero di dispositivi %
+I problemi di coesistenza di tecnologie per un numero maggiore di dispositivi sono molto importanti per determinare i limiti della tecnologia. Il limite della quantità di dispositivi non deve essere superato per evitare il deterioramento della qualità o della disponibilità di servizi in esecuzione su queste tecnologie. 
+I problemi relativi al calcolo della probabilità di collisione per un grande numero di dispositivi per ciascuna di queste tecnologie sono complicati. 
+\begin{quote}
+	''Gli stati problematici di collisione sono definiti per due o più dispositivi attivi simultaneamente. La complessità del calcolo aumenta per via delle variabili da considerare, perché il numero degli stati probabilistici aumenta con il numero di $n$ dispositivi in base a:
+	\begin{equation}
+	S = 3n + 1
+	\end{equation}
+	dove $S$ è il numero di stati probabilistici e $n$ è il numero di dispositivi di ciascuna tecnologia. Il calcolo della probabilità di collisione in caso di un numero maggiore di dispositivi che utilizzano ciascuna tecnologia è definito come:
+	\begin{equation}
+	P(N \leq n) = 1 - n(P_L + P_S + P_I) - P'_0
+	\end{equation}
+	dove ogni parametro descrive stati specifici di probabilità come descritto di seguito. Tutte le variabili sono state calcolate dai valori già noti di probabilità degli eventi in tabella 1. Qui viene usato il complemento per esprimere l'evento opposto, che è etichettato come $c$ in apice. Un prerequisito è che il numero di dispositivi $n$ sia lo stesso per tutte le tecnologie.
+	\begin{equation}
+	P_L = P(L)P(L^c)^{n-1}P(S^c)^nP(I^c)^n
+	\end{equation}
+	\begin{equation}
+	P_S = P(L^c)^nP(S)P(S^c)^{n-1}P(I^c)^n
+	\end{equation}
+	\begin{equation}
+	P_I = P(L^c)^nP(S^c)^nP(I^c)^{n-1}
+	\end{equation}
+	\begin{equation}
+	P'_0 = (P(L^c)P(S^c)P(I^c))^n
+	\end{equation}
+	dove $N$ è il numero di dispositivi di ciascuna tecnologia durante la collisione. La risultante dipendenza della probabilità di collisione su un canale è presente dopo la sostituzione nell'equazione (2.2) altrimenti troppo lunga e difficile da comprendere, quindi è divisa in sottosezioni, che illustrano chiaramente il loro utilizzo.''
+\end{quote}
+
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/DistribuzioneDiProb.png}
@@ -1008,24 +1027,60 @@ dove $N$ è il numero di dispositivi di ciascuna tecnologia durante la collision
 Fig. 8 Distribuzione della funzione di probabilità di collisione 2 o più dispositivi.
 \end{figure}
 
-La funzione di distribuzione mostrata in figura è basata su (2.2). Dipende dall'aumento del numero totale $m$ dei dispositivi, che è il numero n dei dispositivi di ciascuna delle tre tecnologie (2.3), (2.4) e (2.5).
-\begin{equation}
-m = 3n 
-\end{equation}
-\begin{equation}
-F(m) = 1 - (P_L+P_S+P_I)m/3 - P'_0 
-\end{equation}
-Essa non è una funzione lineare del processo come potrebbe sembrare la soluzione più semplice per il crescente numero di dispositivi come nel grafico in figura. Tuttavia, può essere approssimata da una curva polinomiale almeno al $4^{\circ}$ ordine. La funzione inizia da zero ed è ad uno nel limite, che è un limite previsto dalla natura del calcolo. il grafico mostra anche la curva di probabilità del canale non occupato, che è inizialmente quella dovuta all'assenza di qualsiasi dispositivo sul canale. Il decorso della curva decade in modo esponenziale con il quadrato del numero $n$ di dispositivi di ciascuna tecnologia. Questo corso è calcolato da:
-\begin{equation}
-P'_0 = (P(L^c)P(S^c)P(I^c))^n 
-\end{equation}
-\cite{art:rif.46}
-% Omettere fino a qui %
+La funzione di distribuzione, mostrata in figura 8 è basata su (2.2), dipende dall'aumento del numero totale $m$ dei dispositivi, che è la somma dei dispositivi di ciascuna delle tre tecnologie (2.3), (2.4) e (2.5).
+\begin{quote}
+	\begin{equation}
+	m = 3n 
+	\end{equation}
+	\begin{equation}
+	F(m) = 1 - (P_L+P_S+P_I)m/3 - P'_0 
+	\end{equation}
+	''La funzione non è lineare come potrebbe sembrare la soluzione più semplice per il crescente numero di dispositivi;''
+\end{quote}
+come nel grafico in figura 8. 
+\begin{quote}
+	''Tuttavia, può essere approssimata da una curva polinomiale almeno al $4^{\circ}$ ordine. La funzione inizia da zero ed è ad uno nel limite, che è un limite previsto dalla natura del calcolo.'' 
+\end{quote}
+Il grafico in figura 8 mostra la curva di probabilità del canale non occupato, che è inizialmente dovuta all'assenza di qualsiasi dispositivo sul canale. 
+\begin{quote}
+	''La funzione decresce in modo esponenziale con il quadrato del numero $n$ di dispositivi di ciascuna tecnologia. Questa funzione descrescente è calcolata da:''
+	\begin{equation}
+	P'_0 = (P(L^c)P(S^c)P(I^c))^n 
+	\end{equation}
+\end{quote}
+La quantità di dispositivi sul canale deve essere fortemente limitata. Dalla figura 8 possiamo affermare che con 100 dispositivi c'è una probabilità del 60\% che due o più di essi effettuano una collisione. Con più di 120 dispositivi le probabilità che due o più di essi collidano sono maggiori o uguali al 50\%, che non è un risultato soddisfacente.
 
-\subsubsection{Capacità del numero di dispositivi sul canale}
-La questione della coesistenza dipende da due fattori principali, che hanno i loro limiti, vale a dire la \textbf{distribuzione di frequenza} e \textbf{la distribuzione temporale}. La divisione del tempo è composta principalmente dalla probabilità di occorrenza delle singole tecnologie e quindi dalla probabilità di collisioni sul canale. Dai risultati  dell'esperimento \cite{art:rif.46} si può ipotizzare ulteriori limiti in questi sistemi di trasmissione. Uno dei limiti principali è la potenziale capacità massima del numero di dispositivi che operano sul canale. Si basa sull'utilizzo del canale, cioè quanto gravano i dispositivi. In altre parole, esprime i confini, in cui è possibile far funzionare il sistema senza perdere qualità o far diminuire la disponibilità dei servizi gestiti. Alcuni parametri che determinano la qualità dei servizi sono detti Quality of Service (QoS) e Quality of Experience (QoE). Il numero dei dispositivi sul canale è una questione vitale per la crescita delle tecnologie. Devono dimensionare la propria rete in conformità con la capacità massima prestabilita di un canale rispetto ad altre possibili tecnologie sulle stesse frequenze. Inoltre, spesso devono rispettare la disponibilità del servizio pianificata in base al documento SLA (Accordo sul livello di servizio), che è organizzato e tracciato tra il fornitore del servizio e l'utente. Il dimensionamento accurato del numero di dispositivi sul canale non è del tutto possibile. Dipende da molti fattori che descrivono lo stato del canale, la qualità, la disponibilità dei servizi usati e la probabilità di collisione con più dispositivi. Quest'ultimo pararamentro il termine che descrive il vero stato del canale con un certo numero di dispositivi collegati. Dal grafico in figura 8 è stato possibile stimare approssimativamente quale potrebbe essere la capacità massima del canale. Dipende anche da altri parametri dei singoli servizi operativi come la disponibilità del servizio e una modalità di implementazione dei parametri QoS e QoE per riservare e gestire i flussi di dati. I parametri QoS e QoE sono indicatori di un livello di qualità e quindi solo i loro protocolli reagirebbero se le condizioni si deteriorassero a causa, ad esempio, di un numero maggiore di dispositivi sul canale rispetto alla capacità massima determinata. Pertanto, è importante per l'ideale e il corretto funzionamento dell'intera rete, non deve superare la capacità massima del canale. È persino difficile trovare il limite senza prove sperimentali sul canale con tecnologie e servizi concreti \cite{art:rif.46}.
+\subsubsection{Capacità del canale} 
+La capacità del canale si misura con il numero di dispositivi sul canale nello stesso momento. Il problema della coesistenza dipende da due fattori principali, che hanno i loro limiti, vale a dire la \textit{distribuzione di frequenza} e la \textit{distribuzione temporale}. Secondo \cite{art:rif.46}:
+\begin{quote}
+	La divisione del tempo è composta principalmente dalla probabilità di occorrenza delle singole tecnologie e quindi dalla probabilità di collisioni sul canale.
+\end{quote}
+Dai risultati dell'esperimento \cite{art:rif.46} si possono ipotizzare ulteriori limiti in questi sistemi di trasmissione:
+\begin{quote}
+	''Uno dei limiti principali è la potenziale capacità massima del numero di dispositivi che operano sul canale. Si basa sull'utilizzo del canale, cioè quanto gravano i dispositivi. In altre parole, esprime i confini, in cui è possibile far funzionare il sistema senza perdere qualità o far diminuire la disponibilità dei servizi gestiti. Alcuni parametri che determinano la qualità dei servizi sono detti Quality of Service (QoS) e Quality of Experience (QoE).''
+\end{quote}
+Il numero dei dispositivi sul canale è una questione vitale per la crescita delle tecnologie. Bisogna dimensionare la propria rete in conformità con la capacità massima prestabilita di un canale rispetto ad altre possibili tecnologie sulle stesse frequenze. Inoltre:
+\begin{quote}
+	''Per dimensionare la rete bisogna rispettare la disponibilità del servizio pianificata in base al documento SLA (Accordo sul livello di servizio), che è organizzato e tracciato tra il fornitore del servizio e l'utente.''
+\end{quote}
+Il dimensionamento accurato del numero di dispositivi sul canale non è del tutto possibile:
+\begin{quote}
+	''Il dimensionamento dipende da molti fattori che descrivono lo stato del canale, la qualità, la disponibilità dei servizi usati e la probabilità di collisione con più dispositivi. Quest'ultimo parametro il termine che descrive il vero stato del canale con un certo numero di dispositivi collegati.''
+\end{quote}
+Dal grafico in figura 8 è possibile stimare approssimativamente quale potrebbe essere la capacità massima del canale (100), ma dipende anche da altri parametri dei singoli servizi operativi come la disponibilità del servizio e una modalità di implementazione dei parametri QoS e QoE per riservare e gestire i flussi di dati. 
+\begin{quote}
+	''I parametri QoS e QoE sono indicatori di un livello di qualità e quindi solo i loro protocolli reagirebbero se le condizioni si deteriorassero a causa, ad esempio, di un numero maggiore di dispositivi sul canale rispetto alla capacità massima determinata.''
+\end{quote}
+Pertanto, è importante per il corretto funzionamento dell'intera rete, il numero di dispositivi connessi non deve superare la capacità massima del canale. 
+\begin{quote}
+	Questo limite, capacità massima del canale, è difficile da trovare senza prove sperimentali sul canale con tecnologie e servizi concreti.
+\end{quote}
 % L'occorrenza sul canale durante un giorno di tecnologia Sigfox è più del doppio rispetto a LoRa e oltre sette volte superiore alla tecnologia IQRF. È causato da una diversa scelta in termini di politica, ad esempio autonomia e durata della batteria, a scapito della velocità o della sicurezza degli errori di trasmissione. %
-Dai risultati calcolati nell'articolo \cite{art:rif.46} la probabilità di occorrenza dei dispositivi sul canale durante un giorno, è possibile confermare che tutte le tecnologie soddisfano le condizioni del ciclo di lavoro massimo consentito. La funzione di distribuzione della probabilità di collisione due o più dispositivi tende ad 1 per più di 1000 dispositivi attivi simultaneamente. Oggigiorno c'è ancora una piccola parte dei dispositivi attivi costruiti sulla base delle tecnologie LPWAN. Dovrebbe evolversi in un prossimo futuro, perché LoRa e Sigfox promettono un grande sviluppo e più di migliaia di dispositivi posizionati. Quindi il problema della coesistenza della tecnologia LPWAN diventa più che reale \cite{art:rif.46}.
+Dai risultati calcolati dall'esperimento \cite{art:rif.46}:
+\begin{quote}
+	''La probabilità di occorrenza dei dispositivi sul canale durante un giorno (24 ore), è possibile confermare che tutte le tecnologie soddisfano le condizioni del ciclo di lavoro massimo consentito. La funzione di distribuzione della probabilità di collisione per due o più dispositivi tende ad 1 per più di 1000 dispositivi attivi simultaneamente.''
+\end{quote}  
+Al momento ci sono ancora pochi dispositivi attivi costruiti sulla base delle tecnologie LPWAN. In un prossimo futuro LoRa e Sigfox promettono un grande sviluppo con più di migliaia di dispositivi attivi. Il problema della coesistenza della tecnologia LPWAN diventerà reale e necessita di un'evoluzione della tecnologia.
 
 \subsection{Protocollo LoRa / Lv 1}
 LoRa è l'acronimo di Long Range, lungo raggio, che sta a riassumere il vantaggio principale di questa tecnologia wireless, senza cablature riesce a connettere lunghe distante. LoRa è una modulazione radio a spettro esteso brevettata (EP2763321 dal 2013 e US7791415 del 2008) sviluppata da Cycleo (Grenoble, Francia) e acquisita da Semtech NASDAQ: SMTC nel 2012 \cite{art:rif.30}. 
