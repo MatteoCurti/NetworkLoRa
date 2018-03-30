@@ -485,8 +485,10 @@ In \cite{art:rif.8} viene spiegato il vantaggio di utilizzare la quantizzazione 
 \end{quote}
 Sempre nello stesso testo viene spiegato e illustrato con un esempio come si effettua la quantizzazione non unifrome:
 \begin{quote}	
-	''Nella quantizzazione non uniforme analogica, il segnale PAM (pulse-amplitude modulation) prima di essere convertito in digitale attraversa un compressore analogico, sostanzialmente un amplificatore logaritmico, che ha lo scopo di amplificare i livelli più bassi del segnale PAM e di comprimere quelli alti. L'apparato ricevente PCM deve contenere un organo denominato espansore, complementare al compressore in grado di ripristinare i livelli originali.
-	Nella quantizzazione non uniforme digitale, invece, il segnale PAM è convertito immediatamente in digitale a 12 bit. Successivamente un compressore numerico trasforma i dati in forma seriale a 8 bit. Anche la compressione numerica segue una legge logaritmica simile a quella analogica. L'apparato ricevente PCM deve contenere un organo denominato espansore, complementare al compressore, in grado di ripristinare i livelli originali. Un compressore digitale trasforma una parola a 12 bit (4096 combinazioni) in una a 8 bit (256 combinazioni). La curva del compressore analogico è approssimata con una spezzata costituita, secondo le norme CEPT (Conferenza Europea delle amministrazioni delle Poste e delle Telecomunicazioni), di 8 segmenti ricavati dividendo in 8 parti uguali l'asse delle ordinate. L'asse delle ascisse è così diviso in segmenti chiamati "segmenti di tratta". Dato in ingresso il codice a 12 bit: \\
+	''Nella quantizzazione non uniforme analogica, il segnale PAM (pulse-amplitude modulation) prima di essere convertito in digitale attraversa un compressore analogico, sostanzialmente un amplificatore logaritmico, che ha lo scopo di amplificare i livelli più bassi del segnale PAM e di comprimere quelli alti. 
+	L'apparato ricevente PCM deve contenere un organo denominato espansore, complementare al compressore in grado di ripristinare i livelli originali. Nella quantizzazione non uniforme digitale, invece, il segnale PAM è convertito immediatamente in digitale a 12 bit. Successivamente un compressore numerico trasforma i dati in forma seriale a 8 bit. 
+	Anche la compressione numerica segue una legge logaritmica simile a quella analogica. L'apparato ricevente PCM deve contenere un organo denominato espansore, complementare al compressore, in grado di ripristinare i livelli originali. Un compressore digitale trasforma una parola a 12 bit (4096 combinazioni) in una a 8 bit (256 combinazioni). La curva del compressore analogico è approssimata con una spezzata costituita, secondo le norme CEPT (Conferenza Europea delle amministrazioni delle Poste e delle Telecomunicazioni), di 8 segmenti ricavati dividendo in 8 parti uguali l'asse delle ordinate. L'asse delle ascisse è così diviso in segmenti chiamati "segmenti di tratta". 
+	Dato in ingresso il codice a 12 bit: \\
 	$N_{in}$ = [S, N10, N9, N8, N7, N6, N5, N4, N3, N2, N1, N0] \\
 	Il compressore numerico fa corrispondere il codice a 8 bit: \\
 	$N_{out}$ = [S, A, B, C, D, E, F, G] \\
@@ -986,7 +988,8 @@ La probabilità che si verifichi una collisione in un canale multiplo è una que
  \end{quote}
  La probabilità che avvenga l'evento è il principale valore che può essere confrontato con gli altri o utilizzato per calcolare la probabilità di collisioni. 
  \begin{quote}
- 	''Le specifiche dell'autorizzazione generale numero VO-R / 10 / 05.2014-3  definisce che il duty cycle massimo ammissibile è determinato dalla percentuale di tempo in cui il dispositivo può essere attivo sul canale. Tutte le tecnologie citate soddisfano questa condizione, sebbene SigFox con rapporto 0,009722 si adatti al limite 0,01 solo con un piccolo margine.''
+ 	''Le specifiche dell'autorizzazione generale numero VO-R/10/05.2014-3  definisce che il duty cycle massimo ammissibile è determinato dalla percentuale di tempo in cui il dispositivo può essere attivo sul canale. 
+ 	Tutte le tecnologie citate soddisfano questa condizione, sebbene SigFox con rapporto 0,009722 si adatti al limite 0,01 solo con un piccolo margine.''
  \end{quote}
  La probabilità calcolata di collisione descrive una situazione in cui due o più dispositivi diversi sul canale si scontrano allo stesso tempo. Dai risultati in tabella 1 dagli autori di \cite{art:rif.46} viene evidenziato che: 
  \begin{quote}
@@ -1138,7 +1141,13 @@ Secondo \cite{art:rif.20} per favorire l'inizio degli sviluppi basati sulla tecn
 \end{quote}
 
 \subsubsection{Tempo di trasmissione on-the-air}
-Nell'articolo \cite{art:rif.44} LoRa è stata messa alla prova a differenti combinazioni di fattori metereologici per analizzare i limiti di questa tecnologia in un ambiente urbano per capire, in questo modo si può capire fino a dove ci si può spingere nella creazione di Smart City. Secondo "LoRa Modem Designer’s Guide" della Semtech e come menzionato precedentemente, il pacchetto LoRa è costituito da un preambolo e da payload (che a sua volta può contentere un intestazione). Il tempo di trasmissione in onda è la somma del preambolo e della durata del carico utile. Il tempo di trasmissione in diretta ToA è indicato:
+Nell'articolo \cite{art:rif.44} LoRa è stata messa alla prova a differenti combinazioni di fattori metereologici per analizzare i limiti di questa tecnologia. Si ricorda che:
+\begin{quote}
+	''Secondo "LoRa Modem Designer’s Guide" della Semtech e come menzionato precedentemente, il pacchetto LoRa è costituito da un preambolo e da payload.'' 
+\end{quote}
+che a sua volta può contenere un intestazione del livello successivo.
+\begin{quote} 
+	''Il tempo di trasmissione in onda è la somma del preambolo e della durata del carico utile. Il tempo di trasmissione in diretta ToA è indicato:
 \begin{equation}
 T_{oA} = T_{preamble} + T_{payload} = \\
 \end{equation}
@@ -1148,12 +1157,45 @@ T_{oA} = T_{preamble} + T_{payload} = \\
 \begin{equation}
 = \frac{2^{SF}}{BW}\times((n_{preamble}+4.25)+(8+max(ceil(\frac{8PL-4SF+42-20H}{4(SF-2DE)}\times(CR+4),0))))
 \end{equation}
-Dove la larghezza di banda BW assume valori in {62,5 kHz, 125 kHz, 250 kHz, 500 kHz }, SF è il fattore di diffusione, $T_{sym}$ è il tempo di trasmissione del simbolo, determinato da SF e BW, $n_{preamble}$ è la lunghezza del preambolo programmato, PL è il numero di byte del carico utile, H = 0 significa presenza dell'intestazione, H = 1 quando non è presente un'intestazione, DE = 1 vuol dire che è stata impostata l'ottimizzazione a bassa velocità di trasmissione dati, altrimenti DE = 0, CR varia da 1 a 4 (corrispondente alla velocità di codifica da 4/5 a 4/8). Secondo la formula, il tempo di trasmissione in onda è inversamente proporzionale a BW e aumenta con l'aumento di SF. Sono stati fatti esperimenti per verificare la relazione tra tempo di trasmissione on-air, SF e BW, e confermano quanto predetto in teoria \cite{art:rif.44}.
-Grazie a questo studio possiamo intuire un problema legato all'aumento dei dispositivi LoRa e LPWAN. La banda va distribuita tra i vari dispositivi LoRa e tecnologie LPWAN concorrenti. Se la banda assegnata ad un dispositivo scarseggia, per trasmettere una certa quantità di informazione ad una certa frequenza (limitata nelle specifiche LoRa), sarà necessario più tempo per consegnare l'informazione. All'interno di questa quantità di tempo c'è una maggiore probabilità che il segnale possa interrompersi e peggiorare le prestazioni del sistema. 
+	Dove la larghezza di banda BW assume valori in {62,5 kHz, 125 kHz, 250 kHz, 500 kHz }, SF è il fattore di diffusione, $T_{sym}$ è il tempo di trasmissione del simbolo, determinato da SF e BW, $n_{preamble}$ è la lunghezza del preambolo programmato, PL è il numero di byte del carico utile, H = 0 significa presenza dell'intestazione (header), H = 1 quando non è presente un'intestazione, DE = 1 vuol dire che è stata impostata l'ottimizzazione a bassa velocità di trasmissione dati, altrimenti DE = 0, CR varia da 1 a 4 (corrispondente alla velocità di codifica da 4/5 a 4/8).'' 
+\end{quote}	
+Secondo la formula, il tempo di trasmissione on-the-air è inversamente proporzionale a BW e aumenta con l'aumento di SF. 
+\cite{art:rif.44}
+\begin{quote}
+	''Sono stati fatti esperimenti per verificare la relazione tra tempo di trasmissione on-air, SF e BW. L'analizzatore di spettro RSA306 è stato utilizzato per misurare il tempo di trasmissione in onda del modulo. È stato utilizzato il modulo YL-800IL con potenza di trasmissione 100 mW e lunghezza del carico utile 1 byte.'' 
+\end{quote}
+I risultati della misurazione fatta dagli autori di \cite{art:rif.44} effettuata con diversi BW e SF sono mostrati in figura 9 e figura 10. I risultati mostrano che all'aumentare della largezza di banda il tempo di trasmissione on-the-air diminuisce, mentre aumentando il fattore di diffusione il il tempo di trasmissione on-the-air aumenta. I risultati coincidono con quanto è stato predetto in teoria.
+\begin{figure}
+	\centering
+	\includegraphics[scale=.5]{Immagini/r1.png}
+	
+	Fig. 9 Tempo di trasmissione on-the-air con diversa larghezza di banda.\\
+	Immagine presa dall'articolo \cite{art:rif.44}.
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=.5]{Immagini/r2.png}
+	
+	Fig. 10 Tempo di trasmissione on-the-air con diverso fattore di diffusione.\\
+	Immagine presa dall'articolo \cite{art:rif.44}.
+\end{figure}
 
 \subsubsection{Copertura del segnale}
-I moduli funzionavano in banda di frequenza 433 MHz con potenza di trasmissione di 100 mW e guadagno dell'antenna di 6 dBi. Gli autori dell'articolo \cite{art:rif.44} hanno effettuato le misurazione riportati nella tabella 2. I risultati mostrano la distanza più lontana raggiunta mantenendo la perdita dei pacchetti inferiore al 10\%, con SF e BW diversi. Questo dimostra che l'aumento dell'intervallo dipende dalla diminuzione di BW o dall'aumento di SF, poiché BW più piccoli e SF più grande possono migliorare significativamente la sensibilità. Tuttavia è necessario tenere conto, oltre all'ampia copertura e al basso consumo energetico, della velocità di trasmissione e del ritardo di trasmissione. In questo sperimento SF di 7 e BW di 125 kHz rappresentano il compromesso ottimale \cite{art:rif.44}.
-Per quanto possa essere discutibile la scelta la solia della perdita dei pacchetti fissata al 10\%, la disponibilità di banda è il fattore principale che permette di raggiungere lunghe distanze con una pardita di pacchetti accettabile. Le lunghe distanze promesse in fase teorica devono fare i conti con le condizioni climatiche che affliggono il territorio.
+Il set-up per valutare la copertura del segnale nella prova \cite{art:rif.44} è il seguente:
+\begin{quote}
+	''Le misurazioni sono state eseguite per il caso in cui un modulo YL-900IL trasmetteva i dati periodicamente (ogni due secondi) ad un modulo che fungeva da stazione base. L'antenna del modulo era ad 1,5 m di altezza e l'antenna del modulo della stazione base era ad 4 m di altezza. Non erano presenti ostacoli tra i due moduli. I moduli funzionavano in banda di frequenza 433 MHz con potenza di trasmissione di 100 mW e guadagno dell'antenna di 6 dBi.''
+\end{quote}
+Gli autori dell'articolo \cite{art:rif.44} hanno effettuato le misurazione riportati nella tabella 2. 
+\begin{quote}
+	''I risultati mostrano la distanza più lontana raggiunta, in metri, mantenendo la perdita dei pacchetti inferiore al 10\%, con SF e BW diversi. Questo dimostra che l'aumento dell'intervallo dipende dalla diminuzione di BW o dall'aumento di SF, poiché per BW minori e SF maggiori possono migliorare significativamente la sensibilità.''
+\end{quote}
+Il testo continua facendo notare che la sensibilità non è l'unico parametro da tenere in considerazione:
+\begin{quote}
+	''Tuttavia nella progettazione della rete è necessario tenere conto, oltre all'ampia copertura e al basso consumo energetico, della velocità di trasmissione e del ritardo di trasmissione. Per questo motivo nel sistema sono utilizzati SF di 7 e BW di 125 kHz rappresentano il compromesso ottimale.''
+\end{quote}
+Questa prova fa capire che per quanto LoRa possa connettere lunghe distanze, l'ambiente circostante deve consentire di limitare ad una certa solita la perdita dei pacchetti. Per permettere una vasta copertura del segnale con questo limite è necessario un maggiore consumo energetico, aumentando la potenza del segnale. Così facendo però si va a perdere il vero vantaggio della tecnologia LoRa, permettere la copertura di lunghe distanze a basso consumo energetico.  
+%Per quanto possa essere discutibile la scelta la solia della perdita dei pacchetti fissata al 10\%, la disponibilità di banda è il fattore principale che permette di raggiungere lunghe distanze con una pardita di pacchetti accettabile. Le lunghe distanze promesse in fase teorica devono fare i conti con le condizioni climatiche che affliggono il territorio.
 
 \begin{center}
 \begin{tabular}{r|c|c|}
@@ -1168,33 +1210,50 @@ Le misurazioni sono state raccolte dagli autori dell'articolo \cite{art:rif.44}.
 \end{center}
 
 \subsubsection{LoRa PHY error model}
-L'articolo \cite{art:rif.49} descrive nel dettaglio i livelli e i sottolivelli della pila di protocolli della tecnologia LoRa.
+La tecnologia LoRa in letteratura viene associata al modello della tecnologia ALOHA. Questa associazione è utile per utilizzare modelli funzionati e collaudati per misurare le prestazioni di tecnologie simili e metterle a confronto. Questo approccio però non tiene contro della diversità dei due protocolli. ALOHA quando percepisce una collisione scarta i pacchetti letti e notifica secondo gli standard del protocollo l'avvenuta collisione. LoRa PHY quando percepisce una collisione finisce la lettura del pacchetto e procede con la controllo degli errori. Questa scelta è dovuta alla particolare modulazione di LoRa che è meno sensibile agli errori in ricezione. Pertanto i pacchetti considerati scartati dai classici modelli ALOHA in realtà vengono letti correttamente, per questo LoRa PHY error model proposto in \cite{art:rif.49} da una stima più accurata delle prestazioni LoRa.
 \begin{enumerate}
 \item Implementazione della banda base LoRa PHY: 
-"per modellare gli effetti della perdita del percorso e dell'interferenza intra-LoRa, è stato sviluppato un modello di errore per LoRa PHY. È stato misurato il bit error rate (BER) per diverse configurazioni LoRa PHY su un canale AWGN (Additive White Gaussian Noise, rumore gaussiano bianco additivo). Un diagramma a blocchi delle simulazioni BER è mostrato in figura 7. I bit di informazione generati nella sorgente di informazioni sono mappati ai bit di codice dall'encoder di correzione dell'errore. Questo codificatore implementa le code rate 5/4, 7/4 e 8/4 disponibili in LoRa.1, mentre il 5/4 CR è un semplice codice di controllo di parità, i CR 7/4 e 8/4 sono (7, 4) e (8, 4) codici di Hamming che correggono gli errori lineari. Questi codici possono correggere un errore di un bit e rilevare fino a due errori di bit. Successivamente, l'interleaver diagonale mischia i bit di codice in modo tale che alla sua uscita, i gruppi di bit PPM siano costituiti da bit della stessa posizione di bit di parole di codice consecutive PPM. Ad esempio, la prima parola di uscita raggruppa i bit in posizione 0 da parole in codice consecutivo PPM. PPM rappresenta la lunghezza di bit delle parole di uscita dell'interleaver. In LoRa il PPM di theinterleaver è uguale a LoRa SF. Di conseguenza, il numero di bit mappati per il simbolo LoRa è uguale a SF. A causa dell'interlacciamento, un simbolo perso nel ricevitore viene convertito in errori PPM a 1 bit su parole di codice consecutive PPM (piuttosto che un errore di bit PPM in una parola di codice senza interleaver). Dopo l'interleaver, le parole di output vengono sbiancate per aumentare l'entropia della fonte di informazioni. Si noti che nelle simulazioni BER i bit di informazione sono tratti da una distribuzione uniforme, pertanto l'entropia della fonte di informazioni è già al massimo. Prima di passare il flusso di bit sbiancato al modulatore, è prima mappato in grigio inverso. Questo produce una sequenza di numeri interi, che vengono inviati al modulatore LoRa. Al modulatore LoRa, una sequenza di campioni $N$ complessi di time-shifted in banda base risulterà generata tramite un accumulatore di fase come indicato dal sistema (2.12), dove $N$, il numero di campioni per simbolo di banda base, è uguale a $2^{SF} (f_s / BW)$. Il numero intero di input determina il time-shift del up-chirp:
-\begin{equation}
-m(i) = \bigg \{
-\begin{array}{rl}
-exp(-j\pi) & (i = 0)\\
-m(i-1)exp(if(i)) & (i = 1, \dots, N-1)\\
-\end{array}
-\end{equation}
-dove la frequenza istantanea f (i) è data da:
-\begin{equation}
-f(i) = -\pi + {i \over N} 2\pi  
-\end{equation}
-per i = 1, /dots, N-1. Successivamente, i campioni del simbolo LoRa vengono inviati sul canale AWGN per un determinato rapporto tra segnale e rumore (SNR) come da:
-\begin{equation}
-c(i) = m(i) + \sqrt{E_s \over 2SNR}[N(0; 1) + jN(0; 1)]
-\end{equation}
-per i = 0, \dots, N-1. Dove N(0; 1) è la distribuzione normale standard e $SNR = 10^{SNR_{dB} / 10}$. Si noti che l'energia per simbolo è uguale a quella del modulatore LoRa.
-Al ricevitore, il demodulatore LoRa utilizza una demodulazione basata sulla correlazione in cui il simbolo ricevuto è correlato a tutti i simboli LoRa noti. La decisione su quale simbolo è stato inviato, viene effettuata selezionando il simbolo LoRa con il valore di correlazione massimo. Dopo la demodulazione, la catena di ricezione è l'opposto della catena di invio. Il tasso di errore viene misurato nei bit di informazione, dopo la correzione dell'errore \cite{art:rif.49}.
+\begin{quote}
+	''Per modellare gli effetti della perdita del percorso e dell'interferenza intra-LoRa, è stato sviluppato un modello di errore per LoRa PHY. È stato misurato il bit error rate (BER) per diverse configurazioni LoRa PHY su un canale AWGN (Additive White Gaussian Noise, rumore gaussiano bianco additivo).''
+\end{quote}
+Il diagramma a blocchi delle simulazioni BER è mostrato in figura 11. 
+\begin{quote}
+	''I bit di informazione generati nella sorgente di informazioni sono mappati ai bit di codice dall'encoder di correzione dell'errore. Questo codificatore implementa le code rate 5/4, 7/4 e 8/4 disponibili in LoRa.1, mentre il 5/4 CR è un semplice codice di controllo di parità, i CR 7/4 e 8/4 sono (7, 4) e (8, 4) codici di Hamming che correggono gli errori lineari. Questi codici possono correggere un errore di un bit e rilevare fino a due errori di bit. Successivamente, l'interleaver diagonale mischia i bit di codice in modo tale che alla sua uscita, i gruppi di bit PPM siano costituiti da bit della stessa posizione di bit di parole di codice consecutive PPM. Ad esempio, la prima parola di uscita raggruppa i bit in posizione 0 da parole in codice consecutivo PPM. PPM rappresenta la lunghezza di bit delle parole di uscita dell'interleaver. In LoRa il PPM di theinterleaver è uguale a LoRa SF. Di conseguenza, il numero di bit mappati per il simbolo LoRa è uguale a SF. A causa dell'interlacciamento, un simbolo perso nel ricevitore viene convertito in errori PPM a 1 bit su parole di codice consecutive PPM (piuttosto che un errore di bit PPM in una parola di codice senza interleaver). Dopo l'interleaver, le parole di output vengono sbiancate per aumentare l'entropia della fonte di informazioni.''
+\end{quote}
+Inoltre l'autore di \cite{art:rif.49} vuole far notare che:
+\begin{quote}
+	''Nelle simulazioni BER i bit di informazione sono tratti da una distribuzione uniforme, pertanto l'entropia della fonte di informazioni è già al massimo.''
+\end{quote}
+Per entropia viene inteso l'indice di eterogeneità per valutare la dispersione degli errori.
+\begin{quote}	
+	''Prima di passare il flusso di bit sbiancato al modulatore, è prima mappato in grigio inverso. Questo produce una sequenza di numeri interi, che vengono inviati al modulatore LoRa. Al modulatore LoRa, una sequenza di campioni $N$ complessi di time-shifted in banda base risulterà generata tramite un accumulatore di fase come indicato dal sistema (2.12), dove $N$, il numero di campioni per simbolo di banda base, è uguale a $2^{SF} (f_s / BW)$. Il numero intero di input determina il time-shift del up-chirp:
+	\begin{equation}
+	m(i) = \bigg \{
+	\begin{array}{rl}
+	exp(-j\pi) & (i = 0)\\
+	m(i-1)exp(if(i)) & (i = 1, \dots, N-1)\\
+	\end{array}
+	\end{equation}
+	dove la frequenza istantanea f (i) è data da:
+	\begin{equation}
+	f(i) = -\pi + {i \over N} 2\pi  
+	\end{equation}
+	per i = 1, /dots, N-1. Successivamente, i campioni del simbolo LoRa vengono inviati sul canale AWGN per un determinato rapporto tra segnale e rumore (SNR) come da:
+	\begin{equation}
+	c(i) = m(i) + \sqrt{E_s \over 2SNR}[N(0; 1) + jN(0; 1)]
+	\end{equation}
+	per i = 0, \dots, N-1. Dove N(0; 1) è la distribuzione normale standard e $SNR = 10^{SNR_{dB} / 10}$. Si noti che l'energia per simbolo è uguale a quella del modulatore LoRa.''
+\end{quote}
+Mentre da lato del ricevitore è presente:
+\begin{quote}
+	''Il demodulatore LoRa che utilizza una demodulazione basata sulla correlazione in cui il simbolo ricevuto è correlato a tutti i simboli LoRa noti. La decisione su quale simbolo è stato inviato, viene effettuata selezionando il simbolo LoRa con il valore di correlazione massimo. Dopo la demodulazione, la catena di ricezione è l'opposto della catena di invio. Il tasso di errore viene misurato nei bit di informazione, dopo la correzione dell'errore. Non è stato eseguito il sovracampionamento, pertanto continua a valere $N = 2^{SF}$.''
+\end{quote}
 
 \begin{figure}
 \centering
 \includegraphics[scale=.7]{Immagini/SchemaABlocchi.png}
 
-Fig. 9 Schema a blocchi dell'implementazione della baseband LoRa PHY: mittente, canale AWGN e ricevitore.
+Fig. 11 Schema a blocchi dell'implementazione della baseband LoRa PHY: mittente, canale AWGN e ricevitore.
 \end{figure}
 \item LoRa PHY BER Simulazioni:  
 Al fine di determinare il BER dello strato fisico LoRa, sono state eseguite simulazioni per i parametri LoRa PHY elencati in Tabella 3. 
@@ -1213,325 +1272,402 @@ BW (kHz)&SF&CR&SNR(dB)\\ \hline
 Tabella 3, parametri LoRa PHY per simulazioni BER. \\
 Le misurazioni sono state effettuate dagli autori dell'articolo \cite{art:rif.49}. \\
 \end{center}
-Non è stato eseguito il sovracampionamento, pertanto continua a valere $N = 2^{SF}$. Le simulazioni sono state eseguite per valori SNR in passi di 1 dB negli intervalli come pubblicati nella tabella 3.
-Successivamente, una curva esponenziale come definita dall'equazione (2.15) è stata adattata a un sottoinsieme dei valori logaritmici dei valori BER misurati.
-\begin{equation}
-log_{10}(BER (SNR_{dB})) = \alpha exp (\beta SNR_{dB})
-\end{equation}
-Il sottoinsieme dei valori BER utilizzati per l'adattamento della curva è stato determinato come segue. Innanzitutto, i valori BER misurati pari a zero sono stati scartati. In secondo luogo, i valori BER sono stati aggiunti al sottoinsieme fino a quando il BER ha raggiunto un valore in cui la velocità di consegna del pacchetto (PDR) corrispondente è scesa sotto uno su un milione per un pacchetto di 13B. La lunghezza del pacchetto di 13B deriva dalla lunghezza minima del payload LoRa PHY per una trasmissione LoRaWAN: 1B intestazione MAC, intestazione frame 8B e 4B MIC (Message Integrity Code). Inoltre, per ogni curva si è scelto un punto di taglio SNR in modo che il PDR per un pacchetto 13B (= 108b) fosse uguale a uno su un milione nel punto limite.  
+
+
+I parametri delle simulazioni condotte dagli autori di \cite{art:rif.49} sono stati riportati nella tabella 3.
+\begin{quote}
+	''Le simulazioni sono state eseguite per valori SNR in passi di 1 dB negli intervalli. Successivamente, una curva esponenziale come definita dall'equazione (2.15) è stata adattata a un sottoinsieme dei valori logaritmici dei valori BER misurati.
+	\begin{equation}
+	log_{10}(BER (SNR_{dB})) = \alpha exp (\beta SNR_{dB})
+	\end{equation}
+\end{quote}
+Il sottoinsieme dei valori BER utilizzati per l'adattamento della curva è stato determinato come segue:
+\begin{quote}
+	''I valori BER misurati pari a zero sono stati scartati. In secondo luogo, i valori BER sono stati aggiunti al sottoinsieme fino a quando il BER ha raggiunto un valore in cui la velocità di consegna del pacchetto (PDR) corrispondente è scesa sotto uno su un milione per un pacchetto di 13B. La lunghezza del pacchetto di 13B deriva dalla lunghezza minima del payload LoRa PHY per una trasmissione LoRaWAN: 1B intestazione MAC, intestazione frame 8B e 4B MIC (Message Integrity Code). Inoltre, per ogni curva si è scelto un punto di taglio SNR in modo che il PDR per un pacchetto 13B (= 108b) fosse uguale a uno su un milione nel punto limite.''
+\end{quote}
 \end{enumerate}
-Si noti che i PDR presentati tengono conto di tutti i pacchetti generati, anche i pacchetti che sono in coda per la trasmissione vengono conteggiati verso PDR. Pertanto, il PDR riflette il throughput di rete complessivo (per lo stesso numero di dispositivi e periodo di dati)" \cite{art:rif.49}.
-La tecnologia LoRa in letteratura viene associata al modello della tecnologia ALOHA. Questa associazione è utile per utilizzare modelli funzionati e collaudati per misurare le prestazioni di tecnologie simili e metterle a confronto. Questo approccio però non tiene contro della diversità dei due protocolli. ALOHA quando percepisce una collisione scarta i pacchetti letti e notifica secondo gli standard del protocollo l'avvenuta collisione. LoRa PHY quando percepisce una collisione finisce la lettura del pacchetto e procede con la controllo degli errori. Questa scelta è dovuta alla particolare modulazione di LoRa che è meno sensibile agli errori in ricezione. Pertanto i pacchetti considerati scartati dai classici modelli ALOHA in realtà vengono letti correttamente, per questo LoRa PHY error model da una stima più accurata delle prestazioni LoRa.    
+Si noti che i PDR presentati tengono conto di tutti i pacchetti generati, anche i pacchetti che sono in coda per la trasmissione vengono conteggiati verso PDR. Pertanto, il PDR riflette il throughput di rete complessivo (per lo stesso numero di dispositivi e periodo di dati).
 
 \subsubsection{Assegnazione dei fattori di diffusione}
-Il primo problema che è stato studiato è come assegnare LoRa SF per i dispositivi terminali. Le SF hanno un forte impatto sui PDR. La sottostima della SF (ad esempio, l'assegnazione di una SF, cioè troppo bassa) può causare errori di ricezione a causa del basso SNR. Sovrastimare la SF (ad esempio, assegnare una SF, cioè troppo alta) può portare a un uso inefficiente del tempo di propagazione aerea. Sono state prese in considerazione tre strategie di assegnazione di SF.
-\begin{enumerate}
-\item Random: assegna le SF ai dispositivi terminali secondo una distribuzione casuale uniforme.
-\item Fixed: assegna lo stesso SF ai dispositivi terminali.
-\item PER: per ogni dispositivo finale, trova e assegna il valore SF più basso per il quale il tasso di errore del pacchetto scende al di sotto di una determinata soglia.
-\end{enumerate}
-I pacchetti vengono inviati come messaggi non confermati. La strategia PER possiede il miglior PDR. I PDR per le diverse soglie di PER sono molto simili e non esiste una soglia che produca il PDR più alto in tutte le dimensioni di rete considerate. Si noti che per reti di piccole dimensioni (vale a dire, meno di 100 dispositivi finali) il PDR al 75\% della strategia fissa SF12 potrebbe essere sufficiente. Poiché ciò elimina la necessità di velocità di trasmissione dati attiva (ADR) in reti così piccole, il traffico downstream di ADR può essere evitato. Ovviamente l'invio a una velocità dati inutilmente elevata fa sì che un dispositivo finale sprechi energia. Con l'aumentare del numero di dispositivi (vale a dire più di 1000 dispositivi finali), la strategia casuale supera le strategie fisse in termini di PDR. Ciò è spiegato dal fatto che per le reti di maggiori dimensioni le perdite sono dovute principalmente alle collisioni e che la strategia casuale riduce il numero di collisioni (rispetto a una strategia fissa) sfruttando l'ortogonalità dei diversi SF \cite{art:rif.49}.
+In \cite{art:rif.49} viene discusso il problema su come assegnare LoRa SF per i dispositivi terminali. 
+\begin{quote}
+	''Le SF hanno un forte impatto sui PDR. La sottostima della SF (ad esempio, l'assegnazione di una SF troppo bassa) può causare errori di ricezione a causa del basso SNR. Sovrastimare la SF (ad esempio, assegnare una SF troppo alta) può portare a un uso inefficiente del tempo di propagazione aerea.''
+\end{quote}
+Sono state prese in considerazione tre strategie di assegnazione di SF:
+\begin{quote}
+	\begin{enumerate}
+		\item ''Random: assegna le SF ai dispositivi terminali secondo una distribuzione casuale uniforme.
+		\item Fixed: assegna lo stesso SF ai dispositivi terminali.
+		\item PER: per ogni dispositivo finale, trova e assegna il valore SF più basso per il quale il tasso di errore del pacchetto scende al di sotto di una determinata soglia.''
+	\end{enumerate}
+\end{quote}
+I pacchetti sono stati inviati come messaggi non confermati. La strategia PER possiede il miglior PDR. 
+\begin{quote}
+	''I PDR per le diverse soglie di PER sono molto simili e non esiste una soglia che produca il PDR più alto in tutte le dimensioni di rete considerate. Si noti che per reti di piccole dimensioni (vale a dire, meno di 100 dispositivi finali) il PDR al 75\% della strategia fissa SF = 12 potrebbe essere sufficiente. Poiché ciò elimina la necessità di velocità di trasmissione dati attiva (ADR) in reti così piccole, il traffico downstream di ADR può essere evitato. Ovviamente l'invio a una velocità dati inutilmente elevata fa sì che un dispositivo finale sprechi energia. Con l'aumentare del numero di dispositivi (vale a dire più di 1000 dispositivi finali), la strategia casuale supera le strategie fisse in termini di PDR.''
+\end{quote}
+Questo comportamento spiega che per le reti di maggiori dimensioni, le perdite dei pacchetti sono dovute principalmente alle collisioni. In questo caso la strategia casuale (random) riduce il numero di collisioni (rispetto a una strategia fissa) sfruttando l'ortogonalità dei diversi SF.
 
 \subsection{Protocollo LPWAN / Lv 2}
-LoRaWAN (Low-power Wide area network) è una specifica del protocollo costruita sulla tecnologia LoRa sviluppata dalla LoRa Alliance. Utilizza lo spettro radio senza licenza nelle bande Industrial, Scientific e Medical (ISM) per consentire la comunicazione a bassa potenza ed ampia area tra i sensori remoti e i gateway collegati alla rete. LoRaWAN è il protocollo MAC per la rete di nodi LoRa ad alta capacità. È uno standard LPWAN aperto gestito dalla LoRa Alliance. Sfrutta le funzionalità LoRa appena descritte ed ottimizza la durata della batteria e la qualità del servizio per i nodi LoRa. Questo approccio basato su standard per la creazione di una LPWAN consente di configurare rapidamente reti IoT pubbliche o private ovunque utilizzando hardware e software che sia bidirezionale, sicuro, interoperabile e mobile, fornisca una localizzazione accurata e funzioni come previsto \cite{art:rif.24}. 
-LpWan su LoRa(tecnologia sub-GHz a basso consumo) supporta una velocità dei dati da 0,3 kbps a 50 kbps, in funzione della distanza e della durata dei messaggi. La distanza di trasmissione può raggiungere 15 - 20 km. Anche in un ambiente urbano ad alta densità si possono coprire distanze di comunicazione di oltre 2 km \cite{art:rif.20}. 
-Il protocollo è completamente bidirezionale, che consente una consegna affidabile dei messaggi (conferme). Comprende la definizione della crittografia end-to-end per la sicurezza e la riservatezza dei dati, la registrazione over-the-air dei nodi finali e la funzionalità multicast. Grazie al modello di antenna distribuita e ai gateway GPS abilitati, la rete è in grado di localizzare la posizione dei nodi, anche quando sono mobili \cite{art:rif.30}.
-I sensori LoRaWAN sono in grado di comunicare a distanze superiori ai 100 km (62 miglia) in ambienti favorevoli, 15 km (9 miglia) in ambienti semi-rurali e a più di 2 km (1,2 miglia) in ambienti urbani densamente popolati ad una velocità di dati da 300 bit a 100 kbit. Questo li rende adatti all'invio di quantità di dati contenute, come le coordinate GPS e le letture del clima che la banda larga non è in grado di raggiungere. I sensori richiedono inoltre pochissima energia, la maggior parte di loro può funzionare per più di 10 anni con una sola batteria AA e, inoltre, le chiavi AES128 rendono praticamente impossibile l'intercettazione e la manomissione delle comunicazioni \cite{art:rif.25}. 
-In pratica è altamente efficiente dal punto di vista energetico ed economico: l'industria ha come target la durata della batteria di oltre 10 anni con un costo del chipset radio a meno di 2\$ e un costo operativo di 1\$ per dispositivo all'anno. La maggior parte delle LPWAN sono formate in base alla topologia a stella, dove i nodi finali sono direttamente collegati a un gateway che trasmette i dati a un server LPWAN. Ciò semplifica notevolmente la progettazione della rete consentendo un'elevata scalabilità e una maggiore controllabilità. Attualmente esistono un certo numero di piattaforme commerciali per LPWAN, ad es. SigFox, LoRa, Ingenu, ed altre ancora \cite{art:rif.47}. 
+LoRaWAN è una specifica del protocollo di livello di collegamento costruita sulla tecnologia LoRa sviluppata dalla LoRa Alliance.% Utilizza lo spettro radio senza licenza nelle bande Industrial, Scientific e Medical (ISM) per consentire la comunicazione a bassa potenza ed ampia area tra i sensori remoti e i gateway collegati alla rete. 
+LoRaWAN è una specializzazione di protocollo LPWAN. Secondo \cite{art:rif.24}:
+\begin{quote}
+	''LoRaWAN è il protocollo MAC per la rete di nodi LoRa ad alta capacità. È uno standard LPWAN aperto gestito dalla LoRa Alliance. Sfrutta le funzionalità LoRa appena descritte precedentemente ed ottimizza la durata della batteria e la qualità del servizio per i nodi LoRa.''
+\end{quote}
+Nell'articolo \cite{art:rif.30} viene spiegato che:
+\begin{quote}
+	Il protocollo è completamente bidirezionale, che consente una consegna affidabile dei messaggi (conferme). Comprende la definizione della crittografia end-to-end per la sicurezza e la riservatezza dei dati, la registrazione over-the-air dei nodi finali e la funzionalità multicast. Grazie al modello di antenna distribuita e ai gateway GPS abilitati, la rete è in grado di localizzare la posizione dei nodi, anche quando sono mobili.
+\end{quote}
+In relazione a quanto scritto in \cite{art:rif.25}:
+\begin{quote}
+	''I sensori LoRaWAN sono in grado di comunicare a distanze superiori ai 100 km (62 miglia) in ambienti favorevoli, 15 km (9 miglia) in ambienti semi-rurali e a più di 2 km (1,2 miglia) in ambienti urbani densamente popolati ad una velocità di dati da 300 bit a 100 kbit. Questo li rende adatti all'invio di quantità di dati contenute, come le coordinate GPS e le letture del clima che la banda larga non è in grado di raggiungere.''%I sensori richiedono inoltre pochissima energia, la maggior parte di loro può funzionare per più di 10 anni con una sola batteria AA e, inoltre, le chiavi AES128 rendono praticamente impossibile l'intercettazione e la manomissione delle comunicazioni. 
+\end{quote}
+In \cite{art:rif.47} sono esposti i costi e la struttura della topologia di rete:
+\begin{quote}
+	''In pratica è altamente efficiente dal punto di vista energetico ed economico: l'industria ha come target la durata della batteria di oltre 10 anni con un costo del chipset radio a meno di 2\$ e un costo operativo di 1\$ per dispositivo all'anno. La maggior parte delle LPWAN sono formate in base alla topologia a stella, dove i nodi finali sono direttamente collegati a un gateway che trasmette i dati a un server LPWAN. Ciò semplifica notevolmente la progettazione della rete consentendo un'elevata scalabilità e una maggiore controllabilità.''
+\end{quote}
+Infine \cite{art:rif.49} precisa che:
+\begin{quote}
+	''I nodi dei dispositivi finali contengono una singola coppia MAC/PHY, mentre i gateway sono costituiti da una coppia MAC/PHY per ogni fattore di diffusione supportato. Ad esempio un gateway che supporta multi-SF (cioè, in grado di ricevere tutti i LoRa SF contemporaneamente) su sei canali contiene 36 coppie MAC/PHY.''
+\end{quote}
+I nodi finali di una rete LoRa devono adattarsi a diverse esigenze per soddisfare i requisiti molto diversi di quasi ogni tipo di applicazione IoT, il protocollo LoRaWAN supporta tre classi di terminali e sono esposte nelle seguenti sottosezioni.
 
-I nodi finali di una rete LoRa devono adattarsi a diverse esigenze per soddisfare i requisiti molto diversi di quasi ogni tipo di applicazione IoT, il protocollo LoRaWAN supporta tre classi di terminali, suddivisi secondo le seguenti classi:
 \subsubsection{Classe A – finali bidirezionali}
-I nodi finali Classe A LoRaWAN permettono la comunicazione bidirezionale \cite{art:rif.27} in cui la trasmissione del collegamento verso upstream di ciascun dispositivo finale è seguita da due, brevi finestre di ricezione downlink \cite{art:rif.31}. Ogni trasmissione dal nodo alla rete è seguita da due brevi finestre di ricezione in ingresso al nodo \cite{art:rif.27}. Lo slot di trasmissione pianificato dal dispositivo finale si basa sulle proprie esigenze di comunicazione con una piccola variazione basata su un tempo casuale (tipo di protocollo ALOHA). Questa operazione di classe A è il più basso sistema di dispositivo di alimentazione finale per applicazioni che richiedono solo comunicazioni di downlink dal server poco dopo che il dispositivo finale ha inviato una trasmissione di uplink. Le comunicazioni in downlink dal server vengono accodate automaticamente fino al successivo uplink pianificato \cite{art:rif.31}. Qualsiasi altra comunicazione dal server al nodo avverrà al successivo scambio programmato \cite{art:rif.27}. Poiché i dispositivi terminali di classe A sono irraggiungibili per la maggior parte del tempo, le possibilità di invio al dispositivo sono scarse. Secondo lo standard, i dispositivi terminali di classe A sono obbligati ad aprire una o due finestre di ricezione dopo ciascuna trasmissione a upstream per consentire al Network Server di inviare un messaggio potenziale al dispositivo finale \cite{art:rif.49}. 
+Secondo \cite{art:rif.27}:
+\begin{quote}
+	''I nodi finali Classe A LoRaWAN permettono la comunicazione bidirezionale.''  
+\end{quote}
+Mentre \cite{art:rif.31} spiega che:
+\begin{quote}
+	''La trasmissione del collegamento verso upstream di ciascun dispositivo finale è seguita da due, brevi finestre di ricezione downlink, in ingresso al nodo.''
+\end{quote}
+Sempre secondo lo stesso articolo:
+\begin{quote}
+	''Lo slot di trasmissione pianificato dal dispositivo finale si basa sulle proprie esigenze di comunicazione con una piccola variazione basata su un tempo casuale (tipo di protocollo ALOHA). Questa operazione di classe A è il più basso sistema di dispositivo di alimentazione finale per applicazioni che richiedono solo comunicazioni di downlink dal server poco dopo che il dispositivo finale ha inviato una trasmissione di uplink. Le comunicazioni in downlink dal server vengono accodate automaticamente fino al successivo uplink pianificato.'' 
+\end{quote}
+In \cite{art:rif.27} viene spiegato perché i sensori di Classe A hanno un consumo più basso:
+\begin{quote}
+	''I sensori Classe A sono i nodi finali LoRa caratterizzati dal più basso utilizzo di potenza in quanto consentono la ricezione di messaggi server-nodo soltanto subito dopo l’invio del segnale nodo-server. Qualsiasi altra comunicazione dal server al nodo avverrà al successivo scambio programmato.''  
+\end{quote}
+In base a \cite{art:rif.49}:
+\begin{quote}
+	''I dispositivi terminali di classe A sono irraggiungibili per la maggior parte del tempo, le possibilità di invio al dispositivo sono scarse. Secondo lo standard, i dispositivi terminali di classe A sono obbligati ad aprire una o due finestre di ricezione dopo ciascuna trasmissione a upstream per consentire al Network Server di inviare un messaggio potenziale al dispositivo finale.'' 
+\end{quote}
+
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/ClasseA.png}
 
-Fig. 10 Dispositivi di classe A, gateway e NS (server di rete).
+Fig. 12 Dispositivi di classe A, gateway e NS (server di rete). \\
+Lo schema è tratto dall'articolo \cite{art:rif.49}. \\
 \end{figure}
-Quando un dispositivo terminale riceve una trasmissione downlink nella prima finestra, viene liberato dall'apertura della seconda finestra. Altrimenti, deve aprire la seconda finestra. Si noti che un dispositivo terminale ascolta sullo stesso canale e SF l'ultima trasmissione upstream nella prima finestra di ricezione (a meno che RX1DROffset non differisca da zero), mentre ascolta su un canale separato e SF12 nella seconda finestra. Inoltre, una classe A deve finire in attesa di trasmissioni upstream fino a dopo le finestre di ricezione. Infine, sia i messaggi upstream che downstream possono essere inviati come messaggi confermati e non confermati. I messaggi confermati vengono inviati utilizzando uno schema di ritrasmissione semplice a discrezione del dispositivo finale, senza violare le restrizioni del ciclo di lavoro. Le (ri)trasmissioni a downstream devono attendere una finestra di ricezione aperta e il loro timing è quindi controllato dal tempo di traffico a upstream di un dispositivo finale. Tuttavia, l'NS può impostare un bit di frame in sospeso in un messaggio downstream per segnalare a un dispositivo finale che potrebbe voler aprire una finestra di ricezione prima del normale \cite{art:rif.49}.
+
+Sempre secondo \cite{art:rif.49}:
+\begin{quote}
+	''Quando un dispositivo terminale riceve una trasmissione downlink nella prima finestra, viene liberato dall'apertura della seconda finestra. Altrimenti, dovrebbe aprire la seconda finestra. Si noti che un dispositivo terminale ascolta sullo stesso canale l'ultima trasmissione upstream nella prima finestra di ricezione (a meno che RX1DROffset non differisca da zero), mentre ascolta su un canale separato la seconda finestra. Inoltre, una classe A deve mettersi in attesa di trasmissioni upstream fino alla chiudura delle finestre di ricezione. Infine, sia i messaggi upstream che downstream possono essere inviati come messaggi confermati o non confermati. 
+\end{quote}
+L'articolo continua spiegano che:
+\begin{quote}	
+	I messaggi confermati vengono inviati utilizzando uno schema di ritrasmissione semplice a discrezione del dispositivo finale, senza violare le restrizioni del ciclo di lavoro. Le (ri)trasmissioni a downstream devono attendere una finestra di ricezione aperta e il loro timing è quindi controllato dal tempo di traffico a upstream di un dispositivo finale. Tuttavia, l'NS può impostare un bit di frame in sospeso in un messaggio downstream per segnalare a un dispositivo finale che potrebbe voler aprire una finestra di ricezione prima del normale.''
+\end{quote}
 
 \subsubsection{Classe B – finali bidirezionali con finestre di ricezione programmate}
-I dispositivi di Classe B LoRa forniscono le funzionalità dei classe A con l’aggiunta della possibilità di programmare intervalli di ricezione di informazioni in orari prestabiliti \cite{art:rif.27}. 
-Per consentire al dispositivo finale di aprire la finestra di ricezione all'ora pianificata, riceve un segnale di sincronizzazione sincronizzata dal gateway. Ciò consente al server di sapere quando il dispositivo terminale è in ascolto \cite{art:rif.31}. 
-La sincronizzazione temporale della rete avviene tramite l’invio di segnali regolari nel tempo dal gateway verso il nodo \cite{art:rif.27}.
+In base a \cite{art:rif.27}:
+\begin{quote}
+	''I dispositivi di Classe B LoRa forniscono le funzionalità dei classe A con l’aggiunta della possibilità di programmare intervalli di ricezione di informazioni in orari prestabiliti.'' 
+\end{quote}
+Mentre in \cite{art:rif.31} viene precisato che:
+\begin{quote}
+	''Per consentire al dispositivo finale di aprire la finestra di ricezione all'ora pianificata, esso riceve un segnale di sincronizzazione dal gateway. Ciò consente al server di sapere quando il dispositivo terminale è in ascolto.''
+\end{quote}
+%La sincronizzazione temporale della rete avviene tramite l’invio di segnali regolari nel tempo dal gateway verso il nodo \cite{art:rif.27}.
 \subsubsection{Classe C – finali bidirezionali con massimo numero di slot in ingresso}
-I sensori Classe C LoRa permettono di avere il massimo livello di trasmissione server-nodo, ovvero, hanno finestre di ricezione quasi continuamente aperte, chiuse solo durante la trasmissione. La ricezione viene inibita solo nel momento in cui il nodo sta inviando informazioni verso la rete. Questa caratteristica rende i finali di Classe C particolarmente adatti alle reti LoRa caratterizzate da flussi di dati server-nodo superiori a quelli nodo-server \cite{art:rif.27}.
+In base a quanto scritto in \cite{art:rif.27}:
+\begin{quote}
+	''I sensori Classe C LoRa permettono di avere il massimo livello di trasmissione server-nodo, ovvero, hanno finestre di ricezione quasi continuamente aperte, chiuse solo durante la trasmissione. La ricezione viene inibita solo nel momento in cui il nodo sta inviando informazioni verso la rete. Questa caratteristica rende i finali di Classe C particolarmente adatti alle reti LoRa caratterizzate da flussi di dati server-nodo superiori a quelli nodo-server.''
+\end{quote}
 
 %% Un pacchetto LoRa è costituito da un preambolo, un'intestazione, un payload e un campo CRC. La specifica LoRaWAN identifica tre classi di dispositivi di Classe A, in cui i dispositivi finali utilizzano ALOHA puro per accedere al supporto per l'uplink. Questa classe è la più semplice e anche più comunemente usata. Supporta un collegamento verso valle solo in due finestre di ricezione (di default 1 s e 2 s) con un DR definito che segue una trasmissione di collegamento ascendente. I dispositivi di classe A hanno il consumo energetico più basso. I dispositivi di classe B possono inoltre utilizzare i segnali di beacon periodici emessi dai gateway per sincronizzarsi con la rete e programmare un'ulteriore finestra di ricezione. I dispositivi di classe C ascoltano sempre il canale quando non stanno trasmettendo. %
 
-% Aggiungere una subsubsection con titolo, documento numero 18 %
-\textbf{Nota Bene:} I nodi dei dispositivi finali contengono una singola coppia MAC / PHY, mentre i gateway sono costituiti da una coppia MAC / PHY per SF supportato. Ad esempio un gateway che supporta multi-SF (cioè, in grado di ricevere tutti gli LoRa SF contemporaneamente) su sei canali contiene 36 coppie MAC / PHY \cite{art:rif.49}.
-
-
 \subsubsection{LoRaWAN PHY Layer}
-La classe LoRaWANPhy è stata costruita sul concetto SpectrumPhy. La maggior parte dei modelli PHY impiegano un approccio basato sul segnale a un rapporto di rumore di interferenza (SINR) per modellare l'influenza della perdita di propagazione e interferenze intratecnologiche durante la ricezione di pacchetti. Ogni volta che il SINR cambia durante la ricezione dei pacchetti (ad esempio, una trasmissione interferente inizia o termina), viene avviato un nuovo blocco e il tasso di errore del blocco precedentemente ricevuto viene valutato in base al SINR costante e alla lunghezza di bit di questo blocco e al BER come fornito dal modello di errore. Si noti che LoRaWANPhy avvia solo la ricezione di pacchetti per le trasmissioni con un valore SINR al di sopra del valore di interruzione SNR. Le trasmissioni entranti che cadono sotto il valore di cut-off vengono immediatamente eliminate dal PHY. Oltre alla modellazione di ricezione, la classe LoRaWANPhy implementa anche una macchina a stati finiti per strutturare il suo flusso di esecuzione. L'FSM ha sei stati come mostrato in Figura. Le transizioni tra stati sono principalmente attivate dallo strato MAC (non mostrato nella figura). Negli stati RX\_ON e TX\_ON, il PHY è pronto a, rispettivamente, avviare una ricezione o trasmissione di pacchetti. Nello stato BUSY\_RX, il PHY è impegnato a ricevere una trasmissione (come per la suddetta ricezione a chunk, suddivisone del pacchetto in parti da 256 KB). Nello stato BUSY\_TX, il PHY sta inviando una trasmissione. Le ricezioni e le trasmissioni in corso possono essere annullate in qualsiasi momento, come indicato dalle transizioni di stato a TRX\_OFF. Si prevede che i PHY dei dispositivi di classe A rimangano per lo più in stato di inattività, mentre i PHY dei gateway dovrebbero essere nello stato RX\_ON per la maggior parte del tempo. Non ci sono differenze nelle classi PHY tra dispositivi e gateway di classe A. Pertanto, le differenze nella progettazione del ricetrasmettitore tra dispositivi terminali e gateway non vengono prese in considerazione in questo modello \cite{art:rif.49}.
+L'articolo \cite{art:rif.49} presenta come è implementato LoRaWAN PHY Layer:
+\begin{quote}
+	''La classe LoRaWANPhy è stata costruita sul concetto SpectrumPhy. La maggior parte dei modelli PHY impiegano un approccio basato sul segnale a un rapporto di rumore di interferenza (SINR) per modellare l'influenza della perdita di propagazione e interferenze intra-tecnologiche durante la ricezione di pacchetti. Ogni volta che il SINR cambia durante la ricezione dei pacchetti (ad esempio, una trasmissione interferente inizia o termina), viene avviato un nuovo blocco e il tasso di errore del blocco precedentemente ricevuto viene valutato in base al SINR costante e alla lunghezza di bit di questo blocco e al BER come fornito dal modello di errore.''
+\end{quote}
+Sempre nello stesso testo viene spiegato come si filtrano i pacchetti in ricezione:
+\begin{quote}
+	''Si noti che LoRaWANPhy avvia solo la ricezione di pacchetti per le trasmissioni con un valore SINR al di sopra del valore di interruzione SNR. Le trasmissioni entranti che cadono sotto il valore di cut-off vengono immediatamente eliminate dal PHY.''
+\end{quote}
+L'articolo continua esponendo come si comporta il protocollo in ricezione:
+\begin{quote}
+	''Oltre alla modellazione di ricezione, la classe LoRaWANPhy implementa anche una macchina a stati finiti per strutturare il suo flusso di esecuzione.'' 
+\end{quote}
+La macchina a stati finiti (FSM) ha sei stati come mostrato in Figura 12. L'FSM funziona in questo modo:
+\begin{quote}
+	''Le transizioni tra stati sono principalmente attivate dallo strato MAC (non mostrato nella figura). Negli stati RX\_ON e TX\_ON, il PHY è pronto ad avviare una ricezione o trasmissione di pacchetti. Nello stato BUSY\_RX, il PHY è impegnato a ricevere una trasmissione (come per la suddetta ricezione a chunk, suddivisone del pacchetto in parti da 256 KB). Nello stato BUSY\_TX, il PHY sta inviando una trasmissione. Le ricezioni e le trasmissioni in corso possono essere annullate in qualsiasi momento, come indicato dalle transizioni di stato a TRX\_OFF. Si prevede che i PHY dei dispositivi di classe A rimangano per lo più in stato di inattività, mentre i PHY dei gateway dovrebbero essere nello stato RX\_ON per la maggior parte del tempo.''
+\end{quote}
+Non ci sono differenze nelle classi PHY tra dispositivi e gateway di classe A. Pertanto, le differenze nella progettazione del ricetrasmettitore tra dispositivi terminali e gateway non sono state prese in considerazione per la costruzione di questo modello.
 
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/MSFLoRaWAN.png}
 
-Fig. 11 Macchina a stati finiti della classe LoRaWANPhy.
+Fig. 11 Macchina a stati finiti della classe LoRaWANPhy.\\
+Immagine tratta da \cite{art:rif.49}. \\
 \end{figure}
 
 \subsubsection{LoRaWAN MAC Layer} 
-Il driver del livello PHY è la classe LoRaWANMac. La sua funzionalità include i pacchetti di accodamento per la consegna, l'apertura delle finestre di ricezione e la gestione delle ritrasmissioni sui dispositivi finali e la traccia dell'RDC di un nodo. Mentre esiste una classe LoRaWANMac per entrambi i dispositivi e gateway di classe A, la funzionalità di questa classe è diversa, ad esempio le ritrasmissioni per gateway sono gestite dall'NS. Allo stesso modo, il gateway MAC non ha il concetto di ricevere finestre poiché ascolta sempre il traffico upstream (quando non trasmette). Analogamente a LoRaWANPhy, la classe LoRaWANMac implementa anche un FSM come illustrato nella figura \cite{art:rif.49}. 
+Nell'articolo \cite{art:rif.49} è presentata l'implementazione di LoRaWAN MAC Layer:
+\begin{quote}
+	''Il driver del livello PHY è la classe LoRaWANMac. La sua funzionalità include i pacchetti di accodamento per la consegna, l'apertura delle finestre di ricezione e la gestione delle ritrasmissioni sui dispositivi finali e la traccia dell'RDC di un nodo. Mentre esiste una classe LoRaWANMac per entrambi i dispositivi e gateway di classe A, la funzionalità di questa classe è diversa, ad esempio le ritrasmissioni per gateway sono gestite dall'NS. Allo stesso modo, il gateway MAC non ha il concetto di ricevere finestre poiché ascolta sempre il traffico upstream (quando non trasmette).''
+\end{quote}
+Analogamente a LoRaWANPhy, la classe LoRaWANMac implementa anche un FSM come illustrato nella figura. 
 
 \begin{figure}
 \centering
 \includegraphics[scale=.3]{Immagini/MSFLoRaMAC.png}
 
-Fig. 12 LoRaWANMac FSM è costituito da tre stati per gateway e sette stati per dispositivi finali di classe A.
+Fig. 12 LoRaWANMac FSM è costituito da tre stati per gateway e sette stati per dispositivi finali di classe A.\\
+Immagine tratta da \cite{art:rif.49}. \\
 \end{figure}
 
-Mentre un oggetto MAC del dispositivo finale passa attraverso tutti gli stati, gli oggetti MAC del gateway sono limitati a tre stati. Lo stato UNAVAIL è un caso esclusivo dei gateway, in cui il MAC è bloccato dall'invio di un pacchetto. Questo stato viene attivato quando uno degli altri MAC sul gateway si trova nello stato TX, impedendo in tal modo le trasmissioni simultanee su diversi oggetti MAC sullo stesso gateway. La catena nella parte superiore della figura è correlata alle finestre di ricezione obbligatorie per i dispositivi di fine classe A nelle reti LoRaWAN. Dopo lo stato TX, un dispositivo terminale passa sempre allo stato WRW1. Il dispositivo finale spende 1 s (a partire dalla fine della trasmissione) in questo stato "wait for RW1", dopo di che apre RW1. Il dispositivo finale controlla se un preambolo PHY è stato ricevuto 12.25 simboli LoRa dopo l'inizio della finestra di ricezione. Se è stato rilevato un preambolo, il dispositivo continua a ricevere la trasmissione a downstream.
-Se non è stato rilevato un preambolo, chiude la finestra di ricezione e passa allo stato WRW2. Se il dispositivo finale riceve correttamente una trasmissione downstream in RW1, passa allo stato IDLE. Altrimenti, chiude la finestra di ricezione e passa allo stato WRW2. Nello stato WRW2, il dispositivo terminale è in attesa di aprire la seconda finestra di ricezione (nello stato RW2) dopo 2 s dopo la fine della trasmissione. Lo stesso controllo del preambolo PHY da RW1 viene eseguito dopo l'apertura di RW2. Se viene ricevuta una trasmissione a downstream in RW2, il dispositivo terminale passerà allo stato IDLE. In caso contrario, potrebbe passare allo stato ACK\_TO (acknowledgement timeout) in cui trascorre un intervallo di tempo casuale prima di passare allo stato IDLE. Lo stato ACK\_TO viene visitato solo quando il dispositivo finale prevede un riconoscimento in una delle sue finestre di ricezione (ad esempio, dopo la trasmissione di un messaggio upstream confermato). Nel caso in cui non sia previsto un riscontro, il dispositivo passa direttamente allo stato IDLE da RW2. Le ritrasmissioni nel caso di dispositivi finali sono gestite interamente dalla classe LoRaWANMac. Finché il numero di trasmissioni rimanenti non è scaduto o non è stato ricevuto un frame downstream con il bit Ack impostato, un pacchetto di dati confermato rimarrà nella coda di trasmissione. Il numero di trasmissioni per i messaggi confermati può essere impostato tramite "DEFAULT\_NUMBER\_US\_TRANSMISSIONS" (in lorawan.h) ed è impostato su quattro per impostazione predefinita. Le (ri) trasmissioni successive vengono limitate in base alle limitazioni RDC della sottobanda attiva. A tal fine c'è un oggetto Singleton per nodo LoRaWAN, LoRaWANMacRDC, che tiene traccia del duty cycle di un nodo per le diverse sottobande. La classe LoRaWANMAC supporta anche l'invio di messaggi upstream non confermati più di una volta, come da linee guida nello standard LoRaWAN sul campo Numero di ripetizioni (NbRep). Questi messaggi rispediscono le limitazioni del ciclo di lavoro come qualsiasi altra normale trasmissione. Infine, la classe LoRaWANMac aggiunge 1B LoRaWANMacHeader (che codifica il tipo di messaggio) e un 4B dummy MIC al payload MAC prima di passare il pacchetto al PHY \cite{art:rif.49}.
+Mentre un oggetto MAC del dispositivo finale passa attraverso tutti gli stati, gli oggetti MAC del gateway sono limitati a tre stati:
+\begin{quote}
+	''Lo stato UNAVAIL è un caso esclusivo dei gateway, in cui il MAC è bloccato dall'invio di un pacchetto. Questo stato viene attivato quando uno degli altri MAC sul gateway si trova nello stato TX, impedendo in tal modo le trasmissioni simultanee su diversi oggetti MAC sullo stesso gateway.'' 
+\end{quote}	
+La catena nella parte superiore della figura 12 è correlata alle finestre di ricezione obbligatorie per i dispositivi di fine classe A nelle reti LoRaWAN. 
+\begin{quote}
+	''Dopo lo stato TX, un dispositivo terminale passa sempre allo stato WRW1. Il dispositivo finale spende 1 secondo (a partire dalla fine della trasmissione) in questo stato "wait for RW1", dopo di che apre RW1. Il dispositivo finale controlla se un preambolo PHY è stato ricevuto il simbolo LoRa 12.25 dopo l'inizio della finestra di ricezione. Se è stato rilevato un preambolo, il dispositivo continua a ricevere la trasmissione a downstream.	Se non è stato rilevato un preambolo, chiude la finestra di ricezione e passa allo stato WRW2. Se il dispositivo finale riceve correttamente una trasmissione downstream in RW1, passa allo stato IDLE. Altrimenti, chiude la finestra di ricezione e passa allo stato WRW2. Nello stato WRW2, il dispositivo terminale è in attesa di aprire la seconda finestra di ricezione (nello stato RW2) dopo 2 s dopo la fine della trasmissione. Lo stesso controllo del preambolo PHY da RW1 viene eseguito dopo l'apertura di RW2. Se viene ricevuta una trasmissione a downstream in RW2, il dispositivo terminale passerà allo stato IDLE. In caso contrario, potrebbe passare allo stato ACK\_TO (acknowledgement timeout) in cui trascorre un intervallo di tempo casuale prima di passare allo stato IDLE. Lo stato ACK\_TO viene visitato solo quando il dispositivo finale prevede un riconoscimento in una delle sue finestre di ricezione (ad esempio, dopo la trasmissione di un messaggio upstream confermato). Nel caso in cui non sia previsto un riscontro, il dispositivo passa direttamente allo stato IDLE da RW2.'' 
+\end{quote}	
+Le ritrasmissioni nel caso di dispositivi finali sono gestite interamente dalla classe LoRaWANMac. Secondo \cite{art:rif.49} sono gestite in questo modo:
+\begin{quote}
+	''Se il numero di trasmissioni rimanenti non è scaduto o non è stato ricevuto un frame downstream con il bit Ack impostato, un pacchetto di dati confermato rimarrà nella coda di trasmissione. Il numero di trasmissioni per i messaggi confermati può essere impostato tramite "DEFAULT\_NUMBER\_US\_TRANSMISSIONS" (in lorawan.h) ed è impostato su quattro per impostazione predefinita. Le (ri)trasmissioni successive vengono limitate in base alle limitazioni RDC della sottobanda attiva. A tal fine c'è un oggetto Singleton per nodo LoRaWAN, LoRaWANMacRDC, che tiene traccia del duty cycle di un nodo per le diverse sottobande. La classe LoRaWANMAC supporta anche l'invio di messaggi upstream non confermati più di una volta, come da linee guida nello standard LoRaWAN sul campo Numero di ripetizioni (NbRep). Questi messaggi rispediscono le limitazioni del ciclo di lavoro come qualsiasi altra normale trasmissione. Infine, la classe LoRaWANMac aggiunge 1B LoRaWANMacHeader (che codifica il tipo di messaggio) e un 4B dummy MIC al payload MAC prima di passare il pacchetto al PHY.''
+\end{quote}
+Il MIC è un codice di integrità del messaggio che viene calcolato per l'intero frame e viene aggiunto alla fine del frame come da specifica del pacchetto.
 
 \subsubsection{Dati non confermati e confermati in upstream}
-La rete LoRaWAN a singolo Gateway considera nel PDR l'impatto dell'invio di dati in upstream come messaggi MAC confermati. Ci si aspetterebbe che lo schema di ritrasmissione LoRaWAN aumenti il PDR, in quanto i messaggi non riconosciuti vengono ritrasmessi dal dispositivo finale. Nel caso di messaggi confermati, un dispositivo terminale tenta quattro trasmissioni prima di rilasciare il messaggio. In ogni momento, i dispositivi terminali rispettano le restrizioni del ciclo di lavoro. Il PDR diminuisce quando i dati vengono inviati con maggiore frequenza e con l'aumento del numero di dispositivi finali. In caso di messaggi MAC non confermati, la causa principale dei pacchetti non consegnati è dovuta a collisioni in cui il gateway è impegnato a ricevere una trasmissione e quindi qualsiasi altra trasmissione con la stessa velocità dati viene eliminata durante la ricezione in corso. Per il periodo di dati di 600 s, la quota di pacchetti non consegnati e scartati dovuta a collisioni è vicina al 90\%. Un altro 9\% dei pacchetti non consegnati viene scartato a causa di interferenze durante la ricezione. Il resto dei pacchetti non consegnati viene eliminato a causa di un valore SINR che scende al di sotto del punto di interruzione SNR. Mentre inviando messaggi non confermati quattro volte aumenta il PDR per gli scenari a basso traffico, il PDR è inferiore negli scenari in cui l'interferenza diventa il fattore limitante. Si noti che la percentuale di velocità di trasmissione più lenta nei pacchetti non consegnati è superiore a quella delle velocità di trasmissione più veloci. Ciò è in parte dovuto alla maggiore quota di dispositivi finali con velocità di trasmissione dati più basse nelle reti e parzialmente a causa dei tempi di trasmissione più elevati a velocità di trasmissione inferiori. Un po' controintuitivamente, il PDR dei messaggi confermati non è sempre superiore a quello dei messaggi non confermati. Il PDR dei messaggi CON è solo superiore a quello di UNC (unconfirmed) nei casi in cui il carico del traffico è molto basso. Nelle simulazioni questo è solo il caso per 100, 500 e 1000 dispositivi terminali per un periodo di dati di 60 000 s e per 100 dispositivi terminali per un periodo di dati di 6000 s. In tutti gli altri casi il PDR dei messaggi confermati è inferiore. Ricorda che un messaggio confermato viene considerato consegnato solo se il dispositivo finale riceve un riconoscimento per quel messaggio. Il numero di finestre di ricezione perse (per l'invio di una conferma) aumenta con l'aumentare del carico di traffico. Le finestre di ricezione vengono perse perché il gateway non è in grado di trasmettere all'inizio di una finestra di ricezione a causa delle restrizioni del ciclo di lavoro che si applicano nella sottobanda di una finestra di ricezione. Mentre CON (confirmed) e 4UNC (4 unconfirmed) hanno carichi di traffico simili per reti saturate, il PDR dei messaggi CON è inferiore a quello di 4UNC. Questa differenza è spiegata dalle mancate conferme downstream per i messaggi CON. Infine, quando un gateway invia una conferma in RW1 o RW2, tutte le ricezioni in corso sul gateway vengono interrotte; che diminuisce ulteriormente il PDR. 
-Le reti multigateway LoRaWAN grazie all'utilizzo di un maggior numero di gateway ottiene un miglioramento sul PDR. Si noti che per l'applicazione della strategia di allocazione SF PER 0,01, il PER al gateway più vicino viene calcolato per ogni dispositivo finale. Si prevede che l'aumento della densità del gateway abbia più di un effetto. In primo luogo, dovrebbe consentire velocità di trasmissione dati più elevate per i dispositivi finali a causa di un aumento del budget di collegamento (poiché i gateway medi appariranno più vicini). In secondo luogo, poiché le trasmissioni downstream in RW1 vengono inviate con la stessa velocità dati delle trasmissioni upstream, i riconoscimenti RW1 dovrebbero anche beneficiare delle maggiori velocità dati dei dispositivi finali. Infine, poiché le restrizioni del ciclo di lavoro si applicano per gateway, la rete LoRaWAN dovrebbe essere in grado di riconoscere più messaggi man mano che la densità del gateway aumenta. Si noti come per i messaggi non confermati, il PDR aumenta notevolmente all'aumentare del numero di gateway. Per i messaggi confermati, l'aumento del PDR è notevole ma non è così acuto come per i messaggi non confermati. Il numero di conferme inviate aumenta con l'aumentare del numero di gateway. La relazione apparentemente contraddittoria tra il numero di RW persi e il numero di gateway è spiegata come segue. Nelle reti LoRaWAN saturate (ad esempio, scenari con PDR bassi per messaggi non confermati), il numero di messaggi inviati ricevuti con successo aumenta con la densità del gateway. In caso di messaggi confermati, il numero più alto di messaggi upstream ricevuti indica che NS è in grado di identificare un numero maggiore di finestre di ricezione dei dispositivi finali (poiché gli RW vengono sempre aperti dopo una trasmissione di un dispositivo finale). Quando i gateway non sono in grado di inviare queste finestre di ricezione (a causa delle restrizioni del ciclo di lavoro), il numero di RW persi aumenta. In scenari meno saturi, il numero di RW persi diminuisce all'aumentare della densità del gateway non porta a identificare più finestre di ricezione. Invece, il numero di RW persi diminuisce e vengono inviati più riconoscimenti, a vantaggio del PDR.
-I risultati mostrano che i messaggi confermati hanno un impatto grave sui rapporti di consegna dei pacchetti dei messaggi a upstream. Mentre aumentare il numero di gateway aiuta ad alleviare questo problema in qualche modo, i risultati del periodo di dati di 600 s mostrano che il PDR rimane basso anche in una rete di quattro gateway. L'impatto dei messaggi di dati in downstream sui messaggi in upstream è risultato trascurabile a causa della scarsità del carico di traffico di dati in downstream (sporadiche notifiche). Inoltre, è stata trovata una piccola differenza tra l'invio di dati downstream come messaggi non confermati rispetto ai messaggi confermati in termini di downstream PDR. L'approccio di modellizzazione di tutte le interferenze come rumore ha i suoi svantaggi. Nello specifico, la letteratura ha dimostrato che mentre l'interferenza tra diversi SF può essere modellata accuratamente come rumore, l'interferenza co-SF può essere modellata in modo più accurato tramite un approccio stocastico. Quando i messaggi di dati downstream non vengono recapitati a causa delle limitazioni RDC (anziché della bassa qualità del collegamento), una velocità di trasmissione dati RW2 più rapida potrebbe aumentare la capacità del LoRaWAN \cite{art:rif.49}. 
+La rete LoRaWAN a singolo Gateway considera nel PDR l'impatto dell'invio di dati in upstream come i messaggi MAC confermati. Ci si aspetterebbe che lo schema di ritrasmissione LoRaWAN aumenti il PDR, in quanto i messaggi non riconosciuti vengono ritrasmessi dal dispositivo finale. Infatti secondo \cite{art:rif.49}:
+\begin{quote}
+	''Nel caso di messaggi confermati, un dispositivo terminale tenta quattro trasmissioni prima di rilasciare il messaggio. In ogni momento, i dispositivi terminali rispettano le restrizioni del ciclo di lavoro. Il PDR diminuisce quando i dati vengono inviati con maggiore frequenza e con l'aumento del numero di dispositivi finali.''
+\end{quote}
+In caso di messaggi MAC non confermati, la causa principale dei pacchetti non consegnati è dovuta a collisioni in cui il gateway è impegnato a ricevere una trasmissione e quindi qualsiasi altra trasmissione con la stessa velocità dati viene eliminata durante la ricezione in corso. In \cite{art:rif.49} sono stati misurati i tassi di perdita di pacchetti in base alla causa:
+\begin{quote}
+	''Per il periodo di dati di 600 secondi, la quota di pacchetti non consegnati e scartati dovuta a collisioni è vicina al 90\%. Un altro 9\% dei pacchetti non consegnati viene scartato a causa di interferenze durante la ricezione. Il resto dei pacchetti non consegnati viene eliminato a causa di un valore SINR che scende al di sotto del punto di interruzione SNR.'' 
+\end{quote}	
+La scelta di inviare i messaggi non confermati quattro volte aumenta il PDR per gli scenari a basso traffico, e risulta che:
+\begin{quote}
+	''Il PDR è inferiore negli scenari in cui l'interferenza diventa il fattore limitante. Si noti che la percentuale di velocità di trasmissione più lenta nei pacchetti non consegnati è superiore a quella delle velocità di trasmissione più veloci.'' 
+\end{quote}	
+Il fenomeno appena descritto è dovuto in parte alla maggiore quota di dispositivi finali con velocità di trasmissione dati più basse nelle reti e a causa dei tempi di trasmissione più elevati a velocità di trasmissione inferiori. 
+Inoltre \cite{art:rif.49} spiega che al contrario di quello che ci si aspetterebbe:
+\begin{quote}
+	''Il PDR dei messaggi confermati non è sempre superiore a quello dei messaggi non confermati. Il PDR dei messaggi CON (confirmed) è solo superiore a quello di UNC (unconfirmed) nei casi in cui il carico del traffico è molto basso. Nelle simulazioni questo è solo il caso per 100, 500 e 1000 dispositivi terminali per un periodo di dati di 60'000 s e per 100 dispositivi terminali per un periodo di dati di 6000 s. In tutti gli altri casi il PDR dei messaggi confermati è inferiore.''
+\end{quote}	
+Bisogna sempre tenere presente che un messaggio confermato viene considerato consegnato solo se il dispositivo finale riceve un riconoscimento per quel messaggio. Di conseguenza:
+\begin{quote}
+	''Il numero di finestre di ricezione perse (per l'invio di una conferma) aumenta con l'aumentare del carico di traffico. Le finestre di ricezione vengono perse perché il gateway non è in grado di trasmettere all'inizio di una finestra di ricezione a causa delle restrizioni del ciclo di lavoro che si applicano nella sottobanda di una finestra di ricezione. Mentre CON (confirmed) e 4UNC (4 unconfirmed) hanno carichi di traffico simili per reti saturate, il PDR dei messaggi CON è inferiore a quello di 4UNC.''
+\end{quote}
+Questa differenza è spiegata dalle mancate conferme in downstream per i messaggi CON. 
+\begin{quote}
+	''Infine, quando un gateway invia una conferma in RW1 o RW2, tutte le ricezioni in corso sul gateway vengono interrotte.''
+\end{quote}
+Questa azione diminuisce ulteriormente il PDR. Per risolvere questo problema in \cite{art:rif.49} hanno introdotto più gateway nella stessa rete invece di utilizzarne uno solo come nelle reti standard:
+\begin{quote}
+	''Le reti multigateway LoRaWAN grazie all'utilizzo di un maggior numero di gateway ottiene un miglioramento sul PDR. Si noti che per l'applicazione della strategia di allocazione SF PER 0,01, il PER al gateway più vicino viene calcolato per ogni dispositivo finale.''
+\end{quote}	
+L'aumento della densità del gateway ha prodotto più di un effetto positivo: 
+\begin{quote}	
+	''In primo luogo, consente velocità di trasmissione dati più elevate per i dispositivi finali a causa di un aumento del budget di collegamento (poiché i gateway medi appariranno più vicini). In secondo luogo, poiché le trasmissioni downstream in RW1 vengono inviate con la stessa velocità dati delle trasmissioni upstream, i riconoscimenti RW1 beneficiano delle maggiori velocità dati dei dispositivi finali. Infine, poiché le restrizioni del ciclo di lavoro si applicano per gateway, la rete LoRaWAN riconosce più messaggi man mano che la densità del gateway aumenta.'' 
+\end{quote}
+Il testo \cite{art:rif.49} continua facendo notare che:
+\begin{quote}
+	Per i messaggi non confermati, il PDR aumenta notevolmente all'aumentare del numero di gateway. Per i messaggi confermati, l'aumento del PDR è notevole ma non è così acuto come per i messaggi non confermati. Il numero di conferme inviate aumenta con l'aumentare del numero di gateway.''
+\end{quote}
+La relazione apparentemente contraddittoria tra il numero di RW persi e il numero di gateway è spiegata da \cite{art:rif.49} così:
+\begin{quote}	
+	''Nelle reti LoRaWAN saturate (ad esempio, scenari con PDR bassi per messaggi non confermati), il numero di messaggi inviati ricevuti con successo aumenta con la densità del gateway. In caso di messaggi confermati, il numero più alto di messaggi upstream ricevuti indica che NS è in grado di identificare un numero maggiore di finestre di ricezione dei dispositivi finali (poiché gli RW vengono sempre aperti dopo una trasmissione di un dispositivo finale). Quando i gateway non sono in grado di inviare queste finestre di ricezione (a causa delle restrizioni del ciclo di lavoro), il numero di RW persi aumenta. In scenari meno saturi, il numero di RW persi diminuisce all'aumentare della densità del gateway non porta a identificare più finestre di ricezione. Invece, il numero di RW persi diminuisce e vengono inviati più riconoscimenti, a vantaggio del PDR.''
+\end{quote}
+I risultati di questo esperimento \cite{art:rif.49} mostrano che i messaggi confermati hanno un impatto negativo e grave sui rapporti di consegna dei pacchetti dei messaggi in upstream. La scelta di aumentare il numero di gateway ha aiutato ad alleviare questo problema ma non a risolverlo. Infatti secondo l'autore:
+\begin{quote}
+	''I risultati dell'intervallo di dati scambiati in 600 secondi mostrano che il PDR rimane basso anche in una rete di quattro gateway.''
+\end{quote}
+L'impatto dei messaggi di dati trasmessi in downstream sui messaggi in upstream è risultato trascurabile a causa della scarsità del carico di traffico di dati in downstream (sporadiche notifiche). L'articolo \cite{art:rif.49} afferma che:
+\begin{quote}
+	''È stata trovata una piccola differenza tra l'invio di dati downstream come messaggi non confermati rispetto ai messaggi confermati in termini di downstream PDR. L'approccio di mondializzazione di tutte le interferenze come rumore ha i suoi svantaggi.''
+\end{quote}
+La letteratura ha dimostrato che l'interferenza tra diversi fattori di diffusione può essere modellata accuratamente come rumore, mentre l'interferenza del cofattore di diffusione può essere modellata in modo più accurato tramite un approccio stocastico.
+Infine, se a causa delle limitazioni RDC (anziché della bassa qualità del collegamento) i messaggi di dati downstream non vengono recapitati correttamente si può aumentare la velocità di trasmissione dati. Così facendo aumenta la capacità della rete LoRaWAN. 
 
 \subsection{Protocollo IP / Lv 3} 
-Rispetto agli altri standard, una rete LoRa è IP-based compatibile con IPv6, una caratteristica essenziale per ogni sviluppo di nuovi progetti IoT. Una rete LoRa comprende dei gateway per la connessione al server centrale di rete. Gli end-point comunicano con una topologia di rete a stella mediante un collegamento wireless single-hop ai gateway con la possibilità di collegarsi a più gateway, per garantire la ridondanza del collegamento. Per coprire una grande area è sufficiente un'infrastruttura leggera \cite{art:rif.20}. 
-Scendendo nel dettaglio l'architettura di una rete LoRa prevede una tipologia a stella di stelle in cui il Gateway è un bridge trasparente per i messaggi tra Devices e il Network Server. I Gateway sono connessi al Network server tramite una connessione basata sollo standard IP, mentre i Device utilizzando una comunicazione wireless single-hop verso uno o più Gateway. La comunicazione verso i Device è in generale bidirezionale, ma può anche supportare il muticast per gestire l'aggiornamento o la distribuzione massiva di messaggi per ridurre i tempi di comunicazione \cite{art:rif.25}.
-Il cuore di ogni concentratore LoRa è un demodulatore LoRa multi-canale in grado di decodificare tutte le varianti di modulazione LoRa su più frequenze in parallelo. Un demodulatore LoRa standard per dispositivo terminale (LoRa modem come SX1276 o SX1272) può decodificare un solo tipo di modulazione su una frequenza. Attualmente, il demodulatore LoRa ampiamente utilizzato è SX1301 di Semtech. Questo chip è integrato in tutti i gateway LoRa nel nostro attuale portafoglio. A causa del crescente numero di produttori di gateway, sta diventando difficile individuare le differenze tra i gateway. Per un operatore di rete su larga scala, i principali fattori di distinzione dovrebbero essere le prestazioni radio (sensibilità, potenza di invio), la connessione del chip SX1301 all'MCU gateway e il supporto e la distribuzione del segnale PPS. SX1301 collegato su un bridge da USB a SPI ha una latenza più lunga sull'MCU rispetto a un SX1301 direttamente collegato al bus SPI dell'MCU. Attualmente, l'unico SPI collegato SX1301 si trova nella stazione IoT Kerlink, tutti gli altri gateway utilizzano ponti USB-to-SPI FTDI (o simili). La disponibilità del segnale PPS consente una sincronizzazione temporale precisa sull'intera popolazione di gateway in una rete. È un attivatore chiave per i beacon a livello di rete, che può essere utilizzato per la sincronizzazione dell'ora da parte dei dispositivi finali. La distribuzione PPS è attualmente supportata solo dalla stazione IoT Kerlink, dalla scheda di riferimento SX1301 e dall'IMST iC880A \cite{art:rif.30}. 
+In base a \cite{art:rif.20}:
+\begin{quote}
+	''LoRa una rete è IP-based compatibile con IPv6, una caratteristica essenziale per ogni sviluppo di nuovi progetti IoT. Una rete LoRa comprende dei gateway per la connessione al server centrale di rete. Gli end-point comunicano con una topologia di rete a stella mediante un collegamento wireless single-hop ai gateway con la possibilità di collegarsi a più gateway, per garantire la ridondanza del collegamento. Per coprire una grande area è sufficiente un'infrastruttura leggera.''
+\end{quote}
+L'articolo \cite{art:rif.25} riassume rapidamente un'architettura e come si connette ad Internet:
+\begin{quote}
+	''L'architettura di una rete LoRa prevede una tipologia a stella di stelle in cui il Gateway è un bridge trasparente per i messaggi tra Devices e il Network Server. I Gateway sono connessi al Network server tramite una connessione basata sollo standard IP, mentre i Device utilizzando una comunicazione wireless single-hop verso uno o più Gateway. La comunicazione verso i Device è in generale bidirezionale, ma può anche supportare il muticast per gestire l'aggiornamento o la distribuzione massiva di messaggi per ridurre i tempi di comunicazione.''
+\end{quote}
+Nel testo \cite{art:rif.30} viene descritto il centro stella di una rete LoRa:
+\begin{quote}
+	''Il cuore di ogni concentratore LoRa è un demodulatore LoRa multi-canale in grado di decodificare tutte le varianti di modulazione LoRa per diverse frequenze in parallelo. Un demodulatore LoRa standard per dispositivo terminale (LoRa modem come SX1276 o SX1272) può decodificare un solo tipo di modulazione per frequenza. Attualmente, il demodulatore LoRa ampiamente utilizzato è SX1301 di Semtech. Questo chip è integrato in tutti i gateway LoRa.''
+\end{quote}
+Nello stesso documento tratta le differenze tra i vari gateway in commercio:
+\begin{quote}
+	''A causa del crescente numero di produttori di gateway, sta diventando difficile individuare le differenze tra i gateway. Per un operatore di rete su larga scala, i principali fattori di distinzione dovrebbero essere le prestazioni radio (sensibilità e potenza di invio), la connessione del chip SX1301 all'MCU gateway e la distribuzione del segnale PPS. SX1301 collegato su un bridge da USB a SPI ha una latenza più lunga sull'MCU rispetto a un SX1301 direttamente collegato al bus SPI dell'MCU. Attualmente, l'unico SPI collegato SX1301 si trova nella stazione IoT Kerlink, tutti gli altri gateway utilizzano ponti USB-to-SPI FTDI (o simili).'' 
+\end{quote}
+Pertanto in \cite{art:rif.30} viene esposto come sincronizzare la popolazione di gateway:
+\begin{quote}
+	''La disponibilità del segnale PPS (Pulse Per Second) consente una sincronizzazione temporale precisa sull'intera popolazione di gateway in una rete. È un attivatore chiave per i beacon a livello di rete, che può essere utilizzato per la sincronizzazione dell'ora da parte dei dispositivi finali. La distribuzione PPS è attualmente supportata solo dalla stazione IoT Kerlink, dalla scheda di riferimento SX1301 e dall'IMST iC880A.''
+\end{quote}
 
 \subsection{Applicazioni LoRa / Lv 7}
-LoRa Technology sta connettendo il nostro pianeta intelligente. Esistono una moltitudine di applicazioni verticali IoT e implementate in tutto il mondo \cite{art:rif.24}.
-I gateway inoltrano i frame ricevuti a un server di rete cloud ospitato da AWS (CNS). Il sistema CNS procede a un primo filtraggio dei frame ricevuti tramite over-the-air. In questa fase vengono elaborati solo i frame con un CRC valido. Dal CNS basato su AWS, trasfersce i dati attraverso MQTT a una pipeline di elaborazione. Quest'ultimo consiste in un OpenTSDB che consuma valori di sensori e li memorizza in un database. È implementata un'interfaccia utente e una serie di API per estrarre e visualizzare i dati da OpenTSDB. Quando si memorizzano i dati su OpenTSDB, si applica un secondo livello di filtraggio ottenuto applicando le condizioni al contorno alle letture e ai valori dei sensori. La necessità di applicare queste condizioni al contorno deriva dal fatto che si possono verificare errori nella lettura del sensore, che provenivano da guasti intermittenti sul sensore stesso o da byte over-air che cambiano, ma che arrivavano con un buon CRC che genera dati di sensore errati \cite{art:rif.43}.
-Un aspetto di notevole importanza per le applicazioni IoT è la criptazione di sicurezza incorporata nelle reti LoRa, che consente ai livelli applicazione e dispositivo di offrire una struttura di protezione dei dati personali o delle funzioni critiche dagli attacchi fisici o informatici \cite{art:rif.20}. 
-La questione della sicurezza della rete sta diventando sempre più importante, pertanto le reti LoRa richiedono elevati livelli di sicurezza. Il raggiungimento dei necessari standard di sicurezza per le reti LoRa viene ottenuto impiegando diversi livelli di crittografia:
-\begin{enumerate}
-\item chiave univoca di rete (EUI64) che garantisce la sicurezza a livello di rete;
-\item chiave unica di applicazione (EUI64) per garantire la sicurezza end-to-end a livello di applicazione;
-\item chiave specifica del nodo finale (EUI128).
-L’impiego di questi livelli di crittografia assicura che la rete LoRa rimanga sicura lungo tutto il percorso, dal nodo fino all’applicazione \cite{art:rif.27}.
-\end{enumerate}
-Esistono due gruppi di domini crittografici in LoRa: il dominio di rete e il dominio dell'applicazione. Il dominio di rete è responsabile dell'autenticazione dei dati del nodo finale. La paternità di tali dati è verificata tramite una chiave segreta AES128 condivisa tra il dispositivo e il server di rete. Il dominio dell'applicazione è responsabile della garanzia della riservatezza dei dati del dispositivo. Esiste una chiave segreta AES128 condivisa tra l'applicazione utente e il nodo finale. LoRa è la soluzione più sicura disponibile sul mercato con crittografia 128AES su più livelli per tutti i dati dal sensore al server delle applicazioni e viceversa \cite{art:rif.30}.
-Il software Long Range Signaling and Control (LRSC) di IBM e al servizio sul cloud IBM Internet of Things Foundation, la LoRaWAN consente una facile implementazione su vasta scala di M2M/IoT. L'LRSC è il middleware o il collante che consente agli utenti di collegare, gestire e scalare milioni di dispositivi. IBM ha inoltre reso il protocollo LoRaWAN open source (Eclipse Public License) per lo sviluppo del nodo finale conosciuto come "LoRaWAN in C" \cite{art:rif.26}.
+\cite{art:rif.43}
+I gateway inoltrano i frame ricevuti ad un server di rete cloud ospitato da AWS (CNS). Il sistema CNS procede a un primo filtraggio dei frame ricevuti tramite over-the-air. In questa fase vengono elaborati solo i frame con un CRC valido. Dal CNS basato su AWS, trasfersce i dati attraverso MQTT a una pipeline di elaborazione. Quest'ultimo consiste in un OpenTSDB che consuma valori di sensori e li memorizza in un database. È implementata un'interfaccia utente e una serie di API per estrarre e visualizzare i dati da OpenTSDB. Quando si memorizzano i dati su OpenTSDB, si applica un secondo livello di filtraggio ottenuto applicando le condizioni al contorno alle letture e ai valori dei sensori. La necessità di applicare queste condizioni al contorno deriva dal fatto che si possono verificare errori nella lettura del sensore, che provenivano da guasti intermittenti sul sensore stesso o da byte over-air che cambiano, ma che arrivavano con un buon CRC che genera dati di sensore errati.
 
-
+L'articolo \cite{art:rif.20} introduce l'aspetto della sicurezza nelle reti LoRa:
+\begin{quote}
+	''Un aspetto di notevole importanza per le applicazioni IoT è la criptazione di sicurezza incorporata nelle reti LoRa, che consente ai livelli applicazione di offrire una struttura di protezione dei dati personali o delle funzioni critiche dagli attacchi fisici o informatici.''
+\end{quote} 
+ Le reti LoRa richiedono elevati livelli di sicurezza. Il testo \cite{art:rif.27} elenca le \textit{crittografie} utilizzate da LoRa:
+\begin{quote}
+	''Il raggiungimento dei necessari standard di sicurezza per le reti LoRa viene ottenuto impiegando diversi livelli di crittografia:
+	\begin{enumerate}
+		\item chiave univoca di rete (EUI64) che garantisce la sicurezza a livello di rete;
+		\item chiave unica di applicazione (EUI64) per garantire la sicurezza end-to-end a livello di applicazione;
+		\item chiave specifica del nodo finale (EUI128).
+		L’impiego di questi livelli di crittografia assicura che la rete LoRa rimanga sicura lungo tutto il percorso, dal nodo fino all’applicazione.''
+	\end{enumerate}
+\end{quote}
+Secondo \cite{art:rif.30} esistono due gruppi di domini crittografici in LoRa: 
+\begin{quote}
+	''Il dominio di rete e il dominio dell'applicazione. Il dominio di rete è responsabile dell'autenticazione dei dati del nodo finale. La paternità di tali dati è verificata tramite una chiave segreta AES128 condivisa tra il dispositivo e il server di rete. Il dominio dell'applicazione è responsabile della garanzia e della riservatezza dei dati del dispositivo. Esiste una chiave segreta AES128 condivisa tra l'applicazione utente e il nodo finale. LoRa è la soluzione più sicura disponibile sul mercato con crittografia 128AES su più livelli per tutti i dati dal sensore al server delle applicazioni e viceversa.''
+\end{quote}
 %% La specifica LoRaWAN ™ definisce un framework di sicurezza a doppio strato (chiavi di sessione di applicazioni e di rete) che adotta la crittografia AES nota da IEEE 802.15.4. %
+Nelle sotto sezioni sono presentati alcuni esempi di applicazioni installate sulle entità che compongono la rete LoRa.
 
 \subsubsection{LoRaWAN Applicazione del End Device}
-L'applicazione LoRaWANEndDeviceApplication viene descritta per rappresentare i dispositivi finali di classe A LoRaWAN. L'applicazione espone gli attributi per parametri come la velocità dati del dispositivo finale e la lunghezza del pacchetto e il tipo di messaggio delle trasmissioni upstream. Supporta anche variabili casuali configurabili per la selezione del canale upstream e per i tempi di generazione del pacchetto. L'applicazione è responsabile della generazione del payload MAC, in quanto tale aggiunge l'intestazione del frame LoRaWAN al payload dell'applicazione. Questa intestazione del frame codifica l'indirizzo del dispositivo finale, il contatore dei pacchetti e la porta del frame dell'applicazione. I metadati relativi alla trasmissione dei pacchetti, come il canale desiderato, la velocità dei dati e la velocità del codice, vengono trasmessi al PHY tramite un tag del pacchetto LoRaWANPhyParamsTag \cite{art:rif.49}.
+Nel testo \cite{art:rif.49} viene descritta un'applicazione chiamata LoRaWANEndDeviceApplication che rappresenta una qualsiasi applicazione installata sui dispositivi finali di classe A LoRaWAN: 
+\begin{quote}
+	''L'applicazione espone gli attributi per parametri come la velocità dati del dispositivo finale, la lunghezza del pacchetto e il tipo di messaggio delle trasmissioni upstream. Supporta anche variabili casuali configurabili per la selezione del canale upstream e per i tempi di generazione del pacchetto. L'applicazione è responsabile della generazione del payload MAC, in quanto tale aggiunge l'intestazione del frame LoRaWAN al payload dell'applicazione. Questa intestazione del frame codifica l'indirizzo del dispositivo finale, il contatore dei pacchetti e la porta del frame dell'applicazione. I metadati relativi alla trasmissione dei pacchetti, come il canale desiderato, la velocità dei dati e la velocità del codice, vengono trasmessi al PHY tramite un tag del pacchetto LoRaWANPhyParamsTag.''
+\end{quote}
 
 \subsubsection{Applicazione LoRaWAN Gateway}
-LoRaWANGatewayApplication è una semplice applicazione, ovvero installata sui nodi gateway. Oltre a passare pacchetti e accettare pacchetti dal NS, supporta anche l'interrogazione dello stato RDC di un gateway dal NS. I pacchetti che devono essere inviati a downstream sono etichettati con il tag del pacchetto LoRaWANPhyParamsTag dal NS. LoRaWANNetDevice sul gateway selezionerà la coppia MAC / PHY corrispondente agli attributi PHY che sono elencati nel tag del pacchetto (cioè, SF e canale) \cite{art:rif.49}.
+Nel documento \cite{art:rif.49} viene descritta un'applicazione chiamata LoRaWANGatewayApplication che rappresenta una qualsiasi applicazione installata sui nodi gateway:
+\begin{quote}
+	''L'applicazione, oltre a passare pacchetti e accettare pacchetti dal NS, supporta anche l'interrogazione dello stato RDC di un gateway dal NS. I pacchetti che devono essere inviati a downstream sono etichettati con il tag del pacchetto LoRaWANPhyParamsTag dal NS. LoRaWANNetDevice sul gateway selezionerà la coppia MAC/PHY corrispondente agli attributi PHY che sono elencati nel tag del pacchetto (cioè, Spread Factor e canale).''
+\end{quote}
 
 \subsubsection{LoRaWAN Network Server}
-Questo oggetto singleton accetta i pacchetti upstream dai gateway e invia il traffico downstream ai dispositivi finali tramite gateway. Espone i seguenti attributi per configurare la generazione del traffico downstream:
-\begin{enumerate}
-\item dimensione del pacchetto;
-\item messaggi confermati o non confermati;
-\item variabile casuale per la generazione di pacchetti.
-\end{enumerate}
-La classe tiene traccia delle informazioni come l'indirizzo del dispositivo, i contatori dei pacchetti, l'ultima velocità dati, l'ultimo gateway $(i)$ noto e l'ultimo tempo visto per ogni dispositivo finale. Basato sui contatori di pacchetti, è in grado di rilevare pacchetti di dati duplicati da più gateway. L'NS genera dati e riconoscimenti a downstream. A tal fine, contiene una coda di pacchetti di dispositivi per end per la memorizzazione del traffico downstream. Per ogni dispositivo finale, memorizza i timer RW1 e RW2 utilizzati per la pianificazione del traffico downstream. Quando un timer scade, l'NS passa attraverso l'elenco degli ultimi gateway noti e cerca un gateway che possa inviare immediatamente il pacchetto downstream in coda. Questi timer sono programmati ogni volta che una trasmissione upstream viene elaborata dal NS. Infine, l'NS si occupa delle ritrasmissioni per i pacchetti di dati a downstream confermati \cite{art:rif.49}.
+Nell'articolo \cite{art:rif.49} viene descritta un'applicazione chiamata LoRaWANNetworkServer che rappresenta una qualsiasi applicazione installata su un server:
+\begin{quote}
+	''Questo oggetto singleton accetta i pacchetti upstream dai gateway e invia il traffico downstream ai dispositivi finali tramite gateway. Espone i seguenti attributi per configurare la generazione del traffico downstream:
+	\begin{enumerate}
+		\item dimensione del pacchetto;
+		\item messaggi confermati o non confermati;
+		\item variabile casuale per la generazione di pacchetti.
+	\end{enumerate}
+	La classe tiene traccia delle informazioni come l'indirizzo del dispositivo, i contatori dei pacchetti, l'ultima velocità dati, l'ultimo gateway $(i)$ noto e l'ultimo tempo visto per ogni dispositivo finale. Basato sui contatori di pacchetti, è in grado di rilevare pacchetti di dati duplicati da più gateway. L'NS genera dati e riconoscimenti a downstream. A tal fine, contiene una coda di pacchetti per la memorizzazione del traffico downstream. Per ogni dispositivo finale, memorizza i timer RW1 e RW2 utilizzati per la pianificazione del traffico downstream. Quando un timer scade, l'NS passa attraverso l'elenco degli ultimi gateway noti e cerca un gateway che possa inviare immediatamente il pacchetto downstream in coda. Questi timer sono programmati ogni volta che una trasmissione upstream viene elaborata dal NS. Infine, l'NS si occupa delle ritrasmissioni per i pacchetti di dati a downstream confermati.''
+\end{quote}
 
 \subsubsection{Adaptive Data Rate}
-La capacità di controllare i parametri di trasmissione, inclusi lo schema di modulazione e la potenza di uscita, consente di ridurre i costi di implementazione, migliorare l'affidabilità della rete, in termini di prestazioni degli errori in condizioni subottimali e potrebbe contribuire alla riduzione della complessità della manutenzione rispetto al ridimensionamento il network. L'algoritmo ADR (Adaptive Data Rate), ampiamente accettato utilizzato nelle attuali infrastrutture di rete basate su LoRaWAN, è un meccanismo per ottimizzare la velocità di trasmissione dati, tempo di trasmissione e consumo energetico nella rete. 
-I parametri di trasmissione wireless negli spettri non licenziati sono regolati a livello regionale con aggiunte occasionali da parte dei regolatori del paese. Normalmente i regolamenti includono, ma non sono limitati a, la definizione di potenza massima irradiata efficace (ERP, effective radiated power) e duty-cycle, e metodi di accesso medio. Sebbene più trasmissioni LoRa emesse simultaneamente possano essere elaborate da un singolo gateway sfruttando l'ortogonalità dei fattori di diffusione oltre all'uso di più sotto-bande di trasmissione, la natura dell'accesso ALOHA al mezzo porta inevitabilmente alla presenza di collisioni di trasmissione. La dipendenza esponenziale del TOA su SF introduce un limite superiore esponenziale alle prestazioni della rete. Il throughput della rete è legato in alto o dalla velocità di collisione (DR inferiore, TOA più breve) o dalla limitazione del ciclo di lavoro (DR più alto, TOA più lungo). I sistemi che contengono i nodi finali i cui parametri di trasmissione sono costanti rispetto al tempo sono particolarmente interessati. L'implementazione di uno schema di trasmissione dinamica, ad esempio ADR in LoRaWAN, e di addensare l'infrastruttura aggiungendo ulteriori gateway. Poiché, come visto dagli operatori di rete, l'implementazione di un ADR è un modo efficiente CAPEX per ottimizzare la capacità delle reti, i fornitori che offrono NM sul mercato mantengono i loro algoritmi come parte della proprietà intellettuale. Contrariamente a questa tendenza, la disponibilità generale da parte dei clienti dei prodotti LoRaWAN ha catalizzato la creazione di numerosi progetti di implementazione NM open source che includono il TTN (The Things Network) e un LoRa Server più giovane, i cui algoritmi ADR sono disponibili pubblicamente \cite{art:rif.48}.
 
-Solo i nodi statici dovrebbero utilizzare ADR. L'ADR può anche essere utilizzato da un nodo mobile che è in grado di rilevare quando è "posizionato" su un punto fisso. I nodi decidono se utilizzare o meno l'ADR, non l'applicazione o la rete. Dal momento in cui un nodo indica che desidera utilizzare ADR, la rete raccoglierà le metriche delle 20 trasmissioni più recenti dal nodo. Questa cronologia contiene il contatore di frame, il rapporto segnale-rumore (SNR, signal-to-noise ratio) e il numero di gateway che hanno ricevuto ciascuna trasmissione. In questo modo la rete può calcolare quanto "margine" c'è per aumentare la velocità dei dati o ridurre la potenza di trasmissione. Ad esempio, quando la rete riceve un messaggio con velocità dati = $SF12BW125$ e $SNR = 5.0$, tale messaggio ha un margine di 25 dB. Questo è uno spreco di prezioso tempo di trasmissione ed energia. Se aumentassimo la velocità di trasmissione dati a $SF7BW125$ avremmo ancora un margine di 12,5 dB, ma ciò sarebbe molte volte più efficiente in termini di tempo ed energia. Potremmo persino abbassare la potenza di trasmissione per risparmiare ancora più energia e causare meno interferenze. L'algoritmo utilizzato in The Things Network si basa sull'algoritmo consigliato da Semtech per l'adattamento della frequenza. Lo schema in figura 13 delinea il flusso ADR implementato nel NetworkServer di The Things Network \cite{art:rif.32}.
+La capacità di controllare i parametri di trasmissione, inclusi lo schema di modulazione e la potenza di uscita, consente di ridurre i costi di implementazione, migliorare l'affidabilità della rete, in termini di prestazioni degli errori in condizioni subottimali e potrebbe contribuire alla riduzione della complessità della manutenzione rispetto al ridimensionamento il network. Per fare tutto questo il testo \cite{art:rif.48} propone l'\textit{algoritmo ADR}:
+\begin{quote}
+	''L'algoritmo ADR (Adaptive Data Rate), ampiamente accettato utilizzato nelle attuali infrastrutture di rete basate su LoRaWAN, è un meccanismo per ottimizzare la velocità di trasmissione dati, tempo di trasmissione e consumo energetico nella rete.''
+\end{quote}	
+I parametri di trasmissione wireless negli spettri non licenziati sono regolati a livello regionale con aggiunte occasionali da parte dei regolatori del paese. Normalmente i regolamenti includono la definizione di potenza massima irradiata efficace (ERP, effective radiated power), duty-cycle, e metodi di accesso medio. Il documento \cite{art:rif.48} spiega l'influenza di ALOHA in LoRa:
+\begin{quote}
+	''Sebbene più trasmissioni LoRa emesse simultaneamente possano essere elaborate da un singolo gateway sfruttando l'ortogonalità dei fattori di diffusione oltre all'uso di più sotto-bande di trasmissione, la natura dell'accesso ALOHA al mezzo porta inevitabilmente alla presenza di collisioni di trasmissione.''
+\end{quote}
+L'articolo continua spiegano l'influenza di alcuni parametri nelle collisioni:	 
+\begin{quote}
+	''La dipendenza esponenziale del TOA su SF introduce un limite superiore esponenziale alle prestazioni della rete. Il throughput della rete è legato in alto o dalla velocità di collisione (DR inferiore, TOA più breve) o dalla limitazione del ciclo di lavoro (DR più alto, TOA più lungo).''
+\end{quote}	
+In \cite{art:rif.48} vengono spiegati gli aspetti che rendono ADR interessante:
+\begin{quote}
+	''I sistemi che contengono nodi finali, i cui parametri di trasmissione sono costanti rispetto al tempo, sono particolarmente interessanti. Uno schema di trasmissione dinamica può essere implementato con ADR e aggiungendo ulteriori gateway. Gli operatori di rete implementano ADR perché è un modo efficiente per ottimizzare la capacità delle reti. ''
+\end{quote}
+	 
+%\begin{quote}	
+%	''I fornitori che offrono NM sul mercato mantengono i loro algoritmi come parte della proprietà intellettuale. Contrariamente a questa tendenza, la disponibilità generale da parte dei clienti di prodotti LoRaWAN ha catalizzato la creazione di numerosi progetti di implementazione NM open source che includono il TTN (The Things Network) e un LoRa Server più giovane, i cui algoritmi ADR sono disponibili pubblicamente.''
+%\end{quote}
+In \cite{art:rif.32} è spiegato l'utilizzo di ADR:
+\begin{quote}
+	''In una rete LoRa solo i nodi statici dovrebbero utilizzare ADR. L'ADR può anche essere utilizzato da un nodo mobile che è in grado di rilevare quando resta su un punto fisso. I nodi decidono se utilizzare o meno l'ADR, non l'applicazione o la rete. Dal momento in cui un nodo indica che desidera utilizzare ADR, la rete raccoglierà le metriche delle 20 trasmissioni più recenti dal nodo.''
+\end{quote}
+Questa cronologia contiene il contatore di frame, il rapporto segnale-rumore (SNR, signal-to-noise ratio) e il numero di gateway che hanno ricevuto ciascuna trasmissione. Nello stesso articolo sono spiegati a cosa servono questi parametri:
+\begin{quote}
+	''In questo modo la rete può calcolare quanto "margine" c'è per aumentare la velocità dei dati o ridurre la potenza di trasmissione. Ad esempio, quando la rete riceve un messaggio con velocità dati = $SF12BW125$ e $SNR = 5.0$, tale messaggio ha un margine di 25 dB. Questo è uno spreco di tempo di trasmissione ed energia. Se aumentassimo la velocità di trasmissione dati a $SF7BW125$ avremmo ancora un margine di 12,5 dB, ma ciò sarebbe più efficiente in termini di tempo ed energia. Potremmo persino abbassare la potenza di trasmissione per risparmiare ancora più energia e causare meno interferenze. 
+\end{quote}	
+Lo schema in figura 13 delinea il flusso ADR implementato nel NetworkServer di The Things Network.
 
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/adr.png}
 
-Fig. 13 Figura schema del flusso ADR.
+Fig. 13 Figura schema del flusso ADR.\\
+L'immagine è stata presa dal documento \cite{art:rif.32}.\\
 \end{figure}
 
-La parte della specifica LoRaWAN dedicata ai comandi relativi ad ADR delinea la seguente procedura che il dispositivo finale dovrebbe seguire per ottenere una velocità di trasmissione dati ottimale. Inizialmente, il dispositivo terminale deve richiedere l'adattamento della velocità di trasmissione dati da NM (Network Manager) impostando il bit ADR in un'intestazione di messaggio uplink. Successivamente il dispositivo terminale regola il suo DR, il livello di potenza di trasmissione, la frequenza di ripetizione dei frame non confermati e l'insieme dei canali di uplink consentiti in base ai comandi MAC LinkADRReq ricevuti. Il dispositivo finale conferma ogni parte della configurazione richiesta su NM in un comando MAC LinkADRAns. Poiché l'impostazione eccessivamente ottimistica del DR può rendere irraggiungibile il dispositivo end-end, la specifica LoRaWAN definisce una seguente procedura di salvaguardia: se un dispositivo terminale non riceve alcun downlink all'interno di ADR\_ACK\_LIMIT uplink e il DR corrente è maggiore del DR minimo, tutti gli uplink successivi vengono inviati con il set di bit di riconoscimento ADR (ADRACKReq) impostato. Se il dispositivo finale non riceve alcun downlink entro i successivi uplink ADR\_ACK\_DELAY, il dispositivo terminale potrebbe provare a riguadagnare la connettività passando al successivo DR inferiore fornendo un intervallo esteso. Successivamente, ogni volta che viene raggiunto ADR\_ACK\_DELAY, il dispositivo terminale riduce il DR di un gradino. L'end device utilizza un contatore interno (ADR\_ACK\_CNT) che viene ripristinato alla ricezione di ogni messaggio di downlink \cite{art:rif.48}.
-
-\subsection{Misura delle prestazioni LPWAN}
-I tre principali parametri che incidono sulle prestazioni di LPWAN (in termini di ritardo end-to-end e tasso di perdita di pacchetti) sono: 
-\begin{enumerate}
-\item la performance di LPWAN è influenzata anche da un piccolo grado di mobilità (cioè, la mobilità umana);
-\item L'effetto della mobilità è maggiore in un ambiente interno;
-\item La maggiore distanza dal gateway aumenta ulteriormente il impatto della mobilità.
-\end{enumerate}
-Questi risultati suggeriscono che c'è bisogno di un nuovo mobilityaware. I protocolli LPWAN devono essere sviluppati e migliorati per reti con host mobili \cite{art:rif.25}.
-
-\subsection{Compressione dei dati}
-L'esigenza di gestire enormi quantità di dati porta con se due argomenti da trattare, compressione e sicurezza del trasferimento dei dati. La codifica Swapped Huffman tree (SHT) applicata ad una rete a bassa potenza (LPWAN) comprime e codifica i dati allo stesso tempo.
-Il problema con LPWAN è che funziona su una larghezza di banda ridotta che crea un problema di comunicazione dati limitata. A causa di questa limitazione, la comunicazione può avvenire sotto forma di pacchetti di testo ma non di immagini o video. Tuttavia, nell'IoT, è necessario effettuare grandi quantità di trasferimento dei dati che richiede la necessità della compressione dei dati per trasmettere i dati necessari. In secondo luogo, i dati compressi richiedono una trasmissione sicura, a causa della quale è richiesta anche la crittografia dei dati. Per affrontare questi problemi, si può implementare la codifica Swapped Huffman tree (SHT) su una rete magliata.
-È estremamente importante per qualsiasi LPWAN incorporare la sicurezza per garantire la sicurezza dei dati dell'applicazione dell'utente in IoT, nella tecnologia LoRa la comunicazione viene eseguita utilizzando lo standard avanzato di crittografia (AES).  Insieme all'utilizzo della crittografia dei dati, un altro fattore chiave nell'IoT, come accennato in precedenza, è la compressione dei dati.
-Ad oggi i ricercatori hanno proposto un numero di metodi di compressione dei dati per gestire i problemi dei big data per IoT, tra cui metodi per la compressione dell'header di DTLS (datagram transport transport security, protocollo) per il suo utilizzo nella sicurezza end-to-end di IoT. Poiché nell'IoT ci sono diversi nodi di sensori per eseguire la compressione dei dati di questi nodi, è stato proposto uno schema di compressione dei dati del sensore adattativo (ASDC, adaptive sensor data compression) \cite{art:rif.45}. 
-
-\subsubsection{Codifica Swapped Huffman Tree}
-La codifica di Huffman è un particolare tipo di codice di prefisso ottimale comunemente usato per la compressione senza perdita di dati. Dato che la codifica di Huffman non è crittografata, l'abilità di crittografia viene introdotta dagli stessi ricercatori, cioè la mutated Huffman table (MHT) e la chaotic Huffman table(CHT). MHT ha perso il suo significato di crittografia perché i ricercatori hanno eseguito un'analisi che mostra che è vulnerabile agli attacchi. Quindi, è apparso SHT successivo che è più affidabile della tecnica MHT. In SHT, la crittografia e la compressione vengono eseguite insieme; la parte di compressione è basata sulla codifica di Huffman. Per la parte di crittografia, utilizza la tecnica chiamata Mutation su Huffman Coding. La mutazione è l'interruttore tra le etichette del ramo del nodo dell'albero, cioè da '0' a '1' e '1' a '0', come in figura 1. SHT è più affidabile della tecnica MHT perché non solo usa mutazione per la crittografia ma anche il meccanismo di scambio della chiave di crittografia. È un meccanismo in cui la mutazione viene eseguita più volte dividendo il flusso chiave totale in ulteriori segmenti chiave in base alla dimensione dei bit indicati, come in figura 2. , dove $T^{(k)}$ rappresenta il numero di mutazione dell'albero. Il numero di bit in ogni segmento è deciso in base al numero di nodi nell'albero di Huffman. Ogni segmento viene applicato all'albero in modo che se si verifica "1", quel nodo viene mutato e se "0", il nodo viene lasciato così com'è. La lunghezza della chiave di crittografia segreta non ha limitazioni che la rendono resistente agli attacchi di forza bruta. Inoltre, non influisce sul rapporto di compressione dopo la crittografia. Supponiamo di avere un testo piano come \{$S_1$ $S_2$ $S_4$ $S_5$ $S_2$ $S_3$ $S_6$ ......\}. Se consideriamo che la chiave di crittografia segreta è: \{001100101011\} quindi da figura 3 il codice del testo piano è: \{1011001000110111001 ......\}. Se usiamo l'albero base $T^{(0)}$ in figura 3 per decodificare il testo cifrato, otteniamo \{$S_4$ $S_5$ $S_2$ $S_1$ $S_5$ $S_6$ $S_1$ ......\}, che è completamente diverso dal testo del piano originale. Dopo aver compreso la codifica SHT e la parte relativa alla mutazione, la prossima sezione fornisce l'implementazione del software \cite{art:rif.45}.
-\begin{figure}
-\centering
-\includegraphics[scale=.4]{Immagini/SHT1.png}
-Fig. 14 1 Huffman Tree
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[scale=.5]{Immagini/SHT2.png}
-Fig. 15 2 Tree Swapping
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[scale=.5]{Immagini/SHT3.png}
-Fig. 16 3 Esempio SHT
-\end{figure}
-
-\subsubsection{Implementazione della mutazione}
-La codifica di Huffman è già implementata in vari linguaggi di programmazione. Tra questi, c'è il codice C come alternativa. Poiché non è facile mutare i nodi dell'albero nell'implementazione del codice, quindi è stato proposto un modo alternativo usando C.
-
-\begin{lstlisting}
-Input: Original-Code, Encryption-Key
-Output: Mutated-Code MC
-
-char* function mutation{
-	check = maxlength (OCs);
-	while (maxlength (maked) = = check){
-		making(' ', '0', '1', '00', '01', '10', '11', ...)
-		}
-	for (i = 0; i < count (maked); i++){
-		if ((OC != maked) or (OC_and maked_is_completely_same)){
-			that_maked_delete;
-		}
-	}
-	divided Encryption-Key according to count (maked);
-	for (j = 0; j < count (maked); j++){
-		if (OC_left = = maked){
-			OC_left's_next = toggle;
-		}
-	}
-	return OC;
-	goto NextCode;
-}
-\end{lstlisting}
-
-Lo pseudocodice implementa la mutazione nella codifica SHT. L'implementazione C alternativa proposta del processo di crittografia viene fornita in quattro fasi come segue:
-\begin{enumerate}
-\item Definire la chiave cifrata segreta e dividerla in segmenti M.
-\item Definire una lista di controllo usando i simboli "S" dell'albero $T^{(n)}$ dove n = \{0, 1, ..., M-1\}.
-\item Utilizzare l'elenco di controllo nel passaggio 2 insieme al segmento di codice cifrato corrispondente nel passaggio 1 per eseguire la crittografia.
-\item Passare al punto 2 e ripetere il processo fino a quando non viene raggiunto l'ultimo segmento della chiave di cifratura.
-\end{enumerate}
-
-Per la generazione di $T^(1)$ crittografato dall'albero base $T^{(0)}$ (Figura 3):
-\begin{enumerate}
-\item Definizione della chiave di cifratura segreta e segmentazione:
-Dalla Fig. 3, abbiamo \{001100101011\}. Quindi il numero di segmenti è M = 3, cioè, \{00110 | 01010 | 11000\}.
-\item Definizione dell'elenco di controllo: il processo è il seguente:
-
-\begin{enumerate}
-\item Definire la lunghezza massima di ciascun simbolo nella checklist $l = k -1 bits$, dove k è il numero massimo di bit nei simboli $T^{(n)}$, ad esempio, in Fig. 3, per $T{^(0)}$ nessuno dei simboli S ha più di tre bit, quindi $l = 3 -1 = 2 bits$. 
-\item Secondo $l$ al punto 1, definire l'elenco di controllo a partire da \{'', 0, 1, 00, 01, 10, 11, 000, 001, ......\}, ad esempio, in figura 3, $l = 2 bits$ quindi la lista è \{'', 0, 1, 00, 01, 10, 11\}.
-\item Una volta creata la lista di controllo, affinarla, confrontarla con l'elenco dei simboli dell'albero corrispondente e rimuovere i codici uguali o non presenti nell'elenco dei simboli, ad es. In Fig. 3, la lista dei simboli per $T^{(0)}$ è \{$S_1$, $S_2$, $S_3$, $S_4$, $S_5$, $S_6$\} = \{00, 010, 011, 10, 110, 111\}, vediamo che 00 e 10 nella lista generata nel passaggio (b) esistono anche in la lista dei simboli, quindi la checklist finale sarà \{'', 0, 1, 01, 11\}.
-\end{enumerate}
-
-\item Applicazione della lista di controllo: per $T^{(0)}$ in figura 3, il primo segmento, 00110, della chiave di cifratura nella fase 1 verrà applicato insieme alla lista di controllo perfezionata generata fase 2, cioè, \{'', 0, 1, 01, 11\}. Per gli "0" nel segmento chiave cifrario ignorare la mutazione e per 1s eseguire la mutazione. Ora per la mutazione dell'elenco di controllo, prendi uno per uno ciascun simbolo della lista di controllo e confrontalo con i più significativi (MSB) dell'elenco simboli. Se i MSB sono uguali, commuta il bit successivo immediato sui MSB, cioè da 0 a 1 o da 1 a 0. Eseguilo su tutti i simboli nella lista dei simboli dell'albero $T_{(0)}$. Dopo la mutazione che utilizza il segmento chiave cifrario e l'elenco di controllo, i simboli crittografati generano $T_{(1)}$. Esiste solo un'eccezione che se il primo bit del segmento della chiave di cifratura è 1, verrà selezionato \{''\} dalla checklist, in questo caso bisogna commutare tutti gli MSB di ciascun simbolo nell'elenco di simboli.
-
-\item Dopo la generazione di $T^{(1)}$ passare al punto (c) del passaggio 2 e usare $T^{(1)}$ anziché $T^{(0)}$ come albero base per la generazione di $T^{(2)}$. Ora questa volta verrà utilizzato il prossimo segmento della chiave di cifratura, ad esempio dalla figura 3, per la generazione di $T^{(2)}$ da $T^{(1)}$ verrà usato il segmento 01010 e così via. Ripeti fino al raggiungimento del segmento finale della chiave di cifratura \cite{art:rif.45}.
-\end{enumerate}
-
-\subsubsection{Prestazioni della codifica di Huffman}
-La valutazione delle prestazioni della compressione e della crittografia utilizzando la codifica SHT per le reti a bassa velocità viene eseguita presupponendo che il trasmettitore e il ricevitore siano a conoscenza della tabella di codici di Huffman che è stata determinata in anticipo. La valutazione di entrambe le parti, compressione e crittografia, viene fornita come segue:
-\begin{enumerate}
-\item[A.] Valutazione di compressione e crittografia:
-La parte di compressione di tutti i meccanismi di codifica degli alberi di Huffman, cioè CHT, MHT e SHT, è la stessa per la compressione. Il tavolo Huffman, utilizzato nel ricetrasmettitore, è realizzato usando la frequenza degli alfabeti inglesi. Ci sono un totale di 26 caratteri negli alfabeti inglesi. Tuttavia, la frequenza di utilizzo di ciascun carattere nelle parole o nelle frasi non è uniforme. Questo può essere visto nella Tabella IV [22], dove possiamo vedere che "E" è il carattere usato più comunemente e "Z" meno comunemente usato. La tabella di Huffman viene generata organizzando i caratteri nella Tabella IV sotto forma di stringa. La disposizione è in ordine ascendente delle loro rispettive frequenze e anche la ripetizione del carattere per il suo ordine di frequenza, cioè 'Z' ha la frequenza minima in modo che appaia prima nella stringa e sarà scritta solo una volta, al contrario ' E 'ha la frequenza massima, quindi apparirà per ultimo nella stringa e verrà scritto 26 volte come:
-\begin{equation}
-\{Z, QQ, JJJ, XXX, KKKK, VVVVV, \ldots, EEE \ldots \ldots EEE\}
-\end{equation}
-dove J e X hanno la stessa frequenza, E viene ripetuto 26 volte. Quindi questa stringa viene data come input alla codifica di Huffman per generare la tabella dell'albero di Huffman. Attraverso questa tabella, possiamo calcolare il rapporto di compressione di ogni carattere come:
-\begin{equation}
-P_{n} = codesize / origsize
-\end{equation}
-dove n = {A, B, C, ..., X, Y, Z}, $codesize$ è la dimensione del bit dell'ennesimo carattere nella tabella e $origsize$ è la dimensione di i dati originali. In questo caso, abbiamo considerato ASCII come i dati originali, cioè 8 bit. Quindi il rapporto di compressione medio è dato come:
-\begin{equation}
-P_{\mu} = \sum P_n * Q_n = 53.73%
-\end{equation}
-dove $Q_n$ è la frequenza dell'ennesimo carattere dalla tabella. Il risultato mostra che mantenendo le dimensioni del codice di "E" relativamente basse e aumentando la dimensione del codice di "Z", l'efficienza di compressione aumenta. Inoltre indica la media di un caso generale, cioè per tutte le frequenze di carattere, ma può essere ulteriormente ispezionato per un caso non generale, ad esempio se il dato originale è "Questo è un esempio di testo". Quindi la dimensione della dimensione del codice ASCII è 136 bit. Ma dopo la codifica, la dimensione viene ridotta a soli 72 bit. Quindi il rapporto di compressione risulta essere del 52,3\%. Rispetto alla classica codifica di Huffman e all'algoritmo MHT, le prestazioni di compressione di SHT sono più stabili. Un fatto importante da ricordare qui è che il rapporto di compressione non è influenzato dalla mutazione, perché, come accennato in precedenza, la mutazione è solo un interruttore tra i valori dei nodi dell'albero, cioè da 0 a 1 o da 1 a 0.
-\item[B.] Valutazione della mutazione:
-Per crittografare i simboli usando SHT, l'albero di Huffman viene prima aggiornato in base al valore della chiave di cifratura. Secondo il caso peggiore, cioè, tutti i bit nel segmento chiave cifrario sono "1", tutti i rami dell'albero saranno mutati. In questo caso, supponendo che i simboli "N" siano codificati, il processo richiede tempi CPU N-1. Considerando che, il processo CHT ha bisogno di 8 * N volte CPU. Quindi la complessità computazionale di CHT è maggiore di quella del SHT, questo è più dettagliato in [21]. Nella sicurezza SHT, man mano che la codifica dell'albero Huffman viene aggiornata in base ai corrispondenti segmenti chiave, fino al raggiungimento dell'ultimo segmento chiave, è quasi impossibile per l'utente malintenzionato decifrare i simboli originali. Alla fine, poiché la chiave di cifratura non è fissa e il suo spazio è infinito, così può sopravvivere anche agli attacchi di forza bruta. Le osservazioni conclusive sono fornite nella prossima sezione.
-\end{enumerate}
-In futuro verrà ancora migliorato il metodo di mutazione per la codifica SHT. Inoltre, è possibile aggiungere la codifica di correzione degli errori (CRC) per analizzare le prestazioni di compressione di SHT \cite{art:rif.45}.
-
-\subsection{Migliorare il downlink di LPWAN}
-LPWAN utilizza principalmente bande di frequenza esenti da licenza. Sebbene i nodi del sensore utilizzino una potenza di trasmissione di 10 mW, tali sistemi possono raggiungere una distanza di trasmissione fino a 40 km mediante bit rate a carico utile estremamente basso. In caso di comunicazione bidirezionale, il budget di collegamento tra uplink e downlink è molto squilibrato, dove il problema principale è sul downlink perché l'aumento della potenza di trasmissione sul downlink non è possibile, il consumo energetico deve essere estremamente basso per consentire una durata della batteria di diversi anni. Le reti LPWAN sono ottimizzate per un numero elevato di dispositivi per cella di rete e una velocità di trasmissione del carico molto bassa per dispositivo, la quantità richiesta di dati di carico utile per dispositivo è limitata e in cui le latenze di trasmissione fino a diversi secondi non sono considerate critiche. Le LPWAN sono in grado di supportare le celle di rete con un raggio fino a 40 km utilizzando una potenza di trasmissione in uplink di soli 10 mW, ciò consente anche reti a basso costo, poiché sono necessarie solo poche basi per coprire vaste aree \cite{art:rif.40}.
-
-\subsubsection{Concetto di LPWAN e limiti teorici}
-Le reti LPWAN sono reti che si concentrano su applicazioni con requisiti bit-rate ultra-bassi, come sistemi di misurazione, monitoraggio ambientale. Le latenze nell'ordine di un minuto non sono considerate critiche. L'uso della comunicazione bit-rate ultra-bassa, che consente la trasmissione su distanze superiori a 40 km con potenze di trasmissione di 10mW. Si assume che questi dispositivi abbiano una sensibilità del ricevitore di almeno -142dBm. Al fine di coprire aree ampie, le antenne delle antenne della stazione base sono tipicamente montate su siti altamente esposti, ad es. in cima alle torri di trasmissione. La trasmissione riuscita su un canale di rumore Gaussiano bianco additivo richiede un certo $ E_{b} $ / $ N_{0} $. 
-$ E_{b} $  è l'energia per bit utile in Joule e $ N_{0} $  è la densità spettrale della potenza del rumore, principalmente risultante dal rumore termico. Considerando che il $N_{0}$ è principalmente dato dal rumore termico, e quindi non può essere modificato, l'$E_{b}$ può essere influenzato dall'utente. Esso è dato da:
-\begin{equation}
-E_{b} = P_{Rx} / R  
-\end{equation}
-dove $ P_{Rx} $ è la potenza del segnale ricevuto e R è il bit-rate del payload. Il lavoro teorico di Claude Shannon ha dimostrato che la trasmissione di successo è teoricamente possibile se $ E_{b} $ / $ N_{0} $> -1,59 dB per pacchetti con lunghezza molto grande, che tende all’infinito, indipendentemente dallo schema di modulazione e codifica. Il numero di bit di payload k per pacchetto è tipicamente piccolo in caso di LPWAN, ad es. k = 128 bit (16 byte). Quindi, si applica il cosiddetto limite dello Sphere Packing di Shannon, che richiede un $ E_{b} $ / $ N_{0} $ significativamente più alto in caso di pacchetti con lunghezza corta. Gli schemi FEC (Forward Error Correction) comunemente usati introducono una perdita aggiuntiva. il limite di Sphere Packing dipende dalle prestazioni del codice. È interessante notare che gli schemi FEC all'avanguardia come i Turbo-Codes non sono necessariamente superiori ai codici convoluzionali classici per la lunghezza dei dati brevi k. I sistemi pratici richiedono in genere un valore $ E_{b} $ / $ N_{0} $> 3dB per ottenere un tasso di errore del pacchetto (PER) inferiore a 10-2. Il numero di bit di payload è k = 128 e identico per tutti gli schemi. Effettueremo ora alcune derivazioni al fine di ottenere un collegamento tra i bit-rate di carico utile ottenibili e la potenza del segnale ricevuto. Possiamo esprimere la densità spettrale N0 della potenza del rumore in base alla densità spettrale di rumore termico $ N_{0} $, th [dBm/Hz] = -174 dBm/Hz e la figura di rumore F:
-\begin{equation}
-N_{0}[dBm/Hz] = N_{0,th}[dBm/Hz] + F[dB]
-\end{equation} 
-Per questo estendiamo l'equazione con il termine N0 e sostituiamo uno N0 usando (2). Quindi, otteniamo in scala dB:
-\begin{equation}
-P_{Rx}[dBm] = N_{0,th}[dBm/Hz] + 10log_{10} (R[bit/s])+F[dB] + E_{b}/N_{0}[dB]
-\end{equation}
-Questa equazione ora fornisce una relazione diretta tra la potenza del segnale ricevuto $P_{Rx}$ e $E_{b} / N_{0}$. Se assumiamo i parametri per $N_{0, th}, F e E_{b} / N_{0}$, siamo in grado di calcolare il livello di ricezione minimo richiesto per ottenere un bit-rate del carico utile desiderato. Assumendo un ricevitore senza rumore (F = 0dB), e il limite di Shannon per la decodifica senza errori (cioè $E_{b} / N_{0} = -1.59 dB$), siamo in grado di calcolare un limite per la potenza di ricezione minima richiesta $P_{Rx}$, ideale come funzione del payload bit-rate R:
-\begin{equation}
-P_{Rx,ideal}[dBm] = N_{0,th}[dBm/Hz] - 1.59dB + 10log_{10}(R[bit/s])
-\end{equation} 
- Il livello di ricezione richiesto per LPWAN è $P_{Rx}$ = -142dBm. Ciò si traduce in un max. bit-rate teorico del carico utile di R = 2285 bit / s. Tuttavia, la maggior parte dei sistemi funziona a tassi significativamente più bassi, in quanto i valori teorici non possono essere raggiunti a causa dei problemi summenzionati. Un ulteriore effetto che deve essere preso in considerazione è l'interferenza. Innanzitutto, le LPWAN che operano in bande esenti da licenza sono interessate da interferenze da altri sistemi che operano anche in queste bande esenti da licenza. In secondo luogo, vi è un'interferenza da parte di altri nodi del sensore all'interno del sistema stesso, che è principalmente rilevante per il collegamento ascendente. Questo è semplicemente causato dal cosiddetto problema del nodo nascosto. Solo le basi hanno antenne molto esposte, ed i nodi del sensore non sono in grado di sentirsi reciprocamente. Pertanto, un ascolto prima di parlare dei nodi del sensore non impedisce le collisioni alla stazione base. Di conseguenza, le LPWAN nelle bande esenti da licenza comunemente usano meccanismi basati su Multiple Access (CDMA) di Collision Detect. Inoltre, vi sono meccanismi che utilizzano meccanismi di codifica speciali per un ulteriore miglioramento in caso di molte collisioni sul collegamento ascendente. Quindi, la stazione base è in grado di ricevere più segnali di nodo sensore simultaneamente \cite{art:rif.40}.
- 
- \cite{art:rif.30}
- La soluzione LoRa può essere etichettata come CDMA. Sta usando diversi fattori di diffusione (velocità dati chirp) e velocità di codifica per segnali multiplex su una singola frequenza. Ciò non solo aumenta la capacità della rete, ma consente anche l'adattamento dinamico delle velocità dei dati del dispositivo. I dispositivi con un migliore collegamento a un gateway (a causa della vicinanza, di un ambiente a bassa rumorosità, di una visuale non ostruita) possono utilizzare velocità di trasmissione dati superiori (fino a 11 kbps) e risparmiare batteria. I dispositivi con una scarsa qualità dei collegamenti possono aumentare il budget dei collegamenti utilizzando velocità di trasmissione inferiori, estendendo il raggio di collegamento effettivo a oltre 30 km in linea di vista.
-
-\begin{center}
-\begin{tabular}{r|c|c|}
-&Uplink&Downlink\\ \hline
-Rumore del ricevitore F&3 dB&10 dB\\ \hline
-$E_{b} / N_{0}$ necessario&3 dB&9 dB\\ \hline
-Trasmettere potenza $P_{Tx}$&10 dBm&3 dBm/17 dBm\\ \hline
-Guadagno dell'antenna del trasmettitore $G_{Tx}$&0 dBi&10 dBi\\ \hline
-Guadagno dell'antenna del ricevitore $G_{Rx}$&10 dBi&0 dBi\\ \hline
-Payload bit-rate R&100 bit/s&100 bit/s\\ \hline
-\end{tabular}
-\end{center}
- 
-\subsubsection{Budget di collegamento nei sistemi pratici}
-Ora calcoleremo il budget di collegamento nei sistemi pratici per indicare i problemi delle LPWAN esistenti in bande esenti da licenza. Utilizzeremo questi valori per calcolare il budget di collegamento di un LPWAN esemplare operato nella banda SRD esente da licenza. Innanzitutto, considereremo solo la comunicazione tra un nodo sensore e la stazione base. Poi estenderemo questa configurazione a una tipica configurazione LPWAN con una stazione base che copre migliaia di sensori-nodi. 
-\begin{enumerate}
-\item Budget di collegamento per un singolo nodo sensore: i dati uplink vengono ricevuti dalla stazione base e i dati downlink vengono ricevuti dal nodo sensore. La stazione base non ha requisiti rigidi riguardo al consumo di energia. Pertanto, il suo ricevitore può avere una figura a basso rumore. Inoltre, è in grado di decodificare in modo efficiente i dati dal nodo del sensore. In generale, la codifica di potenti codici di correzione degli errori per una lunghezza di blocco ridotta, come i codici convoluzionali, richiede una complessità bassa. Al contrario, la decodifica richiede risorse significative per l'elaborazione del segnale. Quindi un basso $E_{b} / N_{0}$ ad es. 3dB per un PER (frequenza di taglio) di $10^-2$ è possibile solo nell'uplink. La potenza di trasmissione del nodo sensore è limitata a 10 mW (cioè 10 dBm), e il nodo sensore ha un'antenna omnidirezionale senza alcun guadagno, vale a dire GTx = 0 dBi. La stazione di base è dotata di antenne di settore direzionale che sono anche utilizzate per reti cellulari, che forniscono un elevato guadagno di e.g. GRx = 10dBi. I parametri differiscono totalmente se si considera il downlink. Il ricevitore è il nodo del sensore, che deve utilizzare hardware efficiente ed economico. Di conseguenza, avrà una figura ad alto rumore ad es. F = 10dB. Inoltre, richiede un alto $E_{b} / N_{0}$  di ad es. 9dB per raggiungere un PER di $10^-2$ , poiché la sua potenza di elaborazione non è sufficiente per utilizzare potenti codici FEC, o non può utilizzare affatto alcun codice FEC. I guadagni dell'antenna sono invertiti. Il guadagno dell'antenna di trasmissione ha un impatto diretto sulla massima potenza di trasmissione sul downlink. Secondo il regolamento europeo per la banda SRD 868 MHz, questa potenza è limitata a una potenza effettivamente irradiata di 20 mW (cioè 13 dBm) e 500 mW (cioè 27 dBm) per la cosiddetta banda ad alta potenza. Sottraendo il guadagno dell'antenna di 10 dBi, si ottengono rispettivamente 2 mW (cioè 3dBm) e 50 mW (cioè 17 dBm). Per completare il nostro set di parametri, stiamo assumendo inoltre una velocità in bit del payload di 100 bit / s per l'uplink e il downlink. Ora possiamo calcolare la perdita massima di percorso $L_{P}$, ovvero l'attenuazione massima del canale che consente una trasmissione dati riuscita. Esso è dato da:
-\begin{equation}
-L_{P,max}[dB] = P_{Tx}[dBm] - P_{Rx}[dBm]+G_{Tx}[dBi] + G_{Rx}[dBi] 
-\end{equation}  
-Usando (2.5) con (2.3) si ottiene $L_{P, max}$ = 168 dB per l'uplink. Tuttavia, i calcoli per il downlink portano a $L_{P, max}$ = 148 dB (banda normale) e $L_{P, max}$ = 162 dB (banda di alta potenza). Di conseguenza, vi è un intervallo di 20 dB per il normale e 6 dB per il caso di alta potenza. La compensazione di questo divario diminuendo il bit-rate di trasmissione del payload sul downlink risulterebbe in un fattore 100 per il normale e 4 per il caso high power. È del tutto ovvio che una riduzione del bit rate sul downlink di un fattore 100 è praticamente impossibile. Tuttavia, anche la riduzione di un fattore 4 è piuttosto significativa: supponendo un tipico bit rate di trasmissione del payload di uplink LPWAN di 100 bit / s, ciò comporterebbe una velocità di downlink di soli 25 bit / s. Quindi, un pacchetto di downlink di 16 byte richiederebbe più di 5 s. Se consideriamo che il consumo di energia dei tipici chip del ricetrasmettitore durante la ricezione è paragonabile al loro consumo energetico durante la trasmissione (ad es. $P_{Rx}$ = 75mW vs $P_{Tx}$ = 120mW per il Texas Instruments CC11255 utilizzando la "modalità ad alte prestazioni"), è ovvio che questo non è un'opzione adatta.
-\item Budget di collegamento per molti sensori-nodi: una tipica stazione base LPWAN dovrà coprire più di migliaia di nodi di sensori. Come menzionato precedentemente, questo non è normalmente un problema per la trasmissione in uplink, poiché la stazione base è in grado di ricevere in parallelo molti nodi sensore. Come abbiamo visto nel punto precedente, il budget di collegamento è sproporzionato e asimetrico tra uplink e downlink. Inoltre, ora dobbiamo inviare i dati di downlink a molti nodi di sensori. È ovvio che la capacità del downlink non è sufficiente se si trasmette un solo pacchetto di downlink alla volta. Considerando la banda ad alta potenza in Europa, il tempo medio di trasmissione è limitato al 10\%. Per illustrare questo problema, possiamo supporre che una stazione base sia in grado di ricevere 100 messaggi uplink in parallelo, e ogni messaggio di uplink dura 1 s. Consideriamo inoltre un budget di collegamento abbinato usando la banda ad alta potenza, che si traduce in un bit-rate in downlink che è solo 1/4 del bitrate di uplink. Inoltre, la statione base è in grado di trasmettere solo un pacchetto di downlink alla volta, che dura quindi 4 s. Considerando il ciclo di lavoro del 10\%, questo porta infine a una media di 0,025 pacchetti in downlink al secondo. Il rapporto tra i messaggi di uplink e downlink risulta di 4000. Pertanto, è praticamente impossibile trasmettere molti messaggi sul downlink. Questa situazione si riflette anche nelle offerte degli operatori commerciali. Ad esempio, l'abbonamento "Platinum" di SIGFOX consente 140 uplink, ma solo 4 messaggi downlink al giorno, che è probabilmente causato da questo motivo. Metodi come l'aumento della velocità in bit sul downlink, o l'uso di trasmissioni parallele a diversi nodi del sensore, non sono in grado di risolvere il suddetto problema. Raddoppiando il bitrate, che è funzionalmente identico a due flussi paralleli a due diversi nodi di sensori, si otterrà un budget di collegamento non corrispondente. Questa mancata corrispondenza sarà esattamente 3dB dato che l'$E_{b}$, cioè l'energia per bit di informazione, è dimezzato. Di conseguenza, questi problemi possono essere risolti solo sul livello fisico se la potenza di trasmissione alla stazione base aumenta significativamente \cite{art:rif.40}.
-\end{enumerate}
-
-\subsubsection{Utilizzo teorico in broadcast}
-La potenza di trasmissione in campo pratico è limitata alla stazione base causa problemi di downlink di LPWAN nelle bande esenti da licenza. L'aumento della potenza di trasmissione non è possibile se il downlink viene utilizzato anche nella banda SRD (Short Range Devices) esente da licenza. Tuttavia, questa limitazione non è valida per i trasmettitori, in cui vengono comunemente utilizzate potenze di trasmissione tipiche di diversi kW. Inoltre, le frequenze utilizzate per le trasmissioni TV digitali in Europa (che originariamente vanno da 470 a 862 MHz) si trovano nelle immediate vicinanze della banda SRD, che vanno da 863 a 870 MHz. Inoltre, è già stato detto che le posizioni tipiche delle stazioni base LPWAN sono le torri di trasmissione. Di conseguenza, potrebbe essere molto interessante utilizzare i trasmettitori e le frequenze di trasmissione per il downlink, mentre il collegamento verso upstream rimane nella banda SRD esente da licenza. Supponiamo ora un trasmettitore broadcast con una potenza di trasmissione effettiva (incluso il guadagno dell'antenna) di $P_{Tx, EIRP}$ = 20kW (cioè 73dBm). Tutti gli altri parametri di downlink sono mantenuti invariati. Possiamo anche assumere condizioni di propagazione pressoché identiche sul canale di uplink e downlink: in primo luogo, poiché le antenne di broadcast e di ricezione sono poste sulla stessa torre di trasmissione alta, è possibile prevedere percorsi di propagazione quasi identici. In secondo luogo, la banda di frequenza SRD a 868 MHz è vicina alle frequenze di trasmissione UHF, il che si tradurrebbe in condizioni di propagazione pressoché simili. La risultante perdita di percorso massima per il trasmettitore di trasmissione viene quindi data da:
-\begin{equation}
-L_{P,max}[dB] = P_{Tx}[dBm]-P_{Rx}[dBm]+G_{Rx}[dBi]  
-\end{equation}
-che risulta in $L_{P, max}$ = 208 dB, un margine di 40 dB sull'uplink. Per ottenere nuovamente un budget di collegamento corrispondente tra uplink e downlink, siamo ora in grado di utilizzare questo margine per aumentare il bit-rate del payload sul downlink. Secondo (2.3) questo risulta in un aumento del fattore 10. 000. Quindi, otteniamo un bit-rate di payload del downlink di 1Mbit / s per un budget di collegamento abbinato in caso di un bit-rate del payload di uplink di 100 bit / s. Nel caso di collegamento per un singolo nodo sensore siamo in grado di ricevere 100 messaggi uplink al secondo. Dato che il bit-rate del downlink è ora 10.000 volte il bit-rate in uplink di un singolo nodo-sensore, saremmo in grado di trasmettere 10.000 messaggi downlink al secondo. Supponendo un numero bilanciato di messaggi di uplink e downlink, richiederemo solo l'1\% della capacità del canale di trasmissione per il downlink LPWAN \cite{art:rif.40}.
+La procedura di LoRaWAN descritta in \cite{art:rif.48} che applica ADR per ottenere una velocità di trasmissione dati ottimale del dispositivo finale è illustrata di seguito:
+\begin{quote}
+	''Inizialmente, il dispositivo terminale deve richiedere l'adattamento della velocità di trasmissione dati da NM (Network Manager) impostando il bit ADR in un'intestazione di messaggio uplink. Successivamente il dispositivo terminale regola il suo DR, il livello di potenza di trasmissione, la frequenza di ripetizione dei frame non confermati e l'insieme dei canali di uplink consentiti in base ai comandi MAC LinkADRReq ricevuti. Il dispositivo finale conferma ogni parte della configurazione richiesta su NM in un comando MAC LinkADRAns.''
+\end{quote}	
+Dato che l'impostazione molto ottimista del DR può rendere irraggiungibile il dispositivo end-end, la specifica LoRaWAN definisce una seguente procedura di salvaguardia: 
+\begin{quote}
+	''Se un dispositivo terminale non riceve alcun downlink all'interno di ADR\_ACK\_LIMIT uplink e il DR corrente è maggiore del DR minimo, tutti gli uplink successivi vengono inviati con il set di bit di riconoscimento ADR (ADRACKReq) impostato. Se il dispositivo finale non riceve alcun downlink entro i successivi uplink ADR\_ACK\_DELAY, il dispositivo terminale potrebbe provare a riguadagnare la connettività passando al successivo DR inferiore fornendo un intervallo esteso. Successivamente, ogni volta che viene raggiunto ADR\_ACK\_DELAY, il dispositivo terminale riduce il DR di un gradino. L'end device utilizza un contatore interno (ADR\_ACK\_CNT) che viene ripristinato alla ricezione di ogni messaggio di downlink.''
+\end{quote}
 
 \subsection{Aspetti legislativi}
-Nonostante la richiesta energetica contenuta, c'è ancora un possibile ostacolo. Anche se diversi Paesi europei stanno definendo il quadro legislativo per le reti LoRa, questi accordi non sono stati ancora conclusi e oggi le reti pubbliche non sono molto diffuse. In ogni caso si prevede che, una volta definiti gli aspetti legislativi, ci sarà una rapida accelerazione delle reti pubbliche LoRa. Verrà in tal modo stimolata la domanda di mercato per i dispositivi IoT Edge in tecnologia LoRa che, per il momento, non sono ancora pronti in quanto i produttori attendono il decollo di queste reti. Questa situazione sembrerebbe paradossale: solo pochi saranno capaci di iniziare lo sviluppo prima che le reti pubbliche siano disponibili, ma gli operatori di rete devono avere fiducia nel mercato per stare al passo con i tempi di introduzione delle leggi e impegnarsi nella realizzazione delle reti LoRa. La tecnologia LoRa possa offrire la connettività adatta alle applicazioni IoT asset-based, che dipendono dalle comunicazioni long-range a basso consumo ma, nello stesso tempo, richiedono la certezza che la rete sarà supportata per tutta la durata degli asset e dei relativi prodotti. L'aspetto più importante di questa situazione è il fatto che alcune aziende stanno pensando a un impiego nella propria rete privata LoRa, che permetterà ai clienti di connettere i dispositivi alla rete stessa per testare le loro applicazioni e definire i progetti pronti per la certificazione. Una volta completata l'attività legislativa oggi in atto in Europa, gli sviluppatori che avranno utilizzato questa rete privata per completare i loro progetti in conformità ai regolamenti approvati saranno fra i primi a presentare sul mercato i prodotti da utilizzare in rete \cite{art:rif.20}.
+Dopo aver analizzato diversi dettagli tecnici è opportuno trattare anche gli aspetti legislativi che rappresentano un limite per le reti pubbliche secondo \cite{art:rif.20}:
+\begin{quote}
+	''Anche se diversi Paesi europei stanno definendo il quadro legislativo per le reti LoRa, questi accordi non sono stati ancora conclusi e oggi le reti pubbliche non sono molto diffuse. In ogni caso si prevede che, una volta definiti gli aspetti legislativi, ci sarà una rapida accelerazione delle reti pubbliche LoRa.''
+\end{quote}
+Sempre secondo lo stesso articolo, una volta definiti questi aspetti legislativi ci si aspetta un aumento della domanda:
+\begin{quote}
+	''Verrà in tal modo stimolata la domanda di mercato per i dispositivi IoT Edge in tecnologia LoRa che, per il momento, non sono ancora pronti in quanto i produttori attendono il decollo di queste reti. Questa situazione sembrerebbe paradossale: solo pochi saranno capaci di iniziare lo sviluppo prima che le reti pubbliche siano disponibili, ma gli operatori di rete devono avere fiducia nel mercato per stare al passo con i tempi di introduzione delle leggi e impegnarsi nella realizzazione delle reti LoRa.''
+\end{quote}
+Il documento \cite{art:rif.20} spiega come può essere estesa una rete LoRa privata ad una pubblica una volta terminata l'attività legislativa:
+\begin{quote}
+	''La tecnologia LoRa potrà offrire la connettività adatta alle applicazioni IoT asset-based, che dipendono dalle comunicazioni long-range a basso consumo ma, nello stesso tempo, richiedono la certezza che la rete sarà supportata per tutta la durata degli asset e dei relativi prodotti. L'aspetto più importante di questa situazione è il fatto che alcune aziende stanno pensando a un impiego nella propria rete privata LoRa, che permetterà ai clienti di connettere i dispositivi alla rete stessa per testare le loro applicazioni e definire i progetti pronti per la certificazione. Una volta completata l'attività legislativa oggi in atto in Europa, gli sviluppatori che avranno utilizzato questa rete privata per completare i loro progetti in conformità ai regolamenti approvati saranno fra i primi a presentare sul mercato i prodotti da utilizzare in rete.''
+\end{quote}
 % Certicazione dei prodotti LoRa Alliance Certified ™ %
 
 \chapter{Cap3}
 \section{sistema di monitoraggio della qualità dell'aria}
-\subsection{Panoramica del sistema}
-%In questo capitolo verrà presentato un sistema di monitoraggio della qualità dell'aria in tempo reale a bassa potenza basato sulla tecnologia di comunicazione wireless LoRa. Il sistema proposto può essere disposto in un numero elevato nell'area di monitoraggio per formare una rete di sensori. Il sistema integra un microcontrollore a chip singolo, diversi sensori di inquinamento atmosferico ($ NO_{2} $, $ SO_{2} $, $ O_{3} $, CO, PM1, PM10, $ PM_{2.5} $), LongRange-Modem(LoRa-Modem), una parte di batteria solare fotovoltaica e un'interfaccia utente grafica(GUI, Graphical User Interface). Il modulo di comunicazione LoRa invia i dati all'unità centrale di monitoraggio e quindi i dati verrebbero salvati nel Cloud. I test di autonomia in un'area esterna mostrano che LoRa è in grado di raggiungere circa 2 km. La potenza TX (di trasmissione) è solo di circa 110 mA, che è inferiore rispetto ad altre tecnologie wireless utilizzate. Basato sulla tecnologia LoRa, GUI e Solar PV, il sistema dispone di numerose funzioni progressive come basso costo, lunga distanza, alta copertura, lunga durata della batteria del dispositivo, facile da usare \cite{art:rif.40}. 
 
-In questo capitolo verrà presentato un\todo{(atrent) ancora non va bene, va detto "un sistema realizzato da, dove, quando e qui presentato per confronto/analisi/quantaltro, ma poi devi motivare l'inserimento del materiale'"} sistema di monitoraggio della qualità dell'aria in tempo reale a bassa potenza basato sulla tecnologia di comunicazione wireless LoRa. Il sistema proposto può essere disposto in un numero elevato nell'area di monitoraggio per formare una rete di sensori. Il sistema integra un microcontrollore a chip singolo, diversi sensori di inquinamento atmosferico ($ NO_{2} $, $ SO_{2} $, $ O_{3} $, CO, PM1, PM10, $ PM_{2.5} $), LongRange-Modem(LoRa-Modem), una parte di batteria solare fotovoltaica e un'interfaccia utente grafica(GUI, Graphical User Interface). Il modulo di comunicazione LoRa invia i dati all'unità centrale di monitoraggio e quindi i dati verrebbero salvati nel Cloud. I test di autonomia in un'area esterna mostrano che LoRa è in grado di raggiungere circa 2 km. La potenza TX (di trasmissione) è solo di circa 110 mA, che è inferiore rispetto ad altre tecnologie wireless utilizzate. Basato sulla tecnologia LoRa, GUI e Solar PV, il sistema dispone di numerose funzioni progressive come basso costo, lunga distanza, alta copertura, lunga durata della batteria del dispositivo, facile da usare \cite{art:rif.40}.
+In questo capitolo verrà presentato un sistema di monitoraggio della qualità dell'aria in tempo reale a bassa potenza basato sulla tecnologia di comunicazione wireless LoRa, realizzato dal College of Electronic Information and Control Engineering a Pechino nel 2016. Questo sistema rappresenta un prototipo che può essere realizzato in qualunque città che intende prevenire e tenere sotto controllo l'inquinamento atmosferico.
 
 \subsection{Introduzione al problema}
-Negli ultimi anni, l'inquinamento atmosferico è uno dei problemi ambientali che sono stati più discussi. Secondo l'Organizzazione mondiale della sanità (OMS), l'inquinamento atmosferico, soprattutto quello da particolato (o PM), è strettamente correlato ai livelli di incidenza delle malattie e di mortalità. I maggiori rischi per la salute derivano dalle polveri sottili, ovvero le particelle di diametro fino a 10 o 25 micron (denominate rispettivamente PM10 e PM25). Le particelle di queste dimensioni vengono emesse dagli autoveicoli e da altre attività domestiche e industriali, ma possono provenire anche da fonti naturali, come il terreno o la sabbia. Le persone che vivono nei Paesi sviluppati o in via di sviluppo sono spesso esposte ad elevati livelli di inquinamento da polveri sottili; un report del 2012 dell'Agenzia europea dell'ambiente ha rilevato che oltre l'80\% delle persone che vivono nelle città dell'Unione europea è esposto a livelli di PM superiori a quelli previsti dalle linee guida dell'OMS sulla qualità dell'aria (2005). Le autorità cittadine ricevono pressioni per migliorare la qualità dell'aria. Nell'ambito dei trasporti sono state implementate varie iniziative finalizzate a ridurre gli effetti delle emissioni dei veicoli nei centri delle città. Dai dati precisi sulla qualità dell'aria sarà possibile ricavare preziose informazioni che consentiranno alle autorità locali di valutare i risultati di ciascuna iniziativa. La maggior parte dei paesi sviluppati ha sviluppato stazioni di monitoraggio della qualità dell'aria e del clima nelle aree popolari o al di fuori della città per prevenire gli effetti della qualità dell'aria. La maggior parte delle stazioni di monitoraggio della qualità dell'aria utilizza metodi primitivi per monitorare la qualità dell'aria, come la raccolta di campioni di aria e l'analisi dei campioni nei laboratori. Questi metodi sono affidabili ma inefficienti e costosi, oltre al non poter ottenere la concentrazione in tempo reale del gas e del particolato. Negli ultimi anni, abbiamo intrapreso l'uso di sensori intelligenti per la misurazione della qualità dell'aria. I sistemi di monitoraggio dell'ambiente sono costituiti principalmente da tre parti, come i nodi di monitoraggio, i nodi di coordinamento con dispositivi intelligenti (PC / smart phone) e alcuni tipi di attuatori. Il test di autonomia in un'area esterna mostra che la radio ZigBee è in grado di raggiungere circa 270 m. La maggior parte dei suddetti sistemi di monitoraggio dell'inquinamento atmosferico e della qualità si basa su sensori che segnalano i livelli di inquinanti a un server tramite modem cablato, router o punti di accesso wireless a corto raggio. Non è ottimizzato per i servizi M2M (machine to machine) a bassa velocità dati e wide area, come i sensori remoti. In questo documento, proponiamo un sistema di monitoraggio dell'inquinamento atmosferico e di analisi dei dati basato sull'IoT per il monitoraggio dell'aria ambientale. Utilizziamo la tecnologia LPWAN e LoRa per questo scopo. Questo sistema non solo utilizza una rete di sensori wireless per raccogliere dati sulla qualità dell'aria, ma ha anche una fornitura di energia autosufficiente utilizzando la parte solare fotovoltaica. Dispone di numerose funzioni progressive come facile da usare, a basso costo, lunga distanza, alta copertura, auto-approvvigionamento efficiente, lunga durata della batteria del dispositivo e capacità elevata, tempi di risposta rapidi con accuratezza scientificamente accettabile \cite{art:rif.40}.
+Negli ultimi anni, l'inquinamento atmosferico è uno dei problemi ambientali che sono stati più discussi. Secondo l'Organizzazione mondiale della sanità (OMS), l'inquinamento atmosferico, soprattutto quello da particolato (o PM), è strettamente correlato ai livelli di incidenza delle malattie e di mortalità. I maggiori rischi per la salute derivano dalle polveri sottili, ovvero le particelle di diametro fino a 10 o 25 micron (denominate rispettivamente PM10 e PM25). Le particelle di queste dimensioni vengono emesse dagli autoveicoli e da altre attività domestiche e industriali, ma possono provenire anche da fonti naturali, come il terreno o la sabbia. Le persone che vivono nei Paesi sviluppati o in via di sviluppo sono spesso esposte ad elevati livelli di inquinamento da polveri sottili. Un report del 2012 dell'Agenzia europea dell'ambiente ha rilevato che oltre l'80\% delle persone che vivono nelle città dell'Unione europea è esposto a livelli di PM superiori a quelli previsti dalle linee guida dell'OMS sulla qualità dell'aria (2005). Le autorità cittadine ricevono pressioni per migliorare la qualità dell'aria. Nell'ambito dei trasporti sono state implementate varie iniziative finalizzate a ridurre gli effetti delle emissioni dei veicoli nei centri delle città. Dai dati precisi sulla qualità dell'aria sarà possibile ricavare preziose informazioni che consentiranno alle autorità locali di valutare i risultati di ciascuna iniziativa. La maggior parte dei paesi sviluppati ha introdotto stazioni di monitoraggio della qualità dell'aria e del clima nelle aree popolate o al di fuori della città per prevenire gli effetti della qualità dell'aria. La maggior parte delle stazioni di monitoraggio della qualità dell'aria utilizza metodi primitivi per monitorare la qualità dell'aria, come la raccolta di campioni d'aria e l'analisi dei campioni nei laboratori. Questi metodi sono affidabili ma inefficienti e costosi. Inoltre non è possibile ottenere la concentrazione del gas e del particolato in tempo reale. Negli ultimi anni ha preso piede l'utilizzo dei sensori intelligenti per misurare la qualità dell'aria.
 
 \subsection{Sistema di monitoraggio}
-Il sistema di monitoraggio della qualità dell'aria in tempo reale basato su IoT e un sistema di analisi dei dati utilizzando LoRa per inviare dati di concentrazione di gas e concentrazione di PM per ridurre la potenza di trasmissione e prolungare la distanza. Il sistema è composto da due parti come modulo di rilevamento, elaborazione dati e software di visualizzazione. Il modulo di rilevamento è composto da un micro-controllore, sensori di gas e PM ($ NO_{2} $, $ SO_{2} $, $ O_{3} $, CO, PM1, $ PM_{10} $, $ PM_{2.5} $) e nodo LPWAN che è connesso tramite connessione wireless. Il micro-controllore STM a 32 bit come nucleo del modulo di rilevamento viene utilizzato per convertire la lettura analogica da ciascuna lettura del sensore a valori digitali. Quindi i dati vengono inviati ai nodi LPWAN utilizzando il modem LoRa. Infine, la stazione base collegata al computer ottiene tutti i dati dai nodi. Il software di elaborazione dati e visualizzazione presenta tutte le informazioni dei dati sulla GUI. Il software di elaborazione dati e visualizzazione consente agli utenti finali di ottenere l'evoluzione storica della qualità dell'aria nelle aree monitorate \cite{art:rif.40}.
 
-\subsection{Array di sensori}
-L'unità di rilevamento è un gruppo di sensori noto come array di sensori. È stato selezionato il sensore in base ai parametri di prestazione, come precisione e basso consumo energetico. I sensori sono anche molto sensibili al gas target. La tecnica di monitoraggio dell'inquinamento atmosferico basata su un array di sensori consiste nel posizionare i sensori, 4 in questo sperimento, in posizioni strategiche, in modo tale da effettuare la lettura nello stesso momento, ed in aree differenti, ma non troppo distanti tra loro, per poi fare una media della lettura. Il risultato ottenuto è più preciso di una sola lettura data da un singolo sensore che potrebbe essere poco veritiera in situazioni eccezionali e mettere il sistema in uno stato di falso allarme. È possibile investire in un array di sensori perché il costo del singolo sensore è molto basso \cite{art:rif.40}. 
+Nel documento \cite{art:rif.40} è stato proposto un sistema di monitoraggio dell'inquinamento atmosferico basato sulla tecnologia LoRaWAN. 
+Questo sistema utilizza una rete di sensori wireless per raccogliere dati sulla qualità dell'aria utilizzano la rete LoRa per inviare dati di concentrazione dei gas e PM. 
+Il sistema è composto da due parti: modulo di rilevamento e software di elaborazione dati. 
+Il modulo di rilevamento è composto da un micro-controllore, sensori di gas e PM ($ NO_{2} $, $ SO_{2} $, $ O_{3} $, CO, PM1, $ PM_{10} $, $ PM_{2.5} $) e nodi LPWAN. 
+Il micro-controllore STM a 32 bit è utilizzato come nucleo del modulo di rilevamento per convertire le misurazioni lette dal sensore in valori digitali. 
+I dati vengono inviati ai nodi LPWAN utilizzando il modem LoRa. 
+La stazione base è collegata al computer per ottenere tutti i dati dai nodi. 
+Il software di elaborazione dati restituisce tutte le informazioni dei dati a video. Il software di elaborazione dati agli utenti finali di ottenere l'evoluzione storica della qualità dell'aria nelle aree monitorate.
+
+\subsection{Modulo di rilevamento}
+Il modulo di rilevamento è un gruppo di sensori noto come array di sensori. 
+Il sensore deve essere selezionato in base ai parametri di precisione e basso consumo energetico. I sensori devono essere molto sensibili al gas target. 
+Il sistema presentato nel documento \cite{art:rif.40} può essere studiato come traccia per il posizionamento dei sensori in un area.
+La tecnica di monitoraggio dell'inquinamento atmosferico basata su un
+L'array di sensori richiede che i sensori siano installati in posizioni strategiche.
+Il sistema presentato nel documento \cite{art:rif.40} richiede l'utilizzo di quattro sensori che effettuano la lettura ambientale nello stesso momento ed in aree differenti.
+I sensori non devono essere troppo distanti tra loro. In questo modo è possibile fare una media della lettura ambientale. 
+Il risultato ottenuto dalla media è più preciso di una sola lettura effettuata da un singolo sensore che potrebbe essere falsata da situazioni eccezionali e mettere il sistema in uno stato di falso allarme. 
+Siccome il costo del singolo sensore è molto basso è possibile investire in un array di sensori numeroso per effettuare una lettura ambientale più precisa. 
 %C'è una tabella con parametri / caratteristiche dei sensori%
 
 \subsubsection{Sensori elettrochimici}
-Utilizziamo i quattro sensori elettrochimici per CO, $ SO_{2} $, $ O_{3} $ e $ NO_{2} $ dalla Sensor technology. I sensori elettrochimici che abbiamo selezionato hanno quattro elettrodi. Confrontando il sensore elettrochimico a tre elettrodi, il sensore elettrochimico a quattro elettrodi può ottenere misurazioni più accurate. Usiamo il sensore del particolato laser per $ PM_{1} $, $ PM_{10} $, $ PM_{2.5} $ basato sulla tecnologia laser scattering \cite{art:rif.40}.
+Gli autori del documento \cite{art:rif.40} hanno scelto due tipi di sensori per la realizzazione del sistema.
+I sensori elettrochimici per CO, $ SO_{2} $, $ O_{3} $ e $ NO_{2} $ prodotti dalla Sensor technology. 
+Questi sensori elettrochimici possiedono quattro elettrodi ed ottengono misurazioni più accurate rispetto ai sensori a tre elettrodi.
+I sensore del particolato laser per $ PM_{1} $, $ PM_{10} $, $ PM_{2.5} $ basati sulla tecnologia laser scattering.
 % I vantaggi e gli svantaggi del sensore elettrochimico sono stati riportati in "A. Kumar, I. P. Singh, and S. K. Sud, IEEE Sensors J., 11, p. 2598–2610 (2011); e [5] N. Kularatna and B. H. Sudantha, IEEE Sensors J., 8, no. 4, p. 415–422 (2008)". %
 
 \subsection{Microcontrollore}
@@ -1545,7 +1681,7 @@ Il nodo del sensore remoto comunica con la stazione base in modalità wireless. 
 Nel sistema è stata progettata una GUI facile da usare. Il software della GUI è stato sviluppato utilizzando LabVIEW (Laboratory Virtual Engineering Workbench) ed è in grado di eseguire una varietà di funzionalità. All'avvio del software, l'utente deve selezionare la porta USB a cui è collegato il nodo sink. La GUI verificherà quindi la comunicazione tra la porta USB e il modulo LoRa inviando alcuni comandi in background. Una volta stabilita la comunicazione, la GUI è pronta per ricevere i dati dai moduli del sensore remoto. Quando la porta riceve i dati, i dati vengono quindi elaborati e visualizzati. L'utente può fare clic sul pulsante "SALVA" per salvare i dati e fare clic sul pulsante RIPRODUZIONE "per recuperare i dati. La funzione di "SALVA" e "RIPRODUZIONE" può aiutarci a valutare le tendenze della qualità dell'aria \cite{art:rif.40}. 
 
 \subsection{Risultati sperimentali}
-Il sistema è stato sperimentato a Beijing(Cina), sono stati posizionati i dispositivi di sistema in un posto diverso nel college. Dalle letture dei sensori si può ottenere le tendenze della qualità dell'aria, la concentrazione di gas e PM con 0,000001 $\mu$g / $ m^3 $ di accuratezza. La concentrazione di $ SO_{2} $ e $ O_{3} $ fluttua da 0,01 $\mu$g / $ m^3 $ a 0,08 $\mu$g / $m^3$. La concentrazione di $ NO_{2} $ fluttua da 0,03 $\mu$g / $m^3$ a 0,1 $\mu$g / $m^3$. La concentrazione di CO e PM ha un'alta fluttuazione \cite{art:rif.40}.
+Il sistema è stato sperimentato a Pechino, sono stati posizionati i dispositivi di sistema in un posto diverso nel college. Dalle letture dei sensori si può ottenere le tendenze della qualità dell'aria, la concentrazione di gas e PM con 0,000001 $\mu$g / $ m^3 $ di accuratezza. La concentrazione di $ SO_{2} $ e $ O_{3} $ fluttua da 0,01 $\mu$g / $ m^3 $ a 0,08 $\mu$g / $m^3$. La concentrazione di $ NO_{2} $ fluttua da 0,03 $\mu$g / $m^3$ a 0,1 $\mu$g / $m^3$. La concentrazione di CO e PM ha un'alta fluttuazione \cite{art:rif.40}.
 
 \subsection{Conclusione}
 La soluzione proposta è a basso costo utilizzando la tecnologia LoRa e sensori di gas e PM per il sistema. Tramite la tecnologia LoRa il sistema acquisisce l'eccellente vantaggio di lunga distanza e bassa potenza rispetto ad altre tecnologie wireless. I quattro sensori elettrochimici che sono stati utilizzati rendono i dati sulla qualità dell'aria più stabili e precisi. I risultati sperimentali mostrano che il sistema può monitorare e misurare con precisione la concentrazione di gas e la concentrazione di PM \cite{art:rif.40}.
