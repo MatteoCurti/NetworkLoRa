@@ -466,37 +466,36 @@ L'ultimo componente di convertitore A/D è il codificatore. In \cite{art:rif.3},
 
 \chapter{Cap2}
 \section{Internet of Things}
-In telecumunicazioni viene inteso con \textit{Internet of Things} (IoT), in italiano "Internet degli oggetti", la possibilità collegare qualsiasi oggetto nel mondo reale ad Internet.
-L'articolo \cite{art:rif.20} fa presente che:
+\textit{Internet of Things} (IoT), ossia "Internet degli oggetti", è la possibilità di collegare qualsiasi oggetto del mondo reale ad Internet. L'articolo \cite{art:rif.20} fa presente che:
 \begin{quote}
-	''L'Internet of Things (IoT) tocca tutti gli aspetti della vita quotidiana, coprendo una gamma di applicazioni inimmaginabile, dai dispositivi indossabili connessi, progettati per comunicare su distanze di pochi centimetri, a un'ampia varietà di applicazioni di gestione delle risorse e di monitoraggio a sensori, che potranno comunicare con uno o più gateway su distanze anche di diversi km.''
+	''L'Internet of Things (IoT) tocca tutti gli aspetti della vita quotidiana, coprendo una gamma di applicazioni inimmaginabile, dai dispositivi indossabili connessi, progettati per comunicare su distanze di pochi centimetri, a un'ampia varietà di applicazioni di gestione delle risorse e di monitoraggio a sensori, che potranno comunicare con uno o più gateway su distanze anche di diversi Km.''
 \end{quote}
-Da queste prime righe si può intuire la prima difficoltà, collare gli oggetti su lunghe distanze.
+Da queste prime righe, si può intuire la prima difficoltà, connettere oggetti della stessa rete su lunghe distanze.
 %% Recentemente, l'acquisizione di dati su vasta scala da dispositivi vincolati si basava sull'approccio M2M (Machine to Machine) che utilizzava comunemente la piena connettività TCP/IP. Tuttavia, lo stack TCP/IP completo spesso non è necessario per le applicazioni IoT incentrate su trasmissioni irregolari, burst di dati di sensori o comandi dell'attuatore. Tali reti sono comunemente implementate utilizzando tecnologie cellulari che introducono elevati requisiti di potenza e costi operativi e quindi limitando drasticamente l'efficienza delle applicazioni IoT, le cui esigenze potrebbero essere soddisfatte dalle capacità relativamente limitate di LPWAN in bande non autorizzate \cite{?}. 
 \begin{quote}
 	''Nel caso in cui siano necessarie comunicazioni a lungo raggio e non possa essere utilizzato un semplice data link wireless senza autorizzazione, le reti cellulari costituiscono un attraente mezzo di collegamento, anche se presentano alcuni inconvenienti.''
 \end{quote}
-La seconda difficoltà di collegare tutti gli oggetti ad Internet è il costo energetico:
+Connettere oggetti della stessa rete su lunghe distanze richiede un ingente consumo energetico.
 \begin{quote}
 	 ''Anche se un dispositivo IoT può essere connesso a basso costo a una rete 2G, con un consumo abbastanza contenuto da poter funzionare con alimentazione a batteria per una durata accettabile, c'è comunque qualche incertezza sul futuro delle reti 2G. Alcuni operatori hanno espresso l'intenzione di abbandonare queste reti, dato che gli abbonati sono orientati ai più moderni servizi 3G e 4G, che garantiscono ai dispositivi mobili un miglior collegamento Internet.''
 \end{quote}
-%%Però la trasmissione della tecnologia 3G e 4G non è a basso consumo energetico. Inoltre, l'utilizzo di queste tecnologie come modalità di trasmissione si basa in gran parte sulla portante locale della rete, il che significa che la carta SIM deve essere cambiata in diversi paesi \cite{?}. 
-
-La scelta della tecnologia per effetturare la connessione ad Internet però non è solo limitata dal consumo energetico della stessa, ma anche dalla disponibilità del servizio nel tempo: 
+La scelta della tecnologia per effettuare la connessione ad Internet non è solo limitata dal consumo energetico della stessa, ma anche dalla disponibilità del servizio nel tempo: 
 \begin{quote}
 	''I dispositivi IoT si prendono in considerazione per la realizzazione di servizi di lunga durata, dai cinque agli otto anni. Occorre quindi scegliere una connettività di rete che sia sicuramente supportata per una durata di questo periodo. A causa dell'incertezza sulla longevità delle reti 2G, gli sviluppatori devono prendere in considerazione soluzioni alternative di connettività che siano in grado di garantire, non solo la certezza di un supporto a lungo termine, ma anche il rispetto delle esigenze di basso consumo, comunicazioni a lungo raggio e basso costo, tipiche delle più diffuse applicazioni IoT. Fra i possibili candidati, la tecnologia LoRa.''
 \end{quote}
 LoRa in questo momento storico rappresenta una delle tecnologie più appetibili per risolvere contemporaneamente questi tre problemi: connessioni a lungo raggio, basso consumo energetico e servizio garantito a lungo termine.
 
-Nell'articolo \cite{art:rif.22} è stato effettuato uno studio sugli \textit{investimenti Venture Capital (VC)} nel mercato IoT. Esso viene riportato in questa tesi per dare un idea della concreta possibilità di crescita delle tecnologie utilizzate in questo settore:
+Nell'articolo \cite{art:rif.22} è stato effettuato uno studio sugli \textit{investimenti Venture Capital (VC)} nel settore IoT.
 \begin{quote}
 	''Gli investimenti Venture Capital (VC) in questi ultimi anni hanno subito una decisa accelerazione nel settore IoT: a livello mondiale tra il 2010 e il 2015 sono più che raddoppiati passando da 0,8 miliardi di dollari nel 2010, a circa 2 miliardi di dollari nel 2015. A livello cumulativo, il montante degli investimenti in start up specializzate nell’IoT negli ultimi sei anni ha raggiunto la quota di 7,4 miliardi di dollari, per un totale di 887 operazioni. Tra i principali investitori figurano importanti attori del Corporate VC: questo significa che le divisioni di imprese “non finanziarie” hanno l’obiettivo di investire in start up con tecnologie utili al proprio business. Tra gli operatori più attivi sono presenti Cisco Investments, Intel Capital, Google Ventures, GE Ventures e Qualcomm Ventures il cui portafoglio di investimenti in start up specializzate nell’IoT è stato stimato, nel periodo che va dal 2010 al 2015, in circa 3,2 miliardi di dollari. Questi solo alcuni dei dati emersi dal Rapporto Speciale Looking Forward di Accenture, interamente dedicato al tema dell’Internet of Things.
 	Il percorso di trasformazione digitale in atto nelle imprese e nei mercati apre scenari economici e di business totalmente inediti, attraverso nuovi modelli di apprendimento, collaborazione, “contaminazione” fra imprese, a cavallo tra competizione e gestione. Questo processo interessa al tempo stesso sia le imprese che le istituzioni preposte alla guida dei mercati e dell’economia che devono essere in grado di porre nei tempi adeguati le condizioni infrastrutturali, regolamentari, di formazione per raggiungere in maniera efficace gli obiettivi di crescita diffusa e innovazione. Ad esempio nel 2020 oltre il 35\% della popolazione delle economie mature avrà almeno un dispositivo wearable (indossabile). I consumatori si interfacceranno con ecosistemi digitali e fisici non solo grazie a device tradizionali come PC, smartphone e tablet, ma tramite una moltitudine di oggetti e sensori intelligenti. Questo fenomeno si sposa con l’opportunità di fornire migliori servizi ai consumatori: già oggi infatti il 40\% dei consumatori si dichiara disponibile a condividere dati personali, a patto che questi vengano utilizzati per ricevere servizi disegnati quasi in modo sartoriale. L’applicazione dell’Internet of Things non avrà impatti diretti solo sul cliente finale, ma anche sui processi interni delle aziende volti all’interazione con i clienti stessi. Sensori e oggetti intelligenti posizionati in modo diffuso negli uffici e nei punti vendita consentiranno di ottimizzare i processi di gestione del cliente, favorendo la collaborazione e garantendo un migliore customer service. I grandi operatori della logistica come UPS e DHL stanno già sfruttando le reti di sensori per localizzare e gestire al meglio le loro flotte e per consentire la verifica dello stato di consegna da parte del cliente. Ad esempio in ambito B2B, i produttori di macchinari per movimento terra o attrezzature agricole potrebbero migliorare l’efficienza operativa monitorando in real time le macchine, consentendo anche operazioni di manutenzione predittiva e diminuendo i fermi macchina. 
 	Non sono però solo le grandi multinazionali ad investire nel comparto dell’Internet of Things numerosi Paesi stanno acquisendo sempre più consapevolezza delle opportunità economiche del comparto, promuovendo numerose iniziative per dare al proprio ecosistema dell’innovazione un ruolo leader che accompagni la società in questa trasformazione tecnologica. E’ quanto sta accadendo in Francia, ad esempio, che ha inaugurato la “Cité de l’objet connecté” ovvero uno spazio di 10.000 metri quadrati messo a disposizione degli startupper per progettare e realizzare oggetti intelligenti e connessi; in Germania l’IoT è stato  classificato come uno tra i settori prioritari in cui concentrare gli investimenti relativi al piano Industry 4.0. La Cina ha investito 800 milioni di dollari per sviluppare il comparto dell’IoT e corposi investimenti vengono portati avanti anche da Corea del Sud e Usa.'' 
 \end{quote} 
+Il settore IoT secondo \cite{art:rif.22} è in forte sviluppo. Nelle sezioni successive si analizza se la tecnologia LPWAN è in grado di reggere la crescita del mercato.
+%ma allo stato attuale la tecnologia LoRa non è in grado di servire un elevato numero di nodi finali nella stessa rete.
 
-\subsection{Italia e IoT} 
-Il mercato Italiano non vuole di certo rimanere indietro in questo settore di cui è prevista una forte crescita. L'articolo \cite{art:rif.22} riporta alcuni \textit{iniziative Italiane}:
+\subsubsection{Italia e IoT} 
+Il documento \cite{art:rif.22} riporta alcune \textit{iniziative Italiane} per favorire lo sviluppo dell'IoT:
 \begin{quote}
 	''L'Italia sta attivando diverse iniziative per dare una spinta all’ecosistema dell’innovazione in generale e all’universo dell’IoT in particolare. Secondo la ricerca Accenture "Industrial Internet of Things" l’Italia è uno dei Paesi con le maggiori opportunità di crescita. Lo studio ha evidenziato che investimenti aggiuntivi in questo settore porterebbero a un incremento stimato di produttività  pari a 197 miliardi di dollari entro il 2030.
 	Inoltre, la vocazione alla tradizione manifatturiera rappresenterebbe un terreno fertile per l’applicazione di tutte le tecnologie di automazione dei processi industriali, per abilitare la fabbrica del futuro (Fabbrica 4.0). Inoltre il posizionamento distintivo e di eccellenza su diversi settori che stanno attualmente guidando la volata all’IoT, come i settori auto, casa, automazione e salute, può essere ulteriore spinta e volano per la trasformazione digitale anche delle filiere legate a tali comparti.
@@ -508,122 +507,108 @@ L'articolo \cite{art:rif.23} ripercorre brevemente la storia delle connessioni w
 \begin{quote}
 	''Esistono oggi opzioni sempre più interessanti per implementare collegamenti di tipo wireless nelle reti di sensori e in numerose altre applicazioni Internet of Things. Per un decennio o forse più, le reti di telefonia mobile (cellulari) hanno rappresentato l'unica tecnologia di comunicazione wireless universale disponibile per produttori e operatori di apparecchiature M2M (Machine-to-Machine) in grado di garantire una copertura praticamente globale in ogni regione abitata del pianeta. Nel caso delle applicazioni M2M, si è deciso di utilizzare la tecnologia GPRS come base per la connessione alla rete di telefonia mobile, mentre le più recenti tecnologie 3G e 4G (di terza e quarta generazione) garantiscono velocità di trasferimento sempre maggiore a fronte di un aumento dei costi di connessione. Tutte queste tecnologie per telefoni mobili evidenziano svantaggi non indifferenti per gli utilizzatori di apparecchiature M2M: la velocità di trasmissione dati è molto più elevata rispetto a quella richiesta da un gran numero di applicazioni M2M per cui i moduli cellulari integrati nelle apparecchiature IoT sono sovra-specificati e quindi troppo costosi per tali applicazioni. Senza dimenticare che le elevate tariffe che gli operatori di reti mobili impongono per collegare anche il più semplice dei dispositivi wireless sono proporzionali alle elevate velocità di trasferimento dati che la rete può supportare. Un altro aspetto da tenere in considerazione è che le prestazioni offerte dalla tecnologia per telefoni mobili tendono a deteriorarsi in condizioni ambientali severe o estreme. In sintesi, nella maggioranza delle applicazioni M2M, l'utilizzo di una rete di telefonia mobile per garantire la copertura wireless universale risulta costoso.''
 \end{quote}
-Per diversi motivi sono nate nuove tipologie di reti WAN (Wide Area Network) che garantiscono sensibili risparmi in termini di costo (energetico e non) rispetto alle tradizionali reti di telefonia mobile.
+Per diversi motivi sono nate nuove tipologie di reti WAN (Wide Area Network) che garantiscono sensibili risparmi in termini di consumo energetico e ulteriori spese rispetto alle tradizionali reti di telefonia mobile.
 
 \subsubsection{Bassi consumi abbinati a una copertura geografica}
-In \cite{art:rif.23} viene introdotto il concetto di Low-Power WAN:
+In \cite{art:rif.23} viene definita la \textit{Low-Power WAN}:
 \begin{quote}
 	''Le reti trattate appartengono alla categoria LPWAN (Low-Power Wide-Area Network) pubblica. Gli approcci di tipo tradizionale alla connettività wireless suggeriscono che un dispositivo di rete non dovrebbe essere in grado di operare con consumi ridotti, mentre sta trasmettendo su lunghe distanze. La topologia delle reti WAN e LPWAN è a stella con una stazione BTS (Base Transceiver Station) al centro, come per la telefonia cellulare.'' 
 \end{quote}	
-Se le nuove tecnologie garantissero connessioni a lungo raggio, come la telefonia cellulare, ad un costo nettamente inferiore, avrebbero sostituito nel mercato tutte le tecnologie datate. Questo non avviene perchè il basso consumo energetico su lunghe distanze viene scambiato con un \textit{limite} su l'utilizzo del servizio:
+Se le nuove tecnologie garantissero connessioni a lungo raggio, come la telefonia cellulare, ad un basso costo avrebbero sostituito nel mercato tutte le tecnologie datate. Questo non avviene perché il basso consumo energetico su lunghe distanze viene scambiato con un \textit{limite} per l'utilizzo del servizio:
 \begin{quote}
 	''A differenza dei sistemi 2G, 3G o 4G, una rete LPWAN adotta uno schema di modulazione che penalizza la velocità di trasmissione dati (throughput) al fine di garantire una maggiore tolleranza nei confronti delle interferenze e dell'attenuazione del segnale. In questo modo la potenza di trasmissione (in uscita) potrà essere molto bassa. Allo stesso tempo la tecnologia richiede ricevitori caratterizzati da una sensibilità molto elevata al fine di mantenere una connessione in presenza di segnali in ingresso relativamente deboli.''
 \end{quote}
-La bassa velocità di trasmissione dati non deve essere vista come uno svantaggio. Ci si aspetta che tutti gli oggetti reali connessi ad Internet siano dispositivi che producano lentamente le informazioni da trasmettere in rete, come i sensori.
+La bassa velocità di trasmissione dati non deve essere vista come uno svantaggio. Ci si aspetta che tutti gli oggetti reali connessi ad Internet siano dispositivi che producano lentamente i dati da trasmettere in rete, come ad esempio i sensori.
 \begin{quote}	
 	''Una rete LPWAN è ottimizzata per l'utilizzo in applicazioni M2M e IoT, che richiedono bassi consumi e ridotta velocità di trasferimento dati, a differenza della telefonia mobile. Una cella LPWAN può garantire un'ampia copertura, persino superiore rispetto a quella di una cella di telefonia mobile, utilizzando una potenza inferiore.''
 \end{quote}
-Le applicazioni M2M che non richiedo comunicazioni in tempo reale o streaming preferiranno molto probabilmente una rete LPWAN.
+Le applicazioni M2M, che non richiedono comunicazioni in tempo reale o streaming, preferiranno molto probabilmente una rete LPWAN.
 
 \subsubsection{Due possibili tecnologie}
-In \cite{art:rif.23} vengono introdotte due possibili tecnologie, \textit{SigFox e LoRa}: 
+Nell'articolo \cite{art:rif.23} vengono introdotte due possibili tecnologie, \textit{SigFox e LoRa}, per LPWAN: 
 \begin{quote}
 	''Le nuove tecnologie LPWAN operano a frequenze comprese nelle bande ISM (Industriale, Scientifica e Medica) esente da licenze. A differenza degli operatori di reti di telefonia mobile, gli operatori di reti LPWAN non devono acquistare costose licenze per l'assegnazione di bande dello spettro radio. Il costo per creare un'infrastruttura wireless pubblica è in ogni caso notevole e il tempo richiesto per raggiungere un grado di copertura tale da permettere alle nuove reti LPWAN pubbliche di soddisfare le esigenze di una vasta platea di utenti è considerevole. Le due tecnologie LPWAN sono SigFox e LoRa.''
 \end{quote}
  %una tecnologia Lpwan sviluppata da Semtech, azienda produttrice di semiconduttori%
-Un'altro grande vantaggio di queste tecnologie prese in esame è il costo economico inferiore rispetto alle tecnologie alternative. SigFox e LoRa sono tecnologie accessibili ed avendo bassi consumi energetici posseggono anche bassi costi di mantenimento. Tutto quello che viene risparmiato non acquistando una licenza può essere messo in discussione. Perchè nelle bande ISM ci sono molte tecnologie che trasmettono le proprie informazioni. Nelle sezioni sucessive verrrano valutati i possibili conflitti e collisioni su questa banda.
+SigFox e LoRa sono tecnologie accessibili ed avendo bassi consumi energetici offrono bassi costi di mantenimento. Più tecnologie scelgono di utilizzare le bande ISM perché sono senza licenza. Questo comporta di dover verificare che sia garantita la coesistenza di tutte queste tecnologie.
+
 \subsubsection{Reti pubbliche SigFox}
-In \cite{art:rif.23} viene proposta un approfondita descrizione di SigFox:
+Nel documento \cite{art:rif.23} viene descritta la tecnologia \textit{SigFox}:
 \begin{quote}
-	''La rete pubblica SigFox copre Francia, Spagna, Gran Bretagna e Paesi Bassi e a partire dal mese di luglio del 2015 sono state condotte numerose prove sul campo in numerose città in tutto il mondo, mentre l'installazione di una rete su scala nazionale è stata avviata in Portogallo, Danimarca, Belgio e Stati Uniti. L'obiettivo di SigFox prevede la copertura su scala nazionale in oltre 60 Paesi entro il 2020. In Francia, SigFox possiede e gestisce la rete, sviluppa l'ecosistema locale e vende abbonamenti ai servizi di comunicazione, mentre in altri Paesi queste attività sono demandate alla responsabilità di partner SNO (SigFox Network Operator). Gli operatori SNO forniscono un servizio di comunicazione end-to-end che trasferisce in modo sicuro i dati dai dispositivi remote agli application server degli utilizzatori. 
+	''La rete pubblica SigFox copre Francia, Spagna, Gran Bretagna e Paesi Bassi e a partire dal mese di luglio del 2015 sono state condotte numerose prove sul campo in numerose città in tutto il mondo, mentre l'installazione di una rete su scala nazionale è stata avviata in Portogallo, Danimarca, Belgio e Stati Uniti. L'obiettivo di SigFox prevede la copertura su scala nazionale in oltre 60 Paesi entro il 2020. In Francia, SigFox possiede e gestisce la rete, sviluppa l'ecosistema locale e vende abbonamenti ai servizi di comunicazione, mentre in altri Paesi queste attività sono demandate alla responsabilità di partner SNO (SigFox Network Operator). Gli operatori SNO forniscono un servizio di comunicazione end-to-end che trasferisce in modo sicuro i dati dai dispositivi remote agli application server degli utilizzatori.''
 \end{quote}
-L'articolo continua descrivendo i servizi di SigFox:
+Il documento continua descrivendo i servizi di SigFox:
 \begin{quote}	
-	Esso offre un'interoperabilità nativa e il supporto per il roaming, elementi critici per garantire la connettività su scala globale dei dispositivi IoT. Grazie alla topologia tipica della tecnologia SigFox e alla propagazione del segnale su lunghe distanze, l'investimento richiesto per implementare una rete SigFox è molto minore rispetto a quello necessario per i sistemi cellulari tradizionali, consentendo in tal modo agli operatori SNO di fornire la connettività agli utenti OEM (original equipment manufacture) a prezzi accessibili. Un OEM che desidera abbonarsi alla rete pubblica SigFox deve disporre di un modulo client che fa girare lo stack client SigFox e un transceiver radio operante a 868MHz in grado di effettuare la modulazione Dbpsk(Differential Binary Phase-Shift Keying) per l'uplink la modulazione Gfsk (Gaussian Frequency Shift Keying) per il downlink. 
+	''Esso offre un'interoperabilità nativa e il supporto per il roaming, elementi critici per garantire la connettività su scala globale dei dispositivi IoT. Grazie alla topologia tipica della tecnologia SigFox e alla propagazione del segnale su lunghe distanze, l'investimento richiesto per implementare una rete SigFox è molto minore rispetto a quello necessario per i sistemi cellulari tradizionali, consentendo in tal modo agli operatori SNO di fornire la connettività agli utenti OEM (original equipment manufacture) a prezzi accessibili. Un OEM che desidera abbonarsi alla rete pubblica SigFox deve disporre di un modulo client che fa girare lo stack client SigFox e un transceiver radio operante a 868 MHz in grado di effettuare la modulazione DBPSK (Differential Binary Phase-Shift Keying) per l'uplink la modulazione GFSK (Gaussian Frequency Shift Keying) per il downlink.'' 
 \end{quote}
-Sempre sullo stesso articolo viene messo in evidenza l'elasticità di SigFox per gli sviluppatori:
+L'articolo \cite{art:rif.23} evidenzia l'elasticità di SigFox per gli sviluppatori:
 \begin{quote}	
-	Alcuni OEM potrebbero decidere di sviluppare in proprio il progetto o il modulo mentre molti altri opteranno per un modulo Cots già pronto all'uso certificato SigFox Ready. I gateway e tutto il software per il collegamento in rete e applicativo per il trasporto dei dati sono forniti da SigFox al fine di assicurare la medesima qualità di fruizione indipendentemente dal Paese in cui gli oggetti stanno comunicando. Poiché secondo SigFox la distanza di trasmissione in campo aperto può essere superiore a 15 km, è possibile creare una rete con copertura universale utilizzando un numero relativamente ridotto di celle. Più stazioni base possono ricevere e trasmettere lo stesso messaggio: questa diversità in ricezione nativa abbinata alla reiezione dell'interferenza dei segnali a banda ultra-stretta (UNB – Ultra Narrow Band) contribuisce a garantire un'elevata affidabilità della trasmissione.  % reiezione = rifiuto
+	''Alcuni OEM potrebbero decidere di sviluppare in proprio il progetto o il modulo mentre molti altri opteranno per un modulo Cots già pronto all'uso certificato SigFox Ready. I gateway e tutto il software per il collegamento in rete e applicativo per il trasporto dei dati sono forniti da SigFox al fine di assicurare la medesima qualità di fruizione indipendentemente dal Paese in cui gli oggetti stanno comunicando. Poiché secondo SigFox la distanza di trasmissione in campo aperto può essere superiore a 15 km, è possibile creare una rete con copertura universale utilizzando un numero relativamente ridotto di celle. Più stazioni base possono ricevere e trasmettere lo stesso messaggio: questa diversità in ricezione nativa abbinata alla reiezione dell'interferenza dei segnali a banda ultra-stretta (UNB, Ultra Narrow Band) contribuisce a garantire un'elevata affidabilità della trasmissione.''  % reiezione = rifiuto
 \end{quote}
-L'articolo \cite{art:rif.23} procede descrivendo alcuni parametri tecnici di SigFox:
+Lo stesso articolo procede descrivendo alcuni parametri tecnici di SigFox:
 \begin{quote}
-	La ridotta spaziatura tra i canali nella trasmissione in uplink (ovvero verso la rete) implica un'elevata selettività della stazione base. Questa è resa possibile dall'adozione di ricevitori SDR (Software-Defined Radio) cognitivi (che cioè effettuano una scansione dinamica dello spettro radio). In questo modo è possibile ridurre la complessità del modem del prodotto finale, che per l'OEM si traduce in una riduzione dei costi di implementazione. SigFox non utilizza uno schema di modulazione proprietario per cui produttori di semiconduttori e costruttori di moduli possono realizzare trasmettitori e transceiver conformi alle specifiche SigFox. Un esempio è rappresentato dalla famiglia di prodotti SigFox compatibili della famiglia ATA8520x di Atmel, la quale ha anche annunciato l'introduzione di un transceiver RF SigFox completamente integrato. I moduli SigFox di tipo Cots sono caratterizzati da una sensibilità massima pari a -126dBm. La potenza di uscita irradiata per la banda ISM è stata stabilita da ETSI (European Telecommunications Standards Institute) ed è pari a 14dBm.''
+	''La ridotta spaziatura tra i canali nella trasmissione in uplink (ovvero verso la rete) implica un'elevata selettività della stazione base. Questa è resa possibile dall'adozione di ricevitori SDR (Software-Defined Radio) cognitivi (che cioè effettuano una scansione dinamica dello spettro radio). In questo modo è possibile ridurre la complessità del modem del prodotto finale, che per l'OEM si traduce in una riduzione dei costi di implementazione. SigFox non utilizza uno schema di modulazione proprietario per cui produttori di semiconduttori e costruttori di moduli possono realizzare trasmettitori e transceiver conformi alle specifiche SigFox. Un esempio è rappresentato dalla famiglia di prodotti SigFox compatibili della famiglia ATA8520x di Atmel, la quale ha anche annunciato l'introduzione di un transceiver RF SigFox completamente integrato. I moduli SigFox di tipo Cots sono caratterizzati da una sensibilità massima pari a -126dBm. La potenza di uscita irradiata per la banda ISM è stata stabilita da ETSI (European Telecommunications Standards Institute) ed è pari a 14dBm.''
 \end{quote}
 
 \subsubsection{SigFox: prestazioni, costi e limitazioni}
-In questa sottosezione vengono esposte le prestazioni di SigFox.
-Nell'articolo \cite{art:rif.23} viene spiegato come mascherare alcune limitazioni ottenendo il massimo delle prestazioni:
+Il documento \cite{art:rif.23} viene spiega come mascherare alcune limitazioni ottenendo il massimo delle prestazioni:
 \begin{quote}
-	''In un sistema SigFox il numero di trasmissioni giornaliero è limitato a 140 messaggi in uplink, ciascuno composto da un massimo di 12 byte, e a soli 4 messaggi in downlink, composti da un massimo di 8 byte. La latenza è dell'ordine di 3-5 ms. Sulla base di queste caratteristiche, SigFox è adatta all'uso in applicazioni che prevedono una trasmissione occasionale di piccoli pacchetti di dati, in cui quindi il sistema resta per lunghi periodi in uno stato di inattività (power-down) al fine di preservare la durata della batteria. I contatori per la contabilizzazione dei consumi sono un ottimo esempio di un tipico esempio di una rete SigFox.''
+	''In un sistema SigFox il numero di trasmissioni giornaliero è limitato a 140 messaggi in uplink, ciascuno composto da un massimo di 12 byte, e a soli 4 messaggi in downlink, composti da un massimo di 8 byte. La latenza è dell'ordine di 3-5 ms. Sulla base di queste caratteristiche, SigFox è adatta all'uso in applicazioni che prevedono una trasmissione occasionale di piccoli pacchetti di dati, in cui quindi il sistema resta per lunghi periodi in uno stato di inattività (power-down) al fine di preservare la durata della batteria. I contatori per la contabilizzazione dei consumi sono un ottimo esempio di una tipica rete SigFox.''
 \end{quote}
-Il testo continua riassumento i costi di SigFox:
+Lo stesso documento continua continua riassumendo i costi di SigFox:
 \begin{quote}
-	''Gli utenti di SigFox devono pagare una quota annuale per ciascun nodo per la fornitura dei servizi di comunicazione di rete. Questa quota annuale è determinata dagli operatori di rete in ogni Paese ma SigFox sottolinea che in ogni caso gli utenti possono beneficiare di prezzi estremamente competitivi abbinati a consumi di potenza minimi.''
+	''Gli utenti di SigFox devono pagare una quota annuale per ciascun nodo per la fornitura dei servizi di comunicazione di rete. Questa quota annuale è determinata dagli operatori di rete in ogni Paese, ma SigFox sottolinea che in ogni caso gli utenti possono beneficiare di prezzi estremamente competitivi abbinati a consumi di potenza minimi.''
 \end{quote}
-L'articolo \cite{art:rif.42} trae delle conclusioni dopo aver analizzato dei casi reali in cui è stata implementata SigFox:
+L'articolo \cite{art:rif.42} trae delle conclusioni dopo aver analizzato alcuni reali in cui è stata implementata SigFox:
 \begin{quote}
-	''In conclusione, SigFox si distingue come una tecnologia a banda ultra-stretta che consente una copertura del segnale simile a quella delle reti cellulari ad un millesimo del suo fabbisogno energetico. Una rete eterogenea basata su SigFox, basata sulla combinazione di una topologia di rete a stella ultra-LP per comunicazioni a breve distanza e SigFox come gateway Internet per i dispositivi a bassa potenza. Seguendo questo approccio, i cluster di dispositivi IIoT (Industrial Internet of Things) sono in grado di comunicare con un vicino gateway SigFox che segnala i dati rilevati a Internet. In particolare, si è riscontrato che un sensore IoT è in grado di funzionare autonomamente durante periodi di tempo notevolmente lunghi, raggiungendo fino a 4 anni quando funziona a un ciclo di lavoro di 60 minuti e alimentato da una batteria da 1 Ah. Una topologia di rete combinata è in grado di coprire aree urbane relativamente grandi, così come ambienti interni che utilizzano una trasmissione ad alta efficienza energetica.'' 
+	''In conclusione, SigFox si distingue come una tecnologia a banda ultra-stretta che consente una copertura del segnale simile a quella delle reti cellulari ad un millesimo del suo fabbisogno energetico. Una rete eterogenea SigFox, basata sulla combinazione di una topologia di rete a stella ultra-LP per comunicazioni a breve distanza e SigFox, come gateway Internet per i dispositivi a bassa potenza. Seguendo questo approccio, i cluster di dispositivi IIoT (Industrial Internet of Things) sono in grado di comunicare con un vicino gateway SigFox che segnala i dati rilevati a Internet. In particolare, si è riscontrato che un sensore IoT è in grado di funzionare autonomamente durante periodi di tempo notevolmente lunghi, raggiungendo fino a 4 anni quando funziona a un ciclo di lavoro di 60 minuti ed alimentato da una batteria da 1 Ah. Una topologia di rete combinata è in grado di coprire aree urbane relativamente grandi, così come ambienti interni che utilizzano una trasmissione ad alta efficienza energetica.'' 
 \end{quote}
-SigFox è stata la prima tecnologia LPWAN ad essere sperimentata ed implementata nel mondo reale. Inoltre ha tracciato il percorso che ha portato allo sviluppo della tecnologia LoRa, che cerca di migliorare alcuni aspetti carenti di SigFox. LoRa vuole essere una tecnologia totalmente universale ed intercambiabile.
+SigFox è stata la prima tecnologia LPWAN ad essere sperimentata ed implementata nel mondo reale. In quanto tale possiede delle lacune che gli sviluppatori di LoRa hanno cercato di colmare con la propria tecnologia. 
+
 \section{LoRa}
-\subsection{Che cos'è Lora?}
-LoRa è una piattaforma wireless a lungo raggio e bassa potenza. Al momento è la scelta tecnologica più utilizzata per la creazione di reti IoT in tutto il mondo. Le applicazioni Smart IoT hanno migliorato il nostro modo di interagire ed affrontare alcune delle più grandi sfide che le città e le comunità devono affrontare: cambiamenti climatici, controllo dell'inquinamento, allerta preventiva dei disastri naturali e salvataggio di vite umane. Anche le imprese e le industrie ne beneficiano, grazie a miglioramenti nel eseguire operazioni e alla riduzione dei costi. Questa tecnologia RF (radio frequenza) wireless viene integrata in automobili, lampioni stradali, apparecchiature di produzione, elettrodomestici, dispositivi indossabili, ecc... L'IoT connette il nostro mondo. Secondo \cite{art:rif.24}:
+LoRa è una piattaforma wireless a lungo raggio e a bassa potenza. Al momento è la scelta tecnologica più utilizzata per la creazione di reti IoT in tutto il mondo. Le applicazioni Smart IoT hanno migliorato il nostro modo di interagire ed affrontare alcune delle più grandi sfide che le città e le comunità devono affrontare: cambiamenti climatici, controllo dell'inquinamento, allerta preventiva e salvataggio di vite umane. Anche le imprese e le industrie ne beneficiano, grazie a miglioramenti nell'eseguire operazioni ed alla riduzione dei costi. Secondo \cite{art:rif.24}:
 \begin{quote}
-	''LoRa è il meccanismo che lo rende intelligente connettendo praticamente tutte le cose, sensori, gateway, macchine, dispositivi, animali, persone. La tecnologia LoRa consente di connettersi al cloud, consentendo decisioni corrette e migliorando la vita delle persone. La tecnologia LoRa di Semtech è una piattaforma per le tecnologie LPWAN (Low-Power Wide Network), progettata per inviare una piccola quantità di dati su lunghe distanze.''
+	''LoRa è il meccanismo che lo rende intelligente connettendo praticamente tutte le cose, sensori, gateway, macchine, dispositivi, animali, persone. La tecnologia LoRa consente di connettersi al cloud, prendendo decisioni corrette e migliorando la vita delle persone. La tecnologia LoRa di Semtech è una piattaforma per le tecnologie LPWAN (Low-Power Wide Network), progettata per inviare una piccola quantità di dati su lunghe distanze.''
 \end{quote} 
-Essa è particolarmente adatta ai sensori e alle applicazioni di monitoraggio del clima che inviano i dati alcune volte all'ora, come i sistemi di allarme rapido, il controllo dell'inquinamento e le applicazioni di monitoraggio dei cambiamenti climatici. Keysight Technologies ha scelto la tecnologia LoRa di Semtech grazie al suo posizionamento nel mercato dei sensori IoT come visto delle sezioni precedenti. LoRa presenta notevoli credenziali tecniche ed è già in uso in applicazioni che richiedono un'affidabile capacità di comunicazione su distanze di diversi km, come i sistemi wireless di lettura di strumenti e controllo dell'illuminazione stradale.
+Essa è particolarmente adatta ai sensori ed alle applicazioni di monitoraggio del clima le quali inviano i dati ogni ora, come i sistemi di allarme rapido, il controllo dell'inquinamento e le applicazioni di monitoraggio dei cambiamenti climatici. Nelle sezioni successive sono presentate le aziende che producono prodotti LoRa. 
 
 \subsection{Semtech}
-Nel campo dell'innovazione l'azienda Semtech con LoRa Technology offre vari strumenti molto interessanti di lunga portata a basso consumo energetico e di trasmissione sicura dei dati. L'azienda in \cite{art:rif.24} presenta i propri prodotti: 
+Nel campo dell'innovazione l'azienda Semtech offre la tecnologia RF wireless LoRa. L'azienda in \cite{art:rif.24} presenta i propri prodotti: 
 \begin{quote}
-	''Le reti pubbliche e private che utilizzano questa tecnologia possono fornire una copertura più ampia rispetto a quella delle reti cellulari esistenti. È più facile collegarsi ad un'infrastruttura esistente e che offre una soluzione per servizi di applicazioni IoT a batteria. Semtech sviluppa la tecnologia LoRa nei suoi chipset. Questi chipset sono quindi integrati nei prodotti offerti dalla vasta rete di partner IoT e integrati in LPWAN da operatori di reti mobili in tutto il mondo.''
+	''Semtech sviluppa la tecnologia LoRa nei suoi chipset. Questi chipset sono quindi integrati nei prodotti offerti dalla vasta rete di partner IoT e integrati in LPWAN da operatori di reti mobili in tutto il mondo.''
 \end{quote}
 Semtech si occupa della produzione dei propri transistor: 
 \begin{quote}
-	''Semtech fornisce il silicio che incorpora la tecnologia RF wireless LoRa. I transistor sono ottimizzati esclusivamente per le comunicazioni IoT, costruiscono la connessione tra endpoint remoti, picocelli e gateway, quindi trasmettono tali informazioni al cloud per la consegna a cellulari e sistemi, rendendo il nostro mondo uno Smart Planet. I transceiver LoRa (trasmettitori) di Semtech RF sono incorporati nei sensori.''
-\end{quote}
-Semtech si è espansa:
-\begin{quote}
-	''In oltre 60 paesi, Semtech ha collaborato con reti, pubbliche e private, e provider di servizi mobili per l'implementazione di reti a bassa potenza basate sulla tecnologia LoRa di Semtech. Si ritiene che la chiave per il dimensionamento di Internet of Things sia un'infrastruttura di rete aperta e interoperabile, in modo che le applicazioni IoT sviluppate in un paese possano essere implementate in tutti.''
+	''Semtech fornisce il silicio che incorpora la tecnologia RF wireless LoRa. I transistor sono ottimizzati esclusivamente per le comunicazioni IoT, costruiscono la connessione tra end-point remoti, picocelli e gateway, quindi trasmettono tali informazioni al cloud per la consegna a cellulari e sistemi, rendendo il nostro mondo uno Smart Planet. I transceiver LoRa (trasmettitori) di Semtech RF sono incorporati nei sensori.''
 \end{quote}
 Semtech offre soluzioni di connettività wireless integrate, lunghe e corte: 
 \begin{quote}
 	''I prodotti RF wireless sono costituiti da  trasmettitori RF e ricevitori RF che coprono lo spettro di frequenze radio in banda industriale, scientifica e medica (ISM). I circuiti integrati RF wireless sono utilizzati in tutto il mondo per il controllo remoto wireless automatizzato. Inoltre, i nuovi prodotti wireless LoRa di lunga portata di Semtech sono la soluzione definitiva per eliminare i ripetitori, ridurre i costi, prolungare la durata della batteria e migliorare la capacità della rete.''
 \end{quote}
-Semtech offre piattaforme di trasmissione e ricezione di potenza wireless per applicazioni di carica diretta e indiretta in entrambi i sistemi conformi e non conformi agli standard. 
 
 \subsection{IBM Reserch}
-In \cite{art:rif.26} il centro di ricerca di IBM con sede a Milao annuncia la collaborazione con Semtech per aiutare le aziende di telecomunicazione a lanciare nuovi servizi per l’Internet of Things:
+In \cite{art:rif.26} il centro di ricerca di IBM con sede a Milano annuncia la collaborazione con Semtech per aiutare le aziende di telecomunicazione a lanciare nuovi servizi per l’Internet of Things:
 \begin{quote}
-	''IBM Research (NYSE:IBM) ha annunciato una nuova tecnologia basata su wide-area network a basso consumo (LPWAN), che offre vantaggi significativi alle reti cellulari e wifi per le comunicazioni machine to machine (M2M).
+	''IBM Research (NYSE:IBM) ha annunciato una nuova tecnologia basata su wide-area network a basso consumo (LPWAN), che offre vantaggi significativi alle reti cellulari e wi-fi per le comunicazioni machine to machine (M2M).
 	Per anni, l'enorme potenziale dell’Internet of Things (IoT) per le aziende - raccolta dati da diversi dispositivi, la loro analisi ed elaborazione per un processo decisionale più rapido e veloce - è stato frenato da difficoltà tecniche quali una durata limitata della batteria, distanze di comunicazione brevi, costi elevati e mancanza di regole.''
 \end{quote}
-IBM Reserch vuole partecipare alla creazione di un entità che definisce uno standard per le reti LoRa. Infatti:
-\begin{quote}
-	''La tecnologia chiamata LoRaWAN™ (Long Range wide-area network), risolve questi problemi. Basata su nuova specifica e protocollo per le reti wide-area a basso consumo che utilizzano uno spettro wireless senza licenza, la tecnologia è in grado di collegare i sensori sulle lunghe distanze, offrendo nel contempo una durata ottimale della batteria e richiedendo un'infrastruttura minima. Questo consente di offrire vantaggi quali mobilità, sicurezza, bi-direzionalità e localizzazione/posizionamento migliorati, oltre a costi più bassi.''
-\end{quote}
-La presentazione continua:
+IBM Reserch vuole partecipare alla creazione di un consorzio che definisce uno standard per le reti LoRa:
 \begin{quote}
 	''Con i suoi 70 anni di attività, IBM Research continua a definire il futuro dell'informatica con più di 3.000 ricercatori in 12 laboratori situati in sei continenti. Gli scienziati di IBM Research hanno prodotto 6 Premi Nobel, 10 U.S. National Medals of Technology, 5 U.S. National Medals of Science, 6 Turing Awards, 19 membri della National Academy of Sciences e 14 membri dell'U.S. National Inventors Hall of Fame.'' 
 \end{quote}
-Questo è un altro evidente segno che la tecnologia LoRa è in forte crescita  e crea posti di lavoro.
 
 \subsection{Senet}
 Senet è un azienda che collabora con Semtech e IBM. In \cite{art:rif.26} viene presentata come:
 \begin{quote}
 	''Senet è un operatore M2M Network as a Service (NaaS) con sede nel New Hampshire, sta attualmente installando 20.000 sensori Semtech LoRa con il software LRSC di IBM per monitorare i livelli del propano combustibile e delle taniche di petrolio situate presso edifici residenziali e aziende sulla east e la west coast degli Stati Uniti. Ogni ora i sensori raccolgono e trasmettono dati in modo sicuro, tra cui i livelli di carburante, lo stato degli indicatori, dei sensori e i rapporti di ricalibrazione dei sensori ai fornitori di carburante che stabiliscono quando effettuare le consegne e reintegrare le scorte.''
 \end{quote}
-Sempre nello stesso articolo Senet riporta un esempio di come il proprio prodotto porti vantaggio a se stessa ed ai propri clienti:
+Nello stesso articolo, Senet mette in evidenza i vantaggi ottenuti per se stessa ed anche per i suoi clienti:
 \begin{quote}
 	''Gli indicatori di Senet sono precisi e, grazie alla tecnologia LoRa funzionano sulle lunghe distanze, riducendo i nostri costi infrastrutturali e consentendoci di ribaltare questi risparmi sui nostri clienti. I consumatori traggono inoltre vantaggio dal fatto di sapere quanto carburante è presente nel serbatoio in qualsiasi momento.''
 \end{quote}
-Infine Senet definisce la sua posizione nel mercato IoT:
-\begin{quote}
-	''Senet, Inc. è leader nel mercato in rapida crescita dell'Internet of Things (IoT)/Machine-to-Machine (M2M) e come primo fornitore pubblico di Network as a Service (NaaS) negli USA per una rete ISM a basso costo e lunga distanza. Attraverso la sua rete presente in tutto il paese, Senet attiva servizi di monitoraggio che aiutano le aziende americane più efficienti ed attente all'ambiente a migliorare i profitti gestendo e misurando lo stato di beni diffusi -- attività come l'automazione dei serbatoi di propano e gasolio residenziale, misurazione di acqua e gas, distribuzione di lubrificanti commerciali, irradiazione solare e molto altro ancora.''
-\end{quote}
 
 \subsection{FastNet}
-In \cite{art:rif.26} viene presentata l'azienda FastNet con una grossa fetta di mercato in Sud Africa:
+In \cite{art:rif.26} viene presentata l'azienda FastNet che opera in Sud Africa:
 \begin{quote}
 	''FastNet è fornitore leader di servizi di comunicazione di dati wireless. Con 20 anni di esperienza nell'introduzione delle comunicazioni Point-Of-Sale (POS) in Sud Africa, FastNet fornisce una rete conforme alla Payment Card Industry (PCI) affidabile, sicura, e soluzioni di comunicazione di dati end-to-dend ad aziende di qualsiasi dimensione. La società è specializzata in POS, Virtual Private Network, comunicazioni machine-to-machine e tecnologia Wi-Fi.
 	FastNet è ben posizionata per erogare un servizio di livello superiore e un'assistenza tecnica 24 ore su 24, 7 giorni su 7 in tutto il Sud Africa. FastNet è inoltre fornitore di servizi con licenza Electronic Communications Network Services (ECNS) e Electronic Communication Services (ECS) con il vantaggio di un'ampia copertura fornita da reti wireless e fisse.
@@ -633,63 +618,58 @@ Queste tecnologie LPWAN hanno una buona stabilità in territori dove la densità
 
 \subsection{LoRa Alliance}
 %La diffusione sul mercato delle reti LoRA è supportato da LoRA Alliance, un'associazione fondata nel dicembre del 2014 che raggruppa numerosi produttori moduli per nodi terminali tra cui Semtech, IMST, Microchip, Multi Tech, Link Labs ed Embit; produttori di concentratori che utilizzano il chipset SX1301 tra cui IMST, Kerlink, MultiTech ed Embit; vari operatori di infrastrutture di rete; Ibm e Actility, fornitori di server cloud su cui gira il software LoRa_Wan_Server.%
-In \cite{art:rif.26} viene descritto il primo passo verso la creazione di uno standard per tecnologie LPWAN:
+Nell'articolo \cite{art:rif.26} viene descritto il primo passo verso la creazione di uno standard per tecnologie LPWAN:
 \begin{quote}
 	''A supporto della tecnologia LPWAN, IBM, Semtech e altre società hanno co-fondato LoRa Alliance, una coalizione di aziende impegnata a standardizzare il protocollo LoRaWAN che consente questa interoperabilità.''
 \end{quote}
-La LoRa Alliance è un’associazione aperta e no profit, che ha come mission lo sviluppo e la standardizzazione delle Low Power Wide Area Networks (LPWAN) implementate in tutto il mondo per l’attivazione di Internet of Things (IoT).
+La LoRa Alliance è un’associazione aperta e no profit, che ha come missione lo sviluppo e la standardizzazione di reti LPWAN implementate in tutto il mondo per l’attivazione di Internet of Things:
 \begin{quote}
 	''LoRa Alliance ha lo scopo di unire hardware e software basati sullo standard LoRaWAN per gli operatori delle telecomunicazioni e gli operatori di rete consentendo loro di offrire servizi IoT ad aziende e consumatori. Dai sensori alle macchine, ai monitor fino ai computer indossabili.''
 \end{quote}
-Le aziende in elenco, presentate finora, sono i principali menbri della LoRa Aliance. In \cite{art:rif.23} viene presentato il frutto della loro collaborazione nel creare una \textit{pila di protocolli standard} per reti di grandi dimensioni. La pila di protocolli è basata sull'insieme di tutte le tecnologie e prende il nome di LoRaWan:
+Le aziende Semtech, IBM Reserch, Senet e FastNet sono i principali membri della LoRa Aliance. In \cite{art:rif.23} viene presentato il frutto della loro collaborazione per creare una \textit{pila di protocolli standard} per reti di grandi dimensioni. La pila di protocolli è basata sull'insieme di tutte le tecnologie e prende il nome di LoRaWan:
 \begin{quote}
 	''LoRaWan è formato da un client, un server e un firmware per l'inoltro dei pacchetti (packet forwarding). La disponibilità di LoRaWAN semplificherà l'introduzione di un gran numero di reti LoRA pubbliche e private di grandi dimensioni in un prossimo futuro. 
 \end{quote}
-Inoltre lo stesso articolo mette in evidenza la versitilità data dalla creazione dello standard, dove ogni componente è intercambiabile e non genera problemi di incompatibilità:
+Inoltre lo stesso articolo mette in evidenza la versatilità data dalla creazione dello standard, dove ogni componente è intercambiabile e non genera problemi di incompatibilità:
 \begin{quote}	
 	''Grazie a LoRA Alliance e alla disponibilità dello stack di protocolli LoRaWAN gli operatori di rete, compresi gli attuali operatori di reti mobile, possono disporre di un ecosistema che permette loro di ridurre i costi e accelerare l'installazione e la messa in esercizio (deployment) di reti pubbliche LoRA. Grazie alla disponibilità di moduli concentratori proposti da costruttori come Kerlink, Embit, Imst e MultiTech è possibile sviluppare in tempi rapidi l'hardware per la realizzazione di stazioni radio base che supportano la tecnologia LoRA. I concentratori forniti da Future Electronics sono corredati con il software Ibm o Actility giù pre-caricato. Nel caso di utenti che desiderino collegare dispositivi su una rete privata, piuttosto che sfruttare una rete LoRA pubblica con la copertura richiesta, il software disponibile a bordo permette di accelerare e semplificare l'implementazione della rete stessa.'' 
+\end{quote}
+Il documento \cite{art:rif.20} spiega come LoRa sia facile da implementare:
+\begin{quote}
+	''Esiste un portafoglio di moduli radio conformi alle specifiche LoRaWAN per consentire di semplificare e accelerare l'integrazione di questa tecnologia nei dispositivi IoT. I moduli Microchip, come l'RN2483, sono dispositivi plug-and-play che integrano un completo sottosistema radio con un microcontrollore, le Eeprom di identità, il front-end a radiofrequenza e i relativi circuiti, oltre a un cristallo.''
 \end{quote}
 Nell'articolo \cite{art:rif.23} emerge una sostanziale differenza tra la tecnologia LoRa e la precedente SigFox:
 \begin{quote}	
 	''A questo punto vale la pena segnalare che la possibilità di realizzare reti private non è prevista per gli utilizzatori della tecnologia SigFox.'' 
 \end{quote}	
-Questo dettaglio ci da un anticipazione della tecnologia che implementa il livello fisico della pila di protocolli LoRaWAN.
-La Chirp Spread Spectrum utilizzata da LoRa permette un maggiore utilizzo della banda rispetto all'Ultra Narrowband, analizzato precedentemente per SigFox. Banda larga significa però molto più rumore. Questa scelta però porta alla costruzione di dispositivi più costosi.
-\begin{quote}
-	''Grazie al range di trasmissione di 15 Km in campo aperto tra un concentratore e un nodo previsto dalla tecnologia LoRa è possibile creare celle di grandi dimensioni che permettano di ottenere rapidamente la copertura su una vasta area. Tutte le comunicazioni su una rete LoRA sono sicure grazie all'utilizzo della cifratura AES con chiave a 128 bit.'' 
-\end{quote}
-Infine, in \cite{art:rif.23} vengono riassunti i vantaggi di LoRa in una rete pubblica:
+Nello stesso articolo vengono riassunti i vantaggi di LoRa in una rete pubblica:
 \begin{quote}	
 	''Lo stack dei protocolli LoRaWAN gestisce la velocità di trasferimento dati e la potenza di uscita in maniera adattativa al fine di ottimizzare sia i consumi di potenza sia l'intensità del segnale. Ciò significa che una rete pubblica implementata con lo stack LoRAWAN è in grado di offrire agli utilizzatori tutti i benefici (consumi ridotti, basso costo ed elevate sicurezza) intrinseci della tecnologia LoRa.''
 \end{quote}
-Grazie alla creazione di uno standard e l'intercambiabilità delle componenti LoRa, essa possiede una trasmissione bidirezionale tendenzialmente migliore rispetto a SigFox.
+Grazie alla creazione di uno standard e l'intercambiabilità delle componenti, LoRa possiede una trasmissione bidirezionale tendenzialmente migliore rispetto a SigFox.
+
+
 
 \section{Architettura di rete LoRa}
-In questa sezione verrà analizzata la struttura di una rete LoRa. L'articolo \cite{art:rif.27} l'achittetura di rete LoRa:
+In questa sezione verrà analizzata la struttura di una rete LoRa. L'articolo \cite{art:rif.27} tratta l'achittetura di rete LoRa:
 \begin{quote}
 	''In termini di architettura di rete LoRa, i nodi sono disposti secondo una topologia che viene tipicamente definita "star-of-stars" con i gateway in modalità di bridge trasparente che trasmettono messaggi dai nodi finali fino al server centrale nel backend della rete.''
 \end{quote}
-In \cite{art:rif.28} descrive le connessioni tra le varie entità:
+Il documento \cite{art:rif.28} descrive le connessioni tra le varie entità:
 \begin{quote}
 	''I gateway sono collegati al server di rete tramite connessioni IP standard, mentre i dispositivi terminali utilizzano la comunicazione wireless a singolo hop su uno o più gateway.'' 
 \end{quote}
-In \cite{art:rif.27} viene descritto i tipi di comunicazione tra le entità: 
+In \cite{art:rif.27} vengono illustrati i tipi di comunicazione tra le diverse entità: 
 \begin{quote}
 	''La comunicazione con i nodi finali è generalmente bi-direzionale ed è anche possibile la trasmissione in multicast (invio simultaneo a più nodi), funzionalità utile in caso di aggiornamenti o invio di messaggi in blocco al sistema.'' 
 \end{quote}
-Per gli utenti che operano in campo industriale e utilizzano reti private chiuse, Semtech ha introdotto transceiver per reti LoRA in grado di supportare un range di trasmissione di 15 km tra un nodo e un gateway. 
-In \cite{art:rif.23} fa presente cosa è necessario al centro della topologia a stella:
+Per gli utenti che operano in campo industriale ed utilizzano reti private chiuse, Semtech ha introdotto transceiver per reti LoRa in grado di supportare un range di trasmissione di 15 km tra un nodo e un gateway. Il testo \cite{art:rif.23} indica cosa è necessario al centro della topologia a stella:
 \begin{quote}
 	''Una rete LoRa, pubblica o privata che sia, richiede la presenza di un concentratore posto al centro della topologia a stella mentre la comunicazione è bi-direzionale alternata (half duplex) in modo nativo. Il numero di nodi collegati a un concentratore dipende dall'applicazione e dal numero di pacchetti che devono essere trasmessi in un determinato periodo di tempo. Per le applicazioni caratterizzate da un elevato numero di nodi terminali, Semtech ha sviluppato una soluzione ad hoc per il concentratore che prevede l'uso del chipset in banda base ad alta efficienza SX1301 e da due modulatori SX1257. Un concentratore realizzato a partire da questi chip è in grado di gestire fino a 10.000 nodi.''
 \end{quote}
+Dopo aver analizzato l'articolo \cite{art:rif.43} si può affermare che l'elettronica solitamente viene programmata per la modalità "sleep", per risparmiare energia durante il periodo di inattività. La CPU di schedulazione a bassa potenza è sempre accesa per poter riattivare periodicamente il resto del sistema programmato per acquisire i dati dai vari sensori. 
 
-Dopo aver analizzato l'articolo \cite{art:rif.43} posso avvermare che l'elettronica solitamente viene programmata per la modalità "sleep", per risparmiare energia durante il periodo di inattività. La CPU di schedulazione a bassa potenza è sempre accesa per poter riattivare periodicamente il resto del sistema programmato per acquisire i dati dai vari sensori. Di seguito sono riportati alcuni parametri presi dallo stesso articolo:
-\begin{quote}
-	''Il sistema comunica i dati acqusiti tramite LoRa ogni 10 minuti, ed invia segnali 3G ogni 12 ore perché questo metodo di comunicazione è in termini energitici costoso. La modalità 3G trasmette i dati tramite una connessione internet diretta alla piattaforma di sensori open source detti Thingspeak.'' 
-\end{quote}
-Thingspeak è basata su un cloud, mentre il ricetrasmettitore LoRa trasmette i dati al sistema end-to-end. La CPU del sensore comunica con tutti gli altri sensori e controlla le comunicazioni. La CPU LoRa implementa comunicazioni LoRa con protocollo proprietario lowpower, fornisce connettività Wi-Fi e svolge le attività di calcolo intensivo. 
-
-In questa tesi si farà riferimento al Gateway Symphony Link basato su LoRaWAN, che è la piattaforma LPWAN di LoRa Alliance, perché gode delle seguenti caratteristiche descritte in \cite{art:rif.47}:
+Si fa riferimento al Gateway Symphony Link basato su LoRaWAN, che è la piattaforma LPWAN di LoRa Alliance, perché gode delle seguenti caratteristiche descritte in \cite{art:rif.47}:
 \begin{quote}
 	\begin{itemize}
 		\item ''utilizza il riconoscimento per pacchetto e Symphony Link presenta tassi di errore dei pacchetti inferiori;
@@ -701,8 +681,7 @@ In questa tesi si farà riferimento al Gateway Symphony Link basato su LoRaWAN, 
 \end{quote}
 
 \subsection{Specifiche LoRaWAN}
-\subsubsection{LoRaWAN 1.1 Specifiche}
-Secondo \cite{art:rif.29} LoRaWAN 1.1 è l'ultima versione di LoRaWAN ed offre le seguenti funzionalità:
+Secondo \cite{art:rif.29} LoRaWAN 1.1 è l'ultima versione di LoRaWAN ed offre le seguenti funzioni:
 \begin{quote}
 	\begin{itemize}
 		\item ''supporto per il roaming di handover: consente il trasferimento del dispositivo finale da una rete LoRaWAN a un'altra; 
@@ -713,8 +692,7 @@ Secondo \cite{art:rif.29} LoRaWAN 1.1 è l'ultima versione di LoRaWAN ed offre l
 	Al fine di supportare implementazioni eterogenee e non a aggiornamenti coordinati a livello globale, sia i dispositivi finali che le reti LoRaWAN 1.1 supporteranno la compatibilità con le versioni precedenti per interoperare con i loro pari LoRaWAN 1.0.x.''
 \end{quote}
 
-\subsubsection{LoRaWAN Backend Interfaces 1.0 Specifica}
-Riferendosi a \cite{art:rif.29} LoRaWAN Backend Interfaces 1.0 abilita le seguenti funzionalità:
+In relazione a \cite{art:rif.29} LoRaWAN Backend Interfaces 1.0 abilita le seguenti funzioni:
 \begin{quote}
 	\begin{itemize}
 	\item ''Unisce il server di rete (NS), il server (JS) e il server delle applicazioni (AS).
@@ -722,55 +700,54 @@ Riferendosi a \cite{art:rif.29} LoRaWAN Backend Interfaces 1.0 abilita le seguen
 	\item Identifica l'entità che memorizza le credenziali del dispositivo finale (comprese le chiavi di root) come JS. Può essere separato dalle reti e amministrato da un'entità indipendente dalle reti che il dispositivo finale potrebbe utilizzare. Ciò consente alle reti di scaricare la procedura di autenticazione su un sistema dedicato. Alla fine potrebbe essere collegato a questa terza parte.''
 	\end{itemize}
 \end{quote}
-\subsubsection{LoRaWAN 1.1 Parametri regionali rev. A}
-Facendo riferimento a \cite{art:rif.29} i parametri regionali LoRaWAN 1.1 rev.:
+
+Il testo \cite{art:rif.29} specifica i parametri regionali LoRaWAN 1.1 rev. A:
 \begin{quote}
 	''I parametri radio sono specifici per ogni regione. LoRa opera nelle bande ISM inferiori (UE: 868 MHz e 433 MHz, USA: 915 MHz e 433 MHz).''
 \end{quote}
 
-\subsection{Protocollo LoRa / Lv 1}
-LoRa è l'acronimo di Long Range, lungo raggio, che sta a riassumere il vantaggio principale di questa tecnologia wireless, senza cablature riesce a connettere lunghe distante. LoRa rappresenta il protocollo di livello 1 della pila ISO/OSI. Secondo \cite{art:rif.30}:
+\subsection{Protocollo LoRa}
+LoRa è l'acronimo di Long Range, lungo raggio, che sta a riassumere il vantaggio principale di questa tecnologia wireless, senza cablatura riesce a connettere lunghe distanze. LoRa rappresenta il protocollo di livello 1 della pila ISO/OSI. Secondo \cite{art:rif.30}:
 \begin{quote}
-	''LoRa è una modulazione radio a spettro esteso brevettata (EP2763321 dal 2013 e US7791415 del 2008) sviluppata da Cycleo (Grenoble, Francia) e acquisita da Semtech NASDAQ: SMTC nel 2012.''
+	''LoRa è una modulazione radio a spettro esteso brevettata sviluppata da Cycleo (Grenoble, Francia) e acquisita da Semtech NASDAQ: SMTC nel 2012.''
 \end{quote}
-In \cite{art:rif.23} è spiegato da cosa è realizzato il livello fisico:
+Nel documento \cite{art:rif.23} viene esposto come è realizzato il livello fisico:
 \begin{quote}
-	''LoRa è basata sulla tecnica CSS (Chirp Spread Spectrum), che la rende in grado di variare la lunghezza del cosiddetto fattore di spreading (compreso tra 6 e 12 bit) e l'ampiezza di banda in funzione della bit rate (ovvero il numero di bit trasmessi al secondo) richiesta nel range compreso tra 20bit/s a 41kbit/s.''
+	''LoRa è basata sulla tecnica CSS (Chirp Spread Spectrum), che la rende in grado di variare la lunghezza del cosiddetto fattore di diffusione (compreso tra 6 e 12 bit) e l'ampiezza di banda in funzione della bit rate (ovvero il numero di bit trasmessi al secondo) richiesta nel range compreso tra 20bit/s a 41kbit/s.''
 \end{quote}
-Stando a \cite{art:rif.44} sono elencati i seguenti vantaggi:
+La Chirp Spread Spectrum utilizzata da LoRa permette un maggiore utilizzo della banda rispetto all'Ultra Narrowband utilizzato da SigFox. Banda larga significa però molto più rumore. Questa scelta però porta alla costruzione di dispositivi più costosi. L'articolo \cite{art:rif.44} elencati i vantaggi della modulazione:
 \begin{quote}
 	''Questa modulazione aumenta la tolleranza alla deviazione di frequenza, riducendo i costi. Inoltre rende LoRa una buona resistenza contro lo sbiadimento del multipath e l'effetto Doppler, e migliora la sensibilità del ricevitore aumentando la copertura.''
 \end{quote}
-Nell'articolo \cite{art:rif.30} spiega che:
+Il testo \cite{art:rif.30} riporta la sensibilità e la velocità raggiungibile dalla modulazione:
 \begin{quote}
 	''Grazie alla straordinaria modulazione del chirp, il collegamento wireless può raggiungere una sensibilità fino a -137 dBm e fino a 157 dB di budget di collegamento. Il trade-off è la velocità dati raggiungibile, che è nell'intervallo di kilobit al secondo.''
 \end{quote}
-Questo paramentro permette di capire che è una tecnologia adatta per servire l'Internet of Things (IoT) e le applicazioni M2M, mentre non è assolutamente adatta, per esempio, allo streaming video. 
+Questi parametri permettono di capire che è una tecnologia adatta per servire l'Internet of Things e le applicazioni M2M, mentre non è assolutamente adatta, per esempio lo streaming video. Il documento \cite{art:rif.30} riporta le bande occupate da LoRa: 
 \begin{quote}
 	''LoRa può essere utilizzato su un'ampia gamma di frequenze da 137 MHz a 1020 MHz. Questo include numerose bande ISM prive di licenza come 169 MHz, 433 MHz, 868 MHz e 915 MHz.''
 \end{quote}
-Questo è un fattore chiave per le implementazioni e interoperabilità a livello mondiale. Secondo \cite{art:rif.23}: 
+Questo è un fattore chiave per le implementazioni ed interoperabilità a livello mondiale. L'articolo \cite{art:rif.23} mostra lo schema di modulazione digitale: 
 \begin{quote}
-	''La tecnologia LoRa adotta uno schema di modulazione digitale completamente asincrono. La modulazione garantisce una continuità di fase tra i simboli chirp nella parte del preambolo del pacchetto. Questa funzione consente di utilizzare la sincronizzazione temporale più semplice e quindi componenti meno costosi. Una radio LoRa ha quattro parametri di configurazione: frequenza portante, fattore di diffusione (SF, spread factor), larghezza di banda e velocità di codifica. La selezione di questi parametri determina il consumo di energia, il raggio di trasmissione e la resilienza al rumore.''
+	''La tecnologia LoRa adotta uno schema di modulazione digitale completamente asincrono. La modulazione garantisce una continuità di fase tra i simboli chirp nella parte del preambolo del pacchetto. Questa funzione consente di utilizzare la sincronizzazione temporale più semplice e quindi componenti meno costosi. Una radio LoRa ha quattro parametri di configurazione: frequenza portante, fattore di diffusione, larghezza di banda e velocità di codifica. La selezione di questi parametri determina il consumo di energia, il raggio di trasmissione e la resilienza al rumore.''
 \end{quote}
-Sempre secondo lo stesso articolo:	
+Lo stesso articolo, mette in evidenza le prestazioni di LoRa:	
 \begin{quote}	
 	''Le elevate prestazioni che la tecnologia LoRa è in grado di offrire sono testimoniate dalla sua capacità di ricevere segnali fino a -22dB al di sotto della soglia del rumore di fondo, abbinata alla reiezioni dei canali adiacenti di almeno 69dB con un offset di 25kHz, un valore migliore di 30dB rispetto a quello che si ottiene utilizzando la modulazione FSK a 868MHz sui medesimi transceiver.'' 
 \end{quote}
-% LoRa è lo strato fisico della pila ISO/OSI. 
-In realazione a \cite{art:rif.48}, una configurazione di modulazione (data-rate, DR) è data da due parametri:
+In relazione a \cite{art:rif.48}, una configurazione di modulazione (data-rate, DR) è data da due parametri:
 \begin{quote}
-	''una larghezza di banda (BW, bandwidth) e un fattore di diffusione (SF, spread factor) specificati dalla specifica dei parametri regionali LoRaWAN. Le larghezze di banda vanno da 125 kHz a 500 kHz a seconda della regione. La durata del simbolo chirp è data da:
+	''La larghezza di banda (BW, bandwidth) e il fattore di diffusione (SF, spread factor) sono i parametri indicati dalla specifica dei parametri regionali LoRaWAN. Le larghezze di banda vanno da 125 kHz a 500 kHz a seconda della regione. La durata del simbolo chirp è data da:
 	\begin{equation}
 	T_s = \frac{2^{SF}}{BW}
 	\end{equation}
 	dove SF appartiene all'intervallo [7, 12].''
 \end{quote}
-Sempre secondo lo stesso articolo:
+secondo lo stesso articolo, vengono mostrate delle relazioni con SF:
 \begin{quote}
 	''Il TOA (time-on-air) dipende quindi in modo esponenziale dalla SF. D'altra parte la sensibilità del ricevitore è proporzionale alla SF. Inoltre, la tecnica dello spettro esteso è combinata con la correzione degli errori in avanti (FEC, forward error correction) con velocità di codifica in {4/5; 4/6; 4/7; 4/8}.''
 \end{quote}
-L'articolo continua descrivendo il pacchetto LoRa:
+Il documento \cite{art:rif.48} descrive il pacchetto LoRa:
 \begin{quote}
 	''Un pacchetto LoRa costituito da un preambolo, un'intestazione, un payload e un campo CRC. Il preambolo permette al ricevitore, solitamente un Gateway LoRa, di sincronizzarsi con il messaggio in arrivo. Nell'intestazione ci sono tutte le informazioni per notificare delle informazioni al trasmettitore.''
 \end{quote}
@@ -778,17 +755,14 @@ L'articolo continua descrivendo il pacchetto LoRa:
 % \cite{art:rif.23} LoRa implementa la modulazione wireless utilizzata per creare il collegamento di comunicazione a lungo raggio. Il suo schema di modulazione a largo spettro consente un'operatività a lungo raggio e un'elevata capacità di rete, con bassa potenza a radiofrequenza. Grazie alla richiesta energetica contenuta, l'end-point di una rete LoRa con alimentazione a batteria può funzionare per molti anni, una durata sufficiente in molte applicazioni, che ha un sensibile effetto sui costi operativi di una rete con numerosi end-point. 
 
 % Da spostare in "Che cosa è LoRa?"
-Secondo \cite{art:rif.20} per favorire l'inizio degli sviluppi basati sulla tecnologia LoRa:
-\begin{quote}
-	''Esiste un portafoglio di moduli radio conformi alle specifiche LoRaWan per consentire di semplificare e accelerare l'integrazione di questa tecnologia nei dispositivi IoT. I moduli Microchip, come l'RN2483, sono dispositivi plug-and-play che integrano un completo sottosistema radio con un microcontrollore, le Eeprom di identità, il front-end a radiofrequenza e i relativi circuiti, oltre a un cristallo. Questi moduli sono fra i primi che hanno passato il collaudo LoRa Alliance Certification.''
-\end{quote}
+
 
 \subsubsection{Tempo di trasmissione on-the-air}
-Nell'articolo \cite{art:rif.44} LoRa è stata messa alla prova a differenti combinazioni di fattori metereologici per analizzare i limiti di questa tecnologia. Si ricorda che:
+Nell'articolo \cite{art:rif.44} LoRa è stata messa alla prova a differenti combinazioni di fattori meteorologici per analizzare i limiti di questa tecnologia. Si ricorda che:
 \begin{quote}
 	''Secondo "LoRa Modem Designer’s Guide" della Semtech e come menzionato precedentemente, il pacchetto LoRa è costituito da un preambolo e da payload.'' 
 \end{quote}
-che a sua volta può contenere un intestazione del livello successivo.
+Il payload può contenere un intestazione del livello successivo.
 \begin{quote} 
 	''Il tempo di trasmissione in onda è la somma del preambolo e della durata del carico utile. Il tempo di trasmissione in diretta ToA è indicato:
 \begin{equation}
@@ -798,16 +772,18 @@ T_{oA} = T_{preamble} + T_{payload} = \\
 = T_{sym}(L_{preabmle}+L_{payload}) = \\
 \end{equation}
 \begin{equation}
-= \frac{2^{SF}}{BW}\times((n_{preamble}+4.25)+(8+max(ceil(\frac{8PL-4SF+42-20H}{4(SF-2DE)}\times(CR+4),0))))
+= \frac{2^{SF}}{BW}\times((n_{preamble}+4.25)+(8+M))
 \end{equation}
-	Dove la larghezza di banda BW assume valori in {62,5 kHz, 125 kHz, 250 kHz, 500 kHz }, SF è il fattore di diffusione, $T_{sym}$ è il tempo di trasmissione del simbolo, determinato da SF e BW, $n_{preamble}$ è la lunghezza del preambolo programmato, PL è il numero di byte del carico utile, H = 0 significa presenza dell'intestazione (header), H = 1 quando non è presente un'intestazione, DE = 1 vuol dire che è stata impostata l'ottimizzazione a bassa velocità di trasmissione dati, altrimenti DE = 0, CR varia da 1 a 4 (corrispondente alla velocità di codifica da 4/5 a 4/8).'' 
+\begin{equation}
+M = max(ceil(\frac{8PL-4SF+42-20H}{4(SF-2DE)}\times(CR+4),0))
+\end{equation}
+	Dove la larghezza di banda BW assume valori in {62,5 kHz, 125 kHz, 250 kHz, 500 kHz}, SF è il fattore di diffusione, $T_{sym}$ è il tempo di trasmissione del simbolo, determinato da SF e BW, $n_{preamble}$ è la lunghezza del preambolo programmato, PL è il numero di byte del carico utile, H = 0 significa presenza dell'intestazione (header), H = 1 quando non è presente un'intestazione, DE = 1 vuol dire che è stata impostata l'ottimizzazione a bassa velocità di trasmissione dati, altrimenti DE = 0, CR varia da 1 a 4 (corrispondente alla velocità di codifica da 4/5 a 4/8).'' 
 \end{quote}	
-Secondo la formula, il tempo di trasmissione on-the-air è inversamente proporzionale a BW e aumenta con l'aumento di SF. 
-\cite{art:rif.44}
+Secondo la formula, il tempo di trasmissione on-the-air è inversamente proporzionale a BW e aumenta con l'aumento di SF.
 \begin{quote}
 	''Sono stati fatti esperimenti per verificare la relazione tra tempo di trasmissione on-air, SF e BW. L'analizzatore di spettro RSA306 è stato utilizzato per misurare il tempo di trasmissione in onda del modulo. È stato utilizzato il modulo YL-800IL con potenza di trasmissione 100 mW e lunghezza del carico utile 1 byte.'' 
 \end{quote}
-I risultati della misurazione fatta dagli autori di \cite{art:rif.44} effettuata con diversi BW e SF sono mostrati in figura 9 e figura 10. I risultati mostrano che all'aumentare della largezza di banda il tempo di trasmissione on-the-air diminuisce, mentre aumentando il fattore di diffusione il il tempo di trasmissione on-the-air aumenta. I risultati coincidono con quanto è stato predetto in teoria.
+I risultati della misurazione fatta dagli autori di \cite{art:rif.44} effettuata con diversi BW e SF sono mostrati in figura 9 e figura 10. I risultati mostrano che all'aumentare della larghezza di banda il tempo di trasmissione on-the-air diminuisce, mentre aumentando il fattore di diffusione il tempo di trasmissione on-the-air aumenta. I risultati coincidono con quanto è stato previsto in teoria.
 \begin{figure}
 	\centering
 	\includegraphics[scale=.5]{Immagini/r1.png}
@@ -825,11 +801,11 @@ I risultati della misurazione fatta dagli autori di \cite{art:rif.44} effettuata
 \end{figure}
 
 \subsubsection{Copertura del segnale}
-Il set-up per valutare la copertura del segnale nella prova \cite{art:rif.44} è il seguente:
+La preparazione della prova per valutare la copertura del segnale eseguita in \cite{art:rif.44} è la seguente:
 \begin{quote}
 	''Le misurazioni sono state eseguite per il caso in cui un modulo YL-900IL trasmetteva i dati periodicamente (ogni due secondi) ad un modulo che fungeva da stazione base. L'antenna del modulo era ad 1,5 m di altezza e l'antenna del modulo della stazione base era ad 4 m di altezza. Non erano presenti ostacoli tra i due moduli. I moduli funzionavano in banda di frequenza 433 MHz con potenza di trasmissione di 100 mW e guadagno dell'antenna di 6 dBi.''
 \end{quote}
-Gli autori dell'articolo \cite{art:rif.44} hanno effettuato le misurazione riportati nella tabella 2. 
+Gli autori dell'articolo \cite{art:rif.44} hanno effettuato le misurazione riportati nella tabella 1. % Cita Tabella 1 
 \begin{quote}
 	''I risultati mostrano la distanza più lontana raggiunta, in metri, mantenendo la perdita dei pacchetti inferiore al 10\%, con SF e BW diversi. Questo dimostra che l'aumento dell'intervallo dipende dalla diminuzione di BW o dall'aumento di SF, poiché per BW minori e SF maggiori possono migliorare significativamente la sensibilità.''
 \end{quote}
@@ -837,23 +813,23 @@ Il testo continua facendo notare che la sensibilità non è l'unico parametro da
 \begin{quote}
 	''Tuttavia nella progettazione della rete è necessario tenere conto, oltre all'ampia copertura e al basso consumo energetico, della velocità di trasmissione e del ritardo di trasmissione. Per questo motivo nel sistema sono utilizzati SF di 7 e BW di 125 kHz rappresentano il compromesso ottimale.''
 \end{quote}
-Questa prova fa capire che per quanto LoRa possa connettere lunghe distanze, l'ambiente circostante deve consentire di limitare ad una certa solita la perdita dei pacchetti. Per permettere una vasta copertura del segnale con questo limite è necessario un maggiore consumo energetico, aumentando la potenza del segnale. Così facendo però si va a perdere il vero vantaggio della tecnologia LoRa, permettere la copertura di lunghe distanze a basso consumo energetico.  
+Questa prova dimostra che per quanto LoRa possa connettere lunghe distanze la trasmissione deve limitare ad una certa soglia la perdita dei pacchetti. Per permettere una vasta copertura del segnale con questo limite è necessario aumentare la potenza del segnale ma ciò comporta un maggiore consumo energetico. Così facendo, si perde il vero vantaggio della tecnologia LoRa, che permette la copertura di lunghe distanze a basso consumo energetico.  
 %Per quanto possa essere discutibile la scelta la solia della perdita dei pacchetti fissata al 10\%, la disponibilità di banda è il fattore principale che permette di raggiungere lunghe distanze con una pardita di pacchetti accettabile. Le lunghe distanze promesse in fase teorica devono fare i conti con le condizioni climatiche che affliggono il territorio.
 
 \begin{center}
-\begin{tabular}{r|c|c|}
+\begin{tabular}{|r|c|c|}
 SF&BW (kHz)&Portata inferiore al 10\% della perdita di pacchetti (m)\\ \hline
 7&250&2910-3110\\ \hline
 9&250&3140-3340\\ \hline
 9&500&2130-2330\\ \hline
 11&500&4810-5010\\ \hline
 \end{tabular}
-Tabella 2. \\
+\label{Tabella 1}. \\
 Le misurazioni sono state raccolte dagli autori dell'articolo \cite{art:rif.44}. \\
 \end{center}
 
 \subsubsection{LoRa PHY error model}
-La tecnologia LoRa in letteratura viene associata al modello della tecnologia ALOHA. Questa associazione è utile per utilizzare modelli funzionati e collaudati per misurare le prestazioni di tecnologie simili e metterle a confronto. Questo approccio però non tiene contro della diversità dei due protocolli. ALOHA quando percepisce una collisione scarta i pacchetti letti e notifica secondo gli standard del protocollo l'avvenuta collisione. LoRa PHY quando percepisce una collisione finisce la lettura del pacchetto e procede con la controllo degli errori. Questa scelta è dovuta alla particolare modulazione di LoRa che è meno sensibile agli errori in ricezione. Pertanto i pacchetti considerati scartati dai classici modelli ALOHA in realtà vengono letti correttamente, per questo LoRa PHY error model proposto in \cite{art:rif.49} da una stima più accurata delle prestazioni LoRa.
+La tecnologia LoRa in letteratura viene associata al modello della tecnologia ALOHA. Questa associazione è utile per utilizzare modelli funzionati e collaudati per misurare le prestazioni di tecnologie simili e metterle a confronto. Questo approccio però non tiene conto della diversità dei due protocolli. ALOHA quando percepisce una collisione scarta i pacchetti letti e notifica secondo gli standard del protocollo l'avvenuta collisione. LoRa quando percepisce una collisione finisce la lettura del pacchetto e procede con il controllo degli errori. Questa scelta è dovuta alla particolare modulazione di LoRa che è meno sensibile agli errori in ricezione. Pertanto i pacchetti considerati scartati dai classici modelli ALOHA in realtà vengono letti correttamente, per questo LoRa PHY error model proposto in \cite{art:rif.49} da una stima più accurata delle prestazioni di LoRa.
 \begin{enumerate}
 \item Implementazione della banda base LoRa PHY: 
 \begin{quote}
@@ -870,27 +846,27 @@ Inoltre l'autore di \cite{art:rif.49} vuole far notare che:
 L'articolo continua con i passaggi dopo l'interleaver:
 % Nella teoria dell'informazione l'entropia di una sorgente di messaggi è l'informazione media contenuta in ogni messaggio emesso. L'informazione contenuta in un messaggio è tanto più grande quanto meno probabile era. Un messaggio scontato, che ha un'alta probabilità di essere emesso dalla sorgente contiene poca informazione, mentre un messaggio inaspettato, poco probabile contiene una grande quantità di informazione. % 
 \begin{quote}	
-	''Prima di passare il flusso di bit sbiancato al modulatore, è prima mappato in grigio inverso. Questo produce una sequenza di numeri interi, che vengono inviati al modulatore LoRa. Al modulatore LoRa, una sequenza di campioni $N$ complessi di time-shifted in banda base risulterà generata tramite un accumulatore di fase come indicato dal sistema (2.12), dove $N$, il numero di campioni per simbolo di banda base, è uguale a $2^{SF} (f_s / BW)$. Il numero intero di input determina il time-shift del up-chirp:
-	\begin{equation}
+	''Prima di passare il flusso di bit sbiancato al modulatore, è prima mappato in grigio inverso. Questo produce una sequenza di numeri interi, che vengono inviati al modulatore LoRa. Al modulatore LoRa, una sequenza di campioni $N$ complessi di time-shifted in banda base risulterà generata tramite un accumulatore di fase come indicato dal sistema \ref{sistema}, dove $N$, il numero di campioni per simbolo di banda base, è uguale a $2^{SF} (f_s / BW)$. Il numero intero di input determina il time-shift del up-chirp:
+	\begin{equation}[h]
 	m(i) = \bigg \{
 	\begin{array}{rl}
 	exp(-j\pi) & (i = 0)\\
 	m(i-1)exp(if(i)) & (i = 1, \dots, N-1)\\
-	\end{array}
+	\end{array} \label{sistema}
 	\end{equation}
 	dove la frequenza istantanea f (i) è data da:
 	\begin{equation}
 	f(i) = -\pi + {i \over N} 2\pi  
 	\end{equation}
-	per i = 1, /dots, N-1. Successivamente, i campioni del simbolo LoRa vengono inviati sul canale AWGN per un determinato rapporto tra segnale e rumore (SNR) come da:
+	per i = 1, \dots, N-1. Successivamente, i campioni del simbolo LoRa vengono inviati sul canale AWGN per un determinato rapporto tra segnale e rumore (SNR) come da:
 	\begin{equation}
 	c(i) = m(i) + \sqrt{E_s \over 2SNR}[N(0; 1) + jN(0; 1)]
 	\end{equation}
 	per i = 0, \dots, N-1. Dove N(0; 1) è la distribuzione normale standard e $SNR = 10^{SNR_{dB} / 10}$. Si noti che l'energia per simbolo è uguale a quella del modulatore LoRa.''
 \end{quote}
-Mentre da lato del ricevitore è presente:
+All'interno del ricevitore è presente il demodulatore LoRa:
 \begin{quote}
-	''Il demodulatore LoRa che utilizza una demodulazione basata sulla correlazione in cui il simbolo ricevuto è correlato a tutti i simboli LoRa noti. La decisione su quale simbolo è stato inviato, viene effettuata selezionando il simbolo LoRa con il valore di correlazione massimo. Dopo la demodulazione, la catena di ricezione è l'opposto della catena di invio. Il tasso di errore viene misurato nei bit di informazione, dopo la correzione dell'errore. Non è stato eseguito il sovracampionamento, pertanto continua a valere $N = 2^{SF}$.''
+	''Il demodulatore LoRa che utilizza una demodulazione basata sulla correlazione in cui il simbolo ricevuto è correlato a tutti i simboli LoRa noti. La decisione su quale simbolo è stato inviato, viene effettuata selezionando il simbolo LoRa con il valore di correlazione massimo. Dopo la demodulazione, la catena di ricezione è l'opposto della catena di invio. Il tasso di errore viene misurato nei bit di informazione, dopo la correzione dell'errore. Non è stato eseguito il sovra-campionamento, pertanto continua a valere $N = 2^{SF}$.''
 \end{quote}
 
 \begin{figure}
@@ -899,11 +875,11 @@ Mentre da lato del ricevitore è presente:
 
 Fig. 11 Schema a blocchi dell'implementazione della baseband LoRa PHY: mittente, canale AWGN e ricevitore.
 \end{figure}
-\item LoRa PHY BER Simulazioni:  
-Al fine di determinare il BER dello strato fisico LoRa, sono state eseguite simulazioni per i parametri LoRa PHY elencati in Tabella 3. 
+\item LoRa PHY BER Simulazioni:  \\
+Al fine di determinare il BER del livello fisico LoRa, sono state eseguite delle simulazioni con i parametri elencati in Tabella \ref{tabA}. 
 \begin{center}
 
-\begin{tabular}{|c|c|c|c}
+\begin{tabular}{|c|c|c|c|}
 BW (kHz)&SF&CR&SNR(dB)\\ \hline
 125&7&1,3&[-20,0]\\ \hline
 125&8&1,3&[-20,0]\\ \hline
@@ -912,15 +888,15 @@ BW (kHz)&SF&CR&SNR(dB)\\ \hline
 125&11&1&[-23,-13]\\ \hline
 125&11&3&[-25,-13]\\ \hline
 125&12&1,3&[-26,-17]\\ \hline
-\end{tabular}
+\end{tabular} \label{tabA}
 Tabella 3, parametri LoRa PHY per simulazioni BER. \\
 Le misurazioni sono state effettuate dagli autori dell'articolo \cite{art:rif.49}. \\
 \end{center}
 
 
-I parametri delle simulazioni condotte dagli autori di \cite{art:rif.49} sono stati riportati nella tabella 3.
+I parametri delle simulazioni condotte dagli autori di \cite{art:rif.49} sono stati riportati nella tabella \ref{tabA}.
 \begin{quote}
-	''Le simulazioni sono state eseguite per valori SNR in passi di 1 dB negli intervalli. Successivamente, una curva esponenziale come definita dall'equazione (2.15) è stata adattata a un sottoinsieme dei valori logaritmici dei valori BER misurati.
+	''Le simulazioni sono state eseguite per valori SNR in passi di 1 dB negli intervalli. Successivamente, una curva esponenziale come definita dall'equazione \ref{m3n} è stata adattata a un sottoinsieme dei valori logaritmici dei valori BER misurati.
 	\begin{equation}
 	log_{10}(BER (SNR_{dB})) = \alpha exp (\beta SNR_{dB})
 	\end{equation}
@@ -933,7 +909,7 @@ Il sottoinsieme dei valori BER utilizzati per l'adattamento della curva è stato
 Si noti che i PDR presentati tengono conto di tutti i pacchetti generati, anche i pacchetti che sono in coda per la trasmissione vengono conteggiati verso PDR. Pertanto, il PDR riflette il throughput di rete complessivo (per lo stesso numero di dispositivi e periodo di dati).
 
 \subsubsection{Assegnazione dei fattori di diffusione}
-In \cite{art:rif.49} viene discusso il problema su come assegnare LoRa SF per i dispositivi terminali. 
+Nel documento \cite{art:rif.49} viene discusso il problema di come assegnare il fattore di diffusione per i dispositivi terminali. 
 \begin{quote}
 	''Le SF hanno un forte impatto sui PDR. La sottostima della SF (ad esempio, l'assegnazione di una SF troppo bassa) può causare errori di ricezione a causa del basso SNR. Sovrastimare la SF (ad esempio, assegnare una SF troppo alta) può portare a un uso inefficiente del tempo di propagazione aerea.''
 \end{quote}
@@ -945,46 +921,38 @@ Sono state prese in considerazione tre strategie di assegnazione di SF:
 		\item PER: per ogni dispositivo finale, trova e assegna il valore SF più basso per il quale il tasso di errore del pacchetto scende al di sotto di una determinata soglia.''
 	\end{enumerate}
 \end{quote}
-I pacchetti sono stati inviati come messaggi non confermati. La strategia PER possiede il miglior PDR. 
+I pacchetti sono stati inviati come messaggi non confermati. La strategia PER possiede il migliore PDR. 
 \begin{quote}
 	''I PDR per le diverse soglie di PER sono molto simili e non esiste una soglia che produca il PDR più alto in tutte le dimensioni di rete considerate. Si noti che per reti di piccole dimensioni (vale a dire, meno di 100 dispositivi finali) il PDR al 75\% della strategia fissa SF = 12 potrebbe essere sufficiente. Poiché ciò elimina la necessità di velocità di trasmissione dati attiva (ADR) in reti così piccole, il traffico downstream di ADR può essere evitato. Ovviamente l'invio a una velocità dati inutilmente elevata fa sì che un dispositivo finale sprechi energia. Con l'aumentare del numero di dispositivi (vale a dire più di 1000 dispositivi finali), la strategia casuale supera le strategie fisse in termini di PDR.''
 \end{quote}
-Questo comportamento spiega che per le reti di maggiori dimensioni, le perdite dei pacchetti sono dovute principalmente alle collisioni. In questo caso la strategia casuale (random) riduce il numero di collisioni (rispetto a una strategia fissa) sfruttando l'ortogonalità dei diversi SF.
+Questo comportamento spiega che per le reti di maggiori dimensioni, le perdite dei pacchetti sono dovute principalmente alle collisioni. In questo caso la strategia casuale (random) riduce il numero di collisioni (rispetto a una strategia fissa) sfruttando l'ortogonalità dei diversi fattori di diffusione.
 
-\subsection{Protocollo LPWAN / Lv 2}
+\subsection{Protocollo LPWAN}
 LoRaWAN è una specifica del protocollo di livello di collegamento costruita sulla tecnologia LoRa sviluppata dalla LoRa Alliance.% Utilizza lo spettro radio senza licenza nelle bande Industrial, Scientific e Medical (ISM) per consentire la comunicazione a bassa potenza ed ampia area tra i sensori remoti e i gateway collegati alla rete. 
-LoRaWAN è una specializzazione di protocollo LPWAN. Secondo \cite{art:rif.24}:
+LoRaWAN è una specializzazione di protocollo LPWAN. Secondo il documento \cite{art:rif.24}:
 \begin{quote}
 	''LoRaWAN è il protocollo MAC per la rete di nodi LoRa ad alta capacità. È uno standard LPWAN aperto gestito dalla LoRa Alliance. Sfrutta le funzionalità LoRa appena descritte precedentemente ed ottimizza la durata della batteria e la qualità del servizio per i nodi LoRa.''
 \end{quote}
-Nell'articolo \cite{art:rif.30} viene spiegato che:
+L'articolo \cite{art:rif.30} spiega le funzionalità di LoRaWAN:
 \begin{quote}
 	Il protocollo è completamente bidirezionale, che consente una consegna affidabile dei messaggi (conferme). Comprende la definizione della crittografia end-to-end per la sicurezza e la riservatezza dei dati, la registrazione over-the-air dei nodi finali e la funzionalità multicast. Grazie al modello di antenna distribuita e ai gateway GPS abilitati, la rete è in grado di localizzare la posizione dei nodi, anche quando sono mobili.
 \end{quote}
-In relazione a quanto scritto in \cite{art:rif.25}:
-\begin{quote}
-	''I sensori LoRaWAN sono in grado di comunicare a distanze superiori ai 100 km (62 miglia) in ambienti favorevoli, 15 km (9 miglia) in ambienti semi-rurali e a più di 2 km (1,2 miglia) in ambienti urbani densamente popolati ad una velocità di dati da 300 bit a 100 kbit. Questo li rende adatti all'invio di quantità di dati contenute, come le coordinate GPS e le letture del clima che la banda larga non è in grado di raggiungere.''%I sensori richiedono inoltre pochissima energia, la maggior parte di loro può funzionare per più di 10 anni con una sola batteria AA e, inoltre, le chiavi AES128 rendono praticamente impossibile l'intercettazione e la manomissione delle comunicazioni. 
-\end{quote}
-In \cite{art:rif.47} sono esposti i costi e la struttura della topologia di rete:
-\begin{quote}
-	''In pratica è altamente efficiente dal punto di vista energetico ed economico: l'industria ha come target la durata della batteria di oltre 10 anni con un costo del chipset radio a meno di 2\$ e un costo operativo di 1\$ per dispositivo all'anno. La maggior parte delle LPWAN sono formate in base alla topologia a stella, dove i nodi finali sono direttamente collegati a un gateway che trasmette i dati a un server LPWAN. Ciò semplifica notevolmente la progettazione della rete consentendo un'elevata scalabilità e una maggiore controllabilità.''
-\end{quote}
-Infine \cite{art:rif.49} precisa che:
+In \cite{art:rif.49} viene spiegata la struttura dei protocolli nei dispositivi finali e nei gateway:
 \begin{quote}
 	''I nodi dei dispositivi finali contengono una singola coppia MAC/PHY, mentre i gateway sono costituiti da una coppia MAC/PHY per ogni fattore di diffusione supportato. Ad esempio un gateway che supporta multi-SF (cioè, in grado di ricevere tutti i LoRa SF contemporaneamente) su sei canali contiene 36 coppie MAC/PHY.''
 \end{quote}
-I nodi finali di una rete LoRa devono adattarsi a diverse esigenze per soddisfare i requisiti molto diversi di quasi ogni tipo di applicazione IoT, il protocollo LoRaWAN supporta tre classi di terminali e sono esposte nelle seguenti sottosezioni.
+I nodi finali di una rete LoRa devono adattarsi a diverse esigenze per soddisfare i requisiti delle varie applicazioni IoT. Il protocollo LoRaWAN supporta tre classi di nodi finali.
 
 \subsubsection{Classe A – finali bidirezionali}
-Secondo \cite{art:rif.27}:
+Il documento \cite{art:rif.27} descrive la comunicazione dei nodi di Classe A:
 \begin{quote}
 	''I nodi finali Classe A LoRaWAN permettono la comunicazione bidirezionale.''  
 \end{quote}
-Mentre \cite{art:rif.31} spiega che:
+L'articolo \cite{art:rif.31} illustra le finestre di ricezione:
 \begin{quote}
 	''La trasmissione del collegamento verso upstream di ciascun dispositivo finale è seguita da due, brevi finestre di ricezione downlink, in ingresso al nodo.''
 \end{quote}
-Sempre secondo lo stesso articolo:
+Nello lo stesso articolo viene definita la trasmissione del dispositivo di Classe A:
 \begin{quote}
 	''Lo slot di trasmissione pianificato dal dispositivo finale si basa sulle proprie esigenze di comunicazione con una piccola variazione basata su un tempo casuale (tipo di protocollo ALOHA). Questa operazione di classe A è il più basso sistema di dispositivo di alimentazione finale per applicazioni che richiedono solo comunicazioni di downlink dal server poco dopo che il dispositivo finale ha inviato una trasmissione di uplink. Le comunicazioni in downlink dal server vengono accodate automaticamente fino al successivo uplink pianificato.'' 
 \end{quote}
@@ -992,7 +960,7 @@ In \cite{art:rif.27} viene spiegato perché i sensori di Classe A hanno un consu
 \begin{quote}
 	''I sensori Classe A sono i nodi finali LoRa caratterizzati dal più basso utilizzo di potenza in quanto consentono la ricezione di messaggi server-nodo soltanto subito dopo l’invio del segnale nodo-server. Qualsiasi altra comunicazione dal server al nodo avverrà al successivo scambio programmato.''  
 \end{quote}
-In base a \cite{art:rif.49}:
+Nel documento \cite{art:rif.49} è spiegato lo stato del dispositivo di Classe A:
 \begin{quote}
 	''I dispositivi terminali di classe A sono irraggiungibili per la maggior parte del tempo, le possibilità di invio al dispositivo sono scarse. Secondo lo standard, i dispositivi terminali di classe A sono obbligati ad aprire una o due finestre di ricezione dopo ciascuna trasmissione a upstream per consentire al Network Server di inviare un messaggio potenziale al dispositivo finale.'' 
 \end{quote}
@@ -1005,27 +973,27 @@ Fig. 12 Dispositivi di classe A, gateway e NS (server di rete). \\
 Lo schema è tratto dall'articolo \cite{art:rif.49}. \\
 \end{figure}
 
-Sempre secondo \cite{art:rif.49}:
+Nello stesso documento viene spiegata come avviene la ricezione del dispositivo di Classe A:
 \begin{quote}
-	''Quando un dispositivo terminale riceve una trasmissione downlink nella prima finestra, viene liberato dall'apertura della seconda finestra. Altrimenti, dovrebbe aprire la seconda finestra. Si noti che un dispositivo terminale ascolta sullo stesso canale l'ultima trasmissione upstream nella prima finestra di ricezione (a meno che RX1DROffset non differisca da zero), mentre ascolta su un canale separato la seconda finestra. Inoltre, una classe A deve mettersi in attesa di trasmissioni upstream fino alla chiudura delle finestre di ricezione. Infine, sia i messaggi upstream che downstream possono essere inviati come messaggi confermati o non confermati. 
+	''Quando un dispositivo terminale riceve una trasmissione downlink nella prima finestra, viene liberato dall'apertura della seconda finestra. Altrimenti, dovrebbe aprire la seconda finestra. Si noti che un dispositivo terminale ascolta sullo stesso canale l'ultima trasmissione upstream nella prima finestra di ricezione (a meno che RX1DROffset non differisca da zero), mentre ascolta su un canale separato la seconda finestra. Inoltre, una classe A deve mettersi in attesa di trasmissioni upstream fino alla chiusura delle finestre di ricezione. Infine, sia i messaggi upstream che downstream possono essere inviati come messaggi confermati o non confermati.'' 
 \end{quote}
-L'articolo continua spiegano che:
+L'articolo \cite{art:rif.49} illustra lo schema di ritrasmissione:
 \begin{quote}	
-	I messaggi confermati vengono inviati utilizzando uno schema di ritrasmissione semplice a discrezione del dispositivo finale, senza violare le restrizioni del ciclo di lavoro. Le (ri)trasmissioni a downstream devono attendere una finestra di ricezione aperta e il loro timing è quindi controllato dal tempo di traffico a upstream di un dispositivo finale. Tuttavia, l'NS può impostare un bit di frame in sospeso in un messaggio downstream per segnalare a un dispositivo finale che potrebbe voler aprire una finestra di ricezione prima del normale.''
+	''I messaggi confermati vengono inviati utilizzando uno schema di ritrasmissione semplice a discrezione del dispositivo finale, senza violare le restrizioni del ciclo di lavoro. Le (ri)trasmissioni a downstream devono attendere una finestra di ricezione aperta e il loro timing è quindi controllato dal tempo di traffico a upstream di un dispositivo finale. Tuttavia, l'NS può impostare un bit di frame in sospeso in un messaggio downstream per segnalare a un dispositivo finale che potrebbe voler aprire una finestra di ricezione prima del normale.''
 \end{quote}
 
 \subsubsection{Classe B – finali bidirezionali con finestre di ricezione programmate}
-In base a \cite{art:rif.27}:
+Il documento \cite{art:rif.27} descrive le funzionalità dei dispositivi di Classe B:
 \begin{quote}
 	''I dispositivi di Classe B LoRa forniscono le funzionalità dei classe A con l’aggiunta della possibilità di programmare intervalli di ricezione di informazioni in orari prestabiliti.'' 
 \end{quote}
-Mentre in \cite{art:rif.31} viene precisato che:
+L'articolo \cite{art:rif.31} spiega come avviene l'apertura della finestra di ricezione:
 \begin{quote}
 	''Per consentire al dispositivo finale di aprire la finestra di ricezione all'ora pianificata, esso riceve un segnale di sincronizzazione dal gateway. Ciò consente al server di sapere quando il dispositivo terminale è in ascolto.''
 \end{quote}
 %La sincronizzazione temporale della rete avviene tramite l’invio di segnali regolari nel tempo dal gateway verso il nodo \cite{art:rif.27}.
 \subsubsection{Classe C – finali bidirezionali con massimo numero di slot in ingresso}
-In base a quanto scritto in \cite{art:rif.27}:
+Il documento \cite{art:rif.27} descrive le funzionalità dei dispositivi di Classe C:
 \begin{quote}
 	''I sensori Classe C LoRa permettono di avere il massimo livello di trasmissione server-nodo, ovvero, hanno finestre di ricezione quasi continuamente aperte, chiuse solo durante la trasmissione. La ricezione viene inibita solo nel momento in cui il nodo sta inviando informazioni verso la rete. Questa caratteristica rende i finali di Classe C particolarmente adatti alle reti LoRa caratterizzate da flussi di dati server-nodo superiori a quelli nodo-server.''
 \end{quote}
@@ -1033,11 +1001,11 @@ In base a quanto scritto in \cite{art:rif.27}:
 %% Un pacchetto LoRa è costituito da un preambolo, un'intestazione, un payload e un campo CRC. La specifica LoRaWAN identifica tre classi di dispositivi di Classe A, in cui i dispositivi finali utilizzano ALOHA puro per accedere al supporto per l'uplink. Questa classe è la più semplice e anche più comunemente usata. Supporta un collegamento verso valle solo in due finestre di ricezione (di default 1 s e 2 s) con un DR definito che segue una trasmissione di collegamento ascendente. I dispositivi di classe A hanno il consumo energetico più basso. I dispositivi di classe B possono inoltre utilizzare i segnali di beacon periodici emessi dai gateway per sincronizzarsi con la rete e programmare un'ulteriore finestra di ricezione. I dispositivi di classe C ascoltano sempre il canale quando non stanno trasmettendo. %
 
 \subsubsection{LoRaWAN PHY Layer}
-L'articolo \cite{art:rif.49} presenta come è implementato LoRaWAN PHY Layer:
+Il documento \cite{art:rif.49} presenta come è implementato LoRaWAN PHY Layer:
 \begin{quote}
 	''La classe LoRaWANPhy è stata costruita sul concetto SpectrumPhy. La maggior parte dei modelli PHY impiegano un approccio basato sul segnale a un rapporto di rumore di interferenza (SINR) per modellare l'influenza della perdita di propagazione e interferenze intra-tecnologiche durante la ricezione di pacchetti. Ogni volta che il SINR cambia durante la ricezione dei pacchetti (ad esempio, una trasmissione interferente inizia o termina), viene avviato un nuovo blocco e il tasso di errore del blocco precedentemente ricevuto viene valutato in base al SINR costante e alla lunghezza di bit di questo blocco e al BER come fornito dal modello di errore.''
 \end{quote}
-Sempre nello stesso testo viene spiegato come si filtrano i pacchetti in ricezione:
+Nello stesso testo viene spiegato come si filtrano i pacchetti in ricezione:
 \begin{quote}
 	''Si noti che LoRaWANPhy avvia solo la ricezione di pacchetti per le trasmissioni con un valore SINR al di sopra del valore di interruzione SNR. Le trasmissioni entranti che cadono sotto il valore di cut-off vengono immediatamente eliminate dal PHY.''
 \end{quote}
@@ -1045,7 +1013,7 @@ L'articolo continua esponendo come si comporta il protocollo in ricezione:
 \begin{quote}
 	''Oltre alla modellazione di ricezione, la classe LoRaWANPhy implementa anche una macchina a stati finiti per strutturare il suo flusso di esecuzione.'' 
 \end{quote}
-La macchina a stati finiti (FSM) ha sei stati come mostrato in Figura 12. L'FSM funziona in questo modo:
+La macchina a stati finiti (FSM) ha sei stati come mostrato in Figura \ref{fsm1}. L'FSM funziona in questo modo:
 \begin{quote}
 	''Le transizioni tra stati sono principalmente attivate dallo strato MAC (non mostrato nella figura). Negli stati RX\_ON e TX\_ON, il PHY è pronto ad avviare una ricezione o trasmissione di pacchetti. Nello stato BUSY\_RX, il PHY è impegnato a ricevere una trasmissione (come per la suddetta ricezione a chunk, suddivisone del pacchetto in parti da 256 KB). Nello stato BUSY\_TX, il PHY sta inviando una trasmissione. Le ricezioni e le trasmissioni in corso possono essere annullate in qualsiasi momento, come indicato dalle transizioni di stato a TRX\_OFF. Si prevede che i PHY dei dispositivi di classe A rimangano per lo più in stato di inattività, mentre i PHY dei gateway dovrebbero essere nello stato RX\_ON per la maggior parte del tempo.''
 \end{quote}
@@ -1054,7 +1022,7 @@ Non ci sono differenze nelle classi PHY tra dispositivi e gateway di classe A. P
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/MSFLoRaWAN.png}
-
+\label{fsm1}
 Fig. 11 Macchina a stati finiti della classe LoRaWANPhy.\\
 Immagine tratta da \cite{art:rif.49}. \\
 \end{figure}
@@ -1064,23 +1032,23 @@ Nell'articolo \cite{art:rif.49} è presentata l'implementazione di LoRaWAN MAC L
 \begin{quote}
 	''Il driver del livello PHY è la classe LoRaWANMac. La sua funzionalità include i pacchetti di accodamento per la consegna, l'apertura delle finestre di ricezione e la gestione delle ritrasmissioni sui dispositivi finali e la traccia dell'RDC di un nodo. Mentre esiste una classe LoRaWANMac per entrambi i dispositivi e gateway di classe A, la funzionalità di questa classe è diversa, ad esempio le ritrasmissioni per gateway sono gestite dall'NS. Allo stesso modo, il gateway MAC non ha il concetto di ricevere finestre poiché ascolta sempre il traffico upstream (quando non trasmette).''
 \end{quote}
-Analogamente a LoRaWANPhy, la classe LoRaWANMac implementa anche un FSM come illustrato nella figura. 
+Analogamente a LoRaWANPhy, la classe LoRaWANMac implementa anche un FSM come illustrato nella figura \ref{fsm2}. 
 
 \begin{figure}
 \centering
 \includegraphics[scale=.3]{Immagini/MSFLoRaMAC.png}
-
+\label{fsm2}
 Fig. 12 LoRaWANMac FSM è costituito da tre stati per gateway e sette stati per dispositivi finali di classe A.\\
 Immagine tratta da \cite{art:rif.49}. \\
 \end{figure}
 
-Mentre un oggetto MAC del dispositivo finale passa attraverso tutti gli stati, gli oggetti MAC del gateway sono limitati a tre stati:
+Mentre il livello MAC del dispositivo finale passa attraverso tutti gli stati, il livello MAC del gateway sono limitati a tre stati:
 \begin{quote}
 	''Lo stato UNAVAIL è un caso esclusivo dei gateway, in cui il MAC è bloccato dall'invio di un pacchetto. Questo stato viene attivato quando uno degli altri MAC sul gateway si trova nello stato TX, impedendo in tal modo le trasmissioni simultanee su diversi oggetti MAC sullo stesso gateway.'' 
 \end{quote}	
-La catena nella parte superiore della figura 12 è correlata alle finestre di ricezione obbligatorie per i dispositivi di fine classe A nelle reti LoRaWAN. 
+La catena nella parte superiore della figura \ref{fsm2} è correlata alle finestre di ricezione obbligatorie per i dispositivi finali classe A nelle reti LoRaWAN. 
 \begin{quote}
-	''Dopo lo stato TX, un dispositivo terminale passa sempre allo stato WRW1. Il dispositivo finale spende 1 secondo (a partire dalla fine della trasmissione) in questo stato "wait for RW1", dopo di che apre RW1. Il dispositivo finale controlla se un preambolo PHY è stato ricevuto il simbolo LoRa 12.25 dopo l'inizio della finestra di ricezione. Se è stato rilevato un preambolo, il dispositivo continua a ricevere la trasmissione a downstream.	Se non è stato rilevato un preambolo, chiude la finestra di ricezione e passa allo stato WRW2. Se il dispositivo finale riceve correttamente una trasmissione downstream in RW1, passa allo stato IDLE. Altrimenti, chiude la finestra di ricezione e passa allo stato WRW2. Nello stato WRW2, il dispositivo terminale è in attesa di aprire la seconda finestra di ricezione (nello stato RW2) dopo 2 s dopo la fine della trasmissione. Lo stesso controllo del preambolo PHY da RW1 viene eseguito dopo l'apertura di RW2. Se viene ricevuta una trasmissione a downstream in RW2, il dispositivo terminale passerà allo stato IDLE. In caso contrario, potrebbe passare allo stato ACK\_TO (acknowledgement timeout) in cui trascorre un intervallo di tempo casuale prima di passare allo stato IDLE. Lo stato ACK\_TO viene visitato solo quando il dispositivo finale prevede un riconoscimento in una delle sue finestre di ricezione (ad esempio, dopo la trasmissione di un messaggio upstream confermato). Nel caso in cui non sia previsto un riscontro, il dispositivo passa direttamente allo stato IDLE da RW2.'' 
+	''Dopo lo stato TX, un dispositivo terminale passa sempre allo stato WRW1. Il dispositivo finale spende un secondo (a partire dalla fine della trasmissione) in questo stato "wait for RW1", dopo di che apre RW1. Il dispositivo finale controlla se un preambolo PHY è stato ricevuto il simbolo LoRa 12.25 dopo l'inizio della finestra di ricezione. Se è stato rilevato un preambolo, il dispositivo continua a ricevere la trasmissione a downstream.	Se non è stato rilevato un preambolo, chiude la finestra di ricezione e passa allo stato WRW2. Se il dispositivo finale riceve correttamente una trasmissione downstream in RW1, passa allo stato IDLE. Altrimenti, chiude la finestra di ricezione e passa allo stato WRW2. Nello stato WRW2, il dispositivo terminale è in attesa di aprire la seconda finestra di ricezione (nello stato RW2) dopo 2 secondi dopo la fine della trasmissione. Lo stesso controllo del preambolo PHY da RW1 viene eseguito dopo l'apertura di RW2. Se viene ricevuta una trasmissione a downstream in RW2, il dispositivo terminale passerà allo stato IDLE. In caso contrario, potrebbe passare allo stato ACK\_TO (acknowledgement timeout) in cui trascorre un intervallo di tempo casuale prima di passare allo stato IDLE. Lo stato ACK\_TO viene visitato solo quando il dispositivo finale prevede un riconoscimento in una delle sue finestre di ricezione (ad esempio, dopo la trasmissione di un messaggio upstream confermato). Nel caso in cui non sia previsto un riscontro, il dispositivo passa direttamente allo stato IDLE da RW2.'' 
 \end{quote}	
 Le ritrasmissioni nel caso di dispositivi finali sono gestite interamente dalla classe LoRaWANMac. Secondo \cite{art:rif.49} sono gestite in questo modo:
 \begin{quote}
@@ -1101,8 +1069,7 @@ La scelta di inviare i messaggi non confermati quattro volte aumenta il PDR per 
 \begin{quote}
 	''Il PDR è inferiore negli scenari in cui l'interferenza diventa il fattore limitante. Si noti che la percentuale di velocità di trasmissione più lenta nei pacchetti non consegnati è superiore a quella delle velocità di trasmissione più veloci.'' 
 \end{quote}	
-Il fenomeno appena descritto è dovuto in parte alla maggiore quota di dispositivi finali con velocità di trasmissione dati più basse nelle reti e a causa dei tempi di trasmissione più elevati a velocità di trasmissione inferiori. 
-Inoltre \cite{art:rif.49} spiega che al contrario di quello che ci si aspetterebbe:
+Il fenomeno appena descritto è dovuto ad un maggior numero di dispositivi finali con velocità di trasmissione dati più basse. Inoltre \cite{art:rif.49} spiega che al contrario di quello che ci si potrebbe aspettare:
 \begin{quote}
 	''Il PDR dei messaggi confermati non è sempre superiore a quello dei messaggi non confermati. Il PDR dei messaggi CON (confirmed) è solo superiore a quello di UNC (unconfirmed) nei casi in cui il carico del traffico è molto basso. Nelle simulazioni questo è solo il caso per 100, 500 e 1000 dispositivi terminali per un periodo di dati di 60'000 s e per 100 dispositivi terminali per un periodo di dati di 6000 s. In tutti gli altri casi il PDR dei messaggi confermati è inferiore.''
 \end{quote}	
@@ -1124,13 +1091,13 @@ L'aumento della densità del gateway ha prodotto più di un effetto positivo:
 \end{quote}
 Il testo \cite{art:rif.49} continua facendo notare che:
 \begin{quote}
-	Per i messaggi non confermati, il PDR aumenta notevolmente all'aumentare del numero di gateway. Per i messaggi confermati, l'aumento del PDR è notevole ma non è così acuto come per i messaggi non confermati. Il numero di conferme inviate aumenta con l'aumentare del numero di gateway.''
+	''Per i messaggi non confermati, il PDR aumenta notevolmente all'aumentare del numero di gateway. Per i messaggi confermati, l'aumento del PDR è notevole ma non è così acuto come per i messaggi non confermati. Il numero di conferme inviate aumenta con l'aumentare del numero di gateway.''
 \end{quote}
-La relazione apparentemente contraddittoria tra il numero di RW persi e il numero di gateway è spiegata da \cite{art:rif.49} così:
+La relazione apparentemente contraddittoria tra il numero di RW persi e il numero di gateway è spiegata dal documento \cite{art:rif.49} come di seguito:
 \begin{quote}	
 	''Nelle reti LoRaWAN saturate (ad esempio, scenari con PDR bassi per messaggi non confermati), il numero di messaggi inviati ricevuti con successo aumenta con la densità del gateway. In caso di messaggi confermati, il numero più alto di messaggi upstream ricevuti indica che NS è in grado di identificare un numero maggiore di finestre di ricezione dei dispositivi finali (poiché gli RW vengono sempre aperti dopo una trasmissione di un dispositivo finale). Quando i gateway non sono in grado di inviare queste finestre di ricezione (a causa delle restrizioni del ciclo di lavoro), il numero di RW persi aumenta. In scenari meno saturi, il numero di RW persi diminuisce all'aumentare della densità del gateway non porta a identificare più finestre di ricezione. Invece, il numero di RW persi diminuisce e vengono inviati più riconoscimenti, a vantaggio del PDR.''
 \end{quote}
-I risultati di questo esperimento \cite{art:rif.49} mostrano che i messaggi confermati hanno un impatto negativo e grave sui rapporti di consegna dei pacchetti dei messaggi in upstream. La scelta di aumentare il numero di gateway ha aiutato ad alleviare questo problema ma non a risolverlo. Infatti secondo l'autore:
+I risultati dell'esperimento \cite{art:rif.49} mostrano che i messaggi confermati hanno un impatto negativo e grave sui rapporti di consegna dei pacchetti dei messaggi in upstream. La scelta di aumentare il numero di gateway ha aiutato ad alleviare questo problema ma non a risolverlo. Infatti secondo l'autore:
 \begin{quote}
 	''I risultati dell'intervallo di dati scambiati in 600 secondi mostrano che il PDR rimane basso anche in una rete di quattro gateway.''
 \end{quote}
@@ -1141,20 +1108,20 @@ L'impatto dei messaggi di dati trasmessi in downstream sui messaggi in upstream 
 La letteratura ha dimostrato che l'interferenza tra diversi fattori di diffusione può essere modellata accuratamente come rumore, mentre l'interferenza del cofattore di diffusione può essere modellata in modo più accurato tramite un approccio stocastico.
 Infine, se a causa delle limitazioni RDC (anziché della bassa qualità del collegamento) i messaggi di dati downstream non vengono recapitati correttamente si può aumentare la velocità di trasmissione dati. Così facendo aumenta la capacità della rete LoRaWAN. 
 
-\subsection{Protocollo IP / Lv 3} 
-In base a \cite{art:rif.20}:
+\subsection{Protocollo IP} 
+Secondo l'articolo \cite{art:rif.20} LoRaWAN è incapsulata da IP:
 \begin{quote}
 	''LoRa una rete è IP-based compatibile con IPv6, una caratteristica essenziale per ogni sviluppo di nuovi progetti IoT. Una rete LoRa comprende dei gateway per la connessione al server centrale di rete. Gli end-point comunicano con una topologia di rete a stella mediante un collegamento wireless single-hop ai gateway con la possibilità di collegarsi a più gateway, per garantire la ridondanza del collegamento. Per coprire una grande area è sufficiente un'infrastruttura leggera.''
 \end{quote}
-L'articolo \cite{art:rif.25} riassume rapidamente un'architettura e come si connette ad Internet:
+L'articolo \cite{art:rif.25} riassume rapidamente un'architettura e la connessione ad Internet:
 \begin{quote}
-	''L'architettura di una rete LoRa prevede una tipologia a stella di stelle in cui il Gateway è un bridge trasparente per i messaggi tra Devices e il Network Server. I Gateway sono connessi al Network server tramite una connessione basata sollo standard IP, mentre i Device utilizzando una comunicazione wireless single-hop verso uno o più Gateway. La comunicazione verso i Device è in generale bidirezionale, ma può anche supportare il muticast per gestire l'aggiornamento o la distribuzione massiva di messaggi per ridurre i tempi di comunicazione.''
+	''L'architettura di una rete LoRa prevede una tipologia a stella in cui il Gateway è un bridge trasparente per i messaggi tra Devices e il Network Server. I Gateway sono connessi al Network server tramite una connessione basata su lo standard IP, mentre i Device utilizzando una comunicazione wireless single-hop verso uno o più Gateway. La comunicazione verso i Device è in generale bidirezionale, ma può anche supportare il muticast per gestire l'aggiornamento o la distribuzione massiva di messaggi per ridurre i tempi di comunicazione.''
 \end{quote}
 Nel testo \cite{art:rif.30} viene descritto il centro stella di una rete LoRa:
 \begin{quote}
-	''Il cuore di ogni concentratore LoRa è un demodulatore LoRa multi-canale in grado di decodificare tutte le varianti di modulazione LoRa per diverse frequenze in parallelo. Un demodulatore LoRa standard per dispositivo terminale (LoRa modem come SX1276 o SX1272) può decodificare un solo tipo di modulazione per frequenza. Attualmente, il demodulatore LoRa ampiamente utilizzato è SX1301 di Semtech. Questo chip è integrato in tutti i gateway LoRa.''
+	''Il cuore di ogni concentratore LoRa è un demodulatore LoRa multi-canale in grado di decodificare tutte le varianti di modulazione LoRa per diverse frequenze in parallelo. Un demodulatore LoRa standard per dispositivo terminale può decodificare un solo tipo di modulazione per frequenza. Attualmente, il demodulatore LoRa ampiamente utilizzato è SX1301 di Semtech. Questo chip è integrato in tutti i gateway LoRa.''
 \end{quote}
-Nello stesso documento tratta le differenze tra i vari gateway in commercio:
+Lo stesso documento tratta le differenze tra i vari gateway in commercio:
 \begin{quote}
 	''A causa del crescente numero di produttori di gateway, sta diventando difficile individuare le differenze tra i gateway. Per un operatore di rete su larga scala, i principali fattori di distinzione dovrebbero essere le prestazioni radio (sensibilità e potenza di invio), la connessione del chip SX1301 all'MCU gateway e la distribuzione del segnale PPS. SX1301 collegato su un bridge da USB a SPI ha una latenza più lunga sull'MCU rispetto a un SX1301 direttamente collegato al bus SPI dell'MCU. Attualmente, l'unico SPI collegato SX1301 si trova nella stazione IoT Kerlink, tutti gli altri gateway utilizzano ponti USB-to-SPI FTDI (o simili).'' 
 \end{quote}
@@ -1163,10 +1130,7 @@ Pertanto in \cite{art:rif.30} viene esposto come sincronizzare la popolazione di
 	''La disponibilità del segnale PPS (Pulse Per Second) consente una sincronizzazione temporale precisa sull'intera popolazione di gateway in una rete. È un attivatore chiave per i beacon a livello di rete, che può essere utilizzato per la sincronizzazione dell'ora da parte dei dispositivi finali. La distribuzione PPS è attualmente supportata solo dalla stazione IoT Kerlink, dalla scheda di riferimento SX1301 e dall'IMST iC880A.''
 \end{quote}
 
-\subsection{Applicazioni LoRa / Lv 7}
-\cite{art:rif.43}
-I gateway inoltrano i frame ricevuti ad un server di rete cloud ospitato da AWS (CNS). Il sistema CNS procede a un primo filtraggio dei frame ricevuti tramite over-the-air. In questa fase vengono elaborati solo i frame con un CRC valido. Dal CNS basato su AWS, trasfersce i dati attraverso MQTT a una pipeline di elaborazione. Quest'ultimo consiste in un OpenTSDB che consuma valori di sensori e li memorizza in un database. È implementata un'interfaccia utente e una serie di API per estrarre e visualizzare i dati da OpenTSDB. Quando si memorizzano i dati su OpenTSDB, si applica un secondo livello di filtraggio ottenuto applicando le condizioni al contorno alle letture e ai valori dei sensori. La necessità di applicare queste condizioni al contorno deriva dal fatto che si possono verificare errori nella lettura del sensore, che provenivano da guasti intermittenti sul sensore stesso o da byte over-air che cambiano, ma che arrivavano con un buon CRC che genera dati di sensore errati.
-
+\subsection{Applicazioni LoRa}
 L'articolo \cite{art:rif.20} introduce l'aspetto della sicurezza nelle reti LoRa:
 \begin{quote}
 	''Un aspetto di notevole importanza per le applicazioni IoT è la criptazione di sicurezza incorporata nelle reti LoRa, che consente ai livelli applicazione di offrire una struttura di protezione dei dati personali o delle funzioni critiche dagli attacchi fisici o informatici.''
@@ -1508,7 +1472,7 @@ I problemi relativi al calcolo della probabilità di collisione per un grande nu
 La funzione di distribuzione, mostrata in figura 8 è basata su (2.2), dipende dall'aumento del numero totale $m$ dei dispositivi, che è la somma dei dispositivi di ciascuna delle tre tecnologie (2.3), (2.4) e (2.5).
 \begin{quote}
 	\begin{equation}
-	m = 3n 
+	m = 3n \label{m3n}
 	\end{equation}
 	\begin{equation}
 	F(m) = 1 - (P_L+P_S+P_I)m/3 - P'_0 
