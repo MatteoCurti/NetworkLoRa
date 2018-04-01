@@ -780,6 +780,7 @@ T_{oA} = T_{preamble} + T_{payload} = \\
 = T_{sym}(L_{preabmle}+L_{payload}) = \\
 \end{equation}
 \begin{equation}
+\label{eq:timeonair}
 = \frac{2^{SF}}{BW}\times((n_{preamble}+4.25)+(8+M))
 \end{equation}
 \begin{equation}
@@ -787,7 +788,7 @@ M = max(ceil(\frac{8PL-4SF+42-20H}{4(SF-2DE)}\times(CR+4),0))
 \end{equation}
 	Dove la larghezza di banda BW assume valori in {62,5 kHz, 125 kHz, 250 kHz, 500 kHz}, SF è il fattore di diffusione, $T_{sym}$ è il tempo di trasmissione del simbolo, determinato da SF e BW, $n_{preamble}$ è la lunghezza del preambolo programmato, PL è il numero di byte del carico utile, H = 0 significa presenza dell'intestazione (header), H = 1 quando non è presente un'intestazione, DE = 1 vuol dire che è stata impostata l'ottimizzazione a bassa velocità di trasmissione dati, altrimenti DE = 0, CR varia da 1 a 4 (corrispondente alla velocità di codifica da 4/5 a 4/8).''} 
 \end{quote}	
-Secondo la formula, il tempo di trasmissione on-the-air è inversamente proporzionale a BW e aumenta con l'aumento di SF.
+Secondo la formula \ref{eq:timeonair}, il tempo di trasmissione on-the-air è inversamente proporzionale a BW e aumenta con l'aumento di SF.
 \begin{quote}
 	\textit{''Sono stati fatti esperimenti per verificare la relazione tra tempo di trasmissione on-air, SF e BW. L'analizzatore di spettro RSA306 è stato utilizzato per misurare il tempo di trasmissione in onda del modulo. È stato utilizzato il modulo YL-800IL con potenza di trasmissione 100 mW e lunghezza del carico utile 1 byte.''} 
 \end{quote}
@@ -859,13 +860,14 @@ Inoltre l'autore di \cite{art:rif.49} vuole far notare che:
 L'articolo continua con i passaggi dopo l'interleaver:
 % Nella teoria dell'informazione l'entropia di una sorgente di messaggi è l'informazione media contenuta in ogni messaggio emesso. L'informazione contenuta in un messaggio è tanto più grande quanto meno probabile era. Un messaggio scontato, che ha un'alta probabilità di essere emesso dalla sorgente contiene poca informazione, mentre un messaggio inaspettato, poco probabile contiene una grande quantità di informazione. % 
 \begin{quote}	
-	\textit{''Prima di passare il flusso di bit sbiancato al modulatore, è prima mappato in grigio inverso. Questo produce una sequenza di numeri interi, che vengono inviati al modulatore LoRa. Al modulatore LoRa, una sequenza di campioni $N$ complessi di time-shifted in banda base risulterà generata tramite un accumulatore di fase come indicato dal sistema \ref{sistema}, dove $N$, il numero di campioni per simbolo di banda base, è uguale a $2^{SF} (f_s / BW)$. Il numero intero di input determina il time-shift del up-chirp:
-	\begin{equation}[h]
+	\textit{''Prima di passare il flusso di bit sbiancato al modulatore, è prima mappato in grigio inverso. Questo produce una sequenza di numeri interi, che vengono inviati al modulatore LoRa. Al modulatore LoRa, una sequenza di campioni $N$ complessi di time-shifted in banda base risulterà generata tramite un accumulatore di fase come indicato dal sistema \ref{eq:sistema}, dove $N$, il numero di campioni per simbolo di banda base, è uguale a $2^{SF}(f_s / BW)$. Il numero intero di input determina il time-shift del up-chirp: % $2^{SF}\times(f_s / BW)$
+	\begin{equation}
 	m(i) = \bigg \{
 	\begin{array}{rl}
 	exp(-j\pi) & (i = 0)\\
 	m(i-1)exp(if(i)) & (i = 1, \dots, N-1)\\
-	\end{array} \label{sistema}
+	\end{array} 
+	\label{eq:sistema}
 	\end{equation}
 	dove la frequenza istantanea f (i) è data da:
 	\begin{equation}
@@ -915,8 +917,9 @@ Le misurazioni sono state effettuate dagli autori dell'articolo \cite{art:rif.49
 
 I parametri delle simulazioni condotte dagli autori di \cite{art:rif.49} sono stati riportati nella tabella \ref{tab:loraphy}.
 \begin{quote}
-	\textit{''Le simulazioni sono state eseguite per valori SNR in passi di 1 dB negli intervalli. Successivamente, una curva esponenziale come definita dall'equazione \ref{m3n} è stata adattata a un sottoinsieme dei valori logaritmici dei valori BER misurati.''}
+	\textit{''Le simulazioni sono state eseguite per valori SNR in passi di 1 dB negli intervalli. Successivamente, una curva esponenziale come definita dall'equazione \ref{eq:log10} è stata adattata a un sottoinsieme dei valori logaritmici dei valori BER misurati.''}
 	\begin{equation}
+	\label{eq:log10}
 	log_{10}(BER (SNR_{dB})) = \alpha exp (\beta SNR_{dB})
 	\end{equation}
 \end{quote}
@@ -1475,22 +1478,26 @@ I problemi relativi al calcolo della probabilità di collisione per un grande nu
 	\end{equation}
 	dove $S$ è il numero di stati probabilistici e $n$ è il numero di dispositivi di ciascuna tecnologia. Il calcolo della probabilità di collisione in caso di un numero maggiore di dispositivi che utilizzano ciascuna tecnologia è definito come:
 	\begin{equation}
+	\label{eq:disequazione}
 	P(N \leq n) = 1 - n(P_L + P_S + P_I) - P'_0
 	\end{equation}
 	dove ogni parametro descrive stati specifici di probabilità come descritto di seguito. Tutte le variabili sono state calcolate dai valori già noti di probabilità degli eventi in tabella \ref{tab:confronto}. Qui viene usato il complemento per esprimere l'evento opposto, che è etichettato come $c$ in apice. Un prerequisito è che il numero di dispositivi $n$ sia lo stesso per tutte le tecnologie.
 	\begin{equation}
+	\label{eq:lora}
 	P_L = P(L)P(L^c)^{n-1}P(S^c)^nP(I^c)^n
 	\end{equation}
 	\begin{equation}
+	\label{eq:sigfox}
 	P_S = P(L^c)^nP(S)P(S^c)^{n-1}P(I^c)^n
 	\end{equation}
 	\begin{equation}
+	\label{eq:iqrf}
 	P_I = P(L^c)^nP(S^c)^nP(I^c)^{n-1}
 	\end{equation}
 	\begin{equation}
 	P'_0 = (P(L^c)P(S^c)P(I^c))^n
 	\end{equation}
-	dove $N$ è il numero di dispositivi di ciascuna tecnologia durante la collisione. La risultante dipendenza della probabilità di collisione su un canale è presente dopo la sostituzione nell'equazione (2.2) altrimenti troppo lunga e difficile da comprendere, quindi è divisa in sottosezioni, che illustrano chiaramente il loro utilizzo.''}
+	dove $N$ è il numero di dispositivi di ciascuna tecnologia durante la collisione. La risultante dipendenza della probabilità di collisione su un canale è presente dopo la sostituzione nell'equazione \ref{eq:disequazione} altrimenti troppo lunga e difficile da comprendere, quindi è divisa in sottosezioni, che illustrano chiaramente il loro utilizzo.''}
 \end{quote}
 
 \begin{figure}
@@ -1500,16 +1507,18 @@ I problemi relativi al calcolo della probabilità di collisione per un grande nu
 	\caption{Distribuzione della funzione di probabilità di collisione 2 o più dispositivi}
 	\label{fig:dprob}
 \end{figure}
-% nota label formule
-La funzione di distribuzione, mostrata in figura \ref{fig:dprob} è basata su (2.2), dipende dall'aumento del numero totale $m$ dei dispositivi, che è la somma dei dispositivi di ciascuna delle tre tecnologie (2.3), (2.4) e (2.5).
+
+La funzione di distribuzione, mostrata in figura \ref{fig:dprob} è basata su \ref{eq:disequazione}, dipende dall'aumento del numero totale $m$ dei dispositivi \ref{eq:totale}, che è la somma dei dispositivi di ciascuna delle tre tecnologie \ref{eq:lora}, \ref{eq:sigfox} e \ref{eq:iqrf}.
 \begin{quote}
 	\begin{equation}
-	m = 3n \label{m3n}
+	\label{eq:totale}
+	m = 3n 
 	\end{equation}
 	\begin{equation}
+	\label{eq:distribuzione}
 	F(m) = 1 - (P_L+P_S+P_I)m/3 - P'_0 
 	\end{equation}
-	\textit{''La funzione non è lineare come potrebbe sembrare la soluzione più semplice per il crescente numero di dispositivi;''}
+	\textit{''La funzione non è lineare come potrebbe sembrare la soluzione più semplice per il crescente numero di dispositivi.''}
 \end{quote}
 come nel grafico in figura \ref{fig:dprob}. 
 \begin{quote}
