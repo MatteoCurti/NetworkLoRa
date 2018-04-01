@@ -149,10 +149,9 @@ Ciò avviene perché la retta non passa per l'origine, la variabile d'uscita è 
 \begin{figure}
 	\centering
 	\includegraphics[scale=.8]{Immagini/CarTrasferimento.png}
-	
-	Fig. 1 Caratteristica di trasferimento ideale vs. reale. \cite{art:rif.19}
-	\caption{Caratteristica di trasferimento ideale}
-	\label{fig:car}
+	\caption{Caratteristica di trasferimento ideale vs. reale}
+	\label{fig:caratteristicatrasferimento}
+	Immagine tratta dall'articolo \cite{art:rif.19}
 \end{figure}
 
 Secondo \cite{art:rif.1} la \textbf{caratteristica lineare} è definita con la seguente legge: 
@@ -247,8 +246,9 @@ La seconda \textbf{classificazione} è in base alla necessità di energia estern
 \begin{figure}
 \centering
 \includegraphics[scale=.7]{Immagini/trasduttore.png}
-
-Fig. 2 Schema di un trasduttore. \cite{art:rif.33}
+\caption{Schema di un trasduttore} 
+\label{fig:schematrasduttore}
+Immagine tratta dall'articolo \cite{art:rif.33}. \\
 \end{figure}
 
 \section{Parametri caratteristici}
@@ -290,7 +290,7 @@ In \cite{art:rif.13} viene illustrato come misurare l'\textbf{accuratezza} (o in
 	Le caratteristiche di affidabilità in un trasduttore sono relazionate alla sua vita utile ed a possibili cause di mal funzionamento nel sistema in cui è inserito.
 	Infatti, l'accuratezza è la capacità del sensore del trasduttore di espletare la funzione per cui è stato costruito in condizioni prestabilite e per un tempo prefissato. Questo parametro è espresso in termini statistici come la probabilità che il dispositivo funzioni per un tempo o per un numero di cicli specificato. Solo di rado esso è riportato dai costruttori.''}
 \end{quote}
-Nel funzionamento reale il sensore descrive una caratteristica che si discosta dalla funzione ideale come in figura 1.
+Nel funzionamento reale il sensore descrive una caratteristica che si discosta dalla funzione ideale come in figura \ref{fig:caratteristicatrasferimento}.
 
 \subsection{Il drift}
 In \cite{art:rif.14} viene definito il \textbf{drift}:
@@ -398,7 +398,8 @@ I calcolatori non possono elaborare i segnali in uscita da un trasduttore. In qu
 	\centering
 	\includegraphics[scale=.4]{Immagini/schemaAD.png}
 	
-	Fig. 3 Schema a blocchi di un convertitore A/D. \\
+	\caption{Schema a blocchi di un convertitore A/D}
+	\label{fig:schemaconvertitore}
 	Materiale didattico del corso "Fondamenti di segnali e sistemi" \cite{art:rif.7}.
 \end{figure}
 
@@ -790,21 +791,23 @@ Secondo la formula, il tempo di trasmissione on-the-air è inversamente proporzi
 \begin{quote}
 	\textit{''Sono stati fatti esperimenti per verificare la relazione tra tempo di trasmissione on-air, SF e BW. L'analizzatore di spettro RSA306 è stato utilizzato per misurare il tempo di trasmissione in onda del modulo. È stato utilizzato il modulo YL-800IL con potenza di trasmissione 100 mW e lunghezza del carico utile 1 byte.''} 
 \end{quote}
-I risultati della misurazione fatta dagli autori di \cite{art:rif.44} effettuata con diversi BW e SF sono mostrati in figura 9 e figura 10. I risultati mostrano che all'aumentare della larghezza di banda il tempo di trasmissione on-the-air diminuisce, mentre aumentando il fattore di diffusione il tempo di trasmissione on-the-air aumenta. I risultati coincidono con quanto è stato previsto in teoria.
+I risultati della misurazione fatta dagli autori di \cite{art:rif.44} effettuata con diversi BW e SF sono mostrati in figura \ref{fig:toa} e figura \ref{fig:toasf}. I risultati mostrano che all'aumentare della larghezza di banda il tempo di trasmissione on-the-air diminuisce, mentre aumentando il fattore di diffusione il tempo di trasmissione on-the-air aumenta. I risultati coincidono con quanto è stato previsto in teoria.
 \begin{figure}
 	\centering
 	\includegraphics[scale=.5]{Immagini/r1.png}
 	
-	Fig. 9 Tempo di trasmissione on-the-air con diversa larghezza di banda.\\
-	Immagine presa dall'articolo \cite{art:rif.44}.
+	\caption{Tempo di trasmissione on-the-air con diversa larghezza di banda}
+	\label{fig:toa}
+	Immagine tratta dall'articolo \cite{art:rif.44}.
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=.5]{Immagini/r2.png}
 	
-	Fig. 10 Tempo di trasmissione on-the-air con diverso fattore di diffusione.\\
-	Immagine presa dall'articolo \cite{art:rif.44}.
+	\caption{Tempo di trasmissione on-the-air con diverso fattore di diffusione}
+	\label{fig:toasf}
+	Immagine tratta dall'articolo \cite{art:rif.44}.
 \end{figure}
 
 \subsubsection{Copertura del segnale}
@@ -812,7 +815,7 @@ La preparazione della prova per valutare la copertura del segnale eseguita in \c
 \begin{quote}
 	\textit{''Le misurazioni sono state eseguite per il caso in cui un modulo YL-900IL trasmetteva i dati periodicamente (ogni due secondi) ad un modulo che fungeva da stazione base. L'antenna del modulo era ad 1,5 m di altezza e l'antenna del modulo della stazione base era ad 4 m di altezza. Non erano presenti ostacoli tra i due moduli. I moduli funzionavano in banda di frequenza 433 MHz con potenza di trasmissione di 100 mW e guadagno dell'antenna di 6 dBi.''}
 \end{quote}
-Gli autori dell'articolo \cite{art:rif.44} hanno effettuato le misurazione riportati nella tabella 1. % Cita Tabella 1 
+Gli autori dell'articolo \cite{art:rif.44} hanno effettuato le misurazione riportati nella tabella \ref{tab:copertura}. 
 \begin{quote}
 	\textit{''I risultati mostrano la distanza più lontana raggiunta, in metri, mantenendo la perdita dei pacchetti inferiore al 10\%, con SF e BW diversi. Questo dimostra che l'aumento dell'intervallo dipende dalla diminuzione di BW o dall'aumento di SF, poiché per BW minori e SF maggiori possono migliorare significativamente la sensibilità.''}
 \end{quote}
@@ -823,6 +826,9 @@ Il testo continua facendo notare che la sensibilità non è l'unico parametro da
 Questa prova dimostra che per quanto LoRa possa connettere lunghe distanze la trasmissione deve limitare ad una certa soglia la perdita dei pacchetti. Per permettere una vasta copertura del segnale con questo limite è necessario aumentare la potenza del segnale ma ciò comporta un maggiore consumo energetico. Così facendo, si perde il vero vantaggio della tecnologia LoRa, che permette la copertura di lunghe distanze a basso consumo energetico.  
 %Per quanto possa essere discutibile la scelta la solia della perdita dei pacchetti fissata al 10\%, la disponibilità di banda è il fattore principale che permette di raggiungere lunghe distanze con una pardita di pacchetti accettabile. Le lunghe distanze promesse in fase teorica devono fare i conti con le condizioni climatiche che affliggono il territorio.
 
+\begin{table}
+\caption{Risultati delle misurazioni per verificare la copertura} 
+\label{tab:copertura}
 \begin{center}
 \begin{tabular}{|r|c|c|}
 SF&BW (kHz)&Portata inferiore al 10\% della perdita di pacchetti (m)\\ \hline
@@ -831,9 +837,9 @@ SF&BW (kHz)&Portata inferiore al 10\% della perdita di pacchetti (m)\\ \hline
 9&500&2130-2330\\ \hline
 11&500&4810-5010\\ \hline
 \end{tabular}
-\label{Tabella 1}. \\
 Le misurazioni sono state raccolte dagli autori dell'articolo \cite{art:rif.44}. \\
 \end{center}
+\end{table}
 
 \subsubsection{LoRa PHY error model}
 La tecnologia LoRa in letteratura viene associata al modello della tecnologia ALOHA. Questa associazione è utile per utilizzare modelli funzionati e collaudati per misurare le prestazioni di tecnologie simili e metterle a confronto. Questo approccio però non tiene conto della diversità dei due protocolli. ALOHA quando percepisce una collisione scarta i pacchetti letti e notifica secondo gli standard del protocollo l'avvenuta collisione. LoRa quando percepisce una collisione finisce la lettura del pacchetto e procede con il controllo degli errori. Questa scelta è dovuta alla particolare modulazione di LoRa che è meno sensibile agli errori in ricezione. Pertanto i pacchetti considerati scartati dai classici modelli ALOHA in realtà vengono letti correttamente, per questo LoRa PHY error model proposto in \cite{art:rif.49} da una stima più accurata delle prestazioni di LoRa.
@@ -842,7 +848,7 @@ La tecnologia LoRa in letteratura viene associata al modello della tecnologia AL
 \begin{quote}
 	\textit{''Per modellare gli effetti della perdita del percorso e dell'interferenza intra-LoRa, è stato sviluppato un modello di errore per LoRa PHY. È stato misurato il bit error rate (BER) per diverse configurazioni LoRa PHY su un canale AWGN (Additive White Gaussian Noise, rumore gaussiano bianco additivo).''}
 \end{quote}
-Il diagramma a blocchi delle simulazioni BER è mostrato in figura 11. 
+Il diagramma a blocchi delle simulazioni BER è mostrato in figura \ref{fig:schemaloraphy}. 
 \begin{quote}
 	\textit{''I bit di informazione generati nella sorgente di informazioni sono mappati ai bit di codice dall'encoder di correzione dell'errore. Questo codificatore implementa le code rate 5/4, 7/4 e 8/4 disponibili in LoRa.1, mentre il 5/4 CR è un semplice codice di controllo di parità, i CR 7/4 e 8/4 sono (7, 4) e (8, 4) codici di Hamming che correggono gli errori lineari. Questi codici possono correggere un errore di un bit e rilevare fino a due errori di bit. Successivamente, l'interleaver diagonale mischia i bit di codice in modo tale che alla sua uscita, i gruppi di bit PPM siano costituiti da bit della stessa posizione di bit di parole di codice consecutive PPM. Ad esempio, la prima parola di uscita raggruppa i bit in posizione 0 da parole in codice consecutivo PPM. PPM rappresenta la lunghezza di bit delle parole di uscita dell'interleaver. In LoRa il PPM di theinterleaver è uguale a LoRa SF. Di conseguenza, il numero di bit mappati per il simbolo LoRa è uguale a SF. A causa dell'interlacciamento, un simbolo perso nel ricevitore viene convertito in errori PPM a 1 bit su parole di codice consecutive PPM (piuttosto che un errore di bit PPM in una parola di codice senza interleaver). Dopo l'interleaver, le parole di output vengono sbiancate per aumentare l'entropia della fonte di informazioni.''}
 \end{quote}
@@ -880,12 +886,17 @@ All'interno del ricevitore è presente il demodulatore LoRa:
 \centering
 \includegraphics[scale=.7]{Immagini/SchemaABlocchi.png}
 
-Fig. 11 Schema a blocchi dell'implementazione della baseband LoRa PHY: mittente, canale AWGN e ricevitore.
+\caption{Schema a blocchi dell'implementazione della baseband LoRa PHY: mittente, canale AWGN e ricevitore}
+\label{fig:schemaloraphy}
 \end{figure}
 \item LoRa PHY BER Simulazioni:  \\
-Al fine di determinare il BER del livello fisico LoRa, sono state eseguite delle simulazioni con i parametri elencati in Tabella \ref{tabA}. 
-\begin{center}
+Al fine di determinare il BER del livello fisico LoRa, sono state eseguite delle simulazioni con i parametri elencati in Tabella \ref{tab:loraphy}. 
 
+
+\begin{table}
+\caption{Parametri LoRa PHY per simulazioni BER} 
+\label{tab:loraphy}
+\begin{center}
 \begin{tabular}{|c|c|c|c|}
 BW (kHz)&SF&CR&SNR(dB)\\ \hline
 125&7&1,3&[-20,0]\\ \hline
@@ -895,13 +906,14 @@ BW (kHz)&SF&CR&SNR(dB)\\ \hline
 125&11&1&[-23,-13]\\ \hline
 125&11&3&[-25,-13]\\ \hline
 125&12&1,3&[-26,-17]\\ \hline
-\end{tabular} \label{tabA}
-Tabella 3, parametri LoRa PHY per simulazioni BER. \\
+\end{tabular} 
+\\
 Le misurazioni sono state effettuate dagli autori dell'articolo \cite{art:rif.49}. \\
 \end{center}
+\end{table}
 
 
-I parametri delle simulazioni condotte dagli autori di \cite{art:rif.49} sono stati riportati nella tabella \ref{tabA}.
+I parametri delle simulazioni condotte dagli autori di \cite{art:rif.49} sono stati riportati nella tabella \ref{tab:loraphy}.
 \begin{quote}
 	\textit{''Le simulazioni sono state eseguite per valori SNR in passi di 1 dB negli intervalli. Successivamente, una curva esponenziale come definita dall'equazione \ref{m3n} è stata adattata a un sottoinsieme dei valori logaritmici dei valori BER misurati.''}
 	\begin{equation}
@@ -976,7 +988,8 @@ Nel documento \cite{art:rif.49} è spiegato lo stato del dispositivo di Classe A
 \centering
 \includegraphics[scale=.5]{Immagini/ClasseA.png}
 
-Fig. 12 Dispositivi di classe A, gateway e NS (server di rete). \\
+\caption{Dispositivi di classe A, gateway e NS (server di rete)}
+\label{fig:classea}
 Lo schema è tratto dall'articolo \cite{art:rif.49}. \\
 \end{figure}
 
@@ -1020,7 +1033,7 @@ L'articolo continua esponendo come si comporta il protocollo in ricezione:
 \begin{quote}
 	\textit{''Oltre alla modellazione di ricezione, la classe LoRaWANPhy implementa anche una macchina a stati finiti per strutturare il suo flusso di esecuzione.''}
 \end{quote}
-La macchina a stati finiti (FSM) ha sei stati come mostrato in Figura \ref{fsm1}. L'FSM funziona in questo modo:
+La macchina a stati finiti (FSM) ha sei stati come mostrato in Figura \ref{fig:phyfsm}. L'FSM funziona in questo modo:
 \begin{quote}
 	\textit{''Le transizioni tra stati sono principalmente attivate dallo strato MAC (non mostrato nella figura). Negli stati RX\_ON e TX\_ON, il PHY è pronto ad avviare una ricezione o trasmissione di pacchetti. Nello stato BUSY\_RX, il PHY è impegnato a ricevere una trasmissione (come per la suddetta ricezione a chunk, suddivisone del pacchetto in parti da 256 KB). Nello stato BUSY\_TX, il PHY sta inviando una trasmissione. Le ricezioni e le trasmissioni in corso possono essere annullate in qualsiasi momento, come indicato dalle transizioni di stato a TRX\_OFF. Si prevede che i PHY dei dispositivi di classe A rimangano per lo più in stato di inattività, mentre i PHY dei gateway dovrebbero essere nello stato RX\_ON per la maggior parte del tempo.''}
 \end{quote}
@@ -1029,9 +1042,9 @@ Non ci sono differenze nelle classi PHY tra dispositivi e gateway di classe A. P
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/MSFLoRaWAN.png}
-\label{fsm1}
-Fig. 11 Macchina a stati finiti della classe LoRaWANPhy.\\
-Immagine tratta da \cite{art:rif.49}. \\
+\caption{Macchina a stati finiti della classe LoRaWANPhy}
+\label{fig:phyfsm}
+Immagine tratta dall'articolo \cite{art:rif.49}. \\
 \end{figure}
 
 \subsubsection{LoRaWAN MAC Layer} 
@@ -1039,21 +1052,22 @@ Nell'articolo \cite{art:rif.49} è presentata l'implementazione di LoRaWAN MAC L
 \begin{quote}
 	\textit{''Il driver del livello PHY è la classe LoRaWANMac. La sua funzionalità include i pacchetti di accodamento per la consegna, l'apertura delle finestre di ricezione e la gestione delle ritrasmissioni sui dispositivi finali e la traccia dell'RDC di un nodo. Mentre esiste una classe LoRaWANMac per entrambi i dispositivi e gateway di classe A, la funzionalità di questa classe è diversa, ad esempio le ritrasmissioni per gateway sono gestite dall'NS. Allo stesso modo, il gateway MAC non ha il concetto di ricevere finestre poiché ascolta sempre il traffico upstream (quando non trasmette).''}
 \end{quote}
-Analogamente a LoRaWANPhy, la classe LoRaWANMac implementa anche un FSM come illustrato nella figura \ref{fsm2}. 
+Analogamente a LoRaWANPhy, la classe LoRaWANMac implementa anche un FSM come illustrato nella figura \ref{fig:macfsm}. 
 
 \begin{figure}
 \centering
 \includegraphics[scale=.3]{Immagini/MSFLoRaMAC.png}
-\label{fsm2}
-Fig. 12 LoRaWANMac FSM è costituito da tre stati per gateway e sette stati per dispositivi finali di classe A.\\
-Immagine tratta da \cite{art:rif.49}. \\
+\caption{Macchina a stati finiti della classe LoRaWANMac}
+\label{fig:macfsm}
+Immagine tratta dall'articolo \cite{art:rif.49}. \\
 \end{figure}
 
+% LoRaWANMac FSM è costituito da tre stati per gateway e sette stati per dispositivi finali di classe A
 Mentre il livello MAC del dispositivo finale passa attraverso tutti gli stati, il livello MAC del gateway sono limitati a tre stati:
 \begin{quote}
 	\textit{''Lo stato UNAVAIL è un caso esclusivo dei gateway, in cui il MAC è bloccato dall'invio di un pacchetto. Questo stato viene attivato quando uno degli altri MAC sul gateway si trova nello stato TX, impedendo in tal modo le trasmissioni simultanee su diversi oggetti MAC sullo stesso gateway.''} 
 \end{quote}	
-La catena nella parte superiore della figura \ref{fsm2} è correlata alle finestre di ricezione obbligatorie per i dispositivi finali classe A nelle reti LoRaWAN. 
+La catena nella parte superiore della figura \ref{fig:macfsm} è correlata alle finestre di ricezione obbligatorie per i dispositivi finali classe A nelle reti LoRaWAN. 
 \begin{quote}
 	\textit{''Dopo lo stato TX, un dispositivo terminale passa sempre allo stato WRW1. Il dispositivo finale spende un secondo (a partire dalla fine della trasmissione) in questo stato "wait for RW1", dopo di che apre RW1. Il dispositivo finale controlla se un preambolo PHY è stato ricevuto il simbolo LoRa 12.25 dopo l'inizio della finestra di ricezione. Se è stato rilevato un preambolo, il dispositivo continua a ricevere la trasmissione a downstream.	Se non è stato rilevato un preambolo, chiude la finestra di ricezione e passa allo stato WRW2. Se il dispositivo finale riceve correttamente una trasmissione downstream in RW1, passa allo stato IDLE. Altrimenti, chiude la finestra di ricezione e passa allo stato WRW2. Nello stato WRW2, il dispositivo terminale è in attesa di aprire la seconda finestra di ricezione (nello stato RW2) dopo 2 secondi dopo la fine della trasmissione. Lo stesso controllo del preambolo PHY da RW1 viene eseguito dopo l'apertura di RW2. Se viene ricevuta una trasmissione a downstream in RW2, il dispositivo terminale passerà allo stato IDLE. In caso contrario, potrebbe passare allo stato ACK\_TO (acknowledgement timeout) in cui trascorre un intervallo di tempo casuale prima di passare allo stato IDLE. Lo stato ACK\_TO viene visitato solo quando il dispositivo finale prevede un riconoscimento in una delle sue finestre di ricezione (ad esempio, dopo la trasmissione di un messaggio upstream confermato). Nel caso in cui non sia previsto un riscontro, il dispositivo passa direttamente allo stato IDLE da RW2.''}
 \end{quote}	
@@ -1213,14 +1227,15 @@ Questa cronologia contiene il contatore di frame, il rapporto segnale-rumore (SN
 \begin{quote}
 	\textit{''In questo modo la rete può calcolare quanto margine c'è per aumentare la velocità dei dati o ridurre la potenza di trasmissione. Ad esempio, quando la rete riceve un messaggio con velocità dati = $SF12BW125$ e $SNR = 5.0$, tale messaggio ha un margine di 25 dB. Questo è uno spreco di tempo di trasmissione ed energia. Se aumentassimo la velocità di trasmissione dati a $SF7BW125$ avremmo ancora un margine di 12,5 dB, ma ciò sarebbe più efficiente in termini di tempo ed energia. Potremmo persino abbassare la potenza di trasmissione per risparmiare ancora più energia e causare meno interferenze.''} 
 \end{quote}	
-Lo schema in figura 13 delinea il flusso ADR implementato nel NetworkServer di The Things Network.
+Lo schema in figura \ref{fig:adr} delinea il flusso ADR implementato nel NetworkServer di The Things Network.
 
 \begin{figure}
 \centering
 \includegraphics[scale=.5]{Immagini/adr.png}
 
-Fig. 13 Figura schema del flusso ADR.\\
-L'immagine è stata presa dal documento \cite{art:rif.32}.\\
+\caption{Schema del flusso ADR.}
+\label{fig:adr}
+Immagine tratta dall'articolo \cite{art:rif.32}.\\
 \end{figure}
 
 La procedura di LoRaWAN descritta in \cite{art:rif.48} applica ADR per ottenere una velocità di trasmissione dati ottimale del dispositivo finale che è illustrata di seguito:
@@ -1327,45 +1342,49 @@ Questo studio sperimentale di quattro prove ha rivelato la relazione tra la mobi
 	\centering
 	\includegraphics[scale=.5]{Immagini/DivisioneBande.png}
 	
-	Fig. 4 I canali definiti 0 - 400 per 100 Hz nel range 868.180 - 868.220 MHz.\\ % A
-	Immagine presa dall'articolo \cite{art:rif.46}.
+	\caption{I canali definiti 0 - 400 per 100 Hz nel range 868.180 - 868.220 MHz} % A
+	\label{fig:A}
+	Immagine tratta dall'articolo \cite{art:rif.46}.
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=.5]{Immagini/DivB.png}
 	
-	Fig. 5 Divisione delle tecnologie LoRa e Sigfox nell'intervallo 863,95 - 868,75 MHz.\\ % B
-	Immagine presa dall'articolo \cite{art:rif.46}.
+	\caption{Divisione delle tecnologie LoRa e Sigfox nell'intervallo 863,95 - 868,75 MHz} % B
+	\label{fig:B}
+	Immagine tratta dall'articolo \cite{art:rif.46}.
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=.5]{Immagini/DivisioneBande2.png}
 	
-	Fig. 6 Divisione delle tecnologie nella gamma più piccola 868.05-868.65 MHz.\\ % C
-	Immagine presa dall'articolo \cite{art:rif.46}.
+	\caption{Divisione delle tecnologie nella gamma 868.05-868.65 MHz} % C
+	\label{fig:C}
+	Immagine tratta dall'articolo \cite{art:rif.46}.
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=.5]{Immagini/DivB2.png}
 	
-	Fig. 7 Divisione delle tecnologie nell'intervallo 868,1 - 868,25 MHz.\\ % D
-	Immagine presa dall'articolo \cite{art:rif.46}.
+	\caption{Divisione delle tecnologie nell'intervallo 868,1 - 868,25 MHz} % D
+	\label{fig:D}
+	Immagine tratta dall'articolo \cite{art:rif.46}.
 \end{figure}
 
 \subsection{Copertura di LPWAN nello spettro}
 Tutte le tecnologie LPWAN condividono e lavorano sulla stessa banda non licenziata. Non è scontato che queste tecnologie possano coesistere tutte contemporaneamente senza sovrapporsi. Bisogna misurare con uno studio pratico le probabilità di collisione e la scalabilità effettiva delle tecnologie. Nel caso in cui la coesistenza fosse possibile (quello che ci si aspetta) bisogna inoltre verificare che al crescere del numero di nodi finali per tecnologia i parametri di coesistenza nello spettro di frequenza restano costanti.
-L'articolo \cite{art:rif.46} inizia descrivendo la distribuzione spettrale e i canali delle tecnologie LPWAN e SigFox che sono riportate in Fig. 4. I canali per downlink non vengono visualizzati in figura perché si trovano più in alto dei 869 MHz nello spettro e non si sovrappongono l'uno all'altro. La Figura 5 mostra solo i canali LoRa predefiniti più importanti per l'invio di messaggi JoinReq per connettersi alla rete.  
+L'articolo \cite{art:rif.46} inizia descrivendo la distribuzione spettrale e i canali delle tecnologie LPWAN e SigFox che sono riportate in figura \ref{fig:A}. I canali per downlink non vengono visualizzati in figura perché si trovano più in alto dei 869 MHz nello spettro e non si sovrappongono l'uno all'altro. La figura \ref{fig:B} mostra solo i canali LoRa predefiniti più importanti per l'invio di messaggi JoinReq per connettersi alla rete.  
 \begin{quote}
 	\textit{''LoRa può funzionare sui canali con quasi tutte le frequenze da 863 a 870 MHz. Sigfox copre davvero una piccola parte dello spettro. I canali di Sigfox sono rappresentati nelle figure da una sottile fascia blu. La larghezza di banda di SigFox è sottile perché è di soli 100 Hz.''}
 \end{quote}
-La figura 6 mostra lo stesso spettro di frequenza con maggior dettaglio:
+La figura \ref{fig:C} mostra lo stesso spettro di frequenza con maggior dettaglio:
 \begin{quote}
 	\textit{''Questa parte dello spettro intorno a 868 MHz (868.05-868.65 MHz), vede coesistere tutte le tecnologie. LoRa ha 3 canali principali con larghezza di banda di 125 kHz che vengono utilizzati da ogni dispositivo LoRa. Sigfox ha localizzato tutti i canali attorno a 868,2 MHz.''}
 \end{quote}
-Lo spettro in un intervallo 868.10 - 868.25 MHz è illustrato in Fig. 7. Questa parte dello spettro contiene i canali principali che hanno una grande importanza nel problema di potenziali collisioni e di coesistenza delle tecnologie. 
+Lo spettro in un intervallo 868.10 - 868.25 MHz è illustrato in figura \ref{fig:D}. Questa parte dello spettro contiene i canali principali che hanno una grande importanza nel problema di potenziali collisioni e di coesistenza delle tecnologie. 
 \begin{quote}
 	\textit{''In questa fascia dello spettro in cui si sovrappongono le tecnologie LPWAN. In questa parte dello spettro, in particolare intorno a 868,2 MHz, ci potrebbe essere qualche problema, perché qui potrebbero verificarsi collisioni accidentali, che potrebbero interferire e interrompere la comunicazione.''}
 \end{quote}
@@ -1389,34 +1408,37 @@ In questa sottosezione viene esposto l'esperimento \cite{art:rif.46} per valutar
 \begin{quote}
 	\textit{''Tutti i calcoli e le considerazioni sulla distribuzione del tempo e sulla probabilità delle tecnologie Lora, Sigfox e IQRF (altra tecnologia LPWAN che condivide la stessa banda), sono stati fatti assumendo che tutte le tecnologie stiano lavorando su canali di frequenza di sovrapposizione.''}
 \end{quote}
-La figura 5 mostra solo una singola combinazione possibile di canali per queste tecnologie. 
+La figura \ref{fig:B} mostra solo una singola combinazione possibile di canali per queste tecnologie. 
 \begin{quote}
 	\textit{''Include il canale LoRa che inizia a 868.1 MHz, il canale IQRF n.50 a partire da 868.15 MHz e tutti i canali Sigfox grazie alla sua larghezza di banda.''}
 \end{quote}
-Questi canali sono mostrati in dettaglio in Fig. 7. I risultati della prova affermano che:
+Questi canali sono mostrati in dettaglio in figura \ref{fig:D}. I risultati della prova affermano che:
 \begin{quote}
 	\textit{''La coesistenza reciproca delle tecnologie sullo stesso canale è possibile considerando la tempistica misurata delle singole tecnologie e le loro statistiche. Per arrivare a questa conclusione sono state scelte le tempistiche che rappresentano il caso peggiore per ogni tecnologia.''}
 \end{quote}
 
+\begin{table}
+\caption{Dati relativi al tempo e alla trasmissione delle tecnologie selezionate} 
+\label{tab:confronto}
 \begin{center}
-	\begin{tabular}{|r|c|c|c|}
-		&LoRa DR0&Sigfox&IQRF low DR\\ \hline
-		Bit rate [bit/s]&250&100&1200\\ \hline
-		Max payload [B]&59&12&64\\ \hline
-		Periodo di trasmissione [s]&2.30&2.00&0.85\\ \hline
-		$E_1$ [s]&378.28&840.00&119.47\\ \hline
-		$E_2$[\%]&0.4378&0.9722&0.1383\\ \hline
-		$P_E$ [-]&0.004378&0.009722&0.001383\\ \hline
-	\end{tabular}
-	\\ 
-	Tabella 1. \\
-	$E_1$ = evento sul canale durante un 24 ore. \\
-	$E_2$ = evento sul canale durante un 24 ore. \\
-	$P_E$ = Probabilità dell'evento sul canale. \\
-	I dati raccolti appartengono agli autori dell'articolo \cite{art:rif.46}. \\
-	
+\begin{tabular}{|r|c|c|c|}
+&LoRa DR0&Sigfox&IQRF low DR\\ \hline
+Bit rate [bit/s]&250&100&1200\\ \hline
+Max payload [B]&59&12&64\\ \hline
+Periodo di trasmissione [s]&2.30&2.00&0.85\\ \hline
+$E_1$ [s]&378.28&840.00&119.47\\ \hline
+$E_2$[\%]&0.4378&0.9722&0.1383\\ \hline
+$P_E$ [-]&0.004378&0.009722&0.001383\\ \hline
+\end{tabular}
+\\ 
+$E_1$ = evento sul canale durante un 24 ore. \\
+$E_2$ = evento sul canale durante un 24 ore. \\
+$P_E$ = Probabilità dell'evento sul canale. \\
+I dati raccolti appartengono agli autori dell'articolo \cite{art:rif.46}. \\
 \end{center}
-La tabella 1 mostra il confronto e dati di queste tre tecnologie. L'autore dell'articolo \cite{art:rif.46} ha commentato i dati in tabella:
+\end{table}
+
+La tabella \ref{tab:confronto} mostra il confronto e dati di queste tre tecnologie. L'autore dell'articolo \cite{art:rif.46} ha commentato i dati in tabella:
 \begin{quote}
 	\textit{''Un periodo di trasmissione viene calcolato dalla velocità dati e dalla dimensione del messaggio. Lo strumento "Lora Modem Calculator" è stato utilizzato per i dispositivi LoRa. Viene inoltre menzionato il tempo di occorrenza per ciascuna delle varianti durante 24 ore per un confronto migliore. Un prerequisito per tutte le tecnologie è stato una trasmissione di 140 messaggi al giorno, ovvero il valore massimo definito per la tecnologia SigFox. Una parte di quel tempo è anche un periodo di messaggi di ritrasmissione che si verificano nei dispositivi SigFox e tempi di trasmissione per il downlink, che sono definiti in modo diverso per ciascuna tecnologia. Secondo il carico di tempo parametrico la variazione Sigfox possiede una bit rate di 100 bit/s e massimo carico utile di 12 B nel caso peggiore.''}
 \end{quote}
@@ -1431,7 +1453,7 @@ La probabilità che si verifichi una collisione in un canale multiplo è una que
 \begin{quote}
 	\textit{''Il tutto è considerato e calcolato con le varianti nel caso peggiore possibile, così da valutare il potenziale possibile di coesistenza per le tecnologie citate. La quantità approssimativa di equipaggiamento di ciascuna tecnologia è stata stimata in modo che la probabilità di collisione sia adeguata per il corretto funzionamento di tutti i processi, e per farlo bisognava verificare la quantità di tempo che ciascuna tecnologia trascorre sul canale.''}
 \end{quote}
-Questi valori sono stati misurati e riportati dagli autori nella tabella 1. 
+Questi valori sono stati misurati e riportati dagli autori nella tabella \ref{tab:confronto}. 
 \begin{quote}
 	\textit{''La probabilità di collisione durante un giorno (24 ore) è basata sul rapporto tra il tempo in cui la tecnologia utilizza il canale e il tempo totale.''}
 \end{quote}
@@ -1439,7 +1461,7 @@ La probabilità che avvenga l'evento è il principale valore che può essere con
 \begin{quote}
 	\textit{''Le specifiche dell'autorizzazione generale numero VO-R/10/05.2014-3 definisce che il duty cycle massimo ammissibile è determinato dalla percentuale di tempo in cui il dispositivo può essere attivo sul canale. Tutte le tecnologie citate soddisfano questa condizione, sebbene SigFox con rapporto 0,009722 si adatti al limite 0,01 solo con un piccolo margine.''}
 \end{quote}
-La probabilità calcolata di collisione descrive una situazione in cui due o più dispositivi diversi sul canale si scontrano allo stesso tempo. Dai risultati in tabella 1 dagli autori di \cite{art:rif.46} viene evidenziato che: 
+La probabilità calcolata di collisione descrive una situazione in cui due o più dispositivi diversi sul canale si scontrano allo stesso tempo. Dai risultati in tabella \ref{tab:confronto} dagli autori di \cite{art:rif.46} viene evidenziato che: 
 \begin{quote}
 	\textit{''La probabilità che due o più dispositivi diversi sul canale si scontrano allo stesso tempo è molto bassa e quindi molto inferiore alla probabilità dell'evento delle singole tecnologie. La probabilità aumenterà significativamente con il numero crescente di dispositivi e il limite sarà inevitabilmente vicino 1, evento di probabilità certa.''}
 \end{quote}
@@ -1455,7 +1477,7 @@ I problemi relativi al calcolo della probabilità di collisione per un grande nu
 	\begin{equation}
 	P(N \leq n) = 1 - n(P_L + P_S + P_I) - P'_0
 	\end{equation}
-	dove ogni parametro descrive stati specifici di probabilità come descritto di seguito. Tutte le variabili sono state calcolate dai valori già noti di probabilità degli eventi in tabella 1. Qui viene usato il complemento per esprimere l'evento opposto, che è etichettato come $c$ in apice. Un prerequisito è che il numero di dispositivi $n$ sia lo stesso per tutte le tecnologie.
+	dove ogni parametro descrive stati specifici di probabilità come descritto di seguito. Tutte le variabili sono state calcolate dai valori già noti di probabilità degli eventi in tabella \ref{tab:confronto}. Qui viene usato il complemento per esprimere l'evento opposto, che è etichettato come $c$ in apice. Un prerequisito è che il numero di dispositivi $n$ sia lo stesso per tutte le tecnologie.
 	\begin{equation}
 	P_L = P(L)P(L^c)^{n-1}P(S^c)^nP(I^c)^n
 	\end{equation}
@@ -1475,10 +1497,11 @@ I problemi relativi al calcolo della probabilità di collisione per un grande nu
 	\centering
 	\includegraphics[scale=.5]{Immagini/DistribuzioneDiProb.png}
 	
-	Fig. 8 Distribuzione della funzione di probabilità di collisione 2 o più dispositivi.
+	\caption{Distribuzione della funzione di probabilità di collisione 2 o più dispositivi}
+	\label{fig:dprob}
 \end{figure}
 % nota label formule
-La funzione di distribuzione, mostrata in figura 8 è basata su (2.2), dipende dall'aumento del numero totale $m$ dei dispositivi, che è la somma dei dispositivi di ciascuna delle tre tecnologie (2.3), (2.4) e (2.5).
+La funzione di distribuzione, mostrata in figura \ref{fig:dprob} è basata su (2.2), dipende dall'aumento del numero totale $m$ dei dispositivi, che è la somma dei dispositivi di ciascuna delle tre tecnologie (2.3), (2.4) e (2.5).
 \begin{quote}
 	\begin{equation}
 	m = 3n \label{m3n}
@@ -1488,18 +1511,18 @@ La funzione di distribuzione, mostrata in figura 8 è basata su (2.2), dipende d
 	\end{equation}
 	\textit{''La funzione non è lineare come potrebbe sembrare la soluzione più semplice per il crescente numero di dispositivi;''}
 \end{quote}
-come nel grafico in figura 8. 
+come nel grafico in figura \ref{fig:dprob}. 
 \begin{quote}
 	\textit{''Tuttavia, può essere approssimata da una curva polinomiale almeno al $4^{\circ}$ ordine. La funzione inizia da zero ed è ad uno nel limite, che è un limite previsto dalla natura del calcolo.''} 
 \end{quote}
-Il grafico in figura 8 mostra la curva di probabilità del canale non occupato. L'origine della curva rappresenta l'assenza di qualsiasi dispositivo sul canale. 
+Il grafico in figura \ref{fig:dprob} mostra la curva di probabilità del canale non occupato. L'origine della curva rappresenta l'assenza di qualsiasi dispositivo sul canale. 
 \begin{quote}
 	\textit{''La funzione decresce in modo esponenziale con il quadrato del numero $n$ di dispositivi di ciascuna tecnologia. Questa funzione decrescente è calcolata da:''}
 	\begin{equation}
 	P'_0 = (P(L^c)P(S^c)P(I^c))^n 
 	\end{equation}
 \end{quote}
-La quantità di dispositivi sul canale deve essere fortemente limitata. Dalla figura 8 possiamo affermare che con 100 dispositivi c'è una probabilità del 60\% che due o più di essi effettuano una collisione. Con più di 120 dispositivi le probabilità che due o più di essi collidano sono maggiori o uguali al 50\%, ciò non è un risultato soddisfacente.
+La quantità di dispositivi sul canale deve essere fortemente limitata. Dalla figura \ref{fig:dprob} possiamo affermare che con 100 dispositivi c'è una probabilità del 60\% che due o più di essi effettuano una collisione. Con più di 120 dispositivi le probabilità che due o più di essi collidano sono maggiori o uguali al 50\%, ciò non è un risultato soddisfacente.
 
 \subsubsection{Capacità del canale} 
 La capacità del canale si misura con il numero di dispositivi sul canale nello stesso momento. Il problema della coesistenza dipende da due fattori principali, che hanno i loro limiti, vale a dire la \textbf{distribuzione di frequenza} e la \textbf{distribuzione temporale}. Secondo \cite{art:rif.46}:
@@ -1518,7 +1541,7 @@ Il dimensionamento accurato del numero di dispositivi sul canale non è del tutt
 \begin{quote}
 	\textit{''Il dimensionamento dipende da molti fattori che descrivono lo stato del canale, la qualità, la disponibilità dei servizi usati e la probabilità di collisione con più dispositivi. Quest'ultimo parametro il termine che descrive il vero stato del canale con un certo numero di dispositivi collegati.''}
 \end{quote}
-Dal grafico in figura 8 è possibile stimare approssimativamente quale potrebbe essere la capacità massima del canale (100), ma dipende anche da altri parametri dei singoli servizi operativi come la disponibilità del servizio e una modalità di implementazione dei parametri QoS e QoE per riservare e gestire i flussi di dati. 
+Dal grafico in figura \ref{fig:dprob} è possibile stimare approssimativamente quale potrebbe essere la capacità massima del canale (100), ma dipende anche da altri parametri dei singoli servizi operativi come la disponibilità del servizio e una modalità di implementazione dei parametri QoS e QoE per riservare e gestire i flussi di dati. 
 \begin{quote}
 	\textit{''I parametri QoS e QoE sono indicatori di un livello di qualità e quindi solo i loro protocolli reagirebbero se le condizioni si deteriorassero a causa, ad esempio, di un numero maggiore di dispositivi sul canale rispetto alla capacità massima determinata.''}
 \end{quote}
@@ -1598,16 +1621,17 @@ Il nodo del sensore remoto comunica con la stazione base in modalità wireless. 
 Il software di elaborazione dati rappresenta l'interfaccia tra sistema ed utente. Secondo \cite{art:rif.40} il software è stato sviluppato utilizzando LabVIEW (Laboratory Virtual Engineering Workbench) che è in grado di eseguire una varietà di funzionalità. All'avvio del software, l'utente deve selezionare la porta USB a cui è collegato il nodo sink. Il software verificherà la comunicazione tra la porta USB e il modulo LoRa inviando alcuni comandi in background. Una volta stabilita la comunicazione, il software è pronto per ricevere i dati dai moduli del sensore remoto. Quando la porta riceve i dati, i dati vengono elaborati e visualizzati. Tra le funzionalità messe a disposizione dell'utente ci sono: "Salva" per salvare i dati e "Playback" per recuperare i dati salvati. La combinazione di funzioni di "Salva" e "Playback" servono per valutare le tendenze della qualità dell'aria. 
 
 \section{Risultati sperimentali}
-Il sistema è stato sperimentato a Pechino. Dalle letture dei sensori si possono ottenere le tendenze della qualità dell'aria. La concentrazione di gas e PM viene misurata con un accuratezza di 0,000001 $\mu$g / $ m^3 $. I risultati raccolti dagli autori di \cite{art:rif.40} dal 30 Giugno 2016 al 7 Luglio 2016 sono riportati in figura 14:
+Il sistema è stato sperimentato a Pechino. Dalle letture dei sensori si possono ottenere le tendenze della qualità dell'aria. La concentrazione di gas e PM viene misurata con un accuratezza di 0,000001 $\mu$g / $ m^3 $. I risultati raccolti dagli autori di \cite{art:rif.40} dal 30 Giugno 2016 al 7 Luglio 2016 sono riportati in figura \ref{fig:concentrazioni}:
 \begin{quote}
 	\textit{''La concentrazione di $ SO_{2} $ e $ O_{3} $ fluttua da 0,01 $\mu$g / $ m^3 $ a 0,08 $\mu$g / $m^3$. La concentrazione di $ NO_{2} $ fluttua da 0,03 $\mu$g / $m^3$ a 0,1 $\mu$g / $m^3$. Le concentrazioni di CO e PM hanno un'alta fluttuazione.''}
 \end{quote}  
+
 \begin{figure}
 	\centering
-	\includegraphics[scale=.5]{Immagini/risAria.png}
-	
-	Fig. 14 Figura schema del flusso ADR.\\
-	L'immagine è stata presa dal documento \cite{art:rif.40}.\\
+	\includegraphics[scale=.5]{Immagini/risAria.png}	
+	\caption{Concentrazione di $SO_{2}$, $O_{3}$, $NO_{2}$, CO, PM1.0, PM2.5 e PM10}
+	\label{fig:concentrazioni}
+	Immagine tratta dall'articolo \cite{art:rif.40}.\\
 \end{figure}
 
 \section{Conclusione}
